@@ -1,27 +1,26 @@
 /**
  * Miras Professional Dashboard - Supabase & Dynamic Account Module
  * منصة مِـرَاس - نظام لوحة الحرفي والمهني متعدد الحسابات
- * 
- * واجهة واحدة مشتركة لجميع المهنيين تعرض بيانات كل مهني ديناميكياً
- * بناءً على حسابه المسجل (Account ID / User ID) في Supabase.
  */
-
-const MIRAS_PRO_CONFIG = {
-  SUPABASE_URL: window.ENV?.SUPABASE_URL || 'https://YOUR_PROJECT_ID.supabase.co',
-  SUPABASE_ANON_KEY: window.ENV?.SUPABASE_ANON_KEY || 'YOUR_ANON_KEY',
-  REQUIRED_ROLE: 'craftsman'
-};
 
 const ProAuth = {
   supabase: null,
   currentPro: null,
 
   init() {
-    if (window.supabase) {
-      this.supabase = window.supabase.createClient(MIRAS_PRO_CONFIG.SUPABASE_URL, MIRAS_PRO_CONFIG.SUPABASE_ANON_KEY);
-      this.loadProAccount();
+    const config = window.MIRAS_ENV || {};
+    const url = config.SUPABASE_URL;
+    const anonKey = config.SUPABASE_ANON_KEY;
+
+    if (window.supabase && url && !url.includes('YOUR_PROJECT_ID')) {
+      try {
+        this.supabase = window.supabase.createClient(url, anonKey);
+        this.loadProAccount();
+      } catch (e) {
+        console.error('خطأ في تهيئة Supabase للحرفي:', e);
+      }
     } else {
-      console.info('💡 [مِـرَاس الحرفيين]: واجهة الحرفي والمهني موحدة وجاهزة لعرض بيانات كل حساب ديناميكياً.');
+      console.info('💡 [مِـرَاس الحرفيين]: وضع المعاينة نشط. للربط الحي، ضع مفاتيح Supabase في supabase/config.js');
     }
   },
 

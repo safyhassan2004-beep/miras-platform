@@ -1,28 +1,26 @@
 /**
  * Miras Admin Dashboard - Supabase & Auth Integration Module
  * منصة مِـرَاس - نظام حوكمة وصلاحيات المشرفين والإدارة
- * 
- * هذا الملف مجهز للربط المباشر مع Supabase ونظام الصلاحيات (RBAC).
- * عند توفير مفاتيح الربط (SUPABASE_URL و SUPABASE_ANON_KEY)،
- * يقوم هذا السكربت بالتحقق التلقائي من جلسة المشرف وصلاحياته.
  */
-
-const MIRAS_ADMIN_CONFIG = {
-  SUPABASE_URL: window.ENV?.SUPABASE_URL || 'https://YOUR_PROJECT_ID.supabase.co',
-  SUPABASE_ANON_KEY: window.ENV?.SUPABASE_ANON_KEY || 'YOUR_ANON_KEY',
-  REQUIRED_ROLE: 'admin' // الصلاحية المطلوبة للوصول لهذه اللوحة
-};
 
 const AdminAuth = {
   supabase: null,
   currentUser: null,
 
   init() {
-    if (window.supabase) {
-      this.supabase = window.supabase.createClient(MIRAS_ADMIN_CONFIG.SUPABASE_URL, MIRAS_ADMIN_CONFIG.SUPABASE_ANON_KEY);
-      this.checkSession();
+    const config = window.MIRAS_ENV || {};
+    const url = config.SUPABASE_URL;
+    const anonKey = config.SUPABASE_ANON_KEY;
+
+    if (window.supabase && url && !url.includes('YOUR_PROJECT_ID')) {
+      try {
+        this.supabase = window.supabase.createClient(url, anonKey);
+        this.checkSession();
+      } catch (e) {
+        console.error('خطأ في تهيئة Supabase:', e);
+      }
     } else {
-      console.info('💡 [مِـرَاس الإدارة]: واجهة إدارة مِـرَاس جاهزة ومجهزة للربط الحي مع Supabase.');
+      console.info('💡 [مِـرَاس الإدارة]: وضع المعاينة نشط. للربط الحي، ضع مفاتيح Supabase في supabase/config.js');
     }
   },
 
@@ -31,7 +29,7 @@ const AdminAuth = {
     try {
       const { data: { session }, error } = await this.supabase.auth.getSession();
       if (error || !session) {
-        console.warn('⚠️ لا توجد جلسة نشطة للمشرف. سيتم التوجيه لتسجيل الدخول عند تفعيل الحماية الحية.');
+        console.warn('⚠️ لا توجد جلسة نشطة للمشرف.');
         return;
       }
       this.currentUser = session.user;
@@ -49,7 +47,7 @@ const AdminAuth = {
       .eq('id', userId)
       .single();
 
-    if (error || (!profile.is_admin && profile.role !== MIRAS_ADMIN_CONFIG.REQUIRED_ROLE)) {
+    if (error || (!profile.is_admin && profile.role !== 'admin')) {
       alert('عذراً، هذا الحساب غير مصرح له بالدخول إلى لوحة الإدارة.');
       window.location.href = '../login.html';
       return;
