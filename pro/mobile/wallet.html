@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;font-family:'IBM Plex Sans Arabic',sans-serif;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-surface-variant":"#42474d","tertiary-container":"#00344e","error-container":"#ffdad6","status-destructive-bg":"#ffdad6","on-secondary-fixed":"#001f26","on-primary-fixed":"#001e2f","tertiary-fixed-dim":"#a1cced","primary-container":"#00344d","on-secondary-fixed-variant":"#004e5c","surface-dim":"#dbdad7","status-info-bg":"#e0f2fe","primary":"#001e2f","on-tertiary-container":"#739dbd","inverse-primary":"#a3cbea","inverse-on-surface":"#f2f1ee","on-secondary-container":"#006a7d","on-primary-container":"#759dba","error":"#ba1a1a","status-destructive":"#ba1a1a","secondary-container":"#97e9ff","status-info":"#026aa7","on-tertiary-fixed":"#001e2f","surface-container-lowest":"#ffffff","surface-container":"#efeeeb","tertiary":"#001e2f","border-subtle":"#eae8e3","surface-dark":"#002538","on-error-container":"#93000a","status-success":"#1b7a4d","on-primary":"#ffffff","accent-light":"#5fa8d3","on-background":"#1a1c1a","secondary-fixed":"#abedff","text-muted":"#73777f","on-tertiary":"#ffffff","secondary-fixed-dim":"#7fd2e8","outline-variant":"#c2c7cd","on-secondary":"#ffffff","status-warning-bg":"#fef6e9","surface":"#faf9f6","border-default":"#e0ded9","on-primary-fixed-variant":"#204b65","on-error":"#ffffff","primary-fixed-dim":"#a3cbea","tertiary-fixed":"#c9e6ff","primary-fixed":"#c8e6ff","background":"#faf9f6","surface-tint":"#3a637e","text-secondary":"#43474e","status-success-bg":"#e8f5ed","inverse-surface":"#2f312f","surface-container-low":"#f4f3f1","text-primary":"#1b1c1d","status-warning":"#b25e02","surface-container-high":"#e9e8e5","secondary":"#00687a","surface-container-highest":"#e3e2e0","on-surface":"#1a1c1a","primary-dark":"#002b40","surface-bright":"#faf9f6","surface-variant":"#e3e2e0","on-tertiary-fixed-variant":"#1d4b67","outline":"#72787d","surface-low":"#f4f3f1"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},spacing:{"gutter-mobile":"1rem",margin:"2rem","space-sm":"0.5rem","space-xl":"2.5rem","space-md":"1rem",gutter:"1.5rem","space-lg":"1.5rem","margin-mobile":"1rem","space-xs":"0.25rem"},fontFamily:{"headline-md-mobile":["IBM Plex Sans Arabic"],"label-lg":["IBM Plex Sans Arabic"],"label-md":["IBM Plex Sans Arabic"],"label-sm":["IBM Plex Sans Arabic"],"headline-lg":["IBM Plex Sans Arabic"],"body-lg":["IBM Plex Sans Arabic"],"title-lg":["IBM Plex Sans Arabic"],"headline-sm":["IBM Plex Sans Arabic"],"body-sm":["IBM Plex Sans Arabic"],"title-md":["IBM Plex Sans Arabic"],"headline-lg-mobile":["IBM Plex Sans Arabic"],"body-md":["IBM Plex Sans Arabic"],"headline-md":["IBM Plex Sans Arabic"]},fontSize:{"headline-md-mobile":["24px",{lineHeight:"34px",fontWeight:"600"}],"label-lg":["14px",{lineHeight:"20px",fontWeight:"500"}],"label-md":["12px",{lineHeight:"16px",fontWeight:"500"}],"label-sm":["11px",{lineHeight:"14px",fontWeight:"500"}],"headline-lg":["36px",{lineHeight:"48px",fontWeight:"700"}],"body-lg":["16px",{lineHeight:"26px",fontWeight:"400"}],"title-lg":["18px",{lineHeight:"28px",fontWeight:"600"}],"headline-sm":["22px",{lineHeight:"32px",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"18px",fontWeight:"400"}],"title-md":["16px",{lineHeight:"24px",fontWeight:"600"}],"headline-lg-mobile":["28px",{lineHeight:"38px",fontWeight:"700"}],"body-md":["14px",{lineHeight:"22px",fontWeight:"400"}],"headline-md":["28px",{lineHeight:"40px",fontWeight:"600"}]}}}</script></head><body class="bg-surface text-on-surface antialiased flex flex-col min-h-screen">
+<!-- ترويسة التطبيق العلوية -->
+<header class="fixed top-0 w-full z-50 pt-safe bg-surface/90 backdrop-blur-xl border-b border-border-subtle shadow-[0_1px_8px_rgba(0,0,0,0.03)]">
+<div class="h-16 px-gutter-mobile flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-white flex items-center justify-center font-bold text-lg shadow-sm">مِ</div>
+<div class="flex flex-col">
+<h1 class="font-title-md text-title-md text-text-primary font-bold leading-tight">المحفظة والضمان المالي</h1>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-status-success-bg text-status-success text-[11px] font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-status-success animate-pulse"></span>
+              حساب محمي عبر Escrow البنكي
+            </span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button aria-label="التنبيهات" class="relative w-10 h-10 rounded-full flex items-center justify-center text-text-secondary hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+<span class="absolute top-2 left-2 w-2 h-2 rounded-full bg-status-destructive"></span>
+</button>
+<button aria-label="مساعدة" class="w-10 h-10 rounded-full flex items-center justify-center text-text-secondary hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[22px]">help_outline</span>
+</button>
+</div>
+</div>
+</header>
+<!-- المحتوى الرئيسي للمحفظة -->
+<main class="flex flex-col relative w-full pt-20 pb-28 px-gutter-mobile gap-4 bg-surface max-w-md mx-auto">
+<!-- 2. بطاقة الرصيد الرئيسية المستقلة بلون كحلي داكن راقٍ (#00344d) -->
+<div class="relative overflow-hidden rounded-2xl bg-[#00344d] text-white p-5 shadow-lg border border-[#004769]/50 flex flex-col gap-4">
+<!-- خلفية زخرفية ناعمة -->
+<div class="absolute -top-12 -left-12 w-36 h-36 rounded-full bg-accent-light/10 blur-2xl pointer-events-none"></div>
+<div class="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-secondary-container/10 blur-xl pointer-events-none"></div>
+<div class="relative z-10 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-9 h-9 rounded-xl bg-amber-400/15 border border-amber-300/30 flex items-center justify-center text-amber-300 shadow-sm">
+<span class="material-symbols-outlined text-[22px]">account_balance_wallet</span>
+</div>
+<span class="font-label-md text-surface-variant/90 font-medium">الرصيد المتاح للسحب الفوري</span>
+</div>
+<span class="flex items-center gap-1 text-[11px] bg-white/10 px-2 py-0.5 rounded-full text-accent-light border border-white/5">
+<span class="material-symbols-outlined text-[13px]">bolt</span> فوري
+        </span>
+</div>
+<div class="relative z-10 flex items-baseline gap-2 pt-1 pb-1">
+<span class="text-3xl font-bold tracking-tight text-white font-sans">14,200.00</span>
+<span class="text-lg font-semibold text-accent-light">ر.س</span>
+</div>
+<!-- زر السحب الفوري بلون أبيض وأيقونة تحويل -->
+<div class="relative z-10 pt-1">
+<button class="w-full h-12 bg-white text-[#00344d] hover:bg-surface-bright active:scale-[0.99] rounded-xl font-label-lg font-bold shadow-md transition-all flex items-center justify-center gap-2 border border-white/90" id="withdrawBtn">
+<span class="material-symbols-outlined text-[22px] text-amber-500">bolt</span>
+<span>تحويل الأرباح إلى حسابي البنكي فوراً</span>
+</button>
+</div>
+</div>
+<!-- 3. بطاقتان متجاورتان مفصولتان -->
+<div class="grid grid-cols-2 gap-3">
+<!-- بطاقة أتعاب محتجزة بالضمان -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-2xl p-4 shadow-sm flex flex-col justify-between hover:border-border-default transition-all">
+<div>
+<div class="w-8 h-8 rounded-lg bg-status-info-bg text-status-info flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-[20px]">shield</span>
+</div>
+<span class="text-[12px] font-medium text-text-secondary block">أتعاب محتجزة بالضمان</span>
+<div class="flex items-baseline gap-1 mt-1 mb-2">
+<span class="text-xl font-bold text-text-primary">28,500</span>
+<span class="text-[12px] font-semibold text-text-muted">ر.س</span>
+</div>
+</div>
+<p class="text-[11px] text-text-muted leading-tight border-t border-border-subtle/80 pt-2 flex items-start gap-1">
+<span class="material-symbols-outlined text-[14px] text-status-info shrink-0 mt-0.5">verified_user</span>
+<span>تُحرر تلقائياً فور اعتماد مراحل العمل</span>
+</p>
+</div>
+<!-- بطاقة أرباح الشهر -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-2xl p-4 shadow-sm flex flex-col justify-between hover:border-border-default transition-all">
+<div>
+<div class="w-8 h-8 rounded-lg bg-status-success-bg text-status-success flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-[20px]">trending_up</span>
+</div>
+<span class="text-[12px] font-medium text-text-secondary block">أرباح الشهر</span>
+<div class="flex items-baseline gap-1 mt-1 mb-2">
+<span class="text-xl font-bold text-text-primary">18,400</span>
+<span class="text-[12px] font-semibold text-text-muted">ر.س</span>
+</div>
+</div>
+<p class="text-[11px] text-status-success font-medium border-t border-border-subtle/80 pt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span>
+<span>+22% عن أرباح الشهر السابق</span>
+</p>
+</div>
+</div>
+<!-- 4. بطاقة الحساب البنكي المعتمد -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-2xl p-4 shadow-sm flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary border border-border-subtle">
+<span class="material-symbols-outlined text-[22px]">account_balance</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[14px] font-bold text-text-primary">مصرف الراجحي (حساب معتمد)</span>
+<span class="text-[11px] text-text-muted">الحساب الافتراضي للتحويلات الفورية</span>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-status-success-bg text-status-success text-[11px] font-semibold border border-status-success/20">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+          نفاذ
+        </span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-3 flex items-center justify-between border border-border-subtle/60">
+<div class="flex flex-col">
+<span class="text-[11px] text-text-muted">رقم الآيبان (IBAN)</span>
+<span class="text-[13px] font-semibold font-mono tracking-wider text-text-primary mt-0.5" dir="ltr">SA44 8000 **** **** 4102</span>
+</div>
+<button class="text-secondary hover:text-primary text-[12px] font-semibold flex items-center gap-1">
+<span>تغيير</span>
+<span class="material-symbols-outlined text-[14px]">chevron_left</span>
+</button>
+</div>
+<div class="flex items-center gap-1.5 text-[11px] text-status-success font-medium pt-0.5">
+<span class="material-symbols-outlined text-[15px]">check_circle</span>
+<span>موثق بنكياً ونظامياً بنسبة 100%</span>
+</div>
+</div>
+<!-- 5. قسم أحدث العمليات والحركات المالية -->
+<div class="flex flex-col gap-3 pt-1">
+<div class="flex items-center justify-between">
+<h2 class="font-title-md text-title-md font-bold text-text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-secondary">receipt_long</span>
+<span>أحدث العمليات والحركات المالية</span>
+</h2>
+<button class="text-secondary text-[12px] font-semibold hover:underline">عرض الكل</button>
+</div>
+<!-- قائمة مفصولة ببطاقات فردية لكل عملية -->
+<div class="flex flex-col gap-2.5">
+<!-- بطاقة عملية 1: إفراج دفعة فيلا الياسمين -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-2xl p-3.5 shadow-sm flex items-center justify-between hover:border-border-default transition-all">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-status-success-bg text-status-success flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">download_for_offline</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="text-[13px] font-bold text-text-primary">إفراج دفعة فيلا الياسمين</span>
+<span class="text-[11px] text-text-muted">أمس، 02:45 م • المرحلة الثانية (اللياسة)</span>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="text-[14px] font-bold text-status-success font-mono">+ 12,000 ر.س</span>
+<span class="px-2 py-0.5 rounded-full bg-status-success-bg text-status-success text-[10px] font-medium">مكتمل ومودع</span>
+</div>
+</div>
+<!-- بطاقة عملية 2: سحب إلى الحساب البنكي -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-2xl p-3.5 shadow-sm flex items-center justify-between hover:border-border-default transition-all">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">north_east</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="text-[13px] font-bold text-text-primary">تحويل سريع إلى الراجحي</span>
+<span class="text-[11px] text-text-muted">18 أكتوبر 2024 • TXN-998241</span>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="text-[14px] font-bold text-text-primary font-mono">- 8,500 ر.س</span>
+<span class="px-2 py-0.5 rounded-full bg-status-info-bg text-status-info text-[10px] font-medium">سحب ناجح</span>
+</div>
+</div>
+<!-- بطاقة عملية 3: اعتماد دفعة حطين -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-2xl p-3.5 shadow-sm flex items-center justify-between hover:border-border-default transition-all">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-status-success-bg text-status-success flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">download_for_offline</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="text-[13px] font-bold text-text-primary">إفراج دفعة شقة حطين</span>
+<span class="text-[11px] text-text-muted">14 أكتوبر 2024 • تسليم أعمال الجبس</span>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="text-[14px] font-bold text-status-success font-mono">+ 6,400 ر.س</span>
+<span class="px-2 py-0.5 rounded-full bg-status-success-bg text-status-success text-[10px] font-medium">مكتمل ومودع</span>
+</div>
+</div>
+</div>
+</div>
+<!-- نافذة منبثقة لتأكيد التحويل الفوري -->
+<div class="hidden fixed inset-0 z-50 flex items-end justify-center bg-surface-dark/50 backdrop-blur-sm p-4" id="withdrawModal">
+<div class="w-full max-w-lg bg-surface-container-lowest rounded-2xl p-5 shadow-2xl flex flex-col gap-4 animate-in fade-in slide-in-from-bottom duration-200 border border-border-subtle">
+<div class="flex items-center justify-between pb-3 border-b border-border-subtle">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+</div>
+<h3 class="font-title-md text-text-primary font-bold">تأكيد التحويل الفوري للأرباح</h3>
+</div>
+<button class="text-text-muted hover:text-text-primary p-1" id="closeModalBtn">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="bg-surface-container-low p-3.5 rounded-xl flex items-center justify-between border border-border-subtle/80">
+<div class="flex flex-col">
+<span class="text-[11px] text-text-muted">المبلغ المراد تحويله فوراً</span>
+<span class="text-xl font-bold text-primary font-sans">14,200.00 ر.س</span>
+</div>
+<span class="bg-status-success-bg text-status-success px-2.5 py-1 rounded-full text-[11px] font-semibold">بدون رسوم تحويل</span>
+</div>
+<div class="flex flex-col gap-1.5">
+<span class="text-[12px] font-medium text-text-secondary">الحساب البنكي المستلم:</span>
+<div class="p-3 bg-surface border border-border-subtle rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px]">account_balance</span>
+<div class="flex flex-col">
+<span class="text-[13px] font-bold text-text-primary">مصرف الراجحي</span>
+<span class="text-[11px] font-mono text-text-muted">SA44 8000 **** **** 4102</span>
+</div>
+</div>
+<span class="text-status-success flex items-center gap-1 text-[11px] font-semibold">
+<span class="material-symbols-outlined text-[15px]">verified</span> موثق
+            </span>
+</div>
+</div>
+<div class="flex gap-2.5 pt-2">
+<button class="flex-1 h-12 bg-primary text-on-primary rounded-xl font-label-lg font-bold shadow-md hover:bg-primary-dark active:scale-[0.99] transition-all flex items-center justify-center gap-2" id="confirmTransferBtn">
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+<span>تأكيد الإيداع الفوري الآن</span>
+</button>
+<button class="px-4 h-12 bg-surface-container-high text-text-secondary rounded-xl font-label-md hover:bg-surface-container-highest transition-colors" id="cancelModalBtn">
+            إلغاء
+          </button>
+</div>
+</div>
+</div>
+</main>
+<!-- 6. شريط التنقل السفلي متناسق مع التبويب النشط "المحفظة" -->
+<nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/95 backdrop-blur-xl border-t border-border-subtle shadow-[0_-2px_12px_rgba(0,43,64,0.04)]" data-active-classes="text-primary font-semibold">
+<div class="flex justify-around items-center h-16 px-space-xs max-w-md mx-auto">
+<a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-0.5 text-on-surface-variant hover:text-primary transition-colors" data-path="dashboard" href="index.html">
+<span class="material-symbols-outlined text-[22px]">dashboard</span>
+<span class="font-label-sm text-[11px]">الرئيسية</span>
+</a>
+<a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-0.5 text-on-surface-variant hover:text-primary transition-colors" data-path="work-requests" href="bids.html">
+<span class="material-symbols-outlined text-[22px]">work_outline</span>
+<span class="font-label-sm text-[11px]">الطلبات</span>
+</a>
+<a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-0.5 text-on-surface-variant hover:text-primary transition-colors" data-path="projects" href="projects.html">
+<span class="material-symbols-outlined text-[22px]">construction</span>
+<span class="font-label-sm text-[11px]">مشاريعي</span>
+</a>
+<a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-0.5 text-primary font-bold transition-colors" data-path="wallet" href="wallet.html">
+<div class="relative flex items-center justify-center">
+<span class="material-symbols-outlined text-[23px] font-bold">account_balance_wallet</span>
+<span class="absolute -bottom-1 w-1.5 h-1.5 rounded-full bg-primary"></span>
+</div>
+<span class="font-label-sm text-[11px]">المحفظة</span>
+</a>
+<a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-0.5 text-on-surface-variant hover:text-primary transition-colors" data-path="profile" href="profile.html">
+<span class="material-symbols-outlined text-[22px]">badge</span>
+<span class="font-label-sm text-[11px]">الملف المهني</span>
+</a>
+</div>
+</nav>
+<script>
+    (function() {
+      const withdrawBtn = document.getElementById('withdrawBtn');
+      const withdrawModal = document.getElementById('withdrawModal');
+      const closeModalBtn = document.getElementById('closeModalBtn');
+      const cancelModalBtn = document.getElementById('cancelModalBtn');
+      const confirmTransferBtn = document.getElementById('confirmTransferBtn');
+
+      function openModal() {
+        if(withdrawModal) withdrawModal.classList.remove('hidden');
+      }
+
+      function closeModal() {
+        if(withdrawModal) withdrawModal.classList.add('hidden');
+      }
+
+      if(withdrawBtn) withdrawBtn.addEventListener('click', openModal);
+      if(closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+      if(cancelModalBtn) cancelModalBtn.addEventListener('click', closeModal);
+
+      if(confirmTransferBtn) {
+        confirmTransferBtn.addEventListener('click', function() {
+          this.disabled = true;
+          this.innerHTML = '<span class="material-symbols-outlined animate-spin text-[18px]">progress_activity</span> جاري التحويل الفوري عبر سريع...';
+          setTimeout(() => {
+            this.className = "flex-1 h-12 bg-status-success text-on-primary rounded-xl font-label-lg font-bold flex items-center justify-center gap-1.5";
+            this.innerHTML = '<span class="material-symbols-outlined text-[20px]">check_circle</span> تم إيداع 14,200 ر.س في حسابك بنجاح';
+            setTimeout(() => {
+              closeModal();
+              this.disabled = false;
+              this.className = "flex-1 h-12 bg-primary text-on-primary rounded-xl font-label-lg font-bold shadow-md hover:bg-primary-dark transition-all flex items-center justify-center gap-2";
+              this.innerHTML = '<span class="material-symbols-outlined text-[20px]">bolt</span><span>تأكيد الإيداع الفوري الآن</span>';
+            }, 1800);
+          }, 1200);
+        });
+      }
+    })();
+  </script>
+<script src="../pro-auth.js"></script>
+
+<!-- Floating Device Switcher -->
+<div style="position: fixed; bottom: 76px; left: 16px; z-index: 9999;" class="transition-transform hover:scale-105">
+  <a href="../index.html" class="flex items-center gap-1.5 px-3.5 py-2 rounded-full shadow-lg text-xs font-semibold text-white bg-primary hover:bg-primary-container transition-all" style="border: 1px solid rgba(255,255,255,0.2);">
+    <span>💻</span>
+    <span>ديسكتوب الحرفي</span>
+  </a>
+</div>
+
+</body></html>

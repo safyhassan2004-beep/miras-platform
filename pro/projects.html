@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;font-family:'IBM Plex Sans Arabic',sans-serif;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "status-destructive-bg": "#ffdad6", "on-tertiary": "#ffffff", "surface-container-highest": "#e3e2e0", "outline": "#72787d", "surface-container-lowest": "#ffffff", "border-default": "#e0ded9", "status-info": "#026aa7", "status-warning-bg": "#fef6e9", "on-tertiary-fixed": "#001e2f", "tertiary": "#001e2f", "status-success": "#1b7a4d", "on-surface-variant": "#42474d", "primary-container": "#d2e8f8", "surface-bright": "#faf9f6", "on-secondary-fixed": "#001f26", "surface-variant": "#e3e2e0", "error-container": "#ffdad6", "on-tertiary-fixed-variant": "#1d4b67", "tertiary-fixed-dim": "#a1cced", "inverse-primary": "#a3cbea", "text-secondary": "#43474e", "tertiary-fixed": "#c9e6ff", "on-secondary": "#ffffff", "surface-low": "#f4f3f1", "accent-light": "#5fa8d3", "status-success-bg": "#e8f5ed", "inverse-surface": "#2f312f", "surface": "#faf9f6", "on-secondary-fixed-variant": "#004e5c", "secondary": "#00687a", "surface-dark": "#002538", "text-primary": "#1b1c1d", "primary-dark": "#002b40", "on-primary-container": "#001e2e", "on-primary": "#ffffff", "status-warning": "#b25e02", "secondary-container": "#97e9ff", "surface-dim": "#dbdad7", "primary": "#001e2f", "secondary-fixed": "#abedff", "error": "#ba1a1a", "inverse-on-surface": "#f2f1ee", "on-primary-fixed": "#001e2f", "on-background": "#1a1c1a", "surface-container-high": "#e9e8e5", "primary-fixed": "#c8e6ff", "surface-container": "#efeeeb", "on-error": "#ffffff", "secondary-fixed-dim": "#7fd2e8", "status-info-bg": "#e0f2fe", "status-destructive": "#ba1a1a", "on-tertiary-container": "#739dbd", "on-error-container": "#93000a", "tertiary-container": "#00344e", "surface-tint": "#3a637e", "outline-variant": "#c2c7cd", "background": "#faf9f6", "on-secondary-container": "#006a7d", "on-surface": "#1a1c1a", "border-subtle": "#eae8e3", "surface-container-low": "#f4f3f1", "text-muted": "#73777f", "on-primary-fixed-variant": "#204b65", "primary-fixed-dim": "#a3cbea" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-lg": "1.5rem", "gutter": "1.5rem", "space-md": "1rem", "space-xl": "2.5rem", "gutter-mobile": "1rem", "margin-mobile": "1rem", "margin": "2rem", "space-xs": "0.25rem", "space-sm": "0.5rem" }, "fontFamily": { "headline-sm": [ "IBM Plex Sans" ], "title-lg": [ "IBM Plex Sans" ], "body-sm": [ "IBM Plex Sans" ], "label-md": [ "IBM Plex Sans" ], "label-sm": [ "IBM Plex Sans" ], "label-lg": [ "IBM Plex Sans" ], "title-md": [ "IBM Plex Sans" ], "headline-md": [ "IBM Plex Sans" ], "body-md": [ "IBM Plex Sans" ], "headline-lg": [ "IBM Plex Sans" ], "headline-md-mobile": [ "IBM Plex Sans" ], "headline-lg-mobile": [ "IBM Plex Sans" ], "body-lg": [ "IBM Plex Sans" ] }, "fontSize": { "headline-sm": [ "22px", { "lineHeight": "32px", "fontWeight": "600" } ], "title-lg": [ "18px", { "lineHeight": "28px", "fontWeight": "600" } ], "body-sm": [ "12px", { "lineHeight": "18px", "fontWeight": "400" } ], "label-md": [ "12px", { "lineHeight": "16px", "fontWeight": "500" } ], "label-sm": [ "11px", { "lineHeight": "14px", "fontWeight": "500" } ], "label-lg": [ "14px", { "lineHeight": "20px", "fontWeight": "500" } ], "title-md": [ "16px", { "lineHeight": "24px", "fontWeight": "600" } ], "headline-md": [ "28px", { "lineHeight": "40px", "fontWeight": "600" } ], "body-md": [ "14px", { "lineHeight": "22px", "fontWeight": "400" } ], "headline-lg": [ "36px", { "lineHeight": "48px", "fontWeight": "700" } ], "headline-md-mobile": [ "24px", { "lineHeight": "34px", "fontWeight": "600" } ], "headline-lg-mobile": [ "28px", { "lineHeight": "38px", "fontWeight": "700" } ], "body-lg": [ "16px", { "lineHeight": "26px", "fontWeight": "400" } ] } } } };</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed right-0 top-0 h-full w-72 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between py-6"><div class="flex flex-col gap-6"><div class="px-6 flex items-center justify-between"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-on-primary text-[24px]">handyman</span></div><div class="flex flex-col"><div class="flex items-center gap-1.5"><span class="font-title-lg text-title-lg font-bold text-primary tracking-tight">مِـرَاس</span><span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-medium">الوطنية</span></div><span class="font-label-sm text-label-sm text-on-surface-variant">بوابة الحرفيين المعتمدين</span></div></div></div><div class="px-4"><div class="p-3 bg-surface-container-lowest rounded-xl flex items-center gap-3 shadow-[0_1px_3px_rgba(0,43,64,0.04)]"><div class="w-2.5 h-2.5 rounded-full bg-status-success animate-pulse"></div><div class="flex flex-col"><span class="font-label-sm text-label-sm font-semibold text-on-surface">الجاهزية الميدانية</span><span class="font-body-sm text-body-sm text-status-success">متاح لاستقبال المهام الفورية</span></div></div></div><nav class="px-3 flex flex-col gap-1.5" data-active-classes="bg-primary-container text-on-primary-container font-semibold"><a class="flex items-center gap-3.5 px-3.5 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="dashboard" href="index.html"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="font-label-lg text-label-lg">لوحة الحرفي والمهني</span></a><a class="flex items-center gap-3.5 px-3.5 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="work-orders-bids" href="bids.html"><span class="material-symbols-outlined text-[20px]">assignment</span><span class="font-label-lg text-label-lg">طلبات العمل والمناقصات</span></a><a aria-current="page" class="flex items-center gap-3.5 px-3.5 py-3 rounded-lg transition-all bg-primary-container text-on-primary-container font-semibold" data-path="active-projects" href="projects.html"><span class="material-symbols-outlined text-[20px]">construction</span><span class="font-label-lg text-label-lg">مشاريعي ومراحل التنفيذ</span></a><a class="flex items-center gap-3.5 px-3.5 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="escrow-wallet" href="wallet.html"><span class="material-symbols-outlined text-[20px]">account_balance_wallet</span><span class="font-label-lg text-label-lg">المحفظة والضمان المالي</span></a><a class="flex items-center gap-3.5 px-3.5 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="professional-profile" href="profile.html"><span class="material-symbols-outlined text-[20px]">verified</span><span class="font-label-lg text-label-lg">الملف المهني والاعتمادات</span></a></nav></div><div class="px-4 flex flex-col gap-3"><div class="p-3 bg-surface-container rounded-xl flex items-center justify-between"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[20px]">verified_user</span><div class="flex flex-col"><span class="font-label-sm text-label-sm text-on-surface-variant">التوثيق الرقمي</span><span class="font-label-sm text-label-sm font-semibold text-primary">نفاذ الوطني الموحد</span></div></div><span class="material-symbols-outlined text-status-success text-[18px]">check_circle</span></div><div class="flex items-center justify-between px-2 pt-2"><span class="font-label-sm text-label-sm text-text-muted">النسخة 2.4.0 (مؤسسي)</span><a class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1 font-label-sm text-label-sm" href="#"><span class="material-symbols-outlined text-[16px]">help</span>الدعم الفني</a></div></div>
+    <div class="px-6 py-4 border-t border-border-default/40 mt-auto">
+      <a href="../index.html" class="flex items-center gap-3 text-on-surface-variant hover:text-primary transition-all font-label-md text-label-md py-2">
+        <span class="material-symbols-outlined text-[20px]">storefront</span>
+        <span>بوابة مِـرَاس الرئيسية</span>
+      </a>
+      <button onclick="ProAuth.logout()" class="w-full mt-2 flex items-center gap-3 text-error hover:bg-status-destructive-bg/30 px-2 py-1.5 rounded-lg transition-all font-label-sm text-label-sm">
+        <span class="material-symbols-outlined text-[18px]">logout</span>
+        <span>تسجيل الخروج</span>
+      </button>
+    </div>
+    
+</aside><div class="pr-72"><header class="fixed top-0 right-72 left-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-8"><div class="flex items-center gap-3"><span class="font-label-sm text-label-sm px-2.5 py-1 rounded bg-status-success-bg text-status-success font-semibold flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-status-success"></span>الحالة: متاح للمهام الميدانية</span><span class="font-label-sm text-label-sm text-text-muted">الرياض، حي السليمانية</span></div><div class="flex items-center gap-4"><button class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors relative" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 left-2 w-2 h-2 rounded-full bg-error"></span></button><button class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">tune</span></button><div class="h-6 w-px bg-surface-container-high"></div><div class="flex items-center gap-3"><div class="flex flex-col text-left"><div class="flex items-center gap-1 justify-end"><span class="font-label-lg text-label-lg font-bold text-on-surface">خالد بن سلطان العتيبي</span><span class="material-symbols-outlined text-secondary text-[16px]">verified</span></div><span class="font-label-sm text-label-sm text-on-surface-variant text-right">نظم طاقة وتمديدات كهربائية ذكية</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="relative pt-16 bg-surface min-h-screen px-8 py-8"><div class="flex flex-col w-full">
+<!-- Top Headline / Screen Header -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-8">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center gap-3">
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">مشاريعي ومراحل التنفيذ</h1>
+<span class="px-2.5 py-1 rounded bg-secondary-container text-on-secondary-container font-label-md text-label-md font-bold flex items-center gap-1 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+          مشروع نشط (1)
+        </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">متابعة دقيقة للإنجاز الميداني وصرف الدفعات المعتمدة وفق معايير الجودة الوطنية</p>
+</div>
+<!-- Quick Tool Action -->
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm px-3 py-1.5 rounded bg-surface-container-high text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">update</span>
+        تحديث تلقائي للمطابقات: قبل ٤ دقائق
+      </span>
+</div>
+</div>
+<!-- Metric Overview Cards (3 Isolated Stat Cards) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+<!-- Stat 1: Ongoing -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-[0_1px_3px_rgba(0,43,64,0.04)] flex items-center justify-between">
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">المشاريع الجارية المباشرة</span>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-primary">01</span>
+<span class="font-label-sm text-label-sm text-status-warning font-semibold">قيد التنفيذ النشط</span>
+</div>
+</div>
+<div class="w-14 h-14 rounded-xl bg-status-warning-bg flex items-center justify-center text-status-warning shadow-sm">
+<span class="material-symbols-outlined text-[32px]">hardware</span>
+</div>
+</div>
+<!-- Stat 2: Pending Inspection -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-[0_1px_3px_rgba(0,43,64,0.04)] flex items-center justify-between">
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">بانتظار الفحص الميداني</span>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-secondary">01</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">مرحلة قيد المراجعة</span>
+</div>
+</div>
+<div class="w-14 h-14 rounded-xl bg-primary-container flex items-center justify-center text-secondary shadow-sm">
+<span class="material-symbols-outlined text-[32px]">fact_check</span>
+</div>
+</div>
+<!-- Stat 3: Completed Projects -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-[0_1px_3px_rgba(0,43,64,0.04)] flex items-center justify-between">
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">المشاريع المنجزة والمعتمدة</span>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-status-success">12</span>
+<span class="font-label-sm text-label-sm text-status-success font-semibold">تقييم 4.9 / 5.0</span>
+</div>
+</div>
+<div class="w-14 h-14 rounded-xl bg-status-success-bg flex items-center justify-center text-status-success shadow-sm">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+</div>
+<!-- Primary Active Project Card Layout -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_1px_3px_rgba(0,43,64,0.04)] p-6 md:p-8 flex flex-col gap-8 mb-8">
+<!-- Contract Identity Header & Visual Snapshot -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 bg-surface-container-low p-6 rounded-xl">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-lg bg-primary text-on-primary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[26px]">villa</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex flex-wrap items-center gap-2">
+<h2 class="font-title-lg text-title-lg font-bold text-primary">عقد فيلا الياسمين #8902</h2>
+<span class="px-2.5 py-0.5 rounded bg-status-warning-bg text-status-warning font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-status-warning"></span>
+              قيد التنفيذ
+            </span>
+<span class="px-2.5 py-0.5 rounded bg-primary-container text-on-primary-container font-label-sm text-label-sm font-medium">
+              عقد موحد رقم 2024-SAS-0982
+            </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant font-medium">أعمال التمديدات الكهربائية والصحية - فيلا خاصة دورين وملحق</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex flex-col text-left">
+<span class="font-label-sm text-label-sm text-on-surface-variant">القيمة الإجمالية للعقد</span>
+<span class="font-headline-sm text-headline-sm font-bold text-primary">100,000 ر.س</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">payments</span>
+</div>
+</div>
+</div>
+<!-- Metadata Sub-Cards (Client, Location, Upcoming Visit) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Client -->
+<div class="bg-surface-container rounded-lg p-4 flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest text-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[20px]">person</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">مالك العقار (العميل)</span>
+<span class="font-label-lg text-label-lg font-bold text-primary">أ. خالد بن سلطان العتيبي</span>
+</div>
+</div>
+<!-- Location -->
+<div class="bg-surface-container rounded-lg p-4 flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest text-secondary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">موقع الورشة الميدانية</span>
+<span class="font-label-lg text-label-lg font-bold text-primary">حي الياسمين، الرياض (مربع 4)</span>
+</div>
+</div>
+<!-- Next Inspection -->
+<div class="bg-surface-container rounded-lg p-4 flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest text-status-warning flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[20px]">event_upcoming</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">الفحص الهندسي القادم</span>
+<span class="font-label-lg text-label-lg font-bold text-status-warning">غداً، الساعة 10:00 صباحاً</span>
+</div>
+</div>
+</div>
+<!-- Progress Meter & Financial Breakdown -->
+<div class="bg-surface-container-low rounded-xl p-6 flex flex-col gap-5">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+<div class="flex items-center gap-2.5">
+<span class="font-title-md text-title-md font-bold text-primary">مؤشر التقدم الإجمالي للمشروع</span>
+<span class="font-label-md text-label-md px-2 py-0.5 rounded bg-status-success-bg text-status-success font-bold">75% منجز</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-status-success"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">المصروف الفعلي:</span>
+<span class="font-label-lg text-label-lg font-bold text-primary">55,000 ر.س</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">المتبقي بضمان مِـرَاس:</span>
+<span class="font-label-lg text-label-lg font-bold text-secondary">45,000 ر.س</span>
+</div>
+</div>
+</div>
+<!-- Linear Gauge -->
+<div class="w-full bg-surface-container-high h-3.5 rounded-full overflow-hidden flex">
+<!-- Completed (55%) -->
+<div class="h-full bg-status-success transition-all duration-500 rounded-r-full" style="width: 55%"></div>
+<!-- In review (20%) -->
+<div class="h-full bg-status-warning transition-all duration-500" style="width: 20%"></div>
+<!-- Pending Remaining (25%) -->
+<div class="h-full bg-surface-container-highest transition-all duration-500 rounded-l-full" style="width: 25%"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded bg-status-success"></span>الدفعة 1: معتمدة ومصروفة (25%)</span>
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded bg-status-warning"></span>الدفعة 2: رهن التدقيق والمطابقة (30%)</span>
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded bg-surface-container-highest"></span>الدفعة 3: أعمال التشطيب والتسليم (45%)</span>
+</div>
+</div>
+<!-- Milestone Timeline (Isolated Cards) -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">checklist</span>
+<h3 class="font-title-md text-title-md font-bold text-primary">مراحل التنفيذ وصرف الدفعات المعتمدة</h3>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">3 مراحل رئيسية مجدولة بالعقد</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+<!-- Milestone 1: Approved -->
+<div class="bg-surface-container rounded-xl p-5 flex flex-col justify-between gap-4 relative overflow-hidden">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-status-success text-on-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-status-success font-bold">المرحلة الأولى</span>
+<span class="font-title-md text-title-md font-bold text-primary">التأسيس الإنشائي</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-status-success-bg text-status-success font-label-sm text-label-sm font-bold flex items-center gap-1">
+              مكتمل ومعتمد
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            تمديد الأنابيب الأرضية، مزاريب الصرف، وعلب القواطع الجدارية المعتمدة وفق كود البناء السعودي.
+          </p>
+<div class="pt-3 flex items-center justify-between bg-surface-container-low p-3 rounded-lg">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">دفعة المرحلة المستحقة</span>
+<span class="font-title-lg text-title-lg font-bold text-primary">25,000 <span class="font-label-sm text-label-sm font-normal">ر.س</span></span>
+</div>
+<span class="font-label-sm text-label-sm text-status-success flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[16px]">account_balance</span>
+              أودعت بالحساب
+            </span>
+</div>
+</div>
+<!-- Milestone 2: Active Inspection -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-[0_4px_12px_-2px_rgba(0,43,64,0.08)] flex flex-col justify-between gap-4 relative">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-secondary text-on-secondary flex items-center justify-center shadow-sm animate-pulse">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary font-bold">المرحلة الحالية</span>
+<span class="font-title-md text-title-md font-bold text-primary">التمديد والأسلاك</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-status-warning-bg text-status-warning font-label-sm text-label-sm font-bold flex items-center gap-1">
+              قيد الفحص الميداني
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            سحب الأسلاك النحاسية المعزولة، اختبارات الجهد، وتوصيل لوحات التوزيع الفرعية تمهيداً لتقرير المشرف.
+          </p>
+<div class="pt-3 flex items-center justify-between bg-status-warning-bg p-3 rounded-lg">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-status-warning">دفعة الضمان المحجوزة</span>
+<span class="font-title-lg text-title-lg font-bold text-primary">30,000 <span class="font-label-sm text-label-sm font-normal">ر.س</span></span>
+</div>
+<span class="font-label-sm text-label-sm text-status-warning flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[16px]">lock_clock</span>
+              تصرف فور الفحص
+            </span>
+</div>
+</div>
+<!-- Milestone 3: Upcoming -->
+<div class="bg-surface-container rounded-xl p-5 flex flex-col justify-between gap-4 opacity-80">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">schedule</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold">المرحلة الختامية</span>
+<span class="font-title-md text-title-md font-bold text-on-surface">التشطيب والاختبار</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-medium">
+              قادم بعد الفحص
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            تركيب المفاتيح، الإنارة الذكية، المفاتيح الحرارية، إصدار شهادة السلامة النهائية وتسليم المالك.
+          </p>
+<div class="pt-3 flex items-center justify-between bg-surface-container-low p-3 rounded-lg">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">الدفعة النهائية المتبقية</span>
+<span class="font-title-lg text-title-lg font-bold text-text-muted">45,000 <span class="font-label-sm text-label-sm font-normal">ر.س</span></span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">pending</span>
+              مجدولة
+            </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Direct Field Actions Bar -->
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 pt-4">
+<!-- Big Action: Upload Photos -->
+<button class="h-12 px-6 rounded-lg bg-primary hover:bg-primary-dark text-on-primary font-label-lg text-label-lg font-bold flex items-center justify-center gap-2.5 shadow-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]">photo_camera</span>
+<span>رفع صور الإنجاز الميداني للمشرف</span>
+</button>
+<!-- Secondary Field Control Actions -->
+<div class="flex flex-wrap items-center gap-3">
+<button class="h-12 px-5 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px] text-secondary">phone_in_talk</span>
+<span>اتصال بالمشرف الميداني</span>
+</button>
+<button class="h-12 px-5 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">description</span>
+<span>تفاصيل العقد الموحد</span>
+</button>
+<button class="h-12 px-4 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-label-lg text-label-lg flex items-center justify-center gap-1.5 transition-colors" title="سجل التعديلات" type="button">
+<span class="material-symbols-outlined text-[20px]">history</span>
+<span>السجل</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bottom Visual Documentation Banner (Photo Verification Proof) -->
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-4 mb-8">
+<div class="bg-surface-container-lowest rounded-xl p-4 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-bold text-primary">توثيق الدفعة 1 (معتمد)</span>
+<span class="material-symbols-outlined text-status-success text-[18px]">verified</span>
+</div>
+<img class="w-full h-28 object-cover rounded-lg" data-alt="A sharp architectural documentary photograph of freshly completed plumbing and heavy-gauge electrical conduits laid cleanly inside concrete trenches of a luxury residential villa under construction in Riyadh, bright neutral daytime lighting, clear technical quality" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAk1xUuiAoS1_i1uHbqGM0sNq6qdmLvhBJwdM6jqO_QyPqteCKoxXOxLBJkjQI85c9HvR5yTYPerZ42WlruaIJWjKeQw8Mr-f7nqKhfXZfql6lGOrQmxq9sXrc-q635N4UMWzKo7IDP8OIL2puOV4t-3o3up_FHvd7p4lyGQLdJEo50UOVs_BnPyYFokSQZgjkQhUXKocvFERFaU4wGii7Uw2y7uTFcaQvw7N8HXiY"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant">تم اعتماد الفحص الهيدروليكي والتسليك الأساسي</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-4 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-bold text-primary">توثيق الدفعة 2 (صورة 1)</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-status-warning-bg text-status-warning font-semibold">بانتظار الفحص</span>
+</div>
+<img class="w-full h-28 object-cover rounded-lg" data-alt="A professional close-up photograph of an organized modern electric sub-panel with colored wiring neatly bundled with cable ties, copper grounding busbars, and labeled circuit breakers inside a luxury residential villa, technical lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD55vVwMFNTRAwe4Kr45o5IE6wOmbxgmgPsAPVU0xmpIbvX1p0f3DCxY6FJFGyb9VPAFdbJBYeWz1gJ82x5yUdYNkOGBNB0EFOX8y-qPtZe0PTy-0e-58LgsrAOOj44mDp3uUqbMqVJgT4jD94xLYovrD3UxCqFVPnc8WQShDXkKNc9DFWXywOqP1-Cc8gBvcqFYHLUxmEfHtjSYe6OvObl1dESvyI04HdcUXIWTSM"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant">لوحة التوزيع الفرعية - الطابق الأول</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-4 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-bold text-primary">توثيق الدفعة 2 (صورة 2)</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-status-warning-bg text-status-warning font-semibold">بانتظار الفحص</span>
+</div>
+<img class="w-full h-28 object-cover rounded-lg" data-alt="A clean eye-level photo of recessed ceiling conduits and master distribution boxes prepared for architectural lighting in a spacious villa salon, tidy construction environment, bright diffused daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcoZ8SKjh9SZzjM37DJBjnOi5wVWqs38_pkolBstoFx4pDB8N9Ds2p7jozryQxZqSd_jkJYVWxooH97ga4vg2Hvx_CCq7zRbiT-24tf6YvpPcON6prSgtmsg-4_NeaZMUrJ1TG_aHBik-bV706J6YjQTundMkjqnu94lIfbFqI4yfRwtaTjmBJpUUEkbK5c3k_EFLzG2JIi1tDDFFJdDejAKLHh92R5GiNIJ6n868"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant">مسارات تمديدات الإنارة الذكية بالصالات</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col items-center justify-center text-center gap-2 cursor-pointer hover:bg-surface-container transition-colors">
+<div class="w-12 h-12 rounded-full bg-primary-container text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">add_a_photo</span>
+</div>
+<span class="font-label-lg text-label-lg font-bold text-primary">إضافة صور إضافية</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">يدعم صيغ JPG, PNG أو ملفات PDF حتى 25 ميجابايت</span>
+</div>
+</div>
+<!-- Bottom Security & Escrow Guarantee Banner -->
+<div class="bg-surface-container rounded-xl p-6 shadow-[0_1px_3px_rgba(0,43,64,0.04)] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-xl bg-secondary text-on-secondary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[26px]">verified_user</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<h4 class="font-title-md text-title-md font-bold text-primary">حماية الضمان المالي المودع عبر مِـرَاس</h4>
+<span class="px-2 py-0.5 rounded bg-status-success-bg text-status-success font-label-sm text-label-sm font-bold">محفظة مشفرة ومؤمنة</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          نؤكد لك بأن مبلغ الدفعة الحالية (30,000 ر.س) مودع ومحجوز بالكامل في حساب الضمان المستقل لمنصة «مِـرَاس»، وسيتم الإفراج الفوري عنه وإيداعه في حسابك البنكي المعتمد بمجرد مصادقة المشرف الميداني على فحص الغد.
+        </p>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<div class="px-4 py-2.5 rounded-lg bg-surface-container-lowest text-primary font-label-md text-label-md font-bold flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-status-success text-[18px]">lock</span>
+<span>الضمان البنكي: ساري المفعول</span>
+</div>
+</div>
+</div>
+</div></main></div><script src="pro-auth.js"></script>
+
+<!-- Floating Device Switcher -->
+<div style="position: fixed; bottom: 24px; left: 24px; z-index: 9999;" class="transition-transform hover:scale-105">
+  <a href="mobile/index.html" class="flex items-center gap-2 px-4 py-2.5 rounded-full shadow-xl text-sm font-semibold text-white bg-primary hover:bg-primary-container transition-all" style="border: 1px solid rgba(255,255,255,0.2);">
+    <span class="text-base">📱</span>
+    <span>نسخة جوال الحرفي</span>
+  </a>
+</div>
+
+</body></html>

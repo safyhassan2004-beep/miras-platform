@@ -1,0 +1,1912 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar" class="">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>منصة مِراس - المنظومة الوطنية الموثوقة للمهن والحرفيين</title>
+
+  <!-- IBM Plex Sans Arabic & Latin Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  
+  <!-- Material Symbols Outlined -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary-container": "#97e9ff",
+            "secondary-fixed": "#abedff",
+            "tertiary-fixed-dim": "#feb956",
+            "surface-variant": "#e3e2e0",
+            "primary-fixed-dim": "#a1cced",
+            "on-error-container": "#93000a",
+            "on-error": "#ffffff",
+            "surface-container-highest": "#e3e2e0",
+            "on-secondary-fixed-variant": "#004e5c",
+            "surface-container-lowest": "#ffffff",
+            "outline": "#72787e",
+            "background": "#faf9f6",
+            "on-tertiary": "#ffffff",
+            "on-surface": "#1a1c1a",
+            "error-container": "#ffdad6",
+            "primary": "#00324b",
+            "on-primary-container": "#8eb8d8",
+            "secondary": "#00687a",
+            "on-secondary-fixed": "#001f26",
+            "on-surface-variant": "#41474d",
+            "on-secondary": "#ffffff",
+            "surface-container-high": "#e9e8e5",
+            "primary-container": "#1b4965",
+            "on-background": "#1a1c1a",
+            "tertiary": "#432a00",
+            "surface-tint": "#386380",
+            "secondary-fixed-dim": "#7fd2e8",
+            "on-tertiary-fixed": "#291800",
+            "error": "#ba1a1a",
+            "inverse-primary": "#a1cced",
+            "inverse-on-surface": "#f2f1ee",
+            "tertiary-fixed": "#ffddb4",
+            "surface-container-low": "#f4f3f1",
+            "surface-container": "#efeeeb",
+            "on-primary": "#ffffff",
+            "on-tertiary-fixed-variant": "#633f00",
+            "tertiary-container": "#613e00",
+            "outline-variant": "#c1c7ce",
+            "on-primary-fixed": "#001e2f",
+            "surface-dim": "#dbdad7",
+            "on-secondary-container": "#006a7d",
+            "on-primary-fixed-variant": "#1d4b67",
+            "on-tertiary-container": "#e8a645",
+            "inverse-surface": "#2f312f",
+            "surface": "#faf9f6",
+            "surface-bright": "#faf9f6",
+            "primary-fixed": "#c9e6ff"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "gutter-desktop": "2rem",
+            "margin-tablet": "2rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "space-xl": "2.5rem",
+            "gutter": "1.25rem",
+            "space-lg": "1.5rem",
+            "margin-desktop": "3.5rem",
+            "margin": "1rem",
+            "space-sm": "0.5rem"
+          },
+          fontFamily: {
+            sans: ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            body: ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+        font-family: 'IBM Plex Sans Arabic', 'IBM Plex Sans', sans-serif;
+      }
+      body {
+        overscroll-behavior: none;
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+
+  <!-- React 18 & Router v6.3.0 dependencies -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/history@5/umd/history.development.js"></script>
+  <script src="https://unpkg.com/react-router@6.3.0/umd/react-router.development.js"></script>
+  <script src="https://unpkg.com/react-router-dom@6.3.0/umd/react-router-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body class="bg-surface font-sans text-on-surface antialiased">
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+    const { createRoot } = ReactDOM;
+    const { HashRouter, Routes, Route, Link, useNavigate, useLocation } = ReactRouterDOM;
+
+    const LOGO_SRC = "https://lh3.googleusercontent.com/aida/AEtjO1Wr3weioeUYIVljvQUodpjGwRqy9eOavzy7mFq545wunjFQIFGKHabg6R8poK3XsG-h_i9ah7gPNWxPyF_NsnEjz39CRvAFGfLCMhimv26UkDto1LzSQPIJJhdMcXwQ3Uo-TEVBFfpovufVPy_nlH80itPRQjvDkYWfY7-DdfW6MnBylyMXCU4woQLaazv8sKFvP3mA2NFREn1VBfiWZPC2E_0bxnOkyEzr2zuPdg2swQ";
+
+    // Global Navigation Header Component
+    function Navbar() {
+      const location = useLocation();
+      const [searchQuery, setSearchQuery] = useState("");
+      const navigate = useNavigate();
+
+      const handleGlobalSearch = (e) => {
+        if (e.key === "Enter" && searchQuery.trim()) {
+          navigate("/explore-trades?q=" + encodeURIComponent(searchQuery.trim()));
+        }
+      };
+
+      const navItems = [
+        { path: "/", label: "الرئيسية" },
+        { path: "/explore-trades", label: "استكشاف المهن" },
+        { path: "/my-requests", label: "طلباتي" },
+        { path: "/join-pro", label: "انضم كصاحب مهنة" }
+      ];
+
+      return (
+        <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+          <div class="h-20 max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop flex items-center justify-between gap-space-md">
+            <div class="flex items-center gap-space-lg">
+              <Link to="/" class="flex items-center gap-space-sm">
+                <img 
+                  alt="مِراس - MIRAS" 
+                  class="h-8 w-auto object-contain" 
+                  src={LOGO_SRC} 
+                />
+                <span class="text-xl font-bold text-primary">مِراس</span>
+              </Link>
+              <nav class="hidden xl:flex items-center gap-space-md">
+                {navItems.map((item) => {
+                  const isActive = location.pathname === item.path;
+                  return (
+                    <Link
+                      key={item.path}
+                      to={item.path}
+                      className={
+                        isActive
+                          ? "bg-primary-container text-on-primary font-bold rounded-lg px-space-sm py-space-xs text-sm transition-colors"
+                          : "text-on-surface-variant hover:text-on-surface text-sm font-medium transition-colors px-2 py-1"
+                      }
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
+              </nav>
+            </div>
+
+            <div class="hidden md:flex flex-1 max-w-md items-center bg-surface-container-low rounded-xl px-space-md py-space-xs">
+              <span class="material-symbols-outlined text-outline ml-space-sm text-[20px]">search</span>
+              <input 
+                class="w-full bg-transparent text-sm text-on-surface placeholder:text-outline focus:outline-none" 
+                placeholder="ابحث عن مهنة، فني، أو خدمة تخصصية..." 
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={handleGlobalSearch}
+              />
+            </div>
+
+            <div class="flex items-center gap-space-sm">
+              <Link to="/explore-trades" class="flex items-center gap-space-xs px-space-sm py-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high rounded-lg transition-colors text-sm font-medium">
+                <span class="material-symbols-outlined text-[18px]">help_outline</span>
+                <span class="hidden lg:inline">المساعدة</span>
+              </Link>
+              <button 
+                class="flex items-center gap-space-xs px-space-sm py-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high rounded-lg transition-colors text-sm font-medium" 
+                type="button"
+                onClick={() => alert("اللغة الحالية: العربية")}
+              >
+                <span class="material-symbols-outlined text-[18px]">language</span>
+                <span class="hidden lg:inline">العربية</span>
+              </button>
+              <Link to="/my-requests" class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary hover:opacity-90 transition-opacity">
+                <span class="material-symbols-outlined text-[18px]">person</span>
+              </Link>
+            </div>
+          </div>
+        </header>
+      );
+    }
+
+    // Global Footer Component
+    function Footer() {
+      return (
+        <footer class="w-full bg-surface-container-low shadow-[0_-1px_6px_rgba(0,0,0,0.02)] mt-auto">
+          <div class="max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl mb-space-xl">
+              <div class="flex flex-col gap-space-sm">
+                <div class="flex items-center gap-space-sm">
+                  <span class="text-xl font-bold text-primary">مِراس</span>
+                  <span class="text-xs bg-secondary-container text-on-secondary-container px-space-sm py-0.5 rounded-full font-medium">منصة المهن</span>
+                </div>
+                <p class="text-sm text-on-surface-variant leading-relaxed">
+                  المنصة الموثوقة الأولى لربط أصحاب المنازل والمنشآت بنخبة الحرفيين والفنيين المعتمدين في كافة المجالات الحرفية والهندسية.
+                </p>
+              </div>
+
+              <div class="flex flex-col gap-space-sm">
+                <h3 class="text-base font-semibold text-on-surface">روابط سريعة</h3>
+                <ul class="flex flex-col gap-space-xs text-sm">
+                  <li><Link to="/" class="text-on-surface-variant hover:text-primary transition-colors">الرئيسية</Link></li>
+                  <li><Link to="/explore-trades" class="text-on-surface-variant hover:text-primary transition-colors">استكشاف المهن</Link></li>
+                  <li><Link to="/my-requests" class="text-on-surface-variant hover:text-primary transition-colors">طلباتي الجارية</Link></li>
+                  <li><Link to="/join-pro" class="text-on-surface-variant hover:text-primary transition-colors">تسجيل الحرفيين</Link></li>
+                </ul>
+              </div>
+
+              <div class="flex flex-col gap-space-sm">
+                <h3 class="text-base font-semibold text-on-surface">أشهر التخصصات</h3>
+                <ul class="flex flex-col gap-space-xs text-sm">
+                  <li><Link to="/explore-trades" class="text-on-surface-variant hover:text-primary transition-colors">كهرباء وتمديدات</Link></li>
+                  <li><Link to="/explore-trades" class="text-on-surface-variant hover:text-primary transition-colors">سباكة وصيانة صحية</Link></li>
+                  <li><Link to="/explore-trades" class="text-on-surface-variant hover:text-primary transition-colors">نجارة وديكور خشب</Link></li>
+                  <li><Link to="/explore-trades" class="text-on-surface-variant hover:text-primary transition-colors">تكييف وتبريد معتمد</Link></li>
+                </ul>
+              </div>
+
+              <div class="flex flex-col gap-space-sm">
+                <h3 class="text-base font-semibold text-on-surface">الأمان والدعم</h3>
+                <p class="text-sm text-on-surface-variant">ضمان حماية الدفع وفحص الهويات المهنية لكافة مزودي الخدمة المسجلين.</p>
+                <div class="flex items-center gap-space-sm text-on-surface-variant text-sm font-medium">
+                  <span class="material-symbols-outlined text-secondary text-[20px]">verified_user</span>
+                  <span>حماية وضمان مِراس</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center justify-between gap-space-md pt-space-lg bg-surface-container/60 rounded-xl px-space-md">
+              <div class="text-sm text-on-surface-variant">© 2025 منصة مِراس (Miras). جميع الحقوق محفوظة لخدمات الوساطة المهنية.</div>
+              <div class="flex items-center gap-space-md text-xs">
+                <a href="#terms" onClick={(e) => { e.preventDefault(); alert("اتفاقية الشروط والأحكام الخاصة بمنصة مِراس المعتمدة."); }} class="text-on-surface-variant hover:text-primary transition-colors">الشروط والأحكام</a>
+                <a href="#privacy" onClick={(e) => { e.preventDefault(); alert("سياسة الخصوصية وحماية بيانات المستخدمين المشفرة."); }} class="text-on-surface-variant hover:text-primary transition-colors">سياسة الخصوصية</a>
+                <Link to="/my-requests" class="text-on-surface-variant hover:text-primary transition-colors">مركز المساعدة</Link>
+              </div>
+            </div>
+          </div>
+        </footer>
+      );
+    }
+
+    // SCREEN 1: Join As Craftsman / Provider (Screen ID: 0110ef7e27564d4aaabeaf6988ce3677)
+    function JoinProScreen() {
+      const [experience, setExperience] = useState("6-10");
+      const [submitted, setSubmitted] = useState(false);
+      const [photos, setPhotos] = useState([
+        {
+          id: 1,
+          category: "نجارة وديكور خشب",
+          title: "تفصيل خزائن جدارية ومكتبة فندقية",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuA0Hwtz5hHFq2kAR3_mu_E2eSQcauSywSRG6w2bapdLWni8gXiqWU8hf5SByXxX3qIV1rgmCiNzBY8BEoQD4cXU30-iGaqZ8RImLPjiE720sU5quzdwiXyFYLk0_Q6X1ZgNGdxR-NA8zIighur6S3r8Z_YWeuQPM5DY0Mtzhy5VWYgtzlG4obuk0QvcfXKPjItZRPv5FZFI7TWVqGTNN5M1mA2dfjf40u1E5du0nhkv"
+        },
+        {
+          id: 2,
+          category: "سباكة وصحية",
+          title: "تأسيس شبكة مضخات ذكية متكاملة",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCNF1joymsiZKnFCvZ7rat3LV1_HoGCb3MOR7k98AXZoOh-UROMNCGNlymr3jDz9O2ipVY5z_4Ro6YTIkMj3UwxZ-Sl6WMDDO55mhfBVyoMS9MbxwenhlYJuLpE3L01cEykinV3nLZ13bVWF4XnwehM8KomtpfDh_1oS_zvywUj0HUuM6-jEYr41eQg3wsjiRXXMLYZaJoAb3YQow7kx95pGNwu9w5plWH4oyCkKfPs"
+        },
+        {
+          id: 3,
+          category: "ديكور وتشطيب",
+          title: "تركيب أسقف جبسية وإضاءة خطية مخفية",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAlkXkvjsKeTppsj46TWB5EeEUyVks7Mqumx3RzoiWw9DdLcDIuTGd3WMOziNE85jIKch9a14STuI78MaCb5t3LwAvaLp_icaj3-R7meM8ry0rKX82dbpYb2QaFqbRqBOXCNxjADKxwwcKlA5VjvJ3yapGOeH5ba2lo9GuEXNR_l51j2pPElt3aBuXE0rzfiSgvVfyKAUXR8nYHYyzcBf8NU8hOSZZ6OgGznPdV4G_j"
+        }
+      ]);
+
+      const [formData, setFormData] = useState({
+        name: "",
+        trade: "",
+        location: "",
+        bio: "",
+        fieldService: true,
+        remoteConsult: true,
+        phone: "",
+        whatsapp: "",
+        instantAlerts: true
+      });
+
+      const removePhoto = (id) => {
+        setPhotos(photos.filter(p => p.id !== id));
+      };
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        setSubmitted(true);
+      };
+
+      return (
+        <div class="flex flex-col w-full">
+          {/* Header Banner */}
+          <div class="relative w-full overflow-hidden bg-primary-container text-on-primary py-space-xl">
+            <div class="absolute -top-24 -left-20 w-96 h-96 rounded-full bg-secondary-container/10 blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-0 right-10 w-80 h-80 rounded-full bg-secondary/15 blur-2xl pointer-events-none"></div>
+            <div class="max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop relative z-10">
+              <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-lg">
+                <div class="flex flex-col gap-space-sm max-w-3xl">
+                  <div class="inline-flex items-center gap-space-xs self-start px-space-md py-space-xs rounded-full bg-surface/10 backdrop-blur-md text-secondary-container text-sm font-medium">
+                    <span class="material-symbols-outlined text-[18px]">verified</span>
+                    <span>بوابة التسجيل الاحترافي المعتمد</span>
+                  </div>
+                  <h1 class="text-3xl lg:text-4xl font-bold tracking-tight text-on-primary">
+                    منصة مِراس الموثوقة — انضمام صاحب مهنة
+                  </h1>
+                  <p class="text-lg text-on-primary-container leading-relaxed">
+                    أضف بياناتك وخبراتك لتظهر للعملاء في منصة مِراس فور إطلاقها واستقبل طلبات صيانة واستشارات هندسية وخدمات حرفية مباشرة ومضمونة الأجر.
+                  </p>
+                </div>
+                <div class="hidden lg:flex items-center gap-space-md bg-primary/40 backdrop-blur-md p-space-md rounded-xl">
+                  <div class="w-14 h-14 rounded-lg bg-secondary flex items-center justify-center text-on-secondary shadow-md">
+                    <span class="material-symbols-outlined text-[32px]">handyman</span>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="font-bold text-surface-container-lowest text-base">+2,400 مهني معتمد</span>
+                    <span class="text-sm text-on-primary-container">انضموا عبر 18 مدينة في المملكة</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Stepper Wizard Indicator */}
+          <div class="w-full bg-surface-container-low py-space-md shadow-sm">
+            <div class="max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md items-center">
+                <div class="flex items-center gap-space-sm p-space-sm bg-surface rounded-xl shadow-sm border border-secondary/20">
+                  <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold text-sm shrink-0">
+                    1
+                  </div>
+                  <div class="flex flex-col min-w-0">
+                    <span class="font-bold text-primary truncate text-sm">1. البيانات التعريفية</span>
+                    <span class="text-xs text-secondary truncate">الهوية ومعلومات النشاط</span>
+                  </div>
+                  <span class="material-symbols-outlined mr-auto text-secondary text-[20px]">check_circle</span>
+                </div>
+                <div class="flex items-center gap-space-sm p-space-sm bg-surface rounded-xl shadow-sm">
+                  <div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold text-sm shrink-0">
+                    2
+                  </div>
+                  <div class="flex flex-col min-w-0">
+                    <span class="font-bold text-on-surface truncate text-sm">2. التخصص والخبرة</span>
+                    <span class="text-xs text-on-surface-variant truncate">المهارات ونطاق الأعمال</span>
+                  </div>
+                  <span class="material-symbols-outlined mr-auto text-outline text-[20px]">pending</span>
+                </div>
+                <div class="flex items-center gap-space-sm p-space-sm bg-surface-container rounded-xl">
+                  <div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-bold text-sm shrink-0">
+                    3
+                  </div>
+                  <div class="flex flex-col min-w-0">
+                    <span class="font-bold text-on-surface-variant truncate text-sm">3. معرض الأعمال والقنوات</span>
+                    <span class="text-xs text-outline truncate">الصور وحسابات التواصل</span>
+                  </div>
+                  <span class="material-symbols-outlined mr-auto text-outline-variant text-[20px]">lock</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Form Content */}
+          <div class="w-full py-space-xl">
+            <div class="max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop">
+              {submitted ? (
+                <div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-md text-center max-w-2xl mx-auto my-8 border border-secondary/20">
+                  <div class="w-20 h-20 rounded-full bg-secondary-container text-secondary flex items-center justify-center mx-auto mb-4">
+                    <span class="material-symbols-outlined text-[48px]">check_circle</span>
+                  </div>
+                  <h2 class="text-2xl font-bold text-primary mb-2">تم تسجيل طلب انضمامك بنجاح!</h2>
+                  <p class="text-on-surface-variant mb-6">
+                    شكراً لك {formData.name || "عزيزي الحرفي"}. سيقوم فريق التدقيق والاعتماد المهني بمراجعة ملفك وتفعيله خلال 24 ساعة لتبدأ باستقبال طلبات العملاء فوراً.
+                  </p>
+                  <div class="flex gap-4 justify-center">
+                    <button 
+                      onClick={() => setSubmitted(false)}
+                      class="px-6 py-2.5 rounded-lg bg-primary text-on-primary font-medium hover:bg-primary-container transition-colors"
+                    >
+                      تعديل بيانات التسجيل
+                    </button>
+                    <Link 
+                      to="/"
+                      class="px-6 py-2.5 rounded-lg bg-surface-container-high text-on-surface font-medium hover:bg-surface-container transition-colors"
+                    >
+                      العودة للرئيسية
+                    </Link>
+                  </div>
+                </div>
+              ) : (
+                <form class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start" onSubmit={handleSubmit}>
+                  <div class="lg:col-span-8 flex flex-col gap-space-xl">
+                    {/* Basic Info Card */}
+                    <div class="bg-surface-container-lowest p-space-lg md:p-space-xl rounded-xl shadow-sm flex flex-col gap-space-lg">
+                      <div class="flex items-center gap-space-sm pb-space-sm border-b border-surface-container">
+                        <span class="material-symbols-outlined text-primary text-[28px]">badge</span>
+                        <div>
+                          <h2 class="text-xl font-bold text-primary">المعلومات الشخصية والمهنية</h2>
+                          <p class="text-sm text-on-surface-variant">البيانات الأساسية التي ستُعرض في بطاقتك التعاقدية أمام طالبي الخدمات.</p>
+                        </div>
+                      </div>
+
+                      <div class="flex flex-col gap-space-xs">
+                        <label class="text-sm font-semibold text-on-surface flex items-center justify-between">
+                          <span>الاسم الكامل أو اسم الورشة / الاستوديو المهني</span>
+                          <span class="text-error text-xs">* إجباري</span>
+                        </label>
+                        <div class="relative">
+                          <input 
+                            class="w-full bg-surface-container-low focus:bg-surface-container-lowest text-on-surface text-base px-space-md py-space-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary transition-all" 
+                            placeholder="مثال: م. عبد العزيز الشمري أو مؤسسة المدار للتشطيبات" 
+                            required 
+                            type="text"
+                            value={formData.name}
+                            onChange={(e) => setFormData({...formData, name: e.target.value})}
+                          />
+                          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">person</span>
+                        </div>
+                      </div>
+
+                      <div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+                        <div class="flex flex-col gap-space-xs">
+                          <label class="text-sm font-semibold text-on-surface flex items-center justify-between">
+                            <span>المجال أو التخصص المهني الأساسي</span>
+                            <span class="text-error text-xs">* إجباري</span>
+                          </label>
+                          <div class="relative">
+                            <select 
+                              class="w-full appearance-none bg-surface-container-low focus:bg-surface-container-lowest text-on-surface text-base px-space-md py-space-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary transition-all" 
+                              required
+                              value={formData.trade}
+                              onChange={(e) => setFormData({...formData, trade: e.target.value})}
+                            >
+                              <option value="" disabled>اختر التخصص المهني...</option>
+                              <option value="carpentry">نجارة راقية وتفصيل أثاث وديكورات خشب</option>
+                              <option value="plumbing">سباكة وصحية وتأسيس شبكات مياه</option>
+                              <option value="electrical">تمديدات كهربائية وأنظمة تحكم ذكية</option>
+                              <option value="hvac">تكييف مركزي وتبريد وتدفئة معتمدة</option>
+                              <option value="finishing">دهانات وتشطيبات معمارية متكاملة</option>
+                              <option value="aluminum">ألمنيوم وواجهات وزجاج سيكوريت</option>
+                              <option value="flooring">تركيب باركيه، رخام وبلاط بورسلان</option>
+                            </select>
+                            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px] pointer-events-none">expand_more</span>
+                          </div>
+                        </div>
+
+                        <div class="flex flex-col gap-space-xs">
+                          <label class="text-sm font-semibold text-on-surface flex items-center justify-between">
+                            <span>المدينة والحي أو المنطقة الجغرافية المغطاة</span>
+                            <span class="text-error text-xs">* إجباري</span>
+                          </label>
+                          <div class="relative">
+                            <input 
+                              class="w-full bg-surface-container-low focus:bg-surface-container-lowest text-on-surface text-base px-space-md py-space-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary transition-all" 
+                              placeholder="مثال: الرياض — حي النرجس والملقا" 
+                              required 
+                              type="text"
+                              value={formData.location}
+                              onChange={(e) => setFormData({...formData, location: e.target.value})}
+                            />
+                            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">location_on</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Years of Experience */}
+                      <div class="flex flex-col gap-space-sm">
+                        <label class="text-sm font-semibold text-on-surface">سنوات الخبرة العملية الموثقة في المجال</label>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm">
+                          {[
+                            { id: "<2", label: "أقل من سنتين" },
+                            { id: "3-5", label: "3 - 5 سنوات" },
+                            { id: "6-10", label: "6 - 10 سنوات" },
+                            { id: "10+", label: "+10 سنوات خبير" }
+                          ].map((item) => {
+                            const isSelected = experience === item.id;
+                            return (
+                              <button
+                                key={item.id}
+                                type="button"
+                                onClick={() => setExperience(item.id)}
+                                className={`py-space-sm px-space-md rounded-lg font-medium text-sm transition-all flex items-center justify-center gap-space-xs text-center ${
+                                  isSelected
+                                    ? "bg-primary text-on-primary shadow-sm"
+                                    : "bg-surface-container-low hover:bg-surface-container text-on-surface"
+                                }`}
+                              >
+                                {isSelected && <span class="material-symbols-outlined text-[16px]">check</span>}
+                                <span>{item.label}</span>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+
+                      {/* Bio */}
+                      <div class="flex flex-col gap-space-xs">
+                        <label class="text-sm font-semibold text-on-surface flex items-center justify-between">
+                          <span>نبذة موجزة عن المهارات وسجل العمل الميداني</span>
+                          <span class="text-xs text-outline">حد أقصى 400 حرف</span>
+                        </label>
+                        <textarea 
+                          class="w-full bg-surface-container-low focus:bg-surface-container-lowest text-on-surface text-base p-space-md rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary transition-all resize-none" 
+                          placeholder="اذكر أنواع المشروعات السابقة، المعدات الدقيقة التي تمتلكها، الشهادات الفنية الحاصل عليها، والتزامك بمعايير السلامة والجودة..." 
+                          rows="4"
+                          value={formData.bio}
+                          onChange={(e) => setFormData({...formData, bio: e.target.value})}
+                        ></textarea>
+                      </div>
+
+                      {/* Service delivery mode */}
+                      <div class="flex flex-col gap-space-sm">
+                        <label class="text-sm font-semibold text-on-surface">طريقة تقديم الخدمة واستقبال طلبات العملاء</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+                          <label class="flex items-start gap-space-sm p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors">
+                            <input 
+                              type="checkbox" 
+                              checked={formData.fieldService}
+                              onChange={(e) => setFormData({...formData, fieldService: e.target.checked})}
+                              class="mt-1 w-5 h-5 rounded text-primary focus:ring-secondary accent-primary"
+                            />
+                            <div class="flex flex-col">
+                              <span class="font-bold text-sm text-primary flex items-center gap-space-xs">
+                                <span class="material-symbols-outlined text-[18px]">home_repair_service</span>
+                                زيارة ميدانية وحضورية بالموقع
+                              </span>
+                              <span class="text-xs text-on-surface-variant">الذهاب لمقر العميل، الكشف الميداني، والتركيب أو الإصلاح الفعلي.</span>
+                            </div>
+                          </label>
+
+                          <label class="flex items-start gap-space-sm p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors">
+                            <input 
+                              type="checkbox" 
+                              checked={formData.remoteConsult}
+                              onChange={(e) => setFormData({...formData, remoteConsult: e.target.checked})}
+                              class="mt-1 w-5 h-5 rounded text-primary focus:ring-secondary accent-primary"
+                            />
+                            <div class="flex flex-col">
+                              <span class="font-bold text-sm text-primary flex items-center gap-space-xs">
+                                <span class="material-symbols-outlined text-[18px]">support_agent</span>
+                                عن بُعد / استشارات فنية ومخططات
+                              </span>
+                              <span class="text-xs text-on-surface-variant">تقديم استشارات هاتفية، تسعير جداول كميات، أو مراجعة مخططات ومقايسات.</span>
+                            </div>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Portfolio / Uploaded Works Card */}
+                    <div class="bg-surface-container-lowest p-space-lg md:p-space-xl rounded-xl shadow-sm flex flex-col gap-space-lg">
+                      <div class="flex items-center justify-between pb-space-sm border-b border-surface-container">
+                        <div class="flex items-center gap-space-sm">
+                          <span class="material-symbols-outlined text-secondary text-[28px]">collections_bookmark</span>
+                          <div>
+                            <h2 class="text-xl font-bold text-primary">معرض الأعمال السابقة</h2>
+                            <p class="text-sm text-on-surface-variant">أظهر دقة عملك ورفع صور حقيقية لمشاريع تم تنفيذها بنجاح.</p>
+                          </div>
+                        </div>
+                        <span class="text-xs px-space-sm py-1 bg-secondary-container text-on-secondary-container rounded-full font-bold">
+                          {photos.length} صور مضافة
+                        </span>
+                      </div>
+
+                      {/* Dropzone mock */}
+                      <div 
+                        onClick={() => alert("محاكاة: يمكنك رفع ملفات الأعمال الفنية (JPG / PNG) حتى 15 ميجابايت.")}
+                        class="p-space-xl rounded-xl bg-surface-container-low/70 flex flex-col items-center justify-center text-center group cursor-pointer hover:bg-surface-container transition-all border-2 border-dashed border-outline-variant"
+                      >
+                        <div class="w-16 h-16 rounded-full bg-secondary-container/40 flex items-center justify-center text-secondary mb-space-sm group-hover:scale-110 transition-transform">
+                          <span class="material-symbols-outlined text-[32px]">cloud_upload</span>
+                        </div>
+                        <h3 class="font-semibold text-primary text-base">اسحب صور المشاريع وأفلتها هنا، أو اضغط للتصفح</h3>
+                        <p class="text-xs text-on-surface-variant mt-1">ندعم ملفات JPG و PNG و WebP بجودة عالية (حتى 15 ميجابايت للملف الواحد)</p>
+                        <button class="mt-space-md px-space-lg py-space-xs bg-surface text-primary font-medium text-sm rounded-lg shadow-sm hover:bg-surface-container-high transition-colors flex items-center gap-space-xs" type="button">
+                          <span class="material-symbols-outlined text-[18px]">add_photo_alternate</span>
+                          <span>اختيار صور من الجهاز</span>
+                        </button>
+                      </div>
+
+                      {/* Thumbnails grid */}
+                      <div class="flex flex-col gap-space-sm">
+                        <span class="text-sm font-semibold text-on-surface">عينات منتقاة مضافة لملفك:</span>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md">
+                          {photos.map((item) => (
+                            <div key={item.id} class="relative group rounded-xl overflow-hidden shadow-sm bg-surface-container">
+                              <img class="w-full h-44 object-cover" src={item.img} alt={item.title} />
+                              <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent flex flex-col justify-end p-space-sm text-on-primary">
+                                <span class="text-xs text-secondary-fixed">{item.category}</span>
+                                <span class="text-sm font-semibold truncate">{item.title}</span>
+                              </div>
+                              <button 
+                                type="button"
+                                onClick={() => removePhoto(item.id)}
+                                class="absolute top-2 left-2 w-8 h-8 rounded-full bg-error text-on-error flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-md"
+                              >
+                                <span class="material-symbols-outlined text-[18px]">delete</span>
+                              </button>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Sidebar Info & Submit */}
+                  <div class="lg:col-span-4 flex flex-col gap-space-lg lg:sticky lg:top-24">
+                    <div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md">
+                      <div class="flex items-center gap-space-xs text-primary pb-space-xs">
+                        <span class="material-symbols-outlined text-[24px]">contact_phone</span>
+                        <h3 class="text-lg font-bold">قنوات التواصل والاتصال</h3>
+                      </div>
+                      <div class="flex flex-col gap-space-xs">
+                        <label class="text-sm font-semibold text-on-surface">رقم الهاتف المباشر (للتواصل السريع)</label>
+                        <div class="relative flex items-center">
+                          <input 
+                            class="w-full text-left bg-surface-container-low focus:bg-surface-container-lowest text-on-surface text-base pl-16 pr-space-md py-space-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary transition-all" 
+                            dir="ltr" 
+                            placeholder="05X XXX XXXX" 
+                            type="tel"
+                            value={formData.phone}
+                            onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                          />
+                          <span class="absolute left-3 text-xs text-outline-variant font-bold pointer-events-none">+966</span>
+                        </div>
+                      </div>
+
+                      <div class="flex flex-col gap-space-xs">
+                        <label class="text-sm font-semibold text-on-surface">رقم الواتساب الرسمي (لإرسال المعاينات)</label>
+                        <div class="relative flex items-center">
+                          <input 
+                            class="w-full text-left bg-surface-container-low focus:bg-surface-container-lowest text-on-surface text-base pl-16 pr-space-md py-space-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary transition-all" 
+                            dir="ltr" 
+                            placeholder="05X XXX XXXX" 
+                            type="tel"
+                            value={formData.whatsapp}
+                            onChange={(e) => setFormData({...formData, whatsapp: e.target.value})}
+                          />
+                          <span class="absolute left-3 text-xs text-outline-variant font-bold pointer-events-none">+966</span>
+                        </div>
+                      </div>
+
+                      <div class="p-space-sm bg-surface-container-low rounded-lg flex items-center justify-between">
+                        <div class="flex items-center gap-space-xs">
+                          <span class="material-symbols-outlined text-secondary text-[22px]">notifications_active</span>
+                          <div class="flex flex-col">
+                            <span class="text-xs font-semibold text-on-surface">إشعارات الطلبات الفورية</span>
+                            <span class="text-[11px] text-on-surface-variant">تنبيه عند وجود طلب قريب منك</span>
+                          </div>
+                        </div>
+                        <input 
+                          type="checkbox" 
+                          checked={formData.instantAlerts}
+                          onChange={(e) => setFormData({...formData, instantAlerts: e.target.checked})}
+                          class="w-5 h-5 rounded text-primary focus:ring-secondary accent-primary"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-primary-container to-primary text-on-primary p-space-lg rounded-xl shadow-md flex flex-col gap-space-md relative overflow-hidden">
+                      <div class="absolute -right-12 -bottom-12 w-32 h-32 rounded-full bg-secondary-container/10 blur-xl pointer-events-none"></div>
+                      <div class="flex items-center gap-space-xs text-secondary-fixed">
+                        <span class="material-symbols-outlined text-[24px]">stars</span>
+                        <h3 class="text-lg font-bold">مميزات الانضمام المبكر</h3>
+                      </div>
+                      <ul class="flex flex-col gap-space-sm text-sm">
+                        <li class="flex items-start gap-space-xs">
+                          <span class="material-symbols-outlined text-secondary-container text-[20px] shrink-0 mt-0.5">verified_user</span>
+                          <div class="flex flex-col">
+                            <span class="font-bold text-on-primary">توثيق معتمد وسريع مجاناً</span>
+                            <span class="text-xs text-on-primary-container">تدقيق رخص العمل وفحص الهوية بأولوية قصوى خلال 24 ساعة.</span>
+                          </div>
+                        </li>
+                        <li class="flex items-start gap-space-xs">
+                          <span class="material-symbols-outlined text-secondary-container text-[20px] shrink-0 mt-0.5">trending_up</span>
+                          <div class="flex flex-col">
+                            <span class="font-bold text-on-primary">أولوية الظهور في نتائج البحث</span>
+                            <span class="text-xs text-on-primary-container">ظهور ملفك المهني في الصدارة للعملاء داخل نطاق حيك الجغرافي.</span>
+                          </div>
+                        </li>
+                        <li class="flex items-start gap-space-xs">
+                          <span class="material-symbols-outlined text-secondary-container text-[20px] shrink-0 mt-0.5">support</span>
+                          <div class="flex flex-col">
+                            <span class="font-bold text-on-primary">دعم وتوجيه تسويقي مستمر</span>
+                            <span class="text-xs text-on-primary-container">مدير حساب مخصص لمساعدتك في تسعير الخدمات وصياغة العروض.</span>
+                          </div>
+                        </li>
+                      </ul>
+                      <div class="pt-space-xs">
+                        <div class="flex items-center justify-between text-secondary-fixed text-xs font-semibold mb-1">
+                          <span>نسبة اكتمال ملف التسجيل</span>
+                          <span>75%</span>
+                        </div>
+                        <div class="w-full h-2 bg-on-primary/20 rounded-full overflow-hidden">
+                          <div class="w-3/4 h-full bg-secondary-fixed rounded-full"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="flex flex-col gap-space-sm">
+                      <button class="w-full bg-primary hover:bg-primary-container text-on-primary font-bold text-base py-space-md px-space-lg rounded-xl shadow-md transition-all flex items-center justify-center gap-space-sm group" type="submit">
+                        <span>تسجيل المهني في المنصة</span>
+                        <span class="material-symbols-outlined text-[20px] group-hover:-translate-x-1 transition-transform rtl:scale-x-[-1]">arrow_back</span>
+                      </button>
+                      <button 
+                        onClick={() => alert("تم حفظ مسودة بيانات التسجيل مؤقتاً في جلستك.")}
+                        class="w-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-medium text-sm py-space-sm px-space-md rounded-xl transition-colors flex items-center justify-center gap-space-xs" 
+                        type="button"
+                      >
+                        <span class="material-symbols-outlined text-[18px]">bookmark_border</span>
+                        <span>حفظ كمسودة للإكمال لاحقاً</span>
+                      </button>
+                      <p class="text-xs text-center text-outline px-space-sm">
+                        بالضغط على زر التسجيل، فإنك توافق على ميثاق العمل المهني والشروط المعتمدة لمنصة مِراس.
+                      </p>
+                    </div>
+                  </div>
+                </form>
+              )}
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // SCREEN 2: Home Page (Screen ID: f7a4bd9c9797417388fb5b66f2d13217)
+    function HomeScreen() {
+      const navigate = useNavigate();
+      const [tradeInput, setTradeInput] = useState("");
+      const [notified, setNotified] = useState(false);
+
+      const quickChips = [
+        "صيانة وتشطيبات",
+        "تقنية وبرمجة",
+        "استشارات أعمال",
+        "إنتاج إعلامي",
+        "أعمال يدوية"
+      ];
+
+      const handleSearch = () => {
+        if (!tradeInput.trim()) {
+          alert("يرجى كتابة اسم المهنة أو المهارة أولاً...");
+          return;
+        }
+        navigate(`/explore-trades?q=${encodeURIComponent(tradeInput)}`);
+      };
+
+      const categories = [
+        {
+          title: "صيانة وتشطيبات منزلية",
+          desc: "أعمال الكهرباء، السباكة الدقيقة، النجارة المعمارية، أعمال الدهانات، وتركيبات التكييف والتبريد المركزية.",
+          icon: "home_repair_service"
+        },
+        {
+          title: "تصميم وتقنية وبرمجة",
+          desc: "تطوير البرمجيات وتطبيقات الويب، تصميم واجهات وتجربة المستخدم، الأمن السيبراني وإدارة البنية السحابية.",
+          icon: "terminal"
+        },
+        {
+          title: "استشارات وأعمال حرة",
+          desc: "دراسات الجدوى المالية، الاستشارات القانونية والإدارية، التخطيط الاستراتيجي وتأسيس المشاريع الناشئة.",
+          icon: "query_stats"
+        },
+        {
+          title: "تصوير وإنتاج إعلامي",
+          desc: "تصوير احترافي فوتوغرافي وسينمائي، تحرير ومونتاج الفيديو، التعليق الصوتي، وهندسة الصوت للإعلانات.",
+          icon: "videocam"
+        },
+        {
+          title: "أعمال يدوية وفنون",
+          desc: "صناعة الفخار والخزف، المشغولات الجلدية اليدوية، الخط العربي، والقطع الفنية التراثية المصممة حسب الطلب.",
+          icon: "palette"
+        }
+      ];
+
+      return (
+        <div class="flex flex-col w-full">
+          <div class="relative w-full overflow-hidden">
+            <div class="absolute -top-32 right-1/4 w-[580px] h-[580px] bg-secondary-container/30 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+            <div class="absolute top-96 left-10 w-[420px] h-[420px] bg-tertiary-fixed/30 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+
+            {/* HERO SECTION */}
+            <section class="max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop pt-space-xl pb-space-xl">
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-center">
+                <div class="lg:col-span-7 flex flex-col gap-space-lg">
+                  <div class="inline-flex items-center gap-space-sm self-start bg-secondary-container/50 px-space-md py-1.5 rounded-full shadow-sm">
+                    <span class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"></span>
+                    <span class="text-sm font-semibold text-on-secondary-fixed-variant">انطلاقة جديدة وواعدة - نفتح الأبواب لاستقبال نخبة الحرفيين</span>
+                  </div>
+
+                  <div class="flex flex-col gap-space-xs">
+                    <span class="text-base font-semibold text-secondary tracking-widest uppercase">المنصة المهنية الشاملة</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-primary leading-tight">
+                      مرحباً بك في مِراس
+                    </h1>
+                  </div>
+
+                  <p class="text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+                    وجهتك الأولى لاكتشاف أمهر أصحاب المهن والحرفيين قريباً. معاً نبني مجتمعاً مهنياً متكاملاً يرتقي بثقتكم ويصنع معياراً جديداً للإتقان والاعتمادية.
+                  </p>
+
+                  {/* Interactive Search Card */}
+                  <div class="bg-surface-container-lowest p-space-sm md:p-space-md rounded-xl shadow-md flex flex-col md:flex-row items-center gap-space-sm mt-space-xs border border-surface-container">
+                    <div class="flex items-center gap-space-sm w-full flex-1 px-space-sm">
+                      <span class="material-symbols-outlined text-secondary text-[24px]">construction</span>
+                      <input 
+                        class="w-full bg-transparent text-base text-on-surface placeholder:text-outline focus:outline-none" 
+                        placeholder="ابحث عن مهنة (نجارة، برمجة، تشطيب، إعلام...)" 
+                        type="text"
+                        value={tradeInput}
+                        onChange={(e) => setTradeInput(e.target.value)}
+                        onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+                      />
+                    </div>
+                    <div class="h-6 w-px bg-surface-container-highest hidden md:block"></div>
+                    <div class="flex items-center gap-space-sm w-full md:w-auto px-space-sm">
+                      <span class="material-symbols-outlined text-outline text-[20px]">location_on</span>
+                      <span class="text-sm text-on-surface-variant whitespace-nowrap">كافة مناطق المملكة</span>
+                    </div>
+                    <button 
+                      class="w-full md:w-auto bg-primary hover:bg-primary-container text-on-primary font-bold px-space-lg py-3 rounded-lg flex items-center justify-center gap-space-xs transition-colors shadow-sm" 
+                      type="button"
+                      onClick={handleSearch}
+                    >
+                      <span>استكشف</span>
+                      <span class="material-symbols-outlined text-[18px] rotate-180">arrow_right_alt</span>
+                    </button>
+                  </div>
+
+                  {/* Quick Discovery Tags */}
+                  <div class="flex flex-wrap items-center gap-space-xs pt-space-xs">
+                    <span class="text-xs font-semibold text-outline ml-space-xs">المجالات الرائجة:</span>
+                    {quickChips.map((chip, i) => (
+                      <button 
+                        key={i}
+                        onClick={() => { setTradeInput(chip); navigate(`/explore-trades?q=${encodeURIComponent(chip)}`); }}
+                        class="px-space-sm py-1 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant text-xs font-medium transition-colors" 
+                        type="button"
+                      >
+                        {chip}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div class="lg:col-span-5 relative flex flex-col gap-space-md">
+                  <div class="relative w-full h-[380px] rounded-xl overflow-hidden shadow-xl bg-surface-container">
+                    <img 
+                      class="w-full h-full object-cover" 
+                      alt="ورشة عمل حرفية متقنة"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd4Ma_Y3bbk2QtRhjMukJusJUADK3DSq8JdSGoV_wPWyBQeC47BGDXt3csxCYIPZE_NzjyA-Tps-lr6WptFYCZ_fQhPj6UMJpGlDdMI5t0B_OP-4ZUl5T9RKrn53LTa_H36gmuJ5dqXccxgNByZAoN7ccPwCRWkvebXZ-vOmlFrA476qFkjMNjRDryJnTdJnDc7DvitRcPmVK8xl_9jnBu-aOGGkr1Yo4ThC48X_7F" 
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent flex flex-col justify-end p-space-lg text-on-primary">
+                      <div class="flex items-center gap-space-xs mb-space-xs">
+                        <span class="material-symbols-outlined text-secondary-fixed text-[20px]">verified</span>
+                        <span class="text-xs font-bold text-secondary-fixed">منظومة تدقيق الجودة المهنية</span>
+                      </div>
+                      <p class="text-xl font-bold leading-snug">معايير معتمدة لاختيار الكفاءات الحرفية</p>
+                      <p class="text-sm text-surface-container-highest mt-1">نضمن حقوق العملاء وحرفية التنفيذ عبر مسار وساطة موثوق.</p>
+                    </div>
+                  </div>
+
+                  <div class="-mt-12 mr-space-md ml-auto w-11/12 bg-surface-container-lowest p-space-md rounded-xl shadow-lg flex items-center justify-between border border-surface-container">
+                    <div class="flex items-center gap-space-sm">
+                      <div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container">
+                        <span class="material-symbols-outlined text-[24px]">verified_user</span>
+                      </div>
+                      <div>
+                        <p class="text-sm font-bold text-primary">فحص مهني 100%</p>
+                        <p class="text-xs text-on-surface-variant">التحقق من المؤهلات والخبرات</p>
+                      </div>
+                    </div>
+                    <span class="text-xs font-semibold bg-tertiary-fixed text-on-tertiary-fixed px-space-sm py-1 rounded-md">مرحلة القبول</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* SECTION 2: PROFESSION CATEGORIES GRID */}
+            <section class="max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-xl">
+              <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-xl">
+                <div class="flex flex-col gap-space-xs">
+                  <div class="flex items-center gap-space-xs">
+                    <span class="w-8 h-1 bg-secondary rounded-full"></span>
+                    <span class="text-sm font-semibold text-secondary uppercase tracking-wider">القطاعات والمهن المعتمدة</span>
+                  </div>
+                  <h2 class="text-3xl font-bold text-primary">استكشف مجالات العمل المتاحة</h2>
+                  <p class="text-base text-on-surface-variant max-w-xl">
+                    اختر قطاعك المهني أو ابحث عن التخصص الذي تبحث عنه للاطلاع على معايير القبول وحجز الخدمات فور الإطلاق.
+                  </p>
+                </div>
+                <div class="flex items-center gap-space-sm self-start md:self-auto bg-surface-container-low px-space-md py-space-xs rounded-xl">
+                  <span class="material-symbols-outlined text-secondary text-[20px]">how_to_reg</span>
+                  <span class="text-xs font-medium text-on-surface-variant">التسجيل متاح لكافة التخصصات الخمسة</span>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter-desktop">
+                {categories.map((cat, idx) => (
+                  <div key={idx} class="group bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between border border-surface-container">
+                    <div class="flex flex-col gap-space-md">
+                      <div class="flex items-center justify-between">
+                        <div class="w-14 h-14 rounded-xl bg-primary/5 group-hover:bg-primary-container text-primary group-hover:text-on-primary transition-colors flex items-center justify-center">
+                          <span class="material-symbols-outlined text-[30px]">{cat.icon}</span>
+                        </div>
+                        <span class="text-xs bg-secondary-container text-on-secondary-container px-space-sm py-1 rounded-full flex items-center gap-1 font-semibold">
+                          <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                          باب التسجيل مفتوح
+                        </span>
+                      </div>
+                      <div class="flex flex-col gap-space-xs">
+                        <h3 class="text-xl font-bold text-primary">{cat.title}</h3>
+                        <p class="text-sm text-on-surface-variant leading-relaxed">
+                          {cat.desc}
+                        </p>
+                      </div>
+                    </div>
+                    <div class="pt-space-md mt-space-md bg-surface-container-low/50 rounded-lg p-space-sm flex items-center justify-between">
+                      <span class="text-xs text-on-surface-variant font-medium">0 مهنيين متاحين - قريباً</span>
+                      <Link to="/join-pro" class="text-xs text-secondary hover:text-primary font-bold flex items-center gap-0.5">
+                        <span>انضم الآن</span>
+                        <span class="material-symbols-outlined text-[16px] rotate-180">chevron_left</span>
+                      </Link>
+                    </div>
+                  </div>
+                ))}
+
+                {/* Extra Callout Tile */}
+                <div class="bg-primary text-on-primary rounded-xl p-space-lg shadow-md flex flex-col justify-between relative overflow-hidden">
+                  <div class="absolute -bottom-8 -left-8 w-36 h-36 bg-secondary/20 rounded-full blur-2xl"></div>
+                  <div class="flex flex-col gap-space-sm relative z-10">
+                    <span class="material-symbols-outlined text-secondary-fixed text-[36px]">auto_awesome</span>
+                    <h3 class="text-xl font-bold text-on-primary">هل مهنتك غير مدرجة؟</h3>
+                    <p class="text-sm text-on-primary-container leading-relaxed">
+                      نحن نتوسع باستمرار لإضافة تخصصات نوعية جديدة تلبي حاجة السوق المحلي بأعلى معايير الإتقان.
+                    </p>
+                  </div>
+                  <div class="pt-space-md relative z-10">
+                    <Link to="/join-pro" class="inline-flex items-center gap-space-xs text-sm font-semibold text-secondary-fixed hover:text-white transition-colors">
+                      <span>اقترح مهنة جديدة أو انضم</span>
+                      <span class="material-symbols-outlined text-[18px] rotate-180">arrow_right_alt</span>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* SECTION 3: QUIET STATE NOTICE */}
+            <section class="max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-lg">
+              <div class="bg-surface-container-low rounded-xl p-space-lg md:p-space-xl flex flex-col md:flex-row items-center gap-space-xl shadow-sm border border-surface-container">
+                <div class="w-28 h-28 md:w-36 md:h-36 shrink-0 flex items-center justify-center bg-surface-container rounded-full relative">
+                  <svg class="w-20 h-20 text-secondary" fill="none" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="opacity-40" cx="40" cy="40" r="34" stroke="currentColor" stroke-dasharray="4 4" stroke-width="2.5"></circle>
+                    <path d="M28 42L36 50L54 32" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+                    <circle class="opacity-10" cx="40" cy="40" fill="currentColor" r="18"></circle>
+                    <path d="M40 22V28M40 52V58M22 40H28M52 40H58" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+                  </svg>
+                  <div class="absolute top-2 right-2 w-4 h-4 bg-tertiary-fixed-dim rounded-full"></div>
+                </div>
+                <div class="flex-1 flex flex-col gap-space-xs text-center md:text-right">
+                  <div class="inline-flex items-center gap-space-xs self-center md:self-start bg-surface-container-highest px-space-sm py-1 rounded-md">
+                    <span class="material-symbols-outlined text-outline text-[16px]">info</span>
+                    <span class="text-xs font-semibold text-on-surface-variant">حالة التوفر الجغرافي</span>
+                  </div>
+                  <h3 class="text-xl font-bold text-primary">لا يوجد أصحاب مهن مسجلون بعد في منطقتك</h3>
+                  <p class="text-base text-on-surface-variant max-w-2xl leading-relaxed">
+                    نقوم حالياً بفحص وتجهيز قائمة بأفضل الكفاءات والكوادر المهنية المعتمدة لضمان تجربة خدمة استثنائية وآمنة منذ اليوم الأول.
+                  </p>
+                </div>
+                <div class="shrink-0 flex flex-col gap-space-xs w-full md:w-auto">
+                  {!notified ? (
+                    <button 
+                      class="px-space-md py-3 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-primary font-semibold text-sm transition-colors shadow-sm flex items-center justify-center gap-space-xs whitespace-nowrap" 
+                      type="button"
+                      onClick={() => setNotified(true)}
+                    >
+                      <span class="material-symbols-outlined text-[18px]">notifications_active</span>
+                      <span>أشعرني عند التوفر في منطقتي</span>
+                    </button>
+                  ) : (
+                    <span class="text-sm font-bold text-secondary text-center bg-secondary-container/40 p-2.5 rounded-lg">
+                      تم تسجيل اهتمامك بنجاح!
+                    </span>
+                  )}
+                </div>
+              </div>
+            </section>
+
+            {/* SECTION 4: CRAFTSMEN CTA */}
+            <section class="max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-xl mb-space-lg">
+              <div class="relative bg-primary-container text-on-primary rounded-xl overflow-hidden shadow-xl p-space-lg md:p-space-xl">
+                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-secondary/15 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute left-10 top-0 w-64 h-64 bg-tertiary/20 rounded-full blur-2xl pointer-events-none"></div>
+                <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-center">
+                  <div class="lg:col-span-8 flex flex-col gap-space-md">
+                    <div class="inline-flex items-center gap-space-xs self-start bg-secondary-container/20 text-secondary-fixed px-space-sm py-1 rounded-full">
+                      <span class="material-symbols-outlined text-[18px]">verified</span>
+                      <span class="text-xs font-semibold">للمتخصصين والفنيين وأصحاب الخبرة</span>
+                    </div>
+                    <h2 class="text-3xl font-bold text-on-primary leading-snug">
+                      انضم إلينا كصاحب مهنة
+                    </h2>
+                    <p class="text-lg text-on-primary-container max-w-2xl leading-relaxed">
+                      احجز مكانك الآن وتواصل مع آلاف العملاء الباحثين عن شغفك وجودتك فور التدشين. نوفر لك أدوات إدارة المواعيد، نظام تسعير شفاف، وحماية كاملة لمستحقاتك المالية.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm pt-space-xs">
+                      <div class="flex items-center gap-space-xs text-on-primary text-sm font-semibold">
+                        <span class="material-symbols-outlined text-secondary-fixed text-[20px]">check_circle</span>
+                        <span>بدون عمولات تدشين</span>
+                      </div>
+                      <div class="flex items-center gap-space-xs text-on-primary text-sm font-semibold">
+                        <span class="material-symbols-outlined text-secondary-fixed text-[20px]">check_circle</span>
+                        <span>دعم تسويقي مخصص</span>
+                      </div>
+                      <div class="flex items-center gap-space-xs text-on-primary text-sm font-semibold">
+                        <span class="material-symbols-outlined text-secondary-fixed text-[20px]">check_circle</span>
+                        <span>حماية حقوق الدفع</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="lg:col-span-4 flex flex-col gap-space-sm items-start lg:items-end">
+                    <Link to="/join-pro" class="w-full sm:w-auto inline-flex items-center justify-center gap-space-sm bg-secondary hover:bg-secondary/90 text-on-secondary font-bold text-base px-space-lg py-4 rounded-lg shadow-md hover:shadow-lg transition-all text-center">
+                      <span>سجل مهنتك الآن وكن من أوائل المنضمين</span>
+                      <span class="material-symbols-outlined text-[20px] rotate-180">arrow_right_alt</span>
+                    </Link>
+                    <span class="text-xs text-on-primary-container font-medium">التسجيل المبدئي يستغرق أقل من دقيقتين</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* TRUST SUMMARY */}
+            <section class="max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop pb-space-xl">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-desktop">
+                <div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex items-start gap-space-md border border-surface-container">
+                  <div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shrink-0">
+                    <span class="material-symbols-outlined text-[26px]">gavel</span>
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <h4 class="text-base font-bold text-primary">عقود وساطة شفافة</h4>
+                    <p class="text-sm text-on-surface-variant">اتفاقيات واضحة ومحددة البنود تضمن إنجاز الأعمال بدقة دون أي خلافات جانبية.</p>
+                  </div>
+                </div>
+
+                <div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex items-start gap-space-md border border-surface-container">
+                  <div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shrink-0">
+                    <span class="material-symbols-outlined text-[26px]">lock</span>
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <h4 class="text-base font-bold text-primary">ضمان المبالغ المعلقة</h4>
+                    <p class="text-sm text-on-surface-variant">حفظ المستحقات في حساب ضمان آمن حتى استلام العميل للعمل ومطابقته للشروط.</p>
+                  </div>
+                </div>
+
+                <div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex items-start gap-space-md border border-surface-container">
+                  <div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shrink-0">
+                    <span class="material-symbols-outlined text-[26px]">star</span>
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <h4 class="text-base font-bold text-primary">تقييمات حقيقية موثقة</h4>
+                    <p class="text-sm text-on-surface-variant">مراجعات العملاء الفعلية بعد كل خدمة معتمدة تمنحك شفافية كاملة قبل الاختيار.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      );
+    }
+
+    // SCREEN 3: Explore Trades Catalog (Screen ID: dcab3df9d8524ff099cb0d6a9ec59991)
+    function ExploreTradesScreen() {
+      const location = useLocation();
+      const [category, setCategory] = useState("all");
+      const [searchQuery, setSearchQuery] = useState("");
+      const [dialogOpen, setDialogOpen] = useState(false);
+      const [suggestSuccess, setSuggestSuccess] = useState(false);
+
+      // Check query params if any
+      useEffect(() => {
+        const params = new URLSearchParams(location.search);
+        const q = params.get("q");
+        if (q) {
+          setSearchQuery(q);
+        }
+      }, [location.search]);
+
+      const trades = [
+        {
+          id: 1,
+          category: "crafts",
+          categoryName: "حرف يدوية",
+          title: "النجارة والديكور الخشبي",
+          desc: "تنفيذ المشغولات اليدوية الفاخرة، الترميم الاحترافي للأثاث العتيق، وتصنيع التجهيزات الجدارية الخشبية المخصصة.",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuB8Yhxun7xhrAmc6TpL-N34xCOkxO47-VxmosO8ZEbCxF4NoN4e3Vv7ftyn1ismkFxWsgPUWcYCj4wuAP4Dn4qviCTGzkQNJbVm8sT4nAaf8SmPTSO-QCFrRjgfZ24CHBbZaDief8_zN9LE_cmlgeYPZe4_OffeLUOYPfPfWHdWwWNfTy0f7flEm3teI-N1MpSivxgkeUscT1M55PmBT1rxTP1qJ4fmCPN-JiiflYl3",
+          badge: "مطلوب: تصنيف حرفي",
+          slots: "٦ شواغر نشطة",
+          icon: "carpenter",
+          keywords: "نجارة ديكور خشب أثاث ترميم"
+        },
+        {
+          id: 2,
+          category: "maintenance",
+          categoryName: "صيانة وتأسيس",
+          title: "التمديدات الكهربائية الذكية",
+          desc: "تصميم وتأسيس شبكات الإنارة الحديثة، موازنة الأحمال الكهربائية، ودمج وحدات التحكم اللاسلكية للمنازل الذكية.",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAcP5lW-eWjmrqNoP-ouQ0Lpf193eporJgjBMNOVJovcC__BvuJBfG3FNZN8QnWoDPq4AAFL87P-2WH84WklDA_q3DBHjHLFLZQqku3v-lYCBKJ-DxrcjS3gx2toy3qFCUBq4q6B3JpOz6C3oxIeorfAodvPj0tKO9PUL5uGO_VzOqvRhmYc1OiUB7CkCdim5RJNciTQAu-BPtjR0aXcEbrWa4ckzbj1as-fqUl-41y",
+          badge: "مطلوب: اعتماد هندسي",
+          slots: "٤ شواغر نشطة",
+          icon: "electric_bolt",
+          keywords: "كهرباء طاقة ذكية شبكات إنارة قواطع"
+        },
+        {
+          id: 3,
+          category: "tech",
+          categoryName: "تصميم وتقنية",
+          title: "التصميم الداخلي والمخططات",
+          desc: "توزيع المساحات الحيوية، والنمذجة ثلاثية الأبعاد، وتحديد باليتات المواد والإنارة للمشاريع السكنية والتجارية.",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAk1uydRvA7OhORXPPOPVunqiCZdTkVu2g_4eNddN9oLeqlb5tc6B41qZ-fw3V-HQQ7D7b5roTB7rLlIk1KoIkUnjFSTHp9_oYegpU4u9NrBhqpiI-oSJhbLuYbNdJ2zMxE4B1gkdOXIh0bC833u6GbUM6MkkINFz7_aSVFdJo4sxnQmqwfzk_ev4lB3EREK6PZCTBbh4krAyKigBDkmGUpTXGS2f_ZcVcnLWFCkHZ3",
+          badge: "مطلوب: محفظة أعمال",
+          slots: "٨ شواغر نشطة",
+          icon: "architecture",
+          keywords: "تصميم داخلي مخططات ثري دي نمذجة هندسة ديكور"
+        },
+        {
+          id: 4,
+          category: "maintenance",
+          categoryName: "صيانة وتأسيس",
+          title: "التبريد والتكييف المركزي",
+          desc: "تركيب وغسيل وصيانة المنظومات المنفصلة والمركزية، عزل مجاري الهواء وحساب الأحمال الحرارية للمنشآت.",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBg2m635F1XfQfNH10YeViDa4_z9PBcYcEQ3trA4fdKa5YPphwek8fvOHKtgFDgOt-_4N5OyUbf2YfeBBoq9qy0cS6Az_YP0jo5kiYeDx1Sm4Wq_fUl7KrW1M0Q6WeBCA2nXJeeLW51pqcoDLZgIvFsf5H9EXxuosDwBaSnUApsNx7ay9dmSMosjjccOHXe8drYYoY9VyV9p2BXgZdIhcqp1udSHIHMJ2DBKsctcbc0",
+          badge: "مطلوب: فحص سلامة مهنية",
+          slots: "٥ شواغر نشطة",
+          icon: "mode_fan",
+          keywords: "تبريد تكييف مركزي غسيل صيانة دكتات فريون"
+        },
+        {
+          id: 5,
+          category: "tech",
+          categoryName: "تصميم وتقنية",
+          title: "الدعم الفني وتجهيز الشبكات",
+          desc: "ربط السيرفرات والشبكات الداخلية، وتجهيز كاميرات المراقبة والحساسات والأنظمة السحابية الموثوقة.",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuC6D8Pytw5H9TAy_PKQSwwzwG95QORngQeOVCPOVuwM4mZOeriuVFbDanTVnO1d54tbdwXH_BRoLNpdMSCJuef24sgtbofyF7e67o1_5tOtXKj4QTTFWKU0gdtqezX79Kt8gPy-cQDwfwieJmMgTMvVLK8A2xJae1KWUi9QnVjnJKgNc-cdM98Twsf3_RECYkFxU6nYTTRyfaa7e8GMSJ647RY_mkjvU9hWSr_3PbO4",
+          badge: "مطلوب: شهادة شبكات",
+          slots: "٣ شواغر نشطة",
+          icon: "lan",
+          keywords: "شبكات سيرفرات دعم فني ألياف بصرية كاميرات مراقبة"
+        },
+        {
+          id: 6,
+          category: "training",
+          categoryName: "تعليم وتدريب",
+          title: "التدريب المهني والحرفي",
+          desc: "تقديم ورش عمل تطبيقية موجهة لنقل الصنعة وتعليم أساسيات الحرف وصقل المهارات لجيل المهنيين الجديد.",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDW0MUk7MzqVx4OejbnbFDwltNPVFMM_GhEOEypktkPQOm-vfsVGORpjT5Mbk9afZDus57AKRXSAPFiAwPq72eeQPwWW6BdjUQpUPuhs9CFKBYbSneKexRd1-NNMKnpB2R2EiPtUCuZse1CWF1XBWWGapCytUju29uSWuO7vgfrkw4-L3WA4kxtDpb_S_dLGhMnONBLbPetNj4TbHoas-X3dmN8NUFEfZ4CnZF5u4e_",
+          badge: "مطلوب: خبرة إشرافية",
+          slots: "٧ شواغر نشطة",
+          icon: "school",
+          keywords: "تدريب تعليم ورش عمل مهارات صقل كفاءات"
+        }
+      ];
+
+      const filteredTrades = trades.filter((t) => {
+        const matchesCategory = category === "all" || t.category === category;
+        const q = searchQuery.toLowerCase().trim();
+        const matchesSearch = !q || t.title.toLowerCase().includes(q) || t.keywords.toLowerCase().includes(q) || t.desc.toLowerCase().includes(q);
+        return matchesCategory && matchesSearch;
+      });
+
+      const handleSuggestSubmit = (e) => {
+        e.preventDefault();
+        setSuggestSuccess(true);
+        setTimeout(() => {
+          setSuggestSuccess(false);
+          setDialogOpen(false);
+        }, 1500);
+      };
+
+      return (
+        <div class="flex flex-col w-full">
+          <div class="relative w-full overflow-hidden">
+            <div class="absolute -top-40 right-10 w-96 h-96 rounded-full bg-secondary-container/30 blur-3xl pointer-events-none"></div>
+            <div class="absolute top-80 -left-20 w-80 h-80 rounded-full bg-tertiary-fixed/25 blur-3xl pointer-events-none"></div>
+
+            {/* Editorial Header Section */}
+            <section class="max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop pt-8 pb-6">
+              <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg">
+                <div class="max-w-3xl">
+                  <div class="inline-flex items-center gap-space-xs px-space-md py-1 rounded-full bg-surface-container-high text-secondary text-xs font-semibold mb-space-sm shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                    <span>دليل الكفاءات والحرف الوطني</span>
+                    <span class="text-outline">/</span>
+                    <span>تحديثات الربع الأول 2025</span>
+                  </div>
+                  <h1 class="text-3xl md:text-4xl font-extrabold text-primary tracking-tight mb-space-sm">
+                    استكشف المهن والمجالات
+                  </h1>
+                  <p class="text-base md:text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+                    تصفح كافة المجالات المهنية والحرفية المعتمدة في منصة مِراس، وتعرف على شواغر التقديم للمحترفين ورواد الصنعة الحرة.
+                  </p>
+                </div>
+                <div class="flex items-center gap-space-md bg-surface-container-lowest p-space-md rounded-xl shadow-sm border border-surface-container">
+                  <div class="flex flex-col px-space-sm">
+                    <span class="text-xs text-outline font-medium">المجالات المتاحة</span>
+                    <span class="text-2xl font-bold text-primary">٢٤+</span>
+                  </div>
+                  <div class="w-px h-8 bg-surface-variant"></div>
+                  <div class="flex flex-col px-space-sm">
+                    <span class="text-xs text-outline font-medium">فرص الانضمام</span>
+                    <span class="text-2xl font-bold text-secondary">مفتوحة</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Announcement Banner */}
+            <section class="max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop mb-space-lg">
+              <div class="relative overflow-hidden rounded-xl bg-primary-container text-on-primary p-space-lg shadow-md flex flex-col md:flex-row items-center justify-between gap-space-md">
+                <div class="absolute -right-16 -top-16 w-48 h-48 rounded-full bg-secondary/20 blur-xl pointer-events-none"></div>
+                <div class="flex items-center gap-space-md z-10">
+                  <div class="w-12 h-12 rounded-xl bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+                    <span class="material-symbols-outlined text-[26px]">campaign</span>
+                  </div>
+                  <div class="flex flex-col">
+                    <div class="flex items-center gap-space-xs">
+                      <span class="text-base font-bold">مرحلة إطلاق المهن الجديدة</span>
+                      <span class="bg-tertiary-fixed text-on-tertiary-fixed text-xs font-bold px-2 py-0.5 rounded-full">أسبقية الاعتماد</span>
+                    </div>
+                    <p class="text-sm text-on-primary-container mt-1">
+                      نوجه الدعوة لرواد المهن وأصحاب الحرف المستقلة للانضمام المبكر وتوثيق ملفاتهم المهنية قبل الإطلاق الجماهيري المفتوح.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-space-sm z-10 w-full md:w-auto shrink-0 justify-end">
+                  <Link to="/join-pro" class="w-full md:w-auto text-center px-space-lg py-3 rounded-lg bg-surface-container-lowest text-primary font-bold text-sm hover:bg-surface-container-high transition-colors shadow-sm">
+                    التقديم كخبير مؤسس
+                  </Link>
+                </div>
+              </div>
+            </section>
+
+            {/* Filter & Search Bar */}
+            <section class="max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop mb-space-xl">
+              <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col lg:flex-row items-center justify-between gap-space-md border border-surface-container">
+                <div class="flex items-center gap-space-xs overflow-x-auto w-full lg:w-auto pb-2 lg:pb-0">
+                  {[
+                    { id: "all", label: "الكل (٢٤)" },
+                    { id: "maintenance", label: "الصيانة العامة" },
+                    { id: "crafts", label: "الحرف اليدوية" },
+                    { id: "tech", label: "التصميم والتقنية" },
+                    { id: "training", label: "التعليم والتدريب" }
+                  ].map((chip) => {
+                    const isCurrent = category === chip.id;
+                    return (
+                      <button
+                        key={chip.id}
+                        type="button"
+                        onClick={() => setCategory(chip.id)}
+                        className={`px-space-md py-2 rounded-lg text-sm font-semibold transition-all whitespace-nowrap ${
+                          isCurrent
+                            ? "bg-primary text-on-primary shadow-sm"
+                            : "bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high"
+                        }`}
+                      >
+                        {chip.label}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                <div class="relative w-full lg:w-80">
+                  <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline text-[20px] pointer-events-none">search</span>
+                  <input 
+                    class="w-full bg-surface-container-low pl-4 pr-10 py-2.5 rounded-lg text-sm text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-secondary/40 transition-all" 
+                    placeholder="ابحث باسم الحرفة أو التخصص..." 
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                  />
+                  {searchQuery && (
+                    <button 
+                      onClick={() => setSearchQuery("")}
+                      class="absolute left-3 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface"
+                    >
+                      <span class="material-symbols-outlined text-[16px]">close</span>
+                    </button>
+                  )}
+                </div>
+              </div>
+            </section>
+
+            {/* Grid of Professions */}
+            <section class="max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop mb-space-xl">
+              {filteredTrades.length === 0 ? (
+                <div class="text-center py-12 bg-surface-container-lowest rounded-xl shadow-sm border border-surface-container">
+                  <span class="material-symbols-outlined text-4xl text-outline mb-2">search_off</span>
+                  <p class="text-base text-on-surface font-semibold">لم نجد نتائج مطابقة لبحثك "{searchQuery}"</p>
+                  <p class="text-sm text-on-surface-variant mt-1">جرب كلمات دلالية أخرى أو استعرض الأقسام من الأعلى</p>
+                  <button 
+                    onClick={() => { setCategory("all"); setSearchQuery(""); }} 
+                    class="mt-4 px-4 py-2 bg-primary text-on-primary text-xs rounded-lg font-bold"
+                  >
+                    إعادة ضبط البحث
+                  </button>
+                </div>
+              ) : (
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
+                  {filteredTrades.map((trade) => (
+                    <article key={trade.id} class="group bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between border border-surface-container">
+                      <div>
+                        <div class="relative w-full h-44 rounded-lg overflow-hidden mb-space-md bg-surface-container">
+                          <img 
+                            alt={trade.title} 
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                            src={trade.img} 
+                          />
+                          <div class="absolute top-3 right-3 bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded-full text-secondary text-xs font-bold shadow-sm flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[16px]">{trade.icon}</span>
+                            <span>{trade.categoryName}</span>
+                          </div>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-primary group-hover:text-secondary transition-colors mb-space-xs">
+                          {trade.title}
+                        </h3>
+
+                        <p class="text-sm text-on-surface-variant line-clamp-2 mb-space-md leading-relaxed">
+                          {trade.desc}
+                        </p>
+
+                        <div class="bg-surface-container-low p-space-sm rounded-lg flex items-center justify-between text-on-surface-variant mb-space-md text-xs font-medium">
+                          <div class="flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim">verified</span>
+                            <span>{trade.badge}</span>
+                          </div>
+                          <span class="text-outline">{trade.slots}</span>
+                        </div>
+                      </div>
+
+                      <div class="pt-space-sm flex items-center justify-between border-t border-surface-container">
+                        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary-fixed/30 text-on-tertiary-fixed-variant text-xs font-medium">
+                          <span class="w-2 h-2 rounded-full bg-on-tertiary-fixed-variant animate-pulse"></span>
+                          <span>بانتظار انضمام الكفاءات</span>
+                        </div>
+                        <Link to="/join-pro" class="p-2 rounded-lg bg-surface-container-high text-primary hover:bg-primary hover:text-on-primary transition-colors flex items-center justify-center">
+                          <span class="material-symbols-outlined text-[20px] rtl:scale-x-[-1]">arrow_back</span>
+                        </Link>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              )}
+            </section>
+
+            {/* Suggestion Action Card */}
+            <section class="max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop mb-space-xl">
+              <div class="relative overflow-hidden rounded-xl bg-gradient-to-l from-surface-container-high via-surface-container-low to-surface-container-lowest p-space-xl shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-lg border border-surface-container">
+                <div class="flex items-start gap-space-md max-w-2xl">
+                  <div class="w-14 h-14 rounded-2xl bg-secondary-container text-secondary flex items-center justify-center shrink-0 shadow-sm">
+                    <span class="material-symbols-outlined text-[32px]">handyman</span>
+                  </div>
+                  <div>
+                    <h2 class="text-2xl font-bold text-primary mb-1">
+                      هل تتقن مهنة لم تُدرج هنا؟
+                    </h2>
+                    <p class="text-base text-on-surface-variant leading-relaxed">
+                      نرحب بكل التخصصات التي تلبي احتياجات المجتمع. ساهم في توسيع شبكة الحرف المعتمدة وقُد مسار إضافتها في منظومتنا.
+                    </p>
+                  </div>
+                </div>
+                <div class="shrink-0 w-full md:w-auto flex justify-end">
+                  <button 
+                    class="w-full md:w-auto px-space-xl py-3.5 rounded-lg bg-primary text-on-primary font-bold text-sm hover:bg-primary-container transition-colors shadow-md flex items-center justify-center gap-space-sm" 
+                    type="button"
+                    onClick={() => setDialogOpen(true)}
+                  >
+                    <span class="material-symbols-outlined text-[20px]">add_circle</span>
+                    <span>اقترح مهنة جديدة</span>
+                  </button>
+                </div>
+              </div>
+            </section>
+
+            {/* Bespoke Custom Request Banner */}
+            <section class="max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop pb-space-xl">
+              <div class="relative rounded-2xl bg-surface-container p-space-xl shadow-sm overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-space-lg">
+                <div class="flex items-center gap-space-lg z-10">
+                  <div class="w-16 h-16 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center shrink-0 shadow-inner">
+                    <span class="material-symbols-outlined text-[34px]">person_search</span>
+                  </div>
+                  <div class="flex flex-col">
+                    <div class="flex items-center gap-space-xs mb-1">
+                      <span class="text-sm font-bold text-secondary">خدمة وساطة خاصة</span>
+                      <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                      <span class="text-xs text-outline">فحص يدوي مخصص</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary">
+                      طلب خدمة خاصة غير مدرجة
+                    </h3>
+                    <p class="text-sm md:text-base text-on-surface-variant max-w-xl mt-1 leading-relaxed">
+                      هل تبحث عن عمل تخصصي نادر أو كفاءة حرفية غير نمطية؟ سنبحث لك عن أمهر المتخصصين يدوياً ونتأكد من جاهزيتهم الفنية.
+                    </p>
+                  </div>
+                </div>
+                <div class="z-10 w-full lg:w-auto flex items-center gap-space-md justify-end">
+                  <button 
+                    onClick={() => alert("تم فتح قناة التقديم للطلبات الخاصة التخصصية النادرة. يمكنك التواصل مباشرة مع مسؤولي الوساطة.")}
+                    class="w-full lg:w-auto px-space-xl py-3.5 rounded-lg bg-secondary text-on-secondary font-bold text-sm hover:bg-secondary/90 transition-colors shadow-sm flex items-center justify-center gap-space-xs"
+                  >
+                    <span>تقديم طلب مخصص</span>
+                    <span class="material-symbols-outlined text-[18px] rotate-180">arrow_forward</span>
+                  </button>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          {/* Suggest Profession Modal Dialog */}
+          {dialogOpen && (
+            <div class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+              <div class="bg-surface-container-lowest p-space-xl max-w-lg w-full rounded-2xl shadow-2xl text-right relative animate-fadeIn border border-surface-container">
+                <div class="flex items-center justify-between mb-space-md">
+                  <div class="flex items-center gap-space-sm">
+                    <div class="w-9 h-9 rounded-lg bg-secondary-container text-on-secondary-container flex items-center justify-center">
+                      <span class="material-symbols-outlined text-[20px]">lightbulb</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary">اقتراح مهنة أو حرفة</h3>
+                  </div>
+                  <button 
+                    onClick={() => setDialogOpen(false)}
+                    class="text-outline hover:text-on-surface transition-colors"
+                  >
+                    <span class="material-symbols-outlined">close</span>
+                  </button>
+                </div>
+                
+                {suggestSuccess ? (
+                  <div class="py-8 text-center">
+                    <span class="material-symbols-outlined text-5xl text-secondary mb-2">check_circle</span>
+                    <h4 class="text-lg font-bold text-primary">شكراً لك!</h4>
+                    <p class="text-sm text-on-surface-variant">تم استلام اقتراحك وسيقوم فريق مِراس بدراسته وإضافته للدليل.</p>
+                  </div>
+                ) : (
+                  <>
+                    <p class="text-sm text-on-surface-variant mb-space-lg leading-relaxed">
+                      أخبرنا عن المهارة أو الحرفة التي تحتاجها أو تتقنها، وسيقوم فريق الاعتماد بدراسة تصنيفها وإتاحتها ضمن الدليل.
+                    </p>
+                    <form class="flex flex-col gap-space-md" onSubmit={handleSuggestSubmit}>
+                      <div>
+                        <label class="block text-sm font-semibold text-primary mb-1">اسم الحرفة أو التخصص</label>
+                        <input 
+                          class="w-full bg-surface-container-low px-4 py-2.5 rounded-lg text-sm text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-secondary/40" 
+                          placeholder="مثال: ترميم الخزف والفسيفساء، تجليد الكتب..." 
+                          required 
+                          type="text"
+                        />
+                      </div>
+                      <div>
+                        <label class="block text-sm font-semibold text-primary mb-1">التصنيف الأقرب</label>
+                        <select class="w-full bg-surface-container-low px-4 py-2.5 rounded-lg text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/40">
+                          <option value="crafts">حرف يدوية وفنية</option>
+                          <option value="maintenance">صيانة وخدمات مرافق</option>
+                          <option value="tech">تقنية وتصميم متخصص</option>
+                          <option value="training">تعليم وتأهيل مهني</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label class="block text-sm font-semibold text-primary mb-1">تفاصيل إضافية أو رابط أعمال</label>
+                        <textarea 
+                          class="w-full bg-surface-container-low px-4 py-2.5 rounded-lg text-sm text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-secondary/40 resize-none" 
+                          placeholder="نبذة مختصرة عن نطاق العمل والأدوات المستخدمة..." 
+                          rows="3"
+                        ></textarea>
+                      </div>
+                      <div class="flex items-center justify-end gap-space-sm pt-space-sm">
+                        <button 
+                          type="button"
+                          onClick={() => setDialogOpen(false)}
+                          class="px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container text-sm font-medium transition-colors"
+                        >
+                          إلغاء
+                        </button>
+                        <button 
+                          type="submit"
+                          class="px-space-lg py-2.5 rounded-lg bg-primary text-on-primary text-sm font-bold hover:bg-primary-container transition-colors shadow-sm"
+                        >
+                          إرسال الاقتراح
+                        </button>
+                      </div>
+                    </form>
+                  </>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    // SCREEN 4: My Requests & Dashboard (Screen ID: 618c8455fd4e4b9c9fc95fcf2c78c2b7)
+    function MyRequestsScreen() {
+      const [currentTab, setCurrentTab] = useState("active");
+
+      const tabCounts = {
+        active: 0,
+        completed: 0,
+        cancelled: 0
+      };
+
+      return (
+        <div class="flex flex-col w-full">
+          <div class="max-w-7xl mx-auto w-full px-margin md:px-margin-tablet lg:px-margin-desktop py-space-xl">
+            {/* Top Action Bar & Page Navigation */}
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg mb-space-xl">
+              <div class="flex flex-col gap-space-xs">
+                <div class="flex items-center gap-space-xs text-on-surface-variant text-sm font-medium">
+                  <span>لوحة التحكم الشخصية</span>
+                  <span class="material-symbols-outlined text-[16px] rtl:rotate-180">chevron_left</span>
+                  <span class="text-primary font-bold">طلباتي والخدمات</span>
+                </div>
+                <h1 class="text-3xl font-extrabold text-primary tracking-tight">إدارة الطلبات والحجوزات</h1>
+                <p class="text-base text-on-surface-variant">تتبع مواعيد العمل الميداني، عروض الأسعار، وحالة الضمانات مع الحرفيين المعتمدين.</p>
+              </div>
+              <div class="flex items-center gap-space-sm bg-surface-container-low p-space-xs rounded-xl self-start lg:self-auto shadow-sm border border-surface-container">
+                <div class="flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-surface-container-lowest text-primary text-sm font-bold shadow-sm">
+                  <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                  <span>ضمان مِراس نشط</span>
+                </div>
+                <span class="text-on-surface-variant text-sm px-space-sm">حساب موثق للعميل</span>
+              </div>
+            </div>
+
+            {/* Segmented Tabs Filter Bar */}
+            <div class="flex items-center gap-space-sm bg-surface-container-low p-1.5 rounded-xl mb-space-xl overflow-x-auto shadow-sm border border-surface-container">
+              {[
+                { id: "active", icon: "pending_actions", label: "الطلبات الحالية" },
+                { id: "completed", icon: "task_alt", label: "المكتملة والمسلّمة" },
+                { id: "cancelled", icon: "cancel", label: "الملغاة والمؤجلة" }
+              ].map((tab) => {
+                const isActive = currentTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => setCurrentTab(tab.id)}
+                    className={`flex items-center gap-space-sm px-space-lg py-space-xs rounded-lg font-semibold text-sm transition-all whitespace-nowrap ${
+                      isActive
+                        ? "bg-primary text-on-primary shadow-sm"
+                        : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container"
+                    }`}
+                  >
+                    <span class="material-symbols-outlined text-[18px]">{tab.icon}</span>
+                    <span>{tab.label}</span>
+                    <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${
+                      isActive 
+                        ? "bg-primary-container text-on-primary-container"
+                        : "bg-surface-container-high text-on-surface-variant"
+                    }`}>
+                      {tabCounts[tab.id]}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Main Content Area: Empty State */}
+            <div class="relative bg-surface-container-lowest rounded-xl p-space-lg md:p-space-xl shadow-md overflow-hidden mb-space-xl border border-surface-container">
+              <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-gradient-to-br from-secondary-container/30 to-transparent blur-3xl pointer-events-none"></div>
+              <div class="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-gradient-to-tl from-tertiary-fixed/30 to-transparent blur-3xl pointer-events-none"></div>
+              
+              <div class="relative z-10 flex flex-col items-center text-center max-w-2xl mx-auto py-space-lg">
+                <div class="relative mb-space-lg">
+                  <div class="w-24 h-24 rounded-full bg-surface-container-low flex items-center justify-center shadow-inner">
+                    <div class="w-16 h-16 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-md">
+                      <span class="material-symbols-outlined text-[34px]">handyman</span>
+                    </div>
+                  </div>
+                  <div class="absolute -top-1 -right-1 w-8 h-8 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center shadow-sm animate-bounce" style={{ animationDuration: '3s' }}>
+                    <span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+                  </div>
+                  <div class="absolute -bottom-1 -left-1 w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shadow-sm">
+                    <span class="material-symbols-outlined text-[18px]">check_circle</span>
+                  </div>
+                </div>
+
+                <h2 class="text-2xl font-bold text-primary mb-space-sm">
+                  {currentTab === "active" && "لا توجد طلبات نشطة حالياً"}
+                  {currentTab === "completed" && "لا توجد طلبات مكتملة سابقة"}
+                  {currentTab === "cancelled" && "لا توجد طلبات ملغاة أو مؤجلة"}
+                </h2>
+                <p class="text-base text-on-surface-variant leading-relaxed mb-space-lg max-w-xl">
+                  بمجرد إضافة أصحاب المهن وبدء طلب الخدمات أو الاستشارات، ستظهر جميع تفاصيل طلباتك ومواعيدها هنا مع إمكانية التتبع المباشر للزيارة الميدانية ومحادثة الحرفي.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center gap-space-md w-full justify-center">
+                  <Link to="/explore-trades" class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs px-space-lg py-3 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-bold text-sm shadow-sm transition-colors">
+                    <span>تصفح أقسام المهن الآن</span>
+                    <span class="material-symbols-outlined text-[20px] rtl:rotate-180">arrow_forward</span>
+                  </Link>
+                  <button 
+                    onClick={() => alert("سجل عروض الأسعار سيكون متاحاً بمجرد تلقيك عروض عمل من الحرفيين.")}
+                    class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs px-space-lg py-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-primary font-semibold text-sm transition-colors" 
+                    type="button"
+                  >
+                    <span class="material-symbols-outlined text-[18px]">receipt_long</span>
+                    <span>استعراض عروض الأسعار السابقة</span>
+                  </button>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-center gap-space-lg mt-space-xl pt-space-lg border-t border-surface-container text-on-surface-variant text-xs font-semibold">
+                  <div class="flex items-center gap-space-xs">
+                    <span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+                    <span>حرفيون مفحوصو السجلات</span>
+                  </div>
+                  <div class="flex items-center gap-space-xs">
+                    <span class="material-symbols-outlined text-secondary text-[18px]">security</span>
+                    <span>ضمان جودة يصل إلى 30 يوماً</span>
+                  </div>
+                  <div class="flex items-center gap-space-xs">
+                    <span class="material-symbols-outlined text-secondary text-[18px]">payments</span>
+                    <span>دفع إلكتروني آمن ومحمي</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* How Miras Works Section */}
+            <div class="flex flex-col gap-space-lg mb-space-xl">
+              <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm">
+                <div>
+                  <span class="text-xs text-secondary uppercase tracking-widest font-bold">خطوات سهلة ومضمونة</span>
+                  <h2 class="text-2xl font-bold text-primary">كيف تعمل منصة مِراس؟ (دليل سريع للمستخدم)</h2>
+                </div>
+                <p class="text-sm text-on-surface-variant max-w-md">
+                  صممنا منصة مِراس لتمنحك الأمان المهني الكامل من مرحلة البحث حتى تسليم العمل والضمان النهائي.
+                </p>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+                <div class="relative bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between overflow-hidden group hover:shadow-md transition-shadow border border-surface-container">
+                  <div class="flex items-center justify-between mb-space-md">
+                    <div class="w-12 h-12 rounded-xl bg-secondary-container/40 text-on-secondary-fixed-variant flex items-center justify-center">
+                      <span class="material-symbols-outlined text-[26px]">category</span>
+                    </div>
+                    <span class="text-4xl font-extrabold text-surface-container-high/70 select-none">01</span>
+                  </div>
+                  <div class="flex flex-col gap-space-xs mb-space-md">
+                    <h3 class="text-lg font-bold text-primary">استكشف المجال والتخصص</h3>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">
+                      تصفح التخصصات المتاحة من السباكة، النجارة، إلى الاستشارات المعمارية والترميم الداخلي بضغطة زر وتصنيف دقيق لاحتياجك.
+                    </p>
+                  </div>
+                  <div class="flex items-center gap-space-xs text-secondary text-xs font-semibold pt-space-sm bg-surface-container-low/50 px-space-sm py-1.5 rounded-lg w-fit">
+                    <span class="material-symbols-outlined text-[16px]">tune</span>
+                    <span>فلاتر حسب الحي والاعتماد المهني</span>
+                  </div>
+                </div>
+
+                <div class="relative bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between overflow-hidden group hover:shadow-md transition-shadow border border-surface-container">
+                  <div class="flex items-center justify-between mb-space-md">
+                    <div class="w-12 h-12 rounded-xl bg-tertiary-fixed/60 text-on-tertiary-fixed flex items-center justify-center">
+                      <span class="material-symbols-outlined text-[26px]">badge</span>
+                    </div>
+                    <span class="text-4xl font-extrabold text-surface-container-high/70 select-none">02</span>
+                  </div>
+                  <div class="flex flex-col gap-space-xs mb-space-md">
+                    <h3 class="text-lg font-bold text-primary">اختر صاحب المهنة المناسب</h3>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">
+                      طالع ملفات المهنيين الموثقين، معرض أعمالهم السابقة، وتقييمات العملاء الحقيقية وتراخيص مزاولة المهنة قبل اتخاذ أي قرار.
+                    </p>
+                  </div>
+                  <div class="flex items-center gap-space-xs text-tertiary text-xs font-semibold pt-space-sm bg-surface-container-low/50 px-space-sm py-1.5 rounded-lg w-fit">
+                    <span class="material-symbols-outlined text-[16px]">star</span>
+                    <span>تقييمات موثقة بعد إنجاز العمل فقط</span>
+                  </div>
+                </div>
+
+                <div class="relative bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between overflow-hidden group hover:shadow-md transition-shadow border border-surface-container">
+                  <div class="flex items-center justify-between mb-space-md">
+                    <div class="w-12 h-12 rounded-xl bg-primary-container text-on-primary flex items-center justify-center">
+                      <span class="material-symbols-outlined text-[26px]">gavel</span>
+                    </div>
+                    <span class="text-4xl font-extrabold text-surface-container-high/70 select-none">03</span>
+                  </div>
+                  <div class="flex flex-col gap-space-xs mb-space-md">
+                    <h3 class="text-lg font-bold text-primary">احجز وتواصل بكل أمان</h3>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">
+                      حدد الوقت والموقع، وأدر تفاصيل الدفع والضمان تحت حماية منظومة مِراس المتكاملة حيث لا يتم تسليم المبالغ إلا بعد موافقتك.
+                    </p>
+                  </div>
+                  <div class="flex items-center gap-space-xs text-primary text-xs font-semibold pt-space-sm bg-surface-container-low/50 px-space-sm py-1.5 rounded-lg w-fit">
+                    <span class="material-symbols-outlined text-[16px]">lock_reset</span>
+                    <span>حفظ المبالغ بنظام الدفع المشروط</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Suggested Trades of the Day */}
+            <div class="flex flex-col gap-space-lg mb-space-xl">
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="text-xs text-secondary font-bold">جاهزون لتلبية طلبك الآن</span>
+                  <h2 class="text-2xl font-bold text-primary">أبرز مجالات اليوم المقترحة - حرفيون معتمدون</h2>
+                </div>
+                <Link to="/explore-trades" class="hidden sm:inline-flex items-center gap-space-xs text-sm font-semibold text-primary hover:text-secondary transition-colors">
+                  <span>عرض كافة الأقسام</span>
+                  <span class="material-symbols-outlined text-[18px] rtl:rotate-180">arrow_forward</span>
+                </Link>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+                {/* Woodwork */}
+                <div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col sm:flex-row group border border-surface-container">
+                  <div class="sm:w-5/12 h-56 sm:h-auto relative overflow-hidden bg-surface-container">
+                    <img 
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                      alt="أعمال الخشب والديكور"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3kvtREL0AxQ0KtOpNAE71jrO6Ep2cE5R4N_uz-yHUJMr603EVKXEnsb8T9xcrPYhC1fgtynTY3Nmla06OPjBvN1x4FaOnU6hGGClI8IfjI7XZQty2fgJ0ozSyllXDO6PRspJH0S8Zs1vd2BjeqCUwHDBa5lVTbadhcUf6zZ5h3lly4Qz-iF07blq8m3mMmD1PYGyF5DzIA2k63AF2Fb0zj7m4IIV26GwbAGYdbmIy" 
+                    />
+                    <span class="absolute top-3 right-3 bg-primary/85 backdrop-blur-md text-on-primary text-xs font-semibold px-2.5 py-1 rounded-full">
+                      الأعلى طلباً هذا الأسبوع
+                    </span>
+                  </div>
+                  <div class="p-space-lg sm:w-7/12 flex flex-col justify-between gap-space-md">
+                    <div>
+                      <div class="flex items-center justify-between mb-space-xs">
+                        <span class="text-xs text-tertiary font-bold bg-tertiary-fixed/40 px-2 py-0.5 rounded-full">ديكور وهندسة أخشاب</span>
+                        <div class="flex items-center gap-1 text-xs text-on-surface">
+                          <span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
+                          <span class="font-bold">4.9</span>
+                          <span class="text-on-surface-variant font-normal">(+420 تقييم)</span>
+                        </div>
+                      </div>
+                      <h3 class="text-lg font-bold text-primary mb-space-xs">أعمال الخشب والديكور</h3>
+                      <p class="text-sm text-on-surface-variant line-clamp-2 leading-relaxed">
+                        تفصيل مطابخ، خزائن مدمجة، أبواب خشبية راقية، وصيانة باركيه مع ضمان تنفيذ مطابق للمواصفات.
+                      </p>
+                    </div>
+                    <div class="flex items-center justify-between pt-space-sm bg-surface-container-low p-space-sm rounded-lg">
+                      <div class="flex items-center gap-space-xs text-on-surface-variant text-xs font-medium">
+                        <span class="material-symbols-outlined text-[18px] text-secondary">groups</span>
+                        <span>84 حرفي متوفر وموثق</span>
+                      </div>
+                      <Link to="/explore-trades" class="inline-flex items-center gap-1 text-primary hover:text-secondary text-sm font-bold">
+                        <span>طلب الخدمة</span>
+                        <span class="material-symbols-outlined text-[16px] rtl:rotate-180">arrow_forward</span>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Electrical */}
+                <div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col sm:flex-row group border border-surface-container">
+                  <div class="sm:w-5/12 h-56 sm:h-auto relative overflow-hidden bg-surface-container">
+                    <img 
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                      alt="تمديدات وكهرباء عامة"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFTUbXEeoRW6AFI-2yjJWB3KaOpyseXYhzilbmwNCCI7jAFyN9SIHVaQfwKXZJVPoe5lMXuwaweqiFJXwvErPWDXlK-_3J-JF8a3dYfWx1Xka0cBK66d6QAN8kVNDtXRDQSbZC_C42NqFXOinOES2R1j8aGuUp507cUgQizESOSiL-GzSeBkBNuuB9qXOVJWsMEzyBjS29dmb65IFsLar4zAHUJtpNAhgSqW6kvFKY" 
+                    />
+                    <span class="absolute top-3 right-3 bg-secondary/85 backdrop-blur-md text-on-secondary text-xs font-semibold px-2.5 py-1 rounded-full">
+                      خدمة طوارئ متاحة 24/7
+                    </span>
+                  </div>
+                  <div class="p-space-lg sm:w-7/12 flex flex-col justify-between gap-space-md">
+                    <div>
+                      <div class="flex items-center justify-between mb-space-xs">
+                        <span class="text-xs text-secondary font-bold bg-secondary-container/40 px-2 py-0.5 rounded-full">تمديدات وكهرباء عامة</span>
+                        <div class="flex items-center gap-1 text-xs text-on-surface">
+                          <span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
+                          <span class="font-bold">4.8</span>
+                          <span class="text-on-surface-variant font-normal">(+610 تقييم)</span>
+                        </div>
+                      </div>
+                      <h3 class="text-lg font-bold text-primary mb-space-xs">تمديدات وكهرباء وإنارة ذكية</h3>
+                      <p class="text-sm text-on-surface-variant line-clamp-2 leading-relaxed">
+                        فحص الأحمال الكهربائية، تركيب لوحات القواطع، تأسيس الإنارة المخفية والأنظمة الذكية بأيدي فنيين مرخصين.
+                      </p>
+                    </div>
+                    <div class="flex items-center justify-between pt-space-sm bg-surface-container-low p-space-sm rounded-lg">
+                      <div class="flex items-center gap-space-xs text-on-surface-variant text-xs font-medium">
+                        <span class="material-symbols-outlined text-[18px] text-secondary">groups</span>
+                        <span>112 حرفي متوفر وموثق</span>
+                      </div>
+                      <Link to="/explore-trades" class="inline-flex items-center gap-1 text-primary hover:text-secondary text-sm font-bold">
+                        <span>طلب الخدمة</span>
+                        <span class="material-symbols-outlined text-[16px] rtl:rotate-180">arrow_forward</span>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Support Ribbon */}
+            <div class="bg-primary text-on-primary rounded-xl p-space-lg md:p-space-xl shadow-lg relative overflow-hidden">
+              <div class="absolute -left-12 -bottom-12 w-64 h-64 rounded-full bg-primary-container/60 pointer-events-none"></div>
+              <div class="absolute right-1/3 -top-12 w-32 h-32 rounded-full bg-secondary/20 pointer-events-none"></div>
+              <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-space-lg">
+                <div class="flex items-start md:items-center gap-space-md">
+                  <div class="w-14 h-14 rounded-xl bg-primary-container text-secondary-container flex items-center justify-center shrink-0 shadow-sm">
+                    <span class="material-symbols-outlined text-[30px]">support_agent</span>
+                  </div>
+                  <div class="flex flex-col gap-space-xs">
+                    <h3 class="text-xl font-bold text-on-primary">
+                      تحتاج مساعدة خاصة في حجز خدمة؟ فريق مِراس يسعد بدعمك
+                    </h3>
+                    <p class="text-sm text-on-primary-container leading-relaxed">
+                      مستشارو الخدمات متواجدون على مدار الساعة لمساعدتك في توصيف العطل أو اختيار الحرفي الأنسب لمشروعك المنزلي أو التجاري.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-space-sm shrink-0 w-full md:w-auto">
+                  <button 
+                    onClick={() => alert("جاري توصيلك بالمستشار الفني عبر المحادثة المباشرة...")}
+                    class="flex-1 md:flex-none inline-flex items-center justify-center gap-space-xs px-space-lg py-3 rounded-lg bg-secondary text-on-secondary hover:bg-secondary/90 transition-colors text-sm font-bold shadow-sm" 
+                    type="button"
+                  >
+                    <span class="material-symbols-outlined text-[18px]">chat</span>
+                    <span>محادثة فورية مع المستشار</span>
+                  </button>
+                  <button 
+                    onClick={() => alert("الرقم الموحد للدعم الفني لمِراس: 800-124-MIRAS")}
+                    class="inline-flex items-center justify-center p-3 rounded-lg bg-primary-container text-on-primary hover:bg-primary-container/80 transition-colors" 
+                    type="button"
+                  >
+                    <span class="material-symbols-outlined text-[20px]">call</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // Scroll to Top on route change helper
+    function ScrollToTop() {
+      const { pathname } = useLocation();
+      useEffect(() => {
+        window.scrollTo(0, 0);
+      }, [pathname]);
+      return null;
+    }
+
+    // Top Level Application Wrapper
+    function App() {
+      return (
+        <div class="min-h-screen flex flex-col bg-surface text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
+          <ScrollToTop />
+          <Navbar />
+          <main class="w-full pt-20 flex-1 flex flex-col">
+            <Routes>
+              <Route path="/" element={<HomeScreen />} />
+              <Route path="/explore-trades" element={<ExploreTradesScreen />} />
+              <Route path="/my-requests" element={<MyRequestsScreen />} />
+              <Route path="/join-pro" element={<JoinProScreen />} />
+              <Route path="*" element={<HomeScreen />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      );
+    }
+
+    const container = document.getElementById("root");
+    const root = createRoot(container);
+    root.render(
+      <MemoryRouter initialEntries={["/"]}>
+        <App />
+      </HashRouter>
+    );
+  </script>
+
+<!-- Floating Device Switcher -->
+<div style="position: fixed; bottom: 24px; left: 24px; z-index: 9999;" class="transition-transform hover:scale-105">
+  <a href="mobile/index.html" class="flex items-center gap-2 px-4 py-2.5 rounded-full shadow-xl text-sm font-semibold text-white bg-primary hover:bg-primary-container transition-all" style="border: 1px solid rgba(255,255,255,0.2);">
+    <span class="text-base">📱</span>
+    <span>تجربة نسخة الجوال</span>
+  </a>
+</div>
+
+</body>
+</html>
