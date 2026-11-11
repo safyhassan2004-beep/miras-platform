@@ -1,6 +1,9 @@
 /**
- * Miras Admin Dashboard - Supabase & Auth Integration Module
- * منصة مِـرَاس - نظام حوكمة وصلاحيات المشرفين والإدارة
+ * Miras Admin Dashboard - Supabase & Security Guard Module
+ * منصة مِـرَاس - نظام حماية وصلاحيات لوحة تحكم الإدارة (خاصة بالمدير فقط)
+ * 
+ * هذه اللوحة مستقلة وخاصة بالمدير، لا تظهر للمستخدمين العاديين،
+ * ولا يمكن الوصول إليها إلا بحساب يمتلك صلاحية المدير (role = 'admin' أو is_admin = true).
  */
 
 const AdminAuth = {
@@ -14,46 +17,66 @@ const AdminAuth = {
 
     if (window.supabase && url && !url.includes('YOUR_PROJECT_ID')) {
       try {
-        this.supabase = window.supabase.createClient(url, anonKey);
-        this.checkSession();
+        const cleanUrl = url.replace(/\/rest\/v1\/?$/, '').replace(/\/+$/, '');
+        this.supabase = window.supabase.createClient(cleanUrl, anonKey);
+        this.enforceAdminSecurity();
       } catch (e) {
-        console.error('خطأ في تهيئة Supabase:', e);
+        console.error('[AdminAuth] خطأ في تهيئة Supabase:', e);
       }
     } else {
-      console.info('💡 [مِـرَاس الإدارة]: وضع المعاينة نشط. للربط الحي، ضع مفاتيح Supabase في supabase/config.js');
+      // فحص الحماية في وضع المعاينة
+      this.checkLocalAdminGuard();
     }
   },
 
-  async checkSession() {
+  // التحقق الحقيقي الصارم من الصلاحيات عبر Supabase
+  async enforceAdminSecurity() {
     if (!this.supabase) return;
     try {
       const { data: { session }, error } = await this.supabase.auth.getSession();
       if (error || !session) {
-        console.warn('⚠️ لا توجد جلسة نشطة للمشرف.');
+        this.denyAccess('يجب تسجيل الدخول بحساب مدير للوصول إلى لوحة التحكم.');
         return;
       }
+
       this.currentUser = session.user;
-      await this.verifyAdminRole(session.user.id);
+      const { data: profile, error: profileError } = await this.supabase
+        .from('profiles')
+        .select('role, is_admin, full_name')
+        .eq('id', session.user.id)
+        .single();
+
+      if (profileError || (!profile.is_admin && profile.role !== 'admin')) {
+        this.denyAccess('عذراً، هذا الحساب لا يمتلك صلاحيات المشرف أو مدير المنظومة.');
+        return;
+      }
+
+      console.log('✅ تم التحقق من صلاحيات المدير بنجاح:', profile.full_name);
+      this.bindAdminData(profile);
     } catch (err) {
-      console.error('خطأ أثناء فحص الجلسة:', err);
+      console.error('[AdminAuth] خطأ أثناء التحقق من الصلاحيات:', err);
     }
   },
 
-  async verifyAdminRole(userId) {
-    if (!this.supabase) return;
-    const { data: profile, error } = await this.supabase
-      .from('profiles')
-      .select('role, is_admin, full_name')
-      .eq('id', userId)
-      .single();
-
-    if (error || (!profile.is_admin && profile.role !== 'admin')) {
-      alert('عذراً، هذا الحساب غير مصرح له بالدخول إلى لوحة الإدارة.');
-      window.location.href = '../login.html';
-      return;
+  // فحص حماية اللوحة محلياً في وضع التطوير
+  checkLocalAdminGuard() {
+    const role = sessionStorage.getItem('miras_auth_role');
+    const isMobile = window.location.pathname.includes('/mobile/');
+    if (role && role !== 'admin') {
+      console.warn('⚠️ محاولة دخول للوحة الإدارة بحساب غير إداري (دور:', role, ')');
+      // تحويل المستخدم لواجهته المخصصة
+      if (role === 'craftsman' || role === 'pro') {
+        window.location.href = isMobile ? '../../pro/mobile/index.html' : '../pro/index.html';
+      } else {
+        window.location.href = isMobile ? '../../mobile/index.html' : '../index.html';
+      }
     }
-    console.log('✅ تم التحقق من صلاحية المشرف:', profile.full_name);
-    this.bindAdminData(profile);
+  },
+
+  denyAccess(message) {
+    alert(message);
+    const isMobile = window.location.pathname.includes('/mobile/');
+    window.location.href = isMobile ? '../../mobile/login.html' : '../login.html';
   },
 
   bindAdminData(profile) {
@@ -66,7 +89,9 @@ const AdminAuth = {
     if (this.supabase) {
       await this.supabase.auth.signOut();
     }
-    window.location.href = '../login.html';
+    sessionStorage.removeItem('miras_auth_role');
+    const isMobile = window.location.pathname.includes('/mobile/');
+    window.location.href = isMobile ? '../../mobile/login.html' : '../login.html';
   }
 };
 

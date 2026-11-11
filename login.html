@@ -341,9 +341,7 @@
       }
     })();
   </script>
-</div></main><footer class="w-full bg-surface-container-low shadow-[0_1px_8px_rgba(27,73,101,0.03)] py-space-xl"><div class="max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-space-md text-center md:text-right"><div class="flex flex-col sm:flex-row items-center gap-space-sm text-on-surface-variant font-body-sm text-body-sm"><p>© 2025 مِراس — منصة الحرف والمهن المعتمدة. جميع الحقوق محفوظة.</p></div><div class="flex flex-wrap items-center justify-center gap-space-lg text-on-surface-variant font-label-md text-label-md"><a class="hover:text-primary transition-colors" data-path="privacy-policy" href="#">سياسة الخصوصية</a><a class="hover:text-primary transition-colors" data-path="terms-of-service" href="#">شروط الاستخدام</a><a class="hover:text-primary transition-colors" data-path="security" href="#">الأمان والموثوقية</a>
-<span class="text-outline text-xs">•</span>
-<a class="hover:text-primary transition-colors flex items-center gap-1 font-semibold text-secondary" href="admin/index.html"><span class="material-symbols-outlined text-[16px]">admin_panel_settings</span>بوابة الإدارة والمشرفين</a><div class="flex items-center gap-space-xs text-secondary"><span class="material-symbols-outlined text-[16px]">verified_user</span><span class="font-label-sm text-label-sm">دخول موثّق وآمن</span></div></div></div></footer>
+</div></main><footer class="w-full bg-surface-container-low shadow-[0_1px_8px_rgba(27,73,101,0.03)] py-space-xl"><div class="max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-space-md text-center md:text-right"><div class="flex flex-col sm:flex-row items-center gap-space-sm text-on-surface-variant font-body-sm text-body-sm"><p>© 2025 مِراس — منصة الحرف والمهن المعتمدة. جميع الحقوق محفوظة.</p></div><div class="flex flex-wrap items-center justify-center gap-space-lg text-on-surface-variant font-label-md text-label-md"><a class="hover:text-primary transition-colors" data-path="privacy-policy" href="#">سياسة الخصوصية</a><a class="hover:text-primary transition-colors" data-path="terms-of-service" href="#">شروط الاستخدام</a><a class="hover:text-primary transition-colors" data-path="security" href="#">الأمان والموثوقية</a><div class="flex items-center gap-space-xs text-secondary"><span class="material-symbols-outlined text-[16px]">verified_user</span><span class="font-label-sm text-label-sm">دخول موثّق وآمن</span></div></div></div></footer>
 <script>
   const authForm = document.getElementById('authForm');
   if (authForm) {
@@ -355,10 +353,19 @@
       }
       // Check if user selected professional role
       const isPro = document.getElementById('loginHeading')?.textContent?.includes('الحرفيين') || false;
-      const targetRole = isPro ? 'pro' : 'client';
-      sessionStorage.setItem('role', targetRole);
+      const targetRole = isPro ? 'craftsman' : 'client';
+      sessionStorage.setItem('role', isPro ? 'pro' : 'client');
+      sessionStorage.setItem('miras_auth_role', targetRole);
+
+      // Check if testing with admin credentials
+      const mobileVal = document.getElementById('mobileInput')?.value?.trim();
+      if (mobileVal === '500000000' || mobileVal === '0500000000' || mobileVal === 'admin') {
+        sessionStorage.setItem('role', 'admin');
+        sessionStorage.setItem('miras_auth_role', 'admin');
+      }
+
       setTimeout(() => {
-        window.location.href = 'verify.html?role=' + targetRole;
+        window.location.href = 'verify.html?role=' + (sessionStorage.getItem('miras_auth_role') || targetRole);
       }, 700);
     });
   }
@@ -374,4 +381,5 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase/config.js"></script>
+<script src="supabase/auth-router.js"></script>
 </body></html>

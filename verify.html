@@ -255,13 +255,17 @@
               btn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check_circle</span><span>تم التحقق بنجاح</span>';
             setTimeout(() => {
               const urlParams = new URLSearchParams(window.location.search);
-              const targetRole = urlParams.get('role') || sessionStorage.getItem('role');
-              if (targetRole === 'pro') {
-                window.location.href = 'pro/index.html';
-              } else if (targetRole === 'admin') {
-                window.location.href = 'admin/index.html';
+              const targetRole = urlParams.get('role') || sessionStorage.getItem('miras_auth_role') || sessionStorage.getItem('role');
+              if (window.MirasRouter) {
+                window.MirasRouter.routeUser(null, targetRole);
               } else {
-                window.location.href = 'index.html';
+                if (targetRole === 'pro' || targetRole === 'craftsman') {
+                  window.location.href = 'pro/index.html';
+                } else if (targetRole === 'admin') {
+                  window.location.href = 'admin/index.html';
+                } else {
+                  window.location.href = 'index.html';
+                }
               }
             }, 600);
             }, 800);
@@ -281,4 +285,5 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase/config.js"></script>
+<script src="supabase/auth-router.js"></script>
 </body></html>

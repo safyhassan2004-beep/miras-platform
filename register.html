@@ -314,7 +314,10 @@
 </section>
 </div>
 <script>
+  let currentRegisteredRole = 'client';
+
   function selectRole(role) {
+    currentRegisteredRole = role;
     const clientBtn = document.getElementById('role-client');
     const proBtn = document.getElementById('role-pro');
     const clientCheck = document.getElementById('client-check');
@@ -348,14 +351,16 @@
 
   function triggerSubmit() {
     const btn = document.getElementById('submit-btn');
-    const originalText = btn.innerHTML;
-    btn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span><span>جاري إنشاء الحساب وإرسال الرمز...</span>';
-    btn.disabled = true;
+    if (btn) {
+      btn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span><span>جاري إنشاء الحساب وإرسال الرمز...</span>';
+      btn.disabled = true;
+    }
+    const finalRole = currentRegisteredRole === 'pro' ? 'craftsman' : 'client';
+    sessionStorage.setItem('role', currentRegisteredRole);
+    sessionStorage.setItem('miras_auth_role', finalRole);
     setTimeout(() => {
-      btn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check</span><span>تم إرسال رمز التحقق بنجاح!</span>';
-      btn.classList.remove('bg-primary');
-      btn.classList.add('bg-secondary');
-    }, 1200);
+      window.location.href = 'verify.html?role=' + finalRole;
+    }, 700);
   }
 </script></main><footer class="w-full bg-surface-container-low shadow-[0_1px_8px_rgba(27,73,101,0.03)] py-space-xl"><div class="max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-space-md text-center md:text-right"><div class="flex flex-col sm:flex-row items-center gap-space-sm text-on-surface-variant font-body-sm text-body-sm"><p>© 2025 مِراس — منصة الحرف والمهن المعتمدة. جميع الحقوق محفوظة.</p></div><div class="flex flex-wrap items-center justify-center gap-space-lg text-on-surface-variant font-label-md text-label-md"><a class="hover:text-primary transition-colors" data-path="privacy-policy" href="#">سياسة الخصوصية</a><a class="hover:text-primary transition-colors" data-path="terms-of-service" href="#">شروط الاستخدام</a><a class="hover:text-primary transition-colors" data-path="security" href="#">الأمان والموثوقية</a><div class="flex items-center gap-space-xs text-secondary"><span class="material-symbols-outlined text-[16px]">verified_user</span><span class="font-label-sm text-label-sm">دخول موثّق وآمن</span></div></div></div></footer>
 <script>
@@ -363,13 +368,7 @@
   if (registerForm) {
     registerForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const submitBtn = registerForm.querySelector('button[type="submit"]');
-      if (submitBtn) {
-        submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span><span>جارِ إنشاء الحساب...</span>';
-      }
-      setTimeout(() => {
-        window.location.href = 'verify.html';
-      }, 700);
+      triggerSubmit();
     });
   }
 </script>
@@ -384,4 +383,5 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase/config.js"></script>
+<script src="supabase/auth-router.js"></script>
 </body></html>

@@ -289,8 +289,10 @@
       if (submitBtn) {
         submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span><span>جارِ المتابعة...</span>';
       }
+      sessionStorage.setItem('role', 'pro');
+      sessionStorage.setItem('miras_auth_role', 'craftsman');
       setTimeout(() => {
-        window.location.href = 'verify.html';
+        window.location.href = 'verify.html?role=craftsman';
       }, 700);
     });
   }
@@ -304,4 +306,7 @@
   </a>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../supabase/config.js"></script>
+<script src="../supabase/auth-router.js"></script>
 </body></html>

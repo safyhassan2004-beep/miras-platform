@@ -271,13 +271,25 @@
   })();
 </script></main>
 <script>
-  const verifySubmit = document.querySelector('button.bg-primary');
+  const verifySubmit = document.querySelector('button.bg-primary') || document.getElementById('verify-submit-btn');
   if (verifySubmit) {
     verifySubmit.addEventListener('click', (e) => {
       e.preventDefault();
       verifySubmit.innerHTML = '<span class="material-symbols-outlined text-[20px]">check_circle</span><span>تم التحقق بنجاح</span>';
       setTimeout(() => {
-        window.location.href = 'profile.html';
+        const urlParams = new URLSearchParams(window.location.search);
+        const targetRole = urlParams.get('role') || sessionStorage.getItem('miras_auth_role') || sessionStorage.getItem('role') || 'client';
+        if (window.MirasRouter) {
+          window.MirasRouter.routeUser(null, targetRole);
+        } else {
+          if (targetRole === 'craftsman' || targetRole === 'pro') {
+            window.location.href = '../pro/mobile/index.html';
+          } else if (targetRole === 'admin') {
+            window.location.href = '../admin/mobile/index.html';
+          } else {
+            window.location.href = 'index.html';
+          }
+        }
       }, 700);
     });
   }
@@ -291,4 +303,7 @@
   </a>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../supabase/config.js"></script>
+<script src="../supabase/auth-router.js"></script>
 </body></html>
