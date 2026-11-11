@@ -118,7 +118,7 @@
   <script src="https://unpkg.com/react-router-dom@6.3.0/umd/react-router-dom.development.js"></script>
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 </head>
-<body class="bg-surface font-sans text-on-surface antialiased">
+<body class="bg-surface font-sans text-on-surface antialiased overflow-x-hidden w-full max-w-full">
   <div id="root"></div>
 
   <script type="text/babel">
@@ -1899,14 +1899,5 @@
       </HashRouter>
     );
   </script>
-
-<!-- Floating Device Switcher -->
-<div style="position: fixed; bottom: 24px; left: 24px; z-index: 9999;" class="transition-transform hover:scale-105">
-  <a href="mobile/index.html" class="flex items-center gap-2 px-4 py-2.5 rounded-full shadow-xl text-sm font-semibold text-white bg-primary hover:bg-primary-container transition-all" style="border: 1px solid rgba(255,255,255,0.2);">
-    <span class="text-base">📱</span>
-    <span>تجربة نسخة الجوال</span>
-  </a>
-</div>
-
 </body>
 </html>

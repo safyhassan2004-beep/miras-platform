@@ -26,7 +26,6 @@ window.MirasRouter = {
   // توجيه المستخدم تلقائياً بناءً على دوره وصلاحياته
   async routeUser(sessionUser = null, explicitRole = null) {
     const supabase = this.getClient();
-    const isMobile = window.innerWidth < 768 || window.location.pathname.includes('/mobile/');
 
     // 1. فحص الدور والصلاحيات الحية في Supabase
     if (supabase) {
@@ -48,15 +47,15 @@ window.MirasRouter = {
           if (!error && profile) {
             if (profile.role === 'admin' || profile.is_admin === true) {
               sessionStorage.setItem('miras_auth_role', 'admin');
-              return this.navigate(isMobile ? 'admin/mobile/index.html' : 'admin/index.html');
+              return this.navigate('admin/index.html');
             }
             if (profile.role === 'craftsman') {
               sessionStorage.setItem('miras_auth_role', 'craftsman');
-              return this.navigate(isMobile ? 'pro/mobile/index.html' : 'pro/index.html');
+              return this.navigate('pro/index.html');
             }
             // مستخدم عادي
             sessionStorage.setItem('miras_auth_role', 'client');
-            return this.navigate(isMobile ? 'mobile/index.html' : 'index.html');
+            return this.navigate('index.html');
           }
         }
       } catch (err) {
@@ -67,11 +66,11 @@ window.MirasRouter = {
     // 2. وضع المعاينة والتطوير (عندما تكون مفاتيح Supabase غير مفعلة بعد):
     const role = explicitRole || sessionStorage.getItem('miras_auth_role') || 'client';
     if (role === 'admin') {
-      return this.navigate(isMobile ? 'admin/mobile/index.html' : 'admin/index.html');
+      return this.navigate('admin/index.html');
     } else if (role === 'craftsman' || role === 'pro') {
-      return this.navigate(isMobile ? 'pro/mobile/index.html' : 'pro/index.html');
+      return this.navigate('pro/index.html');
     } else {
-      return this.navigate(isMobile ? 'mobile/index.html' : 'index.html');
+      return this.navigate('index.html');
     }
   },
 
