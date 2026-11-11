@@ -235,7 +235,7 @@
 </div>
 <!-- Logout and App Version Section -->
 <div class="flex flex-col items-center gap-space-sm pt-space-xs">
-<button class="w-full flex items-center justify-center gap-space-xs bg-error-container text-on-error-container py-3 rounded-xl font-label-lg text-label-lg font-semibold hover:opacity-90 transition-opacity">
+<button onclick="window.MirasRouter ? window.MirasRouter.signOut() : (sessionStorage.clear(), window.location.href='login.html')" class="w-full flex items-center justify-center gap-space-xs bg-error-container text-on-error-container py-3 rounded-xl font-label-lg text-label-lg font-semibold hover:opacity-90 transition-opacity">
 <span class="material-symbols-outlined text-[20px]">logout</span>
 <span>تسجيل الخروج من الحساب</span>
 </button>
@@ -291,4 +291,8 @@
   });
 </script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(27,73,101,0.06)]" data-active-classes="text-primary font-semibold"><div class="flex items-center justify-around h-16 px-space-xs"><a class="flex flex-col items-center justify-center min-w-[64px] min-h-[44px] gap-0.5 text-on-surface-variant hover:text-primary transition-colors" data-path="al-raisiya" href="index.html"><span class="material-symbols-outlined text-[24px]">home</span><span class="font-label-sm text-label-sm">الرئيسية</span></a><a class="flex flex-col items-center justify-center min-w-[64px] min-h-[44px] gap-0.5 text-on-surface-variant hover:text-primary transition-colors" data-path="istikshaf-al-mihan" href="explore.html"><span class="material-symbols-outlined text-[24px]">grid_view</span><span class="font-label-sm text-label-sm">استكشف المهن</span></a><a class="flex flex-col items-center justify-center min-w-[64px] min-h-[44px] gap-0.5 text-on-surface-variant hover:text-primary transition-colors" data-path="talabati" href="my-requests.html"><span class="material-symbols-outlined text-[24px]">assignment</span><span class="font-label-sm text-label-sm">طلباتي</span></a><a class="flex flex-col items-center justify-center min-w-[64px] min-h-[44px] gap-0.5 text-on-surface-variant hover:text-primary transition-colors" data-path="hisabi" href="profile.html"><span class="material-symbols-outlined text-[24px]">person</span><span class="font-label-sm text-label-sm">حسابي</span></a></div></nav>
 <div aria-hidden="true" data-snapdom-sandbox="true" id="snapdom-sandbox" style="position: absolute; left: -9999px; top: -9999px; width: 0px; height: 0px; overflow: hidden;"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../supabase/config.js"></script>
+<script src="../supabase/auth-router.js"></script>
+<script src="../supabase/miras-api.js"></script>
 </body></html>

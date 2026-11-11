@@ -161,3 +161,4 @@ CREATE POLICY "View own transactions" ON public.escrow_transactions FOR SELECT T
     wallet_id IN (SELECT id FROM public.escrow_wallets WHERE user_id = auth.uid()) OR public.is_admin()
 );
 CREATE POLICY "Admin full access transactions" ON public.escrow_transactions FOR ALL TO authenticated USING (public.is_admin());
+

@@ -407,4 +407,26 @@
     if (mobileDrawerBackdrop) mobileDrawerBackdrop.addEventListener('click', closeDrawer);
   </script>
 </div></main><footer class="w-full bg-surface-container-low shadow-[0_-1px_6px_rgba(0,0,0,0.02)]"><div class="max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl mb-space-xl"><div class="flex flex-col gap-space-sm"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm text-primary">مِراس</span><span class="font-label-sm text-label-sm bg-secondary-container text-on-secondary-container px-space-sm py-0.5 rounded-full">منصة المهن</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">المنصة الموثوقة الأولى لربط أصحاب المنازل والمنشآت بنخبة الحرفيين والفنيين المعتمدين في كافة المجالات الحرفية والهندسية.</p></div><div class="flex flex-col gap-space-sm"><h3 class="font-label-lg text-label-lg text-on-surface">روابط سريعة</h3><ul class="flex flex-col gap-space-xs"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors"><a data-path="home" href="index.html" class="">الرئيسية</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors"><a data-path="explore-trades" href="explore.html" class="">استكشاف المهن</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors"><a data-path="my-requests" href="my-requests.html" class="">طلباتي الجارية</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors"><a data-path="join-pro" href="join-pro.html" class="">تسجيل الحرفيين</a></li></ul></div><div class="flex flex-col gap-space-sm"><h3 class="font-label-lg text-label-lg text-on-surface">أشهر التخصصات</h3><ul class="flex flex-col gap-space-xs"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors"><a data-path="explore-trades" href="explore.html" class="">كهرباء وتمديدات</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors"><a data-path="explore-trades" href="explore.html" class="">سباكة وصيانة صحية</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors"><a data-path="explore-trades" href="explore.html" class="">نجارة وديكور خشب</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors"><a data-path="explore-trades" href="explore.html" class="">تكييف وتبريد معتمد</a></li></ul></div><div class="flex flex-col gap-space-sm"><h3 class="font-label-lg text-label-lg text-on-surface">الأمان والدعم</h3><p class="font-body-sm text-body-sm text-on-surface-variant">ضمان حماية الدفع وفحص الهويات المهنية لكافة مزودي الخدمة المسجلين.</p><div class="flex items-center gap-space-sm text-on-surface-variant font-label-md text-label-md"><span class="material-symbols-outlined text-secondary text-[20px]">verified_user</span><span class="">حماية وضمان مِراس</span></div></div></div><div class="flex flex-col md:flex-row items-center justify-between gap-space-md pt-space-lg bg-surface-container/60 rounded-xl px-space-md"><div class="font-body-sm text-body-sm text-on-surface-variant">© 2025 منصة مِراس (Miras). جميع الحقوق محفوظة لخدمات الوساطة المهنية.</div><div class="flex items-center gap-space-md"><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" data-path="terms-and-privacy" href="#">الشروط والأحكام</a><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" data-path="terms-and-privacy" href="#">سياسة الخصوصية</a><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" data-path="support-center" href="#">مركز المساعدة</a></div></div></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase/config.js"></script>
+<script src="supabase/auth-router.js"></script>
+<script src="supabase/miras-api.js"></script>
+<script>
+  // فحص واسترجاع طلبات المستخدم الحقيقية من Supabase
+  document.addEventListener('DOMContentLoaded', async () => {
+    if (window.MirasAPI) {
+      try {
+        const user = await window.MirasAPI.auth.getCurrentUser();
+        if (user) {
+          const { data: orders } = await window.MirasAPI.orders.list({ client_id: user.id });
+          if (orders && orders.length > 0) {
+            console.log('✅ تم العثور على طلبات خدمة حقيقية للمستخدم:', orders.length);
+          }
+        }
+      } catch (err) {
+        console.warn('[MyRequests] استعلام الطلبات:', err);
+      }
+    }
+  });
+</script>
 </body></html>

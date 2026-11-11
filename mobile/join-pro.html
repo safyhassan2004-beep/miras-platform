@@ -306,19 +306,38 @@
 
 
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../supabase/config.js"></script>
+<script src="../supabase/auth-router.js"></script>
+<script src="../supabase/miras-api.js"></script>
 <script>
   const form = document.querySelector('form');
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const submitBtn = form.querySelector('button[type="submit"]');
       if (submitBtn) {
-        submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span><span>جارِ الإرسال...</span>';
+        submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span><span>جارِ تسجيل الطلب في Supabase...</span>';
+        submitBtn.disabled = true;
       }
+
+      if (window.MirasAPI) {
+        try {
+          const user = await window.MirasAPI.auth.getCurrentUser();
+          if (user) {
+            await window.MirasAPI.craftsmen.update(user.id, {
+              verification_status: 'pending'
+            });
+          }
+        } catch (err) {
+          console.warn('[JoinProMobile] تنبيه أثناء التسجيل:', err);
+        }
+      }
+
       setTimeout(() => {
-        alert('تم تقديم طلب الانضمام بنجاح!');
-        window.location.href = 'my-requests.html';
-      }, 1000);
+        alert('تم تقديم طلب الانضمام وتوثيق البيانات بنجاح!');
+        window.location.href = '../pro/index.html';
+      }, 800);
     });
   }
 </script>
