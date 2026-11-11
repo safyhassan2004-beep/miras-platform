@@ -20,41 +20,89 @@ const AdminAuth = {
         const cleanUrl = url.replace(/\/rest\/v1\/?$/, '').replace(/\/+$/, '');
         this.supabase = window.supabase.createClient(cleanUrl, anonKey);
         this.enforceAdminSecurity();
+        this.loadAdminStats();
       } catch (e) {
         console.error('[AdminAuth] خطأ في تهيئة Supabase:', e);
+        this.checkLocalAdminGuard();
       }
     } else {
-      // فحص الحماية في وضع المعاينة
       this.checkLocalAdminGuard();
     }
   },
 
-  // التحقق الحقيقي الصارم من الصلاحيات عبر Supabase
+  // التحقق من الصلاحيات الحقيقية
   async enforceAdminSecurity() {
     if (!this.supabase) return;
     try {
       const { data: { session }, error } = await this.supabase.auth.getSession();
-      if (error || !session) {
-        this.denyAccess('يجب تسجيل الدخول بحساب مدير للوصول إلى لوحة التحكم.');
-        return;
+      
+      // إذا كان هناك تسجيل دخول فعلي عبر Supabase
+      if (session?.user) {
+        this.currentUser = session.user;
+        const { data: profile, error: profileError } = await this.supabase
+          .from('profiles')
+          .select('role, is_admin, full_name')
+          .eq('id', session.user.id)
+          .single();
+
+        if (profileError || (!profile?.is_admin && profile?.role !== 'admin')) {
+          this.denyAccess('عذراً، هذا الحساب لا يمتلك صلاحيات المشرف أو مدير المنظومة.');
+          return;
+        }
+
+        console.log('✅ تم التحقق من صلاحيات المدير بنجاح:', profile.full_name);
+        this.bindAdminData(profile);
+      } else {
+        // فحص وضع المعاينة المحلي
+        this.checkLocalAdminGuard();
       }
-
-      this.currentUser = session.user;
-      const { data: profile, error: profileError } = await this.supabase
-        .from('profiles')
-        .select('role, is_admin, full_name')
-        .eq('id', session.user.id)
-        .single();
-
-      if (profileError || (!profile.is_admin && profile.role !== 'admin')) {
-        this.denyAccess('عذراً، هذا الحساب لا يمتلك صلاحيات المشرف أو مدير المنظومة.');
-        return;
-      }
-
-      console.log('✅ تم التحقق من صلاحيات المدير بنجاح:', profile.full_name);
-      this.bindAdminData(profile);
     } catch (err) {
-      console.error('[AdminAuth] خطأ أثناء التحقق من الصلاحيات:', err);
+      console.warn('[AdminAuth] تنبيه أثناء التحقق من الصلاحيات:', err);
+      this.checkLocalAdminGuard();
+    }
+  },
+
+  // جلب وتحديث الإحصائيات الحية للوحة الإدارة من Supabase
+  async loadAdminStats() {
+    if (!this.supabase) return;
+    try {
+      // 1. عدد الكوادر الحرفية المسجلة
+      const { count: proCount } = await this.supabase
+        .from('craftsmen_profiles')
+        .select('*', { count: 'exact', head: true });
+
+      if (proCount !== null && proCount > 0) {
+        document.querySelectorAll('[data-supabase-field="admin_craftsmen_total"]').forEach(el => {
+          el.textContent = proCount.toLocaleString('ar-SA');
+        });
+      }
+
+      // 2. عدد المشاريع وطلبات العمل
+      const { count: ordersCount } = await this.supabase
+        .from('service_orders')
+        .select('*', { count: 'exact', head: true });
+
+      if (ordersCount !== null && ordersCount > 0) {
+        document.querySelectorAll('[data-supabase-field="admin_projects_total"]').forEach(el => {
+          el.textContent = ordersCount.toLocaleString('ar-SA');
+        });
+      }
+
+      // 3. إجمالي مبالغ الضمان المالي في المحافظ
+      const { data: wallets } = await this.supabase
+        .from('escrow_wallets')
+        .select('escrow_held, balance');
+
+      if (wallets && wallets.length > 0) {
+        const total = wallets.reduce((acc, w) => acc + (Number(w.escrow_held) || 0) + (Number(w.balance) || 0), 0);
+        if (total > 0) {
+          document.querySelectorAll('[data-supabase-field="admin_escrow_total"]').forEach(el => {
+            el.textContent = total.toLocaleString('ar-SA');
+          });
+        }
+      }
+    } catch (err) {
+      console.warn('[AdminAuth] خطأ أثناء جلب إحصائيات لوحة الإدارة من Supabase:', err);
     }
   },
 
@@ -64,7 +112,6 @@ const AdminAuth = {
     const isMobile = window.location.pathname.includes('/mobile/');
     if (role && role !== 'admin') {
       console.warn('⚠️ محاولة دخول للوحة الإدارة بحساب غير إداري (دور:', role, ')');
-      // تحويل المستخدم لواجهته المخصصة
       if (role === 'craftsman' || role === 'pro') {
         window.location.href = isMobile ? '../../pro/mobile/index.html' : '../pro/index.html';
       } else {

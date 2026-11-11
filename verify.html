@@ -103,11 +103,11 @@
 <!-- Phone Number Badge with Edit CTA -->
 <div class="my-space-sm inline-flex items-center gap-space-sm px-space-md py-space-xs rounded-full bg-surface-container-low hover:bg-surface-container transition-colors shadow-sm">
 <span class="material-symbols-outlined text-[18px] text-secondary">phone_iphone</span>
-<span class="font-headline-sm text-headline-sm text-primary tracking-wider font-semibold" dir="ltr">+966 54 892 0147</span>
-<button class="inline-flex items-center gap-1 text-secondary hover:text-primary font-label-md text-label-md transition-colors pr-space-xs" type="button">
+<span class="font-headline-sm text-headline-sm text-primary tracking-wider font-semibold" dir="ltr" id="verifyPhoneDisplay">+966 54 892 0147</span>
+<a class="inline-flex items-center gap-1 text-secondary hover:text-primary font-label-md text-label-md transition-colors pr-space-xs" href="login.html">
 <span>تعديل الرقم</span>
 <span class="material-symbols-outlined text-[16px]">edit</span>
-</button>
+</a>
 </div>
 <!-- 4-Digit OTP Inputs Group -->
 <form class="w-full max-w-md my-space-lg flex flex-col items-center" id="otp-form">
@@ -195,6 +195,14 @@
     const timerElem = document.getElementById('countdown-timer');
     const resendBtn = document.getElementById('resend-call-btn');
     const form = document.getElementById('otp-form');
+
+    // عرض رقم الجوال الفعلي إذا تم تمريره
+    const urlParams = new URLSearchParams(window.location.search);
+    const phoneParam = urlParams.get('phone');
+    if (phoneParam) {
+      const display = document.getElementById('verifyPhoneDisplay');
+      if (display) display.textContent = '+966 ' + phoneParam;
+    }
 
     // Auto-focus next input behavior
     inputs.forEach((input, idx) => {

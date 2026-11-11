@@ -2,18 +2,17 @@
  * Miras Supabase Client Configuration
  * إعدادات الاتصال المباشر بمنصة Supabase لمشروع مِـرَاس
  * 
- * قم بملء القيم أدناه من لوحة تحكم Supabase الخاصة بك:
- * Project Settings -> API -> Project URL & Project API Keys (anon public)
+ * تم ضبط المفتاح وعنوان المشروع بنجاح:
+ * Project URL & Publishable API Key
  */
 
 window.MIRAS_ENV = {
-  // عنوان المشروع في Supabase
-  SUPABASE_URL: "https://dxutrykrxncuuyrtepgf.supabase.co/rest/v1/",
+  // عنوان المشروع في Supabase (نظيف بدون لاحقات)
+  SUPABASE_URL: "https://dxutrykrxncuuyrtepgf.supabase.co",
 
-  // المفتاح العام المجهول (anon public key)
-  SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsb_publishable_975LD8TQnFdx5CY2sDjbvw_6-PWXlsSsInR5cCI6IkpXVCJ9...",
+  // المفتاح العام (Publishable Anon Key)
+  SUPABASE_ANON_KEY: "sb_publishable_975LD8TQnFdx5CY2sDjbvw_6-PWXlsS",
 
-  // وضع التطوير (فعّل true لعرض سجلات فحص الصلاحيات والاتصال في الـ Console)
+  // وضع التطوير
   DEBUG_MODE: true
 };
-

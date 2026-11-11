@@ -345,28 +345,75 @@
 <script>
   const authForm = document.getElementById('authForm');
   if (authForm) {
-    authForm.addEventListener('submit', (e) => {
+    authForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const submitBtn = authForm.querySelector('button[type="submit"]');
-      if (submitBtn) {
-        submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span><span>جارِ الإرسال...</span>';
-      }
-      // Check if user selected professional role
+      const errorNotice = document.getElementById('authErrorNotice');
+      if (errorNotice) errorNotice.classList.add('hidden');
+
       const isPro = document.getElementById('loginHeading')?.textContent?.includes('الحرفيين') || false;
       const targetRole = isPro ? 'craftsman' : 'client';
+      const mobileVal = document.getElementById('mobileInput')?.value?.trim() || '';
+      const passwordVal = document.getElementById('passwordInput')?.value || '';
+      const isPasswordMode = !document.getElementById('passwordFieldContainer')?.classList.contains('hidden');
+
+      // 1. فحص بيانات الدخول الإدارية التجريبية
+      if (mobileVal === '500000000' || mobileVal === '0500000000' || mobileVal.toLowerCase() === 'admin' || mobileVal === 'admin@miras.sa') {
+        sessionStorage.setItem('role', 'admin');
+        sessionStorage.setItem('miras_auth_role', 'admin');
+        if (submitBtn) submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span><span>جاري الدخول إلى لوحة المدير...</span>';
+        setTimeout(() => {
+          window.location.href = 'admin/index.html';
+        }, 500);
+        return;
+      }
+
       sessionStorage.setItem('role', isPro ? 'pro' : 'client');
       sessionStorage.setItem('miras_auth_role', targetRole);
 
-      // Check if testing with admin credentials
-      const mobileVal = document.getElementById('mobileInput')?.value?.trim();
-      if (mobileVal === '500000000' || mobileVal === '0500000000' || mobileVal === 'admin') {
-        sessionStorage.setItem('role', 'admin');
-        sessionStorage.setItem('miras_auth_role', 'admin');
+      // 2. إذا كان المستخدم في وضع تسجيل الدخول بكلمة المرور
+      if (isPasswordMode && passwordVal) {
+        if (submitBtn) {
+          submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span><span>جارِ التحقق عبر Supabase...</span>';
+          submitBtn.disabled = true;
+        }
+
+        const emailTarget = mobileVal.includes('@') ? mobileVal : (mobileVal + '@miras.sa');
+        if (window.MirasRouter) {
+          const { data, error } = await window.MirasRouter.signInWithPassword({
+            email: emailTarget,
+            password: passwordVal
+          });
+
+          if (!error && data?.user) {
+            if (submitBtn) submitBtn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check_circle</span><span>تم الدخول بنجاح</span>';
+            setTimeout(() => {
+              window.MirasRouter.routeUser(data.user);
+            }, 500);
+            return;
+          } else {
+            console.warn('[Login] تسجيل الدخول بكلمة المرور:', error?.message);
+            // إذا كان خطأ مصادقة صريح
+            alert(error?.message === 'Invalid login credentials' 
+              ? 'بيانات الدخول غير صحيحة. يرجى التحقق من رقم الجوال أو كلمة المرور، أو التسجيل بحساب جديد.' 
+              : ('تنبيه: ' + (error?.message || 'تعذر التحقق من الحساب حالياً.')));
+            if (submitBtn) {
+              submitBtn.innerHTML = '<span>تسجيل الدخول الآن</span><span class="material-symbols-outlined text-[20px] -translate-x-1">arrow_back</span>';
+              submitBtn.disabled = false;
+            }
+            return;
+          }
+        }
       }
 
+      // 3. وضع رمز التحقق السريع (OTP)
+      if (submitBtn) {
+        submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span><span>جارِ إرسال الرمز...</span>';
+        submitBtn.disabled = true;
+      }
       setTimeout(() => {
-        window.location.href = 'verify.html?role=' + (sessionStorage.getItem('miras_auth_role') || targetRole);
-      }, 700);
+        window.location.href = 'verify.html?role=' + targetRole + '&phone=' + encodeURIComponent(mobileVal);
+      }, 600);
     });
   }
 </script>

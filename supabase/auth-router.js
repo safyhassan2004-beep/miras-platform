@@ -9,13 +9,17 @@
  */
 
 window.MirasRouter = {
-  // تهيئة عميل Supabase
+  _client: null,
+
+  // تهيئة واستعادة عميل Supabase المشترك
   getClient() {
+    if (this._client) return this._client;
     const config = window.MIRAS_ENV || {};
     if (window.supabase && config.SUPABASE_URL && !config.SUPABASE_URL.includes('YOUR_PROJECT_ID')) {
       try {
         const cleanUrl = config.SUPABASE_URL.replace(/\/rest\/v1\/?$/, '').replace(/\/+$/, '');
-        return window.supabase.createClient(cleanUrl, config.SUPABASE_ANON_KEY);
+        this._client = window.supabase.createClient(cleanUrl, config.SUPABASE_ANON_KEY);
+        return this._client;
       } catch (e) {
         console.error('[MirasRouter] خطأ في تهيئة عميل Supabase:', e);
       }
@@ -23,11 +27,75 @@ window.MirasRouter = {
     return null;
   },
 
-  // توجيه المستخدم تلقائياً بناءً على دوره وصلاحياته
+  // تسجيل حساب جديد في Supabase Auth
+  async signUp({ email, password, fullName, phone, role, city, tradeCategory }) {
+    const supabase = this.getClient();
+    if (!supabase) {
+      console.warn('[MirasRouter] Supabase غير متصل، استخدام الوضع المحلي');
+      sessionStorage.setItem('miras_auth_role', role || 'client');
+      return { data: { user: { email } }, error: null };
+    }
+
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email: email,
+        password: password,
+        options: {
+          data: {
+            full_name: fullName,
+            phone_number: phone,
+            role: role || 'client',
+            city: city || 'الرياض',
+            trade_category: tradeCategory || 'صيانة وتشطيبات'
+          }
+        }
+      });
+      return { data, error };
+    } catch (err) {
+      console.error('[MirasRouter] استثناء أثناء إنشاء الحساب:', err);
+      return { data: null, error: err };
+    }
+  },
+
+  // تسجيل الدخول بكلمة المرور في Supabase Auth
+  async signInWithPassword({ email, password }) {
+    const supabase = this.getClient();
+    if (!supabase) {
+      return { data: null, error: new Error('Supabase client not initialized') };
+    }
+
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: email,
+        password: password
+      });
+      return { data, error };
+    } catch (err) {
+      console.error('[MirasRouter] استثناء أثناء تسجيل الدخول:', err);
+      return { data: null, error: err };
+    }
+  },
+
+  // تسجيل الخروج
+  async signOut() {
+    const supabase = this.getClient();
+    if (supabase) {
+      try {
+        await supabase.auth.signOut();
+      } catch (e) {
+        console.warn('[MirasRouter] خطأ أثناء تسجيل الخروج:', e);
+      }
+    }
+    sessionStorage.removeItem('miras_auth_role');
+    sessionStorage.removeItem('role');
+    this.navigate('index.html');
+  },
+
+  // توجيه المستخدم تلقائياً بناءً على دوره وصلاحياته الحية في Supabase
   async routeUser(sessionUser = null, explicitRole = null) {
     const supabase = this.getClient();
 
-    // 1. فحص الدور والصلاحيات الحية في Supabase
+    // 1. فحص الدور والصلاحيات الحية في Supabase إذا توفرت الجلسة
     if (supabase) {
       try {
         let user = sessionUser;
@@ -59,11 +127,11 @@ window.MirasRouter = {
           }
         }
       } catch (err) {
-        console.error('[MirasRouter] خطأ أثناء استعلام الصلاحيات من Supabase:', err);
+        console.warn('[MirasRouter] جاري الاعتماد على الدور المحلي المؤقت:', err);
       }
     }
 
-    // 2. وضع المعاينة والتطوير (عندما تكون مفاتيح Supabase غير مفعلة بعد):
+    // 2. وضع المعاينة والتطوير:
     const role = explicitRole || sessionStorage.getItem('miras_auth_role') || 'client';
     if (role === 'admin') {
       return this.navigate('admin/index.html');
@@ -79,7 +147,6 @@ window.MirasRouter = {
     const pathname = window.location.pathname;
     let prefix = '';
     
-    // إذا كانت الصفحة داخل مجلد فرعي
     if (pathname.includes('/admin/mobile/') || pathname.includes('/pro/mobile/')) {
       prefix = '../../';
     } else if (pathname.includes('/admin/') || pathname.includes('/pro/') || pathname.includes('/mobile/')) {
