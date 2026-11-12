@@ -4,6 +4,44 @@
  */
 
 window.MirasAPI = {
+  // الثوابت الوطنية والإعدادات الافتراضية لمنصة مِـرَاس (الجمهورية اليمنية)
+  CONSTANTS: {
+    COUNTRY: 'Yemen',
+    COUNTRY_AR: 'الجمهورية اليمنية',
+    DIAL_CODE: '+967',
+    CURRENCY_CODE: 'YER',
+    CURRENCY_SYMBOL: 'ر.ي',
+    DEFAULT_CITY: 'صنعاء',
+    CITIES: ['صنعاء', 'عدن', 'تعز', 'حضرموت', 'إب', 'الحديدة', 'ذمار', 'المكلا', 'سيئون'],
+    SUPER_ADMIN_EMAIL: 'safyhassan2004@gmail.com',
+    SUPER_ADMIN_PHONE: '+967781125928'
+  },
+
+  // تنسيق وتحويل رقم الهاتف إلى صيغة E.164 اليمنية الموحدة (+967XXXXXXXXX)
+  normalizePhone(phone) {
+    if (!phone) return '';
+    let cleaned = phone.toString().replace(/[^\+0-9]/g, '');
+    if (cleaned.startsWith('+967')) return cleaned;
+    if (cleaned.startsWith('00967')) return '+' + cleaned.substring(2);
+    if (cleaned.startsWith('967')) return '+' + cleaned;
+    if (cleaned.startsWith('0') && cleaned.length === 10) return '+967' + cleaned.substring(1);
+    if (cleaned.length === 9 && cleaned.startsWith('7')) return '+967' + cleaned;
+    return cleaned.startsWith('+') ? cleaned : '+967' + cleaned;
+  },
+
+  // التحقق من صحة رقم الهاتف اليمني (9 أرقام تبدأ بـ 7xx xxx xxx)
+  isValidYemeniPhone(phone) {
+    if (!phone) return false;
+    const norm = this.normalizePhone(phone);
+    return /^\+967[7][0-9]{8}$/.test(norm);
+  },
+
+  // فحص صلاحية Super Admin
+  isSuperAdmin(user, profile) {
+    if (user && user.email && user.email.toLowerCase() === 'safyhassan2004@gmail.com') return true;
+    if (profile && (profile.role === 'super_admin' || profile.is_super_admin)) return true;
+    return false;
+  },
   // استدعاء عميل Supabase المشترك
   getClient() {
     if (window.MirasRouter && window.MirasRouter.getClient) {
@@ -429,6 +467,63 @@ window.MirasAPI = {
         .from('craftsmen_profiles')
         .update({ verification_status: status, updated_at: new Date().toISOString() })
         .eq('id', craftsmanId)
+        .select();
+    },
+
+    // إدارة المستخدمين والعملاء
+    async listAllUsers() {
+      const client = window.MirasAPI.getClient();
+      if (!client) return { data: [], error: null };
+      return client.from('profiles').select('*').order('created_at', { ascending: false });
+    },
+
+    async updateUserRole(userId, newRole, isAdmin = false) {
+      const client = window.MirasAPI.getClient();
+      if (!client) return { error: new Error('Supabase not connected') };
+      return client
+        .from('profiles')
+        .update({ 
+          role: newRole, 
+          is_admin: isAdmin,
+          is_super_admin: newRole === 'super_admin',
+          updated_at: new Date().toISOString() 
+        })
+        .eq('id', userId)
+        .select();
+    },
+
+    // إدارة تصنيفات المهن (Categories)
+    async createCategory(categoryData) {
+      const client = window.MirasAPI.getClient();
+      if (!client) return { error: new Error('Supabase not connected') };
+      return client.from('trade_categories').insert([categoryData]).select();
+    },
+
+    async updateCategory(categoryId, updates) {
+      const client = window.MirasAPI.getClient();
+      if (!client) return { error: new Error('Supabase not connected') };
+      return client.from('trade_categories').update(updates).eq('id', categoryId).select();
+    },
+
+    async deleteCategory(categoryId) {
+      const client = window.MirasAPI.getClient();
+      if (!client) return { error: new Error('Supabase not connected') };
+      return client.from('trade_categories').delete().eq('id', categoryId);
+    },
+
+    // إعدادات النظام وسياسات المنصة (System Settings)
+    async getSettings() {
+      const client = window.MirasAPI.getClient();
+      if (!client) return { data: [], error: null };
+      return client.from('system_settings').select('*');
+    },
+
+    async updateSetting(key, value) {
+      const client = window.MirasAPI.getClient();
+      if (!client) return { error: new Error('Supabase not connected') };
+      return client
+        .from('system_settings')
+        .upsert({ key, value, updated_at: new Date().toISOString() })
         .select();
     }
   }

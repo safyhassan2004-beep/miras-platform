@@ -41,16 +41,19 @@ const AdminAuth = {
         this.currentUser = session.user;
         const { data: profile, error: profileError } = await this.supabase
           .from('profiles')
-          .select('role, is_admin, full_name')
+          .select('role, is_admin, is_super_admin, full_name, phone_number, country, city')
           .eq('id', session.user.id)
           .single();
 
-        if (profileError || (!profile?.is_admin && profile?.role !== 'admin')) {
+        const isSuperAdmin = session.user?.email && session.user.email.toLowerCase() === 'safyhassan2004@gmail.com';
+        const hasAdminAccess = isSuperAdmin || profile?.role === 'super_admin' || profile?.role === 'admin' || profile?.is_admin || profile?.is_super_admin;
+        
+        if (!hasAdminAccess) {
           this.denyAccess('عذراً، هذا الحساب لا يمتلك صلاحيات المشرف أو مدير المنظومة.');
           return;
         }
 
-        console.log('✅ تم التحقق من صلاحيات المدير بنجاح:', profile.full_name);
+        console.log('✅ تم التحقق من صلاحيات الإدارة بنجاح:', profile?.full_name || session.user.email);
         this.bindAdminData(profile);
       } else {
         // فحص وضع المعاينة المحلي
@@ -110,7 +113,7 @@ const AdminAuth = {
   checkLocalAdminGuard() {
     const role = sessionStorage.getItem('miras_auth_role');
     const isMobile = window.location.pathname.includes('/mobile/');
-    if (role && role !== 'admin') {
+    if (role && role !== 'admin' && role !== 'super_admin') {
       console.warn('⚠️ محاولة دخول للوحة الإدارة بحساب غير إداري (دور:', role, ')');
       if (role === 'craftsman' || role === 'pro') {
         window.location.href = isMobile ? '../../pro/mobile/index.html' : '../pro/index.html';
@@ -127,8 +130,27 @@ const AdminAuth = {
   },
 
   bindAdminData(profile) {
+    const isOwner = (this.currentUser?.email && this.currentUser.email.toLowerCase() === 'safyhassan2004@gmail.com') || profile?.role === 'super_admin' || profile?.is_super_admin;
+    const displayName = isOwner ? 'مالكة المنصة (Super Admin)' : (profile?.full_name || 'مدير المنصة');
+
     document.querySelectorAll('[data-supabase-field="admin_name"]').forEach(el => {
-      if (profile.full_name) el.textContent = profile.full_name;
+      el.textContent = displayName;
+    });
+
+    document.querySelectorAll('[data-supabase-field="admin_role_badge"]').forEach(el => {
+      el.textContent = isOwner ? 'مالكة المنصة • Super Admin' : 'مدير النظام';
+    });
+
+    document.querySelectorAll('[data-supabase-field="admin_country_badge"]').forEach(el => {
+      el.textContent = 'الجمهورية اليمنية (+967)';
+    });
+
+    document.querySelectorAll('[data-supabase-field="admin_email"]').forEach(el => {
+      el.textContent = this.currentUser?.email || (isOwner ? 'safyhassan2004@gmail.com' : 'admin@miras.ye');
+    });
+
+    document.querySelectorAll('[data-supabase-field="admin_phone"]').forEach(el => {
+      el.textContent = isOwner ? '+967 78 112 5928' : (profile?.phone_number || '+967 78 112 5928');
     });
   },
 

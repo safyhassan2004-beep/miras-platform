@@ -109,8 +109,8 @@ const ProAuth = {
       'pro_name': data.full_name,
       'pro_trade': data.trade_category,
       'pro_rating': data.rating ? `${data.rating} ★` : '',
-      'pro_wallet_balance': data.wallet?.balance !== undefined ? `${data.wallet.balance} ر.س` : '',
-      'pro_escrow_held': data.wallet?.escrow_held !== undefined ? `${data.wallet.escrow_held} ر.س` : '',
+      'pro_wallet_balance': data.wallet?.balance !== undefined ? `${data.wallet.balance} ر.ي` : '',
+      'pro_escrow_held': data.wallet?.escrow_held !== undefined ? `${data.wallet.escrow_held} ر.ي` : '',
       'pro_active_orders': data.active_orders_count !== undefined ? String(data.active_orders_count) : '',
       'pro_completed_orders': data.completed_orders !== undefined ? String(data.completed_orders) : ''
     };

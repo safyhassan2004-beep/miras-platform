@@ -103,7 +103,7 @@
 <!-- Phone Number Badge with Edit CTA -->
 <div class="my-space-sm inline-flex items-center gap-space-sm px-space-md py-space-xs rounded-full bg-surface-container-low hover:bg-surface-container transition-colors shadow-sm">
 <span class="material-symbols-outlined text-[18px] text-secondary">phone_iphone</span>
-<span class="font-headline-sm text-headline-sm text-primary tracking-wider font-semibold" dir="ltr" id="verifyPhoneDisplay">+966 54 892 0147</span>
+<span class="font-headline-sm text-headline-sm text-primary tracking-wider font-semibold" dir="ltr" id="verifyPhoneDisplay">+967 78 112 5928</span>
 <a class="inline-flex items-center gap-1 text-secondary hover:text-primary font-label-md text-label-md transition-colors pr-space-xs" href="login.html">
 <span>تعديل الرقم</span>
 <span class="material-symbols-outlined text-[16px]">edit</span>
@@ -150,8 +150,8 @@
 <span class="material-symbols-outlined text-[20px]">fingerprint</span>
 </div>
 <div class="flex flex-col text-right">
-<span class="font-label-md text-label-md text-primary font-semibold">الدخول عبر النفاذ الوطني الموحد</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">التحقق السريع عبر تطبيق نفاذ</span>
+<span class="font-label-md text-label-md text-primary font-semibold">الدخول عبر الهوية الرقمية المعتمدة</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">التحقق السريع برقم الهوية الوطنية</span>
 </div>
 </div>
 <span class="material-symbols-outlined text-[20px] text-on-surface-variant group-hover:text-primary transform rotate-180 transition-colors">arrow_forward</span>
@@ -201,7 +201,7 @@
     const phoneParam = urlParams.get('phone');
     if (phoneParam) {
       const display = document.getElementById('verifyPhoneDisplay');
-      if (display) display.textContent = '+966 ' + phoneParam;
+      if (display) display.textContent = '+967 ' + phoneParam;
     }
 
     // Auto-focus next input behavior

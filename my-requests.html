@@ -443,7 +443,7 @@
         </div>
         <div>
           <h3 class="font-bold text-base text-primary">إنشاء طلب خدمة وضمان جديد</h3>
-          <p class="text-xs text-on-surface-variant">طلبك محمي بحساب الضمان المالي ومطابقة كود البناء</p>
+          <p class="text-xs text-on-surface-variant">طلبك محمي بحساب الضمان المالي والمواصفات الهندسية المعتمدة</p>
         </div>
       </div>
       <button onclick="document.getElementById('newOrderModal').close()" class="p-1 text-on-surface-variant hover:text-on-surface">
@@ -472,10 +472,10 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <div>
           <label class="block text-xs font-bold text-on-surface-variant mb-1">المدينة والحي <span class="text-error">*</span></label>
-          <input required id="orderLocation" type="text" placeholder="الرياض — حي الصحافة" class="w-full px-3 py-2.5 rounded-lg border border-outline-variant bg-surface text-xs focus:outline-none focus:border-primary"/>
+          <input required id="orderLocation" type="text" placeholder="صنعاء — حي بيت بوس" class="w-full px-3 py-2.5 rounded-lg border border-outline-variant bg-surface text-xs focus:outline-none focus:border-primary"/>
         </div>
         <div>
-          <label class="block text-xs font-bold text-on-surface-variant mb-1">الميزانية التقديرية (ر.س) <span class="text-error">*</span></label>
+          <label class="block text-xs font-bold text-on-surface-variant mb-1">الميزانية التقديرية (ر.ي) <span class="text-error">*</span></label>
           <input required id="orderBudget" type="number" min="150" step="50" placeholder="500" class="w-full px-3 py-2.5 rounded-lg border border-outline-variant bg-surface text-xs focus:outline-none focus:border-primary"/>
         </div>
       </div>
@@ -523,13 +523,13 @@
         <div>
           <div class="flex items-center gap-2">
             <span class="font-bold text-sm text-primary">الحرفي: م. سعدون الشمري</span>
-            <span class="px-2 py-0.5 rounded bg-green-100 text-green-800 text-[10px] font-bold">موثق نفاذ + بلدي</span>
+            <span class="px-2 py-0.5 rounded bg-green-100 text-green-800 text-[10px] font-bold">موثق بالهوية + ترخيص معتمد</span>
           </div>
           <div class="text-[11px] text-on-surface-variant mt-1">عرض سعر لمشروع: فحص وصيانة القواطع الكهربائية</div>
           <div class="text-[11px] text-secondary font-semibold mt-0.5">المدة: يومان عمل • ضمان مِراس 30 يوماً</div>
         </div>
         <div class="text-left flex flex-col sm:items-end gap-1.5 w-full sm:w-auto">
-          <div class="text-base font-black text-primary">480 ر.س</div>
+          <div class="text-base font-black text-primary">480 ر.ي</div>
           <button onclick="acceptQuote('سعدون الشمري', 480)" class="px-3 py-1.5 rounded-lg bg-primary text-white text-xs font-bold hover:bg-primary-dark">قبول العرض والضمان</button>
         </div>
       </div>
@@ -544,7 +544,7 @@
           <div class="text-[11px] text-secondary font-semibold mt-0.5">المدة: 3 أيام عمل</div>
         </div>
         <div class="text-left flex flex-col sm:items-end gap-1.5 w-full sm:w-auto">
-          <div class="text-base font-black text-primary">550 ر.س</div>
+          <div class="text-base font-black text-primary">550 ر.ي</div>
           <button onclick="acceptQuote('فهد القحطاني', 550)" class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary text-xs font-bold">معاينة العرض</button>
         </div>
       </div>
@@ -598,7 +598,7 @@
     if (m) m.showModal();
   };
   window.acceptQuote = function(craftsman, price) {
-    alert(`تم اختيار عرض الحرفي ${craftsman} بقيمة ${price} ر.س. سيتم حجز المبلغ في حساب الضمان بعد موافقتك النهائية.`);
+    alert(`تم اختيار عرض الحرفي ${craftsman} بقيمة ${price} ر.ي. سيتم حجز المبلغ في حساب الضمان بعد موافقتك النهائية.`);
     document.getElementById('quotesModal').close();
   };
   window.sendChatMessage = function(e) {
@@ -675,7 +675,7 @@
             </div>
             <div class="flex items-center gap-2">
               <span class="px-2.5 py-1 rounded-full bg-status-warning-bg text-status-warning text-xs font-bold">بانتظار عروض الأسعار</span>
-              <span class="font-bold text-sm text-primary">${budget} ر.س</span>
+              <span class="font-bold text-sm text-primary">${budget} ر.ي</span>
             </div>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs text-on-surface-variant">

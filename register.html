@@ -160,7 +160,7 @@
 <span class="material-symbols-outlined text-[18px]">verified_user</span>
 </div>
 <div class="flex flex-col text-right">
-<span class="font-label-md text-label-md font-bold leading-tight">النفاذ الوطني الموحد</span>
+<span class="font-label-md text-label-md font-bold leading-tight">الهوية الرقمية المعتمدة</span>
 <span class="text-[11px] text-on-surface-variant">تحقق فوري برقم الهوية</span>
 </div>
 </button>
@@ -198,7 +198,7 @@
 <input class="w-full pr-11 pl-space-md py-space-sm bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-secondary transition-all" id="fullName" placeholder="مثال: عبدالله محمد الراشد" required="" type="text"/>
 </div>
 </div>
-<!-- Saudi Mobile Number Field -->
+<!-- Yemeni Mobile Number Field -->
 <div class="flex flex-col gap-1">
 <label class="font-label-md text-label-md text-on-surface font-medium flex items-center justify-between" for="mobileNumber">
 <span>رقم الجوال</span>
@@ -206,10 +206,10 @@
 </label>
 <div class="relative flex items-center" dir="ltr">
 <div class="absolute left-space-sm flex items-center gap-1 text-on-surface-variant font-label-md border-r-0 pl-1">
-<span class="text-sm font-semibold tracking-wider">+966</span>
-<span class="text-base">🇸🇦</span>
+<span class="text-sm font-semibold tracking-wider">+967</span>
+<span class="text-base">🇾🇪</span>
 </div>
-<input class="w-full pl-24 pr-space-md py-space-sm bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface text-left placeholder:text-outline focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-secondary transition-all" id="mobileNumber" maxlength="9" placeholder="5X XXX XXXX" required="" type="tel"/>
+<input class="w-full pl-24 pr-space-md py-space-sm bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface text-left placeholder:text-outline focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-secondary transition-all" id="mobileNumber" maxlength="9" placeholder="781125928" required="" type="tel"/>
 </div>
 </div>
 <!-- Email Field -->
@@ -226,15 +226,15 @@
 <div class="relative flex items-center">
 <span class="material-symbols-outlined absolute right-space-sm text-outline text-[20px] pointer-events-none">location_on</span>
 <select class="w-full pr-11 pl-space-md py-space-sm bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-secondary transition-all appearance-none cursor-pointer" id="citySelect" required="">
-<option disabled="" selected="" value="">اختر مدينتك الرئيسية</option>
-<option value="riyadh">منطقة الرياض (العاصمة)</option>
-<option value="makkah">منطقة مكة المكرمة (جدة / مكة / الطائف)</option>
-<option value="eastern">المنطقة الشرقية (الدمام / الخبر / الأحساء)</option>
-<option value="madinah">منطقة المدينة المنورة</option>
-<option value="qassim">منطقة القصيم (بريدة / عنيزة)</option>
-<option value="asir">منطقة عسير (أبها / خميس مشيط)</option>
-<option value="tabuk">منطقة تبوك</option>
-<option value="other">مناطق أخرى بالمملكة</option>
+<option value="sanaa" selected>أمانة العاصمة ومحافظة صنعاء (العاصمة)</option>
+<option value="aden">محافظة عدن</option>
+<option value="taiz">محافظة تعز</option>
+<option value="hadramout">محافظة حضرموت (المكلا / سيئون)</option>
+<option value="ibb">محافظة إب</option>
+<option value="hodeidah">محافظة الحديدة</option>
+<option value="dhamar">محافظة ذمار</option>
+<option value="marib">محافظة مأرب</option>
+<option value="other">كافة المحافظات اليمنية</option>
 </select>
 <span class="material-symbols-outlined absolute left-space-sm text-outline text-[20px] pointer-events-none">expand_more</span>
 </div>
@@ -367,7 +367,7 @@
     const mobileVal = document.getElementById('mobileNumber')?.value?.trim() || '';
     const emailVal = document.getElementById('emailAddr')?.value?.trim() || '';
     const citySelect = document.getElementById('citySelect');
-    const cityVal = citySelect ? citySelect.options[citySelect.selectedIndex]?.text : 'الرياض';
+    const cityVal = citySelect ? citySelect.options[citySelect.selectedIndex]?.text : 'صنعاء';
     const tradeSelect = document.querySelector('#craftsman-extra-fields select');
     const tradeVal = tradeSelect ? tradeSelect.options[tradeSelect.selectedIndex]?.text : 'صيانة وتشطيبات';
     const passwordVal = document.getElementById('registerPassword')?.value || 'Miras2025!@';

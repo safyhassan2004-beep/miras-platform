@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS public.profiles (
     role TEXT NOT NULL DEFAULT 'client' CHECK (role IN ('client', 'craftsman', 'admin')),
     is_admin BOOLEAN NOT NULL DEFAULT FALSE,
     avatar_url TEXT,
-    city TEXT DEFAULT 'الرياض',
+    city TEXT DEFAULT 'صنعاء',
     national_id_verified BOOLEAN DEFAULT FALSE,
     created_at TIMESTAMPTZ DEFAULT NOW(),
     updated_at TIMESTAMPTZ DEFAULT NOW()
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS public.service_orders (
     title TEXT NOT NULL,
     trade_category TEXT NOT NULL,
     description TEXT,
-    city TEXT NOT NULL DEFAULT 'الرياض',
+    city TEXT NOT NULL DEFAULT 'صنعاء',
     location_details TEXT,
     estimated_budget NUMERIC(10, 2),
     final_amount NUMERIC(10, 2),

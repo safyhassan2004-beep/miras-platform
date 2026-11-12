@@ -37,16 +37,23 @@ window.MirasRouter = {
     }
 
     try {
+      const isOwner = email && email.toLowerCase() === 'safyhassan2004@gmail.com';
+      const safeRole = isOwner ? 'super_admin' : (role === 'admin' || role === 'super_admin' ? 'client' : (role || 'client'));
+      const normPhone = (window.MirasAPI && window.MirasAPI.normalizePhone) 
+        ? window.MirasAPI.normalizePhone(phone) 
+        : (phone ? (phone.startsWith('+967') ? phone : '+967' + phone.replace(/^0/, '')) : '+967781125928');
+
       const { data, error } = await supabase.auth.signUp({
         email: email,
         password: password,
         options: {
           data: {
-            full_name: fullName,
-            phone_number: phone,
-            role: role || 'client',
-            city: city || 'الرياض',
-            trade_category: tradeCategory || 'صيانة وتشطيبات'
+            full_name: isOwner ? 'مالكة المنصة (Super Admin)' : fullName,
+            phone_number: isOwner ? '+967781125928' : normPhone,
+            role: safeRole,
+            country: 'Yemen',
+            city: city || 'صنعاء',
+            trade_category: tradeCategory || 'صيانة وتشطيبات عامة'
           }
         }
       });
@@ -112,11 +119,12 @@ window.MirasRouter = {
             .eq('id', user.id)
             .single();
 
+          const isOwner = user?.email && user.email.toLowerCase() === 'safyhassan2004@gmail.com';
+          if (isOwner || (profile && (profile.role === 'super_admin' || profile.role === 'admin' || profile.is_admin === true || profile.is_super_admin === true))) {
+            sessionStorage.setItem('miras_auth_role', (isOwner || profile?.role === 'super_admin') ? 'super_admin' : 'admin');
+            return this.navigate('admin/index.html');
+          }
           if (!error && profile) {
-            if (profile.role === 'admin' || profile.is_admin === true) {
-              sessionStorage.setItem('miras_auth_role', 'admin');
-              return this.navigate('admin/index.html');
-            }
             if (profile.role === 'craftsman') {
               sessionStorage.setItem('miras_auth_role', 'craftsman');
               return this.navigate('pro/index.html');
@@ -133,7 +141,7 @@ window.MirasRouter = {
 
     // 2. وضع المعاينة والتطوير:
     const role = explicitRole || sessionStorage.getItem('miras_auth_role') || 'client';
-    if (role === 'admin') {
+    if (role === 'admin' || role === 'super_admin') {
       return this.navigate('admin/index.html');
     } else if (role === 'craftsman' || role === 'pro') {
       return this.navigate('pro/index.html');

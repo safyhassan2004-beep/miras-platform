@@ -13,6 +13,6 @@ window.MIRAS_ENV = {
   // المفتاح العام (Publishable Anon Key)
   SUPABASE_ANON_KEY: "sb_publishable_975LD8TQnFdx5CY2sDjbvw_6-PWXlsS",
 
-  // وضع التطوير
-  DEBUG_MODE: true
+  // وضع الإنتاج (Production)
+  DEBUG_MODE: false
 };

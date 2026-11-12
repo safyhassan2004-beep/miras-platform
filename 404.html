@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>الصفحة غير موجودة — مِـرَاس</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'IBM Plex Sans Arabic', sans-serif;
+      margin: 0; padding: 0;
+      background-color: #faf9f6;
+      color: #1a1c1a;
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#001e2f",
+            "primary-container": "#d2e8f8",
+            "surface": "#faf9f6",
+            "surface-container": "#eeebe6",
+            "text-secondary": "#5f6368"
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased">
+  <header class="h-16 border-b border-[#e0ded9] bg-white/80 backdrop-blur-md px-6 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-xl bg-primary text-white flex items-center justify-center font-bold text-lg">م</div>
+      <span class="text-lg font-bold text-primary">مِـرَاس</span>
+    </div>
+    <a href="index.html" class="px-4 py-2 rounded-lg bg-surface-container text-xs font-bold text-primary hover:bg-gray-200 transition-colors">
+      الرئيسية
+    </a>
+  </header>
+
+  <main class="flex-1 flex items-center justify-center p-6 text-center">
+    <div class="max-w-md w-full bg-white p-8 rounded-2xl shadow-sm border border-[#e0ded9] space-y-5">
+      <div class="w-16 h-16 mx-auto rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center">
+        <span class="material-symbols-outlined text-4xl">travel_explore</span>
+      </div>
+      <div class="space-y-2">
+        <h1 class="text-2xl font-bold text-primary">الصفحة المطلوبة غير موجودة (404)</h1>
+        <p class="text-sm text-text-secondary leading-relaxed">
+          عذراً، الرابط الذي تحاول الوصول إليه غير متوفر أو تم نقله. يمكنك العودة إلى البوابة الرئيسية أو لوحة التحكم.
+        </p>
+      </div>
+      <div class="pt-2 flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="index.html" class="px-5 py-2.5 rounded-xl bg-primary text-white text-xs font-bold hover:bg-[#002b40] transition-colors flex items-center justify-center gap-2 shadow-sm">
+          <span class="material-symbols-outlined text-sm">home</span>
+          <span>بوابة مِـرَاس الرئيسية</span>
+        </a>
+        <a href="login.html" class="px-5 py-2.5 rounded-xl bg-surface-container text-primary text-xs font-bold hover:bg-gray-200 transition-colors flex items-center justify-center gap-2">
+          <span class="material-symbols-outlined text-sm">login</span>
+          <span>تسجيل الدخول</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="py-4 text-center text-xs text-text-secondary border-t border-[#e0ded9] bg-white">
+    © 2025 منصة مِـرَاس (Miras) — الجمهورية اليمنية. جميع الحقوق محفوظة.
+  </footer>
+</body>
+</html>

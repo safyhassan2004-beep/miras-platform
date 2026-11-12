@@ -167,6 +167,55 @@
       </div>
 
       <form id="settingsForm" class="space-y-6">
+        <!-- Super Admin & Platform Defaults Card -->
+        <div class="bg-surface-container-lowest p-5 sm:p-6 rounded-2xl border border-primary/30 shadow-xs relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-2 h-full bg-primary"></div>
+          <div class="flex items-center justify-between pb-4 mb-4 border-b border-border-default">
+            <div class="flex items-center gap-3">
+              <div class="w-11 h-11 rounded-xl bg-primary text-white flex items-center justify-center font-bold text-lg shadow-xs">
+                <span class="material-symbols-outlined text-2xl">admin_panel_settings</span>
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h2 class="text-base font-bold text-primary">مالكة المنصة (Super Admin) والإعدادات الوطنية</h2>
+                  <span class="px-2 py-0.5 rounded-full bg-status-success-bg text-status-success text-[10px] font-bold">صلاحيات كاملة غير مقيدة</span>
+                </div>
+                <p class="text-xs text-text-secondary">الحساب الإداري الأعلى لإدارة كافة المستخدمين والمهن والطلبات والسياسات المالية</p>
+              </div>
+            </div>
+            <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface-container text-xs font-bold text-primary">
+              <span class="material-symbols-outlined text-sm">flag</span>
+              الجمهورية اليمنية
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+            <div class="p-3 rounded-xl bg-surface-container-low border border-border-default">
+              <span class="text-text-secondary block text-[11px] mb-1">البريد الإلكتروني المعتمد:</span>
+              <span class="font-bold text-primary dir-ltr block text-sm select-all">safyhassan2004@gmail.com</span>
+              <span class="text-[10px] text-status-success font-semibold mt-1 block">Super Admin موثق</span>
+            </div>
+
+            <div class="p-3 rounded-xl bg-surface-container-low border border-border-default">
+              <span class="text-text-secondary block text-[11px] mb-1">رقم هاتف مالكة المنصة:</span>
+              <span class="font-bold text-primary dir-ltr block text-sm select-all">+967 78 112 5928</span>
+              <span class="text-[10px] text-text-muted mt-1 block">مفتاح اليمن (+967) بصيغة E.164</span>
+            </div>
+
+            <div class="p-3 rounded-xl bg-surface-container-low border border-border-default">
+              <span class="text-text-secondary block text-[11px] mb-1">الدولة والمدن الافتراضية:</span>
+              <span class="font-bold text-on-surface block text-sm">اليمن (صنعاء، عدن...)</span>
+              <span class="text-[10px] text-text-muted mt-1 block">صنعاء العاصمة الافتراضية</span>
+            </div>
+
+            <div class="p-3 rounded-xl bg-surface-container-low border border-border-default">
+              <span class="text-text-secondary block text-[11px] mb-1">العملة الافتراضية للمنصة:</span>
+              <span class="font-bold text-status-success block text-sm">ريال يمني (YER / ر.ي)</span>
+              <span class="text-[10px] text-text-muted mt-1 block">كافة الأسعار والضمان بـ ر.ي</span>
+            </div>
+          </div>
+        </div>
+
         <!-- Financial & Escrow Policies -->
         <div class="bg-surface-container-lowest p-5 sm:p-6 rounded-2xl border border-border-default shadow-xs">
           <div class="flex items-center gap-3 pb-4 mb-4 border-b border-border-default">
@@ -190,7 +239,7 @@
             </div>
 
             <div>
-              <label class="block text-xs font-bold text-on-surface-variant mb-1">ضريبة القيمة المضافة ZATCA (%)</label>
+              <label class="block text-xs font-bold text-on-surface-variant mb-1">ضريبة ورسوم الخدمات (%)</label>
               <div class="relative">
                 <input type="number" value="15.0" disabled class="w-full px-3 py-2 rounded-lg border border-border-default bg-surface-container text-xs font-bold text-text-secondary focus:outline-none"/>
                 <span class="absolute left-3 top-1/2 -translate-y-1/2 text-xs text-text-muted font-bold">%</span>
@@ -205,13 +254,13 @@
             </div>
 
             <div>
-              <label class="block text-xs font-bold text-on-surface-variant mb-1">الحد الأدنى لطلب خدمة (ر.س)</label>
+              <label class="block text-xs font-bold text-on-surface-variant mb-1">الحد الأدنى لطلب خدمة (ر.ي)</label>
               <input type="number" value="150" min="50" class="w-full px-3 py-2 rounded-lg border border-border-default bg-surface text-xs font-bold focus:outline-none focus:border-primary"/>
               <span class="text-[10px] text-text-muted mt-0.5 block">أقل قيمة يُسمح بفتح طلب بها</span>
             </div>
 
             <div>
-              <label class="block text-xs font-bold text-on-surface-variant mb-1">الحد الأدنى لسحب الأرباح (ر.س)</label>
+              <label class="block text-xs font-bold text-on-surface-variant mb-1">الحد الأدنى لسحب الأرباح (ر.ي)</label>
               <input type="number" value="200" min="50" class="w-full px-3 py-2 rounded-lg border border-border-default bg-surface text-xs font-bold focus:outline-none focus:border-primary"/>
               <span class="text-[10px] text-text-muted mt-0.5 block">رصيد الحرفي المؤهل للتحويل البنكي</span>
             </div>
@@ -241,8 +290,8 @@
               <div class="flex items-center gap-3">
                 <span class="material-symbols-outlined text-status-success text-2xl">verified_user</span>
                 <div>
-                  <div class="font-bold text-xs sm:text-sm">بوابة النفاذ الوطني الموحد (نفاذ IAM)</div>
-                  <div class="text-[11px] text-text-muted">التحقق الحي من هوية العملاء وأصحاب المهن عبر التطبيق الوطني</div>
+                  <div class="font-bold text-xs sm:text-sm">بوابة السجل المدني والتحقق الرقمي (اليمن)</div>
+                  <div class="text-[11px] text-text-muted">التحقق الآمن من بطاقة الهوية وجواز السفر لمستخدمي المنصة</div>
                 </div>
               </div>
               <label class="relative inline-flex items-center cursor-pointer">
@@ -255,8 +304,8 @@
               <div class="flex items-center gap-3">
                 <span class="material-symbols-outlined text-primary text-2xl">apartment</span>
                 <div>
-                  <div class="font-bold text-xs sm:text-sm">منصة بلدي — وزارة الشؤون البلدية والقروية</div>
-                  <div class="text-[11px] text-text-muted">مطابقة التراخيص الحرفية ورخص مزاولة مهن البناء والمقاولات</div>
+                  <div class="font-bold text-xs sm:text-sm">سجل المهن والتراخيص الحرفية والغرفة التجارية</div>
+                  <div class="text-[11px] text-text-muted">مطابقة مزاولة المهن الفنية وشهادات الكفاءة المهنية للمقاولات</div>
                 </div>
               </div>
               <label class="relative inline-flex items-center cursor-pointer">
@@ -269,8 +318,8 @@
               <div class="flex items-center gap-3">
                 <span class="material-symbols-outlined text-secondary text-2xl">badge</span>
                 <div>
-                  <div class="font-bold text-xs sm:text-sm">بوابة العمل الحر — بنك التنمية الاجتماعية</div>
-                  <div class="text-[11px] text-text-muted">التحقق التلقائي من سريان وثائق العمل الحر المعتمدة للكوادر</div>
+                  <div class="font-bold text-xs sm:text-sm">شبكة التحويلات والوساطة البنكية المعتمدة</div>
+                  <div class="text-[11px] text-text-muted">الربط المباشر مع شبكات التحويل الفوري والمحافظ الإلكترونية (الكريمي، تضامن، ون باي)</div>
                 </div>
               </div>
               <label class="relative inline-flex items-center cursor-pointer">
@@ -404,3 +453,4 @@
   </script>
 </body>
 </html>
+

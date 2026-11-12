@@ -43,7 +43,7 @@
 </div>
 <div class="flex flex-col">
 <span class="font-label-sm text-label-sm text-on-surface-variant">إجمالي المبالغ المؤمنة اليوم</span>
-<span class="font-title-lg text-title-lg font-bold text-primary">27,700 <span class="font-label-md text-label-md font-medium text-text-secondary">ر.س</span></span>
+<span class="font-title-lg text-title-lg font-bold text-primary">27,700 <span class="font-label-md text-label-md font-medium text-text-secondary">ر.ي</span></span>
 </div>
 </div>
 </div>
@@ -73,11 +73,11 @@
         </button>
 <button class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-label-md text-label-md transition-colors shadow-sm" type="button">
 <span class="material-symbols-outlined text-[16px] text-secondary">location_on</span>
-          مدينتي (الرياض)
+          مدينتي (صنعاء)
         </button>
 <button class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-label-md text-label-md transition-colors shadow-sm" type="button">
 <span class="material-symbols-outlined text-[16px] text-status-warning">payments</span>
-          عالي القيمة (&gt; 5,000 ر.س)
+          عالي القيمة (&gt; 5,000 ر.ي)
         </button>
 <button class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-label-md text-label-md transition-colors shadow-sm" type="button">
 <span class="material-symbols-outlined text-[16px] text-status-info">schedule</span>
@@ -132,7 +132,7 @@
 <span class="px-1.5 py-0.2 rounded bg-status-success text-on-primary font-label-sm text-[10px]">مؤمن 100%</span>
 </div>
 <span class="font-headline-sm text-headline-sm font-bold text-status-success leading-tight">
-                8,500 <span class="font-label-md text-label-md font-semibold">ر.س</span>
+                8,500 <span class="font-label-md text-label-md font-semibold">ر.ي</span>
 </span>
 <span class="font-label-sm text-label-sm text-text-secondary">محجوز مسبقاً في حساب الضمان</span>
 </div>
@@ -205,7 +205,7 @@
 <span class="px-1.5 py-0.2 rounded bg-status-success text-on-primary font-label-sm text-[10px]">مؤمن 100%</span>
 </div>
 <span class="font-headline-sm text-headline-sm font-bold text-status-success leading-tight">
-                12,400 <span class="font-label-md text-label-md font-semibold">ر.س</span>
+                12,400 <span class="font-label-md text-label-md font-semibold">ر.ي</span>
 </span>
 <span class="font-label-sm text-label-sm text-text-secondary">دفعة مسبقة مودعة في البنك</span>
 </div>
@@ -278,7 +278,7 @@
 <span class="px-1.5 py-0.2 rounded bg-status-success text-on-primary font-label-sm text-[10px]">مؤمن 100%</span>
 </div>
 <span class="font-headline-sm text-headline-sm font-bold text-status-success leading-tight">
-                6,800 <span class="font-label-md text-label-md font-semibold">ر.س</span>
+                6,800 <span class="font-label-md text-label-md font-semibold">ر.ي</span>
 </span>
 <span class="font-label-sm text-label-sm text-text-secondary">محجوز مسبقاً في حساب الضمان</span>
 </div>
@@ -420,15 +420,15 @@
 
     <!-- Project brief recap -->
     <div class="p-3.5 rounded-xl bg-surface-container-low border border-border-default mb-4 space-y-1.5 text-xs">
-      <div class="flex justify-between"><span class="text-on-surface-variant">الميزانية التقديرية للعميل:</span><span id="modalBidBudget" class="font-black text-primary">6,500 ر.س</span></div>
-      <div class="flex justify-between"><span class="text-on-surface-variant">النطاق الجغرافي:</span><span id="modalBidLocation" class="font-bold">الرياض — حي حطين</span></div>
+      <div class="flex justify-between"><span class="text-on-surface-variant">الميزانية التقديرية للعميل:</span><span id="modalBidBudget" class="font-black text-primary">6,500 ر.ي</span></div>
+      <div class="flex justify-between"><span class="text-on-surface-variant">النطاق الجغرافي:</span><span id="modalBidLocation" class="font-bold">صنعاء — شارع حدة</span></div>
       <div class="flex justify-between"><span class="text-on-surface-variant">الضمان والوساطة:</span><span class="text-status-success font-bold">محمي 100% بنظام الضمان المالي</span></div>
     </div>
 
     <form id="submitBidForm" class="space-y-4">
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <div>
-          <label class="block text-xs font-bold text-on-surface-variant mb-1">قيمة عرض السعر (ر.س) <span class="text-error">*</span></label>
+          <label class="block text-xs font-bold text-on-surface-variant mb-1">قيمة عرض السعر (ر.ي) <span class="text-error">*</span></label>
           <input required id="bidPrice" type="number" min="100" step="50" placeholder="مثال: 5800" class="w-full px-3 py-2.5 rounded-lg border border-border-default bg-surface text-xs font-bold focus:outline-none focus:border-primary"/>
           <span class="text-[10px] text-on-surface-variant mt-0.5 block">شامل ضريبة القيمة المضافة 15%</span>
         </div>
@@ -502,7 +502,7 @@
     if (!m) return;
     document.getElementById('modalBidTitle').textContent = `تقديم عرض سعر — ${title}`;
     document.getElementById('modalBidSubtitle').textContent = `مشروع رقم: #${ref}`;
-    document.getElementById('modalBidBudget').textContent = `${budget} ر.س`;
+    document.getElementById('modalBidBudget').textContent = `${budget} ر.ي`;
     document.getElementById('modalBidLocation').textContent = location;
     m.showModal();
   };
@@ -560,7 +560,7 @@
         }
         document.getElementById('submitBidModal').close();
         bidForm.reset();
-        alert(`تم إرسال عرض سعرك بقيمة ${price} ر.س بنجاح إلى العميل تحت مظلة الضمان المالي!`);
+        alert(`تم إرسال عرض سعرك بقيمة ${price} ر.ي بنجاح إلى العميل تحت مظلة الضمان المالي!`);
       }, 500);
     });
   }

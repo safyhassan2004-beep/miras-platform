@@ -8,7 +8,7 @@ ALTER TABLE public.profiles
     ADD COLUMN IF NOT EXISTS role TEXT NOT NULL DEFAULT 'client' CHECK (role IN ('client', 'craftsman', 'admin')),
     ADD COLUMN IF NOT EXISTS is_admin BOOLEAN NOT NULL DEFAULT FALSE,
     ADD COLUMN IF NOT EXISTS phone_number TEXT UNIQUE,
-    ADD COLUMN IF NOT EXISTS city TEXT DEFAULT 'الرياض',
+    ADD COLUMN IF NOT EXISTS city TEXT DEFAULT 'صنعاء',
     ADD COLUMN IF NOT EXISTS national_id_verified BOOLEAN DEFAULT FALSE,
     ADD COLUMN IF NOT EXISTS updated_at TIMESTAMPTZ DEFAULT NOW();
 
@@ -45,7 +45,7 @@ BEGIN
     user_role := COALESCE(NEW.raw_user_meta_data->>'role', 'client');
     user_name := COALESCE(NEW.raw_user_meta_data->>'full_name', 'مستخدم مِـرَاس');
     user_phone := COALESCE(NEW.raw_user_meta_data->>'phone_number', NEW.phone, '');
-    user_city := COALESCE(NEW.raw_user_meta_data->>'city', 'الرياض');
+    user_city := COALESCE(NEW.raw_user_meta_data->>'city', 'صنعاء');
     user_trade := COALESCE(NEW.raw_user_meta_data->>'trade_category', 'صيانة وتشطيبات عامة');
 
     -- 1. إدراج أو تحديث الملف الشخصي

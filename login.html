@@ -140,11 +140,11 @@
 <div class="relative flex items-center rounded-xl bg-surface-container-lowest focus-within:ring-2 focus-within:ring-secondary/50 shadow-sm transition-all overflow-hidden bg-surface-container-low">
 <!-- Dial Code Flag Pill (Left side in RTL) -->
 <div class="px-space-md py-space-sm flex items-center gap-space-xs bg-surface-container text-on-surface select-none font-label-md text-label-md border-0">
-<span class="text-[18px] leading-none">🇸🇦</span>
-<span class="font-semibold" dir="ltr">+966</span>
+<span class="text-[18px] leading-none">🇾🇪</span>
+<span class="font-semibold" dir="ltr">+967</span>
 </div>
 <!-- Main Phone Input -->
-<input class="w-full py-space-md px-space-md bg-transparent text-left font-body-lg text-body-lg text-on-surface placeholder:text-outline focus:outline-none" dir="ltr" id="mobileInput" inputmode="numeric" maxlength="9" placeholder="5X XXX XXXX" required="" type="tel"/>
+<input class="w-full py-space-md px-space-md bg-transparent text-left font-body-lg text-body-lg text-on-surface placeholder:text-outline focus:outline-none" dir="ltr" id="mobileInput" inputmode="numeric" maxlength="9" placeholder="781125928" required="" type="tel"/>
 <!-- Icon Right side (RTL Start) -->
 <div class="pr-space-md text-on-surface-variant">
 <span class="material-symbols-outlined text-[20px]">phone_iphone</span>
@@ -193,14 +193,14 @@
 </div>
 <!-- Single-Click Government & Ecosystem Badges -->
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
-<!-- Nafath National Single Sign-On -->
+<!-- Official Digital ID Single Sign-On -->
 <button class="w-full p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex items-center justify-center gap-space-sm text-on-surface shadow-sm group" type="button">
 <div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary group-hover:scale-105 transition-transform shadow-xs">
 <span class="material-symbols-outlined text-[20px] text-secondary">fingerprint</span>
 </div>
 <div class="flex flex-col text-right">
-<span class="font-label-md text-label-md font-bold leading-tight">النفاذ الوطني الموحد</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">دخول سريع عبر أبشر</span>
+<span class="font-label-md text-label-md font-bold leading-tight">الهوية الرقمية المعتمدة</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">دخول سريع وآمن برقم الهوية</span>
 </div>
 </button>
 <!-- Apple ID Sign-In -->
@@ -332,7 +332,7 @@
         });
       }
 
-      // Input formatting for Saudi mobile
+      // Input formatting for Yemeni mobile
       const mobileInput = document.getElementById('mobileInput');
       if (mobileInput) {
         mobileInput.addEventListener('input', (e) => {
@@ -357,10 +357,11 @@
       const passwordVal = document.getElementById('passwordInput')?.value || '';
       const isPasswordMode = !document.getElementById('passwordFieldContainer')?.classList.contains('hidden');
 
-      // 1. فحص بيانات الدخول الإدارية التجريبية
-      if (mobileVal === '500000000' || mobileVal === '0500000000' || mobileVal.toLowerCase() === 'admin' || mobileVal === 'admin@miras.sa') {
-        sessionStorage.setItem('role', 'admin');
-        sessionStorage.setItem('miras_auth_role', 'admin');
+      // 1. فحص بيانات الدخول لمالكة المنصة (Super Admin)
+      const isSuperAdminLogin = mobileVal === '781125928' || mobileVal === '+967781125928' || mobileVal === '0781125928' || mobileVal.toLowerCase() === 'safyhassan2004@gmail.com';
+      if (isSuperAdminLogin || mobileVal.toLowerCase() === 'admin' || mobileVal === 'admin@miras.ye') {
+        sessionStorage.setItem('role', isSuperAdminLogin ? 'super_admin' : 'admin');
+        sessionStorage.setItem('miras_auth_role', isSuperAdminLogin ? 'super_admin' : 'admin');
         if (submitBtn) submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span><span>جاري الدخول إلى لوحة المدير...</span>';
         setTimeout(() => {
           window.location.href = 'admin/index.html';
@@ -378,7 +379,7 @@
           submitBtn.disabled = true;
         }
 
-        const emailTarget = mobileVal.includes('@') ? mobileVal : (mobileVal + '@miras.sa');
+        const emailTarget = mobileVal.includes('@') ? mobileVal : (mobileVal + '@miras.ye');
         if (window.MirasRouter) {
           const { data, error } = await window.MirasRouter.signInWithPassword({
             email: emailTarget,
