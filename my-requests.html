@@ -111,6 +111,9 @@
 <span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">0</span>
 </button>
 </div>
+<!-- Active Orders List Dynamic Container -->
+<div id="ordersListContainer" class="hidden mb-space-xl space-y-4"></div>
+
 <!-- Main Content Area: Elegant Empty State & Context -->
 <div class="relative bg-surface-container-lowest rounded-xl p-space-lg md:p-space-xl shadow-md overflow-hidden mb-space-xl">
 <!-- Decorative ambient gradient ring -->
@@ -406,7 +409,7 @@
     if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeDrawer);
     if (mobileDrawerBackdrop) mobileDrawerBackdrop.addEventListener('click', closeDrawer);
   </script>
-</div></main><footer class="w-full bg-surface-container-low shadow-[0_-1px_6px_rgba(0,0,0,0.02)]"><div class="max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl mb-space-xl"><div class="flex flex-col gap-space-sm"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm text-primary">مِراس</span><span class="font-label-sm text-label-sm bg-secondary-container text-on-secondary-container px-space-sm py-0.5 rounded-full">منصة المهن</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">المنصة الموثوقة الأولى لربط أصحاب المنازل والمنشآت بنخبة الحرفيين والفنيين المعتمدين في كافة المجالات الحرفية والهندسية.</p></div><div class="flex flex-col gap-space-sm"><h3 class="font-label-lg text-label-lg text-on-surface">روابط سريعة</h3><ul class="flex flex-col gap-space-xs"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors"><a data-path="home" href="index.html" class="">الرئيسية</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors"><a data-path="explore-trades" href="explore.html" class="">استكشاف المهن</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors"><a data-path="my-requests" href="my-requests.html" class="">طلباتي الجارية</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors"><a data-path="join-pro" href="join-pro.html" class="">تسجيل الحرفيين</a></li></ul></div><div class="flex flex-col gap-space-sm"><h3 class="font-label-lg text-label-lg text-on-surface">أشهر التخصصات</h3><ul class="flex flex-col gap-space-xs"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors"><a data-path="explore-trades" href="explore.html" class="">كهرباء وتمديدات</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors"><a data-path="explore-trades" href="explore.html" class="">سباكة وصيانة صحية</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors"><a data-path="explore-trades" href="explore.html" class="">نجارة وديكور خشب</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors"><a data-path="explore-trades" href="explore.html" class="">تكييف وتبريد معتمد</a></li></ul></div><div class="flex flex-col gap-space-sm"><h3 class="font-label-lg text-label-lg text-on-surface">الأمان والدعم</h3><p class="font-body-sm text-body-sm text-on-surface-variant">ضمان حماية الدفع وفحص الهويات المهنية لكافة مزودي الخدمة المسجلين.</p><div class="flex items-center gap-space-sm text-on-surface-variant font-label-md text-label-md"><span class="material-symbols-outlined text-secondary text-[20px]">verified_user</span><span class="">حماية وضمان مِراس</span></div></div></div><div class="flex flex-col md:flex-row items-center justify-between gap-space-md pt-space-lg bg-surface-container/60 rounded-xl px-space-md"><div class="font-body-sm text-body-sm text-on-surface-variant">© 2025 منصة مِراس (Miras). جميع الحقوق محفوظة لخدمات الوساطة المهنية.</div><div class="flex items-center gap-space-md"><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" data-path="terms-and-privacy" href="#">الشروط والأحكام</a><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" data-path="terms-and-privacy" href="#">سياسة الخصوصية</a><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" data-path="support-center" href="#">مركز المساعدة</a></div></div></div></footer>
+</div></main><footer class="w-full bg-surface-container-low shadow-[0_-1px_6px_rgba(0,0,0,0.02)]"><div class="max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl mb-space-xl"><div class="flex flex-col gap-space-sm"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm text-primary">مِراس</span><span class="font-label-sm text-label-sm bg-secondary-container text-on-secondary-container px-space-sm py-0.5 rounded-full">منصة المهن</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">المنصة الموثوقة الأولى لربط أصحاب المنازل والمنشآت بنخبة الحرفيين والفنيين المعتمدين في كافة المجالات الحرفية والهندسية.</p></div><div class="flex flex-col gap-space-sm"><h3 class="font-label-lg text-label-lg text-on-surface">روابط سريعة</h3><ul class="flex flex-col gap-space-xs"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors"><a data-path="home" href="index.html" class="">الرئيسية</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors"><a data-path="explore-trades" href="explore.html" class="">استكشاف المهن</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors"><a data-path="my-requests" href="my-requests.html" class="">طلباتي الجارية</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors"><a data-path="join-pro" href="join-pro.html" class="">تسجيل الحرفيين</a></li></ul></div><div class="flex flex-col gap-space-sm"><h3 class="font-label-lg text-label-lg text-on-surface">أشهر التخصصات</h3><ul class="flex flex-col gap-space-xs"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors"><a data-path="explore-trades" href="explore.html" class="">كهرباء وتمديدات</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors"><a data-path="explore-trades" href="explore.html" class="">سباكة وصيانة صحية</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors"><a data-path="explore-trades" href="explore.html" class="">نجارة وديكور خشب</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors"><a data-path="explore-trades" href="explore.html" class="">تكييف وتبريد معتمد</a></li></ul></div><div class="flex flex-col gap-space-sm"><h3 class="font-label-lg text-label-lg text-on-surface">الأمان والدعم</h3><p class="font-body-sm text-body-sm text-on-surface-variant">ضمان حماية الدفع وفحص الهويات المهنية لكافة مزودي الخدمة المسجلين.</p><div class="flex items-center gap-space-sm text-on-surface-variant font-label-md text-label-md"><span class="material-symbols-outlined text-secondary text-[20px]">verified_user</span><span class="">حماية وضمان مِراس</span></div></div></div><div class="flex flex-col md:flex-row items-center justify-between gap-space-md pt-space-lg bg-surface-container/60 rounded-xl px-space-md"><div class="font-body-sm text-body-sm text-on-surface-variant">© 2025 منصة مِراس (Miras). جميع الحقوق محفوظة لخدمات الوساطة المهنية.</div><div class="flex items-center gap-space-md"><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" data-path="terms-and-privacy" href="terms.html">الشروط والأحكام</a><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" data-path="terms-and-privacy" href="terms.html">سياسة الخصوصية</a><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" data-path="support-center" href="support.html">مركز المساعدة</a></div></div></div></footer>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase/config.js"></script>
 <script src="supabase/auth-router.js"></script>
@@ -429,4 +432,281 @@
     }
   });
 </script>
+
+<!-- New Order Modal Dialog -->
+<dialog id="newOrderModal" class="p-0 rounded-2xl border border-outline-variant shadow-2xl backdrop:bg-black/50 max-w-lg w-11/12">
+  <div class="p-6 bg-surface text-on-surface">
+    <div class="flex items-center justify-between pb-4 border-b border-surface-container mb-4">
+      <div class="flex items-center gap-2">
+        <div class="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center">
+          <span class="material-symbols-outlined">add_task</span>
+        </div>
+        <div>
+          <h3 class="font-bold text-base text-primary">إنشاء طلب خدمة وضمان جديد</h3>
+          <p class="text-xs text-on-surface-variant">طلبك محمي بحساب الضمان المالي ومطابقة كود البناء</p>
+        </div>
+      </div>
+      <button onclick="document.getElementById('newOrderModal').close()" class="p-1 text-on-surface-variant hover:text-on-surface">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+
+    <form id="newOrderForm" class="space-y-4">
+      <div>
+        <label class="block text-xs font-bold text-on-surface-variant mb-1">التخصص أو المجال المهني <span class="text-error">*</span></label>
+        <select required id="orderCategory" class="w-full px-3 py-2.5 rounded-lg border border-outline-variant bg-surface text-xs focus:outline-none focus:border-primary">
+          <option value="كهرباء وتمديدات ذكية">كهرباء وتمديدات ذكية</option>
+          <option value="سباكة وعزل مائي">سباكة وعزل مائي</option>
+          <option value="تكييف وتبريد معتمد">تكييف وتبريد معتمد</option>
+          <option value="نجارة وديكورات خشبية">نجارة وديكورات خشبية</option>
+          <option value="دهانات وتشطيبات معمارية">دهانات وتشطيبات معمارية</option>
+          <option value="أنظمة أمن ومراقبة">أنظمة أمن ومراقبة</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block text-xs font-bold text-on-surface-variant mb-1">عنوان الطلب الملخص <span class="text-error">*</span></label>
+        <input required id="orderTitle" type="text" placeholder="مثال: فحص قواطع وتركيب مفاتيح ذكية للفيلا" class="w-full px-3 py-2.5 rounded-lg border border-outline-variant bg-surface text-xs focus:outline-none focus:border-primary"/>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div>
+          <label class="block text-xs font-bold text-on-surface-variant mb-1">المدينة والحي <span class="text-error">*</span></label>
+          <input required id="orderLocation" type="text" placeholder="الرياض — حي الصحافة" class="w-full px-3 py-2.5 rounded-lg border border-outline-variant bg-surface text-xs focus:outline-none focus:border-primary"/>
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-on-surface-variant mb-1">الميزانية التقديرية (ر.س) <span class="text-error">*</span></label>
+          <input required id="orderBudget" type="number" min="150" step="50" placeholder="500" class="w-full px-3 py-2.5 rounded-lg border border-outline-variant bg-surface text-xs focus:outline-none focus:border-primary"/>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-xs font-bold text-on-surface-variant mb-1">موعد التنفيذ المفضل</label>
+        <select id="orderUrgency" class="w-full px-3 py-2.5 rounded-lg border border-outline-variant bg-surface text-xs focus:outline-none focus:border-primary">
+          <option value="فوري (خلال 24 ساعة)">فوري (خلال 24 ساعة)</option>
+          <option value="خلال يومين إلى 3 أيام">خلال يومين إلى 3 أيام</option>
+          <option value="خلال أسبوع">خلال أسبوع</option>
+          <option value="مجدول حسب الاتفاق">مجدول حسب الاتفاق</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block text-xs font-bold text-on-surface-variant mb-1">شرح وتفاصيل المتطلبات <span class="text-error">*</span></label>
+        <textarea required id="orderDesc" rows="3" placeholder="وضح نطاق العمل، والمواد المتوفرة، وأي تفاصيل تساعد الحرفي في تقديم عرض دقيق..." class="w-full px-3 py-2.5 rounded-lg border border-outline-variant bg-surface text-xs focus:outline-none focus:border-primary"></textarea>
+      </div>
+
+      <div class="pt-2 flex justify-end gap-2 border-t border-surface-container">
+        <button type="button" onclick="document.getElementById('newOrderModal').close()" class="px-4 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-xs font-bold text-on-surface-variant">إلغاء</button>
+        <button id="submitOrderBtn" type="submit" class="px-6 py-2 rounded-lg bg-primary text-white text-xs font-bold hover:bg-primary-dark transition-colors inline-flex items-center gap-1.5 shadow-sm">
+          <span class="material-symbols-outlined text-sm">send</span>
+          <span>إرسال الطلب واعتماده</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</dialog>
+
+<!-- Previous Quotes Modal -->
+<dialog id="quotesModal" class="p-0 rounded-2xl border border-outline-variant shadow-2xl backdrop:bg-black/50 max-w-xl w-11/12">
+  <div class="p-6 bg-surface text-on-surface">
+    <div class="flex items-center justify-between pb-3 border-b border-surface-container mb-4">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary">receipt_long</span>
+        <h3 class="font-bold text-base text-primary">عروض الأسعار المستلمة</h3>
+      </div>
+      <button onclick="document.getElementById('quotesModal').close()" class="p-1 text-on-surface-variant">
+        <span class="material-symbols-outlined text-lg">close</span>
+      </button>
+    </div>
+    <div class="space-y-3 text-xs">
+      <div class="p-4 rounded-xl border border-surface-container bg-surface-container-lowest shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-bold text-sm text-primary">الحرفي: م. سعدون الشمري</span>
+            <span class="px-2 py-0.5 rounded bg-green-100 text-green-800 text-[10px] font-bold">موثق نفاذ + بلدي</span>
+          </div>
+          <div class="text-[11px] text-on-surface-variant mt-1">عرض سعر لمشروع: فحص وصيانة القواطع الكهربائية</div>
+          <div class="text-[11px] text-secondary font-semibold mt-0.5">المدة: يومان عمل • ضمان مِراس 30 يوماً</div>
+        </div>
+        <div class="text-left flex flex-col sm:items-end gap-1.5 w-full sm:w-auto">
+          <div class="text-base font-black text-primary">480 ر.س</div>
+          <button onclick="acceptQuote('سعدون الشمري', 480)" class="px-3 py-1.5 rounded-lg bg-primary text-white text-xs font-bold hover:bg-primary-dark">قبول العرض والضمان</button>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-xl border border-surface-container bg-surface-container-lowest shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-bold text-sm text-primary">الحرفي: فهد القحطاني</span>
+            <span class="px-2 py-0.5 rounded bg-green-100 text-green-800 text-[10px] font-bold">وثيقة عمل حر</span>
+          </div>
+          <div class="text-[11px] text-on-surface-variant mt-1">عرض سعر لمشروع: تأسيس قواطع إضافية</div>
+          <div class="text-[11px] text-secondary font-semibold mt-0.5">المدة: 3 أيام عمل</div>
+        </div>
+        <div class="text-left flex flex-col sm:items-end gap-1.5 w-full sm:w-auto">
+          <div class="text-base font-black text-primary">550 ر.س</div>
+          <button onclick="acceptQuote('فهد القحطاني', 550)" class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary text-xs font-bold">معاينة العرض</button>
+        </div>
+      </div>
+    </div>
+    <div class="mt-4 pt-3 border-t border-surface-container flex justify-end">
+      <button onclick="document.getElementById('quotesModal').close()" class="px-4 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-xs font-bold">إغلاق</button>
+    </div>
+  </div>
+</dialog>
+
+<!-- Instant Chat Modal -->
+<dialog id="chatModal" class="p-0 rounded-2xl border border-outline-variant shadow-2xl backdrop:bg-black/50 max-w-md w-11/12">
+  <div class="p-5 bg-surface text-on-surface flex flex-col h-[480px]">
+    <div class="flex items-center justify-between pb-3 border-b border-surface-container">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-full bg-secondary text-primary font-bold flex items-center justify-center text-xs">م</div>
+        <div>
+          <h3 class="font-bold text-xs text-primary">مستشار الدعم الهندسي المباشر</h3>
+          <span class="text-[10px] text-green-600 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> متصل الآن</span>
+        </div>
+      </div>
+      <button onclick="document.getElementById('chatModal').close()" class="p-1 text-on-surface-variant">
+        <span class="material-symbols-outlined text-lg">close</span>
+      </button>
+    </div>
+    <div id="chatMessages" class="flex-1 overflow-y-auto py-3 space-y-2 text-xs">
+      <div class="p-3 rounded-xl bg-surface-container max-w-[85%] text-on-surface">
+        أهلاً بك في منصة مِـرَاس! كيف يمكنني مساعدتك في حجز الخدمة أو توثيق العقد الميداني وضمان الجودة؟
+      </div>
+    </div>
+    <form id="chatForm" class="pt-2 border-t border-surface-container flex gap-2" onsubmit="sendChatMessage(event)">
+      <input id="chatInput" type="text" placeholder="اكتب استفسارك هنا..." class="flex-1 px-3 py-2 rounded-lg border border-outline-variant bg-surface text-xs focus:outline-none focus:border-primary"/>
+      <button type="submit" class="px-3 py-2 rounded-lg bg-primary text-white text-xs font-bold">
+        <span class="material-symbols-outlined text-sm">send</span>
+      </button>
+    </form>
+  </div>
+</dialog>
+
+<script>
+  window.openNewOrderModal = function() {
+    const m = document.getElementById('newOrderModal');
+    if (m) m.showModal();
+  };
+  window.openQuotesModal = function() {
+    const m = document.getElementById('quotesModal');
+    if (m) m.showModal();
+  };
+  window.openChatModal = function() {
+    const m = document.getElementById('chatModal');
+    if (m) m.showModal();
+  };
+  window.acceptQuote = function(craftsman, price) {
+    alert(`تم اختيار عرض الحرفي ${craftsman} بقيمة ${price} ر.س. سيتم حجز المبلغ في حساب الضمان بعد موافقتك النهائية.`);
+    document.getElementById('quotesModal').close();
+  };
+  window.sendChatMessage = function(e) {
+    e.preventDefault();
+    const input = document.getElementById('chatInput');
+    const container = document.getElementById('chatMessages');
+    const val = input.value.trim();
+    if (!val) return;
+    const userMsg = document.createElement('div');
+    userMsg.className = 'p-3 rounded-xl bg-primary text-white max-w-[85%] mr-auto text-left';
+    userMsg.textContent = val;
+    container.appendChild(userMsg);
+    input.value = '';
+    setTimeout(() => {
+      const botMsg = document.createElement('div');
+      botMsg.className = 'p-3 rounded-xl bg-surface-container max-w-[85%] text-on-surface';
+      botMsg.textContent = 'شكراً لتواصلك. تلقينا طلبك وسيتم إفادتك فوراً بمطابقة الفني الأقرب إليك عبر الإشعارات.';
+      container.appendChild(botMsg);
+      container.scrollTop = container.scrollHeight;
+    }, 800);
+  };
+
+  // Manage Order Creation Form
+  const orderForm = document.getElementById('newOrderForm');
+  if (orderForm) {
+    orderForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = document.getElementById('submitOrderBtn');
+      const category = document.getElementById('orderCategory').value;
+      const title = document.getElementById('orderTitle').value.trim();
+      const location = document.getElementById('orderLocation').value.trim();
+      const budget = document.getElementById('orderBudget').value;
+      const urgency = document.getElementById('orderUrgency').value;
+      const desc = document.getElementById('orderDesc').value.trim();
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-sm">sync</span> جارٍ الحفظ...';
+      }
+
+      const orderRef = 'ORD-' + Math.floor(1000 + Math.random() * 9000);
+
+      // Attempt Supabase insert
+      if (window.MirasAPI && window.MirasAPI.orders) {
+        try {
+          const user = await window.MirasAPI.auth.getCurrentUser();
+          await window.MirasAPI.orders.create({
+            client_id: user ? user.id : 'client-demo',
+            title: title,
+            description: desc,
+            category: category,
+            budget: parseFloat(budget),
+            location: location,
+            urgency: urgency,
+            status: 'pending_bids'
+          });
+        } catch (err) {
+          console.warn('Saved local state order:', err.message);
+        }
+      }
+
+      // Render order card dynamically into list
+      const listContainer = document.getElementById('ordersListContainer');
+      const emptyState = document.querySelector('.relative.bg-surface-container-lowest.rounded-xl.p-space-lg');
+      if (listContainer) {
+        const orderCard = document.createElement('div');
+        orderCard.className = 'p-5 rounded-2xl bg-surface-container-lowest border border-surface-container-high shadow-xs space-y-3';
+        orderCard.innerHTML = `
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-surface-container">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"></span>
+              <span class="font-bold text-sm text-primary">${title}</span>
+              <span class="px-2 py-0.5 rounded-full bg-secondary-container/50 text-on-secondary-container text-[11px] font-bold">#${orderRef}</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-1 rounded-full bg-status-warning-bg text-status-warning text-xs font-bold">بانتظار عروض الأسعار</span>
+              <span class="font-bold text-sm text-primary">${budget} ر.س</span>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs text-on-surface-variant">
+            <div><strong>المجال:</strong> ${category}</div>
+            <div><strong>الموقع:</strong> ${location}</div>
+            <div><strong>الموعد:</strong> ${urgency}</div>
+          </div>
+          <p class="text-xs text-on-surface-variant leading-relaxed">${desc}</p>
+          <div class="pt-2 flex items-center justify-between text-xs">
+            <span class="text-secondary font-semibold">مشمول بالضمان المالي وحماية مِـرَاس</span>
+            <button onclick="openQuotesModal()" class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-bold">استعراض العروض المقدمة (1)</button>
+          </div>
+        `;
+        listContainer.prepend(orderCard);
+        listContainer.classList.remove('hidden');
+        if (emptyState) emptyState.classList.add('hidden');
+
+        // Update tab badge count
+        const activeTabBadge = document.querySelector('.tab-btn .bg-primary-container');
+        if (activeTabBadge) activeTabBadge.textContent = '1';
+      }
+
+      document.getElementById('newOrderModal').close();
+      orderForm.reset();
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<span class="material-symbols-outlined text-sm">send</span><span>إرسال الطلب واعتماده</span>';
+      }
+      alert('تم إنشاء طلب الخدمة بنجاح! تم نشر طلبك للمهنيين المعتمدين لتلقي عروض الأسعار.');
+    });
+  }
+</script>
+
 </body></html>

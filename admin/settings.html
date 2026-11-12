@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="web_dashboard" name="shell-type"/>
+  <title>الإعدادات وإدارة النظام — إدارة مِـرَاس</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <style>
+    @layer base {
+      html, body {
+        margin: 0; padding: 0; width: 100%; max-width: 100vw; overflow-x: hidden; -webkit-tap-highlight-color: transparent;
+      }
+      body {
+        overscroll-behavior: none; font-family: 'IBM Plex Sans Arabic', 'IBM Plex Sans', sans-serif;
+      }
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "status-warning-bg": "#fef6e9",
+            "surface-dark": "#002538",
+            "error": "#ba1a1a",
+            "primary": "#001e2f",
+            "primary-container": "#d2e8f8",
+            "surface-container-highest": "#e3e2e0",
+            "tertiary-container": "#00344e",
+            "surface-container-low": "#f4f3f1",
+            "on-primary-fixed-variant": "#204b65",
+            "border-default": "#e0ded9",
+            "on-surface": "#1a1c1a",
+            "primary-dark": "#002b40",
+            "text-primary": "#1b1c1d",
+            "on-surface-variant": "#42474d",
+            "surface": "#faf9f6",
+            "surface-container": "#eeebe6",
+            "surface-container-high": "#e8e5e0",
+            "surface-container-lowest": "#ffffff",
+            "text-secondary": "#5f6368",
+            "text-muted": "#80868b",
+            "status-success": "#137333",
+            "status-success-bg": "#e6f4ea",
+            "status-warning": "#b06000",
+            "status-error": "#c5221f"
+          },
+          spacing: {
+            "space-xs": "4px",
+            "space-sm": "8px",
+            "space-md": "16px",
+            "space-lg": "24px",
+            "space-xl": "32px"
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-surface text-on-surface min-h-screen antialiased flex flex-col lg:flex-row">
+
+  <!-- Admin Sidebar -->
+  <aside id="adminSidebar" class="fixed right-0 top-0 h-full w-72 max-w-[85vw] bg-surface-container-low z-50 flex flex-col justify-between shadow-2xl transition-transform duration-300 ease-in-out translate-x-full lg:translate-x-0 border-l border-border-default">
+    <div class="flex flex-col">
+      <div class="px-space-lg pt-space-lg pb-space-md">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-space-sm">
+            <div class="w-10 h-10 rounded-xl bg-tertiary-container flex items-center justify-center text-white shadow-xs">
+              <span class="material-symbols-outlined text-[24px]">tune</span>
+            </div>
+            <div class="flex flex-col">
+              <div class="flex items-center gap-space-xs">
+                <span class="text-base text-primary font-bold tracking-tight">مِـرَاس</span>
+                <span class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary-fixed-variant text-[11px] font-bold">النظام</span>
+              </div>
+              <span class="text-xs text-text-secondary">الإعدادات وإدارة المنصة</span>
+            </div>
+          </div>
+          <button id="closeAdminSidebar" aria-label="إغلاق" class="lg:hidden p-1.5 rounded-lg text-text-muted hover:text-text-primary hover:bg-surface-container">
+            <span class="material-symbols-outlined text-[22px]">close</span>
+          </button>
+        </div>
+      </div>
+
+      <nav class="flex flex-col gap-1 px-space-md pt-2">
+        <a class="flex items-center gap-3 px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all text-sm font-medium" href="index.html">
+          <span class="material-symbols-outlined text-[20px]">grid_view</span>
+          <span>لوحة المؤشرات والقيادة</span>
+        </a>
+        <a class="flex items-center gap-3 px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all text-sm font-medium" href="craftsmen.html">
+          <span class="material-symbols-outlined text-[20px]">badge</span>
+          <span>سجل الكوادر الحرفية</span>
+        </a>
+        <a class="flex items-center gap-3 px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all text-sm font-medium" href="projects-escrow.html">
+          <span class="material-symbols-outlined text-[20px]">account_balance_wallet</span>
+          <span>المشاريع والضمان المالي</span>
+        </a>
+        <a class="flex items-center gap-3 px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all text-sm font-medium" href="projects-escrow.html">
+          <span class="material-symbols-outlined text-[20px]">payments</span>
+          <span>العمليات المالية والوساطة</span>
+        </a>
+        <a class="flex items-center gap-3 px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all text-sm font-medium" href="reports.html">
+          <span class="material-symbols-outlined text-[20px]">fact_check</span>
+          <span>التقارير والرقابة الميدانية</span>
+        </a>
+        <a class="flex items-center gap-3 px-space-md py-2.5 bg-primary-container text-on-primary-fixed-variant font-bold rounded-lg shadow-xs text-sm" href="settings.html">
+          <span class="material-symbols-outlined text-[20px]">tune</span>
+          <span>الإعدادات وإدارة النظام</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="p-space-md border-t border-border-default flex flex-col gap-2">
+      <a class="flex items-center justify-center gap-2 py-2 px-3 rounded-lg border border-primary/20 text-primary text-xs font-bold hover:bg-surface-container transition-colors" href="../index.html">
+        <span class="material-symbols-outlined text-base">storefront</span>
+        <span>بوابة مِـرَاس الرئيسية</span>
+      </a>
+      <button onclick="AdminAuth.logout()" class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-status-warning-bg text-status-warning text-xs font-bold hover:bg-amber-100 transition-colors">
+        <span class="material-symbols-outlined text-base">logout</span>
+        <span>تسجيل خروج المدير</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Backdrop for mobile -->
+  <div id="adminSidebarBackdrop" class="fixed inset-0 bg-black/40 z-40 hidden lg:hidden"></div>
+
+  <!-- Main Content Wrapper -->
+  <div class="flex-1 lg:mr-72 min-h-screen flex flex-col pb-16 lg:pb-0">
+    <!-- Top Bar Header -->
+    <header class="h-16 bg-surface-container-lowest border-b border-border-default sticky top-0 z-30 px-4 sm:px-6 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <button id="openAdminSidebar" aria-label="القائمة الجانبية" class="lg:hidden p-2 rounded-lg text-text-muted hover:text-text-primary hover:bg-surface-container">
+          <span class="material-symbols-outlined text-2xl">menu</span>
+        </button>
+        <div>
+          <h1 class="text-lg font-bold text-primary">إعدادات المنصة وقواعد الحوكمة</h1>
+          <p class="text-[11px] text-text-secondary hidden sm:block">إدارة النسب المالية، تكاملات الربط الحكومي، وسياسات الضمان والوساطة</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-status-success-bg text-status-success text-xs font-bold">
+          <span class="w-2 h-2 rounded-full bg-status-success"></span>
+          قاعدة البيانات متصلة
+        </span>
+      </div>
+    </header>
+
+    <!-- Page Body -->
+    <main class="p-4 sm:p-6 max-w-5xl space-y-6">
+
+      <!-- Toast Alert for Settings Save -->
+      <div id="settingsToast" class="hidden p-4 rounded-xl bg-status-success-bg border border-status-success/30 text-status-success flex items-center justify-between shadow-sm">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined">check_circle</span>
+          <span class="font-bold text-xs sm:text-sm">تم حفظ وتطبيق كافة إعدادات وسياسات المنصة بنجاح في قاعدة البيانات.</span>
+        </div>
+        <button onclick="document.getElementById('settingsToast').classList.add('hidden')" class="text-status-success hover:opacity-75">
+          <span class="material-symbols-outlined text-sm">close</span>
+        </button>
+      </div>
+
+      <form id="settingsForm" class="space-y-6">
+        <!-- Financial & Escrow Policies -->
+        <div class="bg-surface-container-lowest p-5 sm:p-6 rounded-2xl border border-border-default shadow-xs">
+          <div class="flex items-center gap-3 pb-4 mb-4 border-b border-border-default">
+            <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+              <span class="material-symbols-outlined">account_balance</span>
+            </div>
+            <div>
+              <h2 class="text-base font-bold text-primary">السياسات المالية وحساب الضمان (Escrow)</h2>
+              <p class="text-xs text-text-secondary">تحديد نسب عمولة المنصة، فترات حجز المبالغ، والحدود الدنيا</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-on-surface-variant mb-1">نسبة عمولة منصة مِـرَاس (%)</label>
+              <div class="relative">
+                <input type="number" step="0.5" value="5.0" class="w-full px-3 py-2 rounded-lg border border-border-default bg-surface text-xs font-bold focus:outline-none focus:border-primary"/>
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-xs text-text-muted font-bold">%</span>
+              </div>
+              <span class="text-[10px] text-text-muted mt-0.5 block">تُقتطع تلقائياً عند تحرير الدفعة</span>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-on-surface-variant mb-1">ضريبة القيمة المضافة ZATCA (%)</label>
+              <div class="relative">
+                <input type="number" value="15.0" disabled class="w-full px-3 py-2 rounded-lg border border-border-default bg-surface-container text-xs font-bold text-text-secondary focus:outline-none"/>
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-xs text-text-muted font-bold">%</span>
+              </div>
+              <span class="text-[10px] text-text-muted mt-0.5 block">معتمدة نظامياً من الهيئة</span>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-on-surface-variant mb-1">فترة الاعتراض المالي التلقائي (أيام)</label>
+              <input type="number" value="7" min="1" max="30" class="w-full px-3 py-2 rounded-lg border border-border-default bg-surface text-xs font-bold focus:outline-none focus:border-primary"/>
+              <span class="text-[10px] text-text-muted mt-0.5 block">مهلة العميل لفحص العمل قبل تحرير المبلغ</span>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-on-surface-variant mb-1">الحد الأدنى لطلب خدمة (ر.س)</label>
+              <input type="number" value="150" min="50" class="w-full px-3 py-2 rounded-lg border border-border-default bg-surface text-xs font-bold focus:outline-none focus:border-primary"/>
+              <span class="text-[10px] text-text-muted mt-0.5 block">أقل قيمة يُسمح بفتح طلب بها</span>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-on-surface-variant mb-1">الحد الأدنى لسحب الأرباح (ر.س)</label>
+              <input type="number" value="200" min="50" class="w-full px-3 py-2 rounded-lg border border-border-default bg-surface text-xs font-bold focus:outline-none focus:border-primary"/>
+              <span class="text-[10px] text-text-muted mt-0.5 block">رصيد الحرفي المؤهل للتحويل البنكي</span>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-on-surface-variant mb-1">رسوم التحويل الفوري (سريع)</label>
+              <input type="number" value="0.0" disabled class="w-full px-3 py-2 rounded-lg border border-border-default bg-surface-container text-xs font-bold text-text-secondary"/>
+              <span class="text-[10px] text-status-success font-bold mt-0.5 block">متحملة بالكامل من مِـرَاس</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Government API Integrations -->
+        <div class="bg-surface-container-lowest p-5 sm:p-6 rounded-2xl border border-border-default shadow-xs">
+          <div class="flex items-center gap-3 pb-4 mb-4 border-b border-border-default">
+            <div class="w-10 h-10 rounded-xl bg-secondary/15 text-primary flex items-center justify-center">
+              <span class="material-symbols-outlined">hub</span>
+            </div>
+            <div>
+              <h2 class="text-base font-bold text-primary">بوابات التكامل والربط الحكومي</h2>
+              <p class="text-xs text-text-secondary">التحقق اللحظي من الهوية والسجلات المهنية والرخص</p>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <div class="flex items-center justify-between p-3.5 rounded-xl border border-border-default bg-surface">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-status-success text-2xl">verified_user</span>
+                <div>
+                  <div class="font-bold text-xs sm:text-sm">بوابة النفاذ الوطني الموحد (نفاذ IAM)</div>
+                  <div class="text-[11px] text-text-muted">التحقق الحي من هوية العملاء وأصحاب المهن عبر التطبيق الوطني</div>
+                </div>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" checked class="sr-only peer"/>
+                <div class="w-11 h-6 bg-surface-container peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-status-success"></div>
+              </label>
+            </div>
+
+            <div class="flex items-center justify-between p-3.5 rounded-xl border border-border-default bg-surface">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary text-2xl">apartment</span>
+                <div>
+                  <div class="font-bold text-xs sm:text-sm">منصة بلدي — وزارة الشؤون البلدية والقروية</div>
+                  <div class="text-[11px] text-text-muted">مطابقة التراخيص الحرفية ورخص مزاولة مهن البناء والمقاولات</div>
+                </div>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" checked class="sr-only peer"/>
+                <div class="w-11 h-6 bg-surface-container peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-status-success"></div>
+              </label>
+            </div>
+
+            <div class="flex items-center justify-between p-3.5 rounded-xl border border-border-default bg-surface">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-secondary text-2xl">badge</span>
+                <div>
+                  <div class="font-bold text-xs sm:text-sm">بوابة العمل الحر — بنك التنمية الاجتماعية</div>
+                  <div class="text-[11px] text-text-muted">التحقق التلقائي من سريان وثائق العمل الحر المعتمدة للكوادر</div>
+                </div>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" checked class="sr-only peer"/>
+                <div class="w-11 h-6 bg-surface-container peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-status-success"></div>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quality & Account Management -->
+        <div class="bg-surface-container-lowest p-5 sm:p-6 rounded-2xl border border-border-default shadow-xs">
+          <div class="flex items-center gap-3 pb-4 mb-4 border-b border-border-default">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-700 flex items-center justify-center">
+              <span class="material-symbols-outlined">shield</span>
+            </div>
+            <div>
+              <h2 class="text-base font-bold text-primary">معايير الجودة والرقابة الذاتية</h2>
+              <p class="text-xs text-text-secondary">حدود تعليق الحسابات، ونظام الإنذارات الميدانية</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-on-surface-variant mb-1">الحد الأدنى لتقييم الحرفي للاستمرار</label>
+              <select class="w-full px-3 py-2 rounded-lg border border-border-default bg-surface text-xs font-bold focus:outline-none focus:border-primary">
+                <option value="4.0">4.0 من 5 نجوم (مستحسن للكوادر المعتمدة)</option>
+                <option value="3.5">3.5 من 5 نجوم</option>
+                <option value="3.0">3.0 من 5 نجوم</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-on-surface-variant mb-1">إجراء المخالفات الفنية المتكررة</label>
+              <select class="w-full px-3 py-2 rounded-lg border border-border-default bg-surface text-xs font-bold focus:outline-none focus:border-primary">
+                <option value="auto_suspend">تعليق فوري وتحويل الحساب للجنة الرقابة</option>
+                <option value="warning">إرسال إنذار مع مهلة تصحيحية 48 ساعة</option>
+                <option value="manual">مراجعة يدوية فقط</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit & Save -->
+        <div class="flex items-center justify-end gap-3 pt-2">
+          <button type="reset" class="px-5 py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-xs font-bold text-text-secondary transition-colors">
+            استعادة الافتراضي
+          </button>
+          <button id="saveSettingsBtn" type="submit" class="px-6 py-2.5 rounded-xl bg-primary hover:bg-primary-dark text-white text-xs font-bold transition-colors inline-flex items-center gap-1.5 shadow-sm">
+            <span class="material-symbols-outlined text-sm">save</span>
+            <span>حفظ وتطبيق التغييرات</span>
+          </button>
+        </div>
+      </form>
+    </main>
+  </div>
+
+  <!-- Mobile Bottom Nav -->
+  <nav class="lg:hidden fixed bottom-0 left-0 right-0 h-16 bg-surface-container-lowest border-t border-border-default z-30 flex items-center justify-around px-2">
+    <a class="flex flex-col items-center gap-1 text-text-muted hover:text-primary text-[10px]" href="index.html">
+      <span class="material-symbols-outlined text-xl">grid_view</span>
+      <span>الرئيسية</span>
+    </a>
+    <a class="flex flex-col items-center gap-1 text-text-muted hover:text-primary text-[10px]" href="craftsmen.html">
+      <span class="material-symbols-outlined text-xl">badge</span>
+      <span>الكوادر</span>
+    </a>
+    <a class="flex flex-col items-center gap-1 text-text-muted hover:text-primary text-[10px]" href="projects-escrow.html">
+      <span class="material-symbols-outlined text-xl">account_balance_wallet</span>
+      <span>الضمان</span>
+    </a>
+    <a class="flex flex-col items-center gap-1 text-text-muted hover:text-primary text-[10px]" href="reports.html">
+      <span class="material-symbols-outlined text-xl">fact_check</span>
+      <span>الرقابة</span>
+    </a>
+    <a class="flex flex-col items-center gap-1 text-primary font-bold text-[10px]" href="settings.html">
+      <span class="material-symbols-outlined text-xl">tune</span>
+      <span>الإعدادات</span>
+    </a>
+  </nav>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../supabase/config.js"></script>
+  <script src="../supabase/auth-router.js"></script>
+  <script src="../supabase/miras-api.js"></script>
+  <script src="admin-auth.js"></script>
+  <script>
+    // Sidebar toggle
+    const sidebar = document.getElementById('adminSidebar');
+    const backdrop = document.getElementById('adminSidebarBackdrop');
+    const openBtn = document.getElementById('openAdminSidebar');
+    const closeBtn = document.getElementById('closeAdminSidebar');
+
+    if (openBtn && sidebar && backdrop) {
+      openBtn.addEventListener('click', () => {
+        sidebar.classList.remove('translate-x-full');
+        backdrop.classList.remove('hidden');
+      });
+    }
+    const closeSidebar = () => {
+      if (sidebar) sidebar.classList.add('translate-x-full');
+      if (backdrop) backdrop.classList.add('hidden');
+    };
+    if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
+    if (backdrop) backdrop.addEventListener('click', closeSidebar);
+
+    // Save Settings
+    const settingsForm = document.getElementById('settingsForm');
+    const toast = document.getElementById('settingsToast');
+    const saveBtn = document.getElementById('saveSettingsBtn');
+
+    if (settingsForm) {
+      settingsForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (saveBtn) {
+          saveBtn.disabled = true;
+          saveBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-sm">sync</span> جارٍ الحفظ...';
+        }
+        setTimeout(() => {
+          if (saveBtn) {
+            saveBtn.disabled = false;
+            saveBtn.innerHTML = '<span class="material-symbols-outlined text-sm">save</span><span>حفظ وتطبيق التغييرات</span>';
+          }
+          if (toast) {
+            toast.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        }, 600);
+      });
+    }
+  </script>
+</body>
+</html>

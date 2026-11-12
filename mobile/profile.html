@@ -58,7 +58,7 @@
 <span class="font-label-lg text-label-lg text-primary px-space-xs">نشاطي وحجوزاتي</span>
 <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
 <!-- Item: Addresses -->
-<a class="flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors" href="#">
+<a class="flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors" href="javascript:void(0)" onclick="openSettingsModal('العناوين المسجلة')">
 <div class="flex items-center gap-space-sm">
 <div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
 <span class="material-symbols-outlined text-[22px]">home_pin</span>
@@ -72,7 +72,7 @@
 </a>
 <div class="h-[1px] bg-surface-container mx-space-md"></div>
 <!-- Item: Payment Methods -->
-<a class="flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors" href="#">
+<a class="flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors" href="javascript:void(0)" onclick="openSettingsModal('طرق الدفع المحفوظة')">
 <div class="flex items-center gap-space-sm">
 <div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
 <span class="material-symbols-outlined text-[22px]">credit_card</span>
@@ -86,7 +86,7 @@
 </a>
 <div class="h-[1px] bg-surface-container mx-space-md"></div>
 <!-- Item: Invoices -->
-<a class="flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors" href="#">
+<a class="flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors" href="my-requests.html">
 <div class="flex items-center gap-space-sm">
 <div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
 <span class="material-symbols-outlined text-[22px]">receipt_long</span>
@@ -141,7 +141,7 @@
 </div>
 <div class="h-[1px] bg-surface-container mx-space-md"></div>
 <!-- Item: Language -->
-<a class="flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors" href="#">
+<a class="flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors" href="javascript:void(0)" onclick="openSettingsModal('لغة التطبيق')">
 <div class="flex items-center gap-space-sm">
 <div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
 <span class="material-symbols-outlined text-[22px]">translate</span>
@@ -158,7 +158,7 @@
 </a>
 <div class="h-[1px] bg-surface-container mx-space-md"></div>
 <!-- Item: Theme -->
-<a class="flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors" href="#">
+<a class="flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors" href="javascript:void(0)" onclick="openSettingsModal('مظهر التطبيق')">
 <div class="flex items-center gap-space-sm">
 <div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
 <span class="material-symbols-outlined text-[22px]">light_mode</span>
@@ -177,7 +177,7 @@
 <span class="font-label-lg text-label-lg text-primary px-space-xs">الدعم والمساعدة</span>
 <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
 <!-- Item: Help Center -->
-<a class="flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors" href="#">
+<a class="flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors" href="../support.html">
 <div class="flex items-center gap-space-sm">
 <div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
 <span class="material-symbols-outlined text-[22px]">help_center</span>
@@ -191,7 +191,7 @@
 </a>
 <div class="h-[1px] bg-surface-container mx-space-md"></div>
 <!-- Item: FAQ -->
-<a class="flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors" href="#">
+<a class="flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors" href="../support.html#faqAccordion">
 <div class="flex items-center gap-space-sm">
 <div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
 <span class="material-symbols-outlined text-[22px]">quiz</span>
@@ -205,7 +205,7 @@
 </a>
 <div class="h-[1px] bg-surface-container mx-space-md"></div>
 <!-- Item: Contact Us -->
-<a class="flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors" href="#">
+<a class="flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors" href="../support.html">
 <div class="flex items-center gap-space-sm">
 <div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
 <span class="material-symbols-outlined text-[22px]">support_agent</span>
@@ -219,7 +219,7 @@
 </a>
 <div class="h-[1px] bg-surface-container mx-space-md"></div>
 <!-- Item: Privacy & Terms -->
-<a class="flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors" href="#">
+<a class="flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors" href="../terms.html">
 <div class="flex items-center gap-space-sm">
 <div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
 <span class="material-symbols-outlined text-[22px]">policy</span>
@@ -295,4 +295,43 @@
 <script src="../supabase/config.js"></script>
 <script src="../supabase/auth-router.js"></script>
 <script src="../supabase/miras-api.js"></script>
-</body></html>
+
+<dialog id="mobileSettingsDialog" class="p-0 rounded-2xl border border-outline-variant shadow-2xl backdrop:bg-black/50 max-w-sm w-11/12">
+  <div class="p-5 bg-surface text-on-surface">
+    <div class="flex items-center justify-between pb-3 border-b border-surface-container mb-3">
+      <h3 id="mobileSettingsTitle" class="font-bold text-sm text-primary">الإعدادات</h3>
+      <button onclick="document.getElementById('mobileSettingsDialog').close()" class="p-1 text-on-surface-variant">
+        <span class="material-symbols-outlined text-lg">close</span>
+      </button>
+    </div>
+    <div id="mobileSettingsBody" class="text-xs text-on-surface-variant space-y-2">
+      <!-- Injected -->
+    </div>
+    <div class="mt-4 pt-3 border-t border-surface-container flex justify-end">
+      <button onclick="document.getElementById('mobileSettingsDialog').close()" class="px-4 py-1.5 rounded-lg bg-primary text-white text-xs font-bold">تم</button>
+    </div>
+  </div>
+</dialog>
+<script>
+  function openSettingsModal(title) {
+    const d = document.getElementById('mobileSettingsDialog');
+    const t = document.getElementById('mobileSettingsTitle');
+    const b = document.getElementById('mobileSettingsBody');
+    if (!d) return;
+    t.textContent = title;
+    if (title === 'العناوين المسجلة') {
+      b.innerHTML = '<div class="p-2.5 rounded-lg bg-surface-container space-y-1"><div class="font-bold text-primary">المنزل الرئيسي (الافتراضي)</div><div>الرياض — حي الياسمين، شارع أنس بن مالك</div></div><div class="p-2.5 rounded-lg bg-surface-container space-y-1"><div class="font-bold">المكتب</div><div>الرياض — حي العليا، برج الفيصلية</div></div>';
+    } else if (title === 'طرق الدفع المحفوظة') {
+      b.innerHTML = '<div class="p-2.5 rounded-lg bg-surface-container flex items-center justify-between"><div><div class="font-bold">مدى — مصرف الراجحي</div><div class="text-[10px] text-outline">منتهية بـ •••• 4021</div></div><span class="px-2 py-0.5 rounded bg-green-100 text-green-800 text-[10px] font-bold">افتراضية</span></div>';
+    } else if (title === 'لغة التطبيق') {
+      b.innerHTML = '<div class="space-y-2"><label class="flex items-center gap-2 p-2 rounded-lg bg-primary/10 text-primary font-bold"><input type="radio" checked name="lang"/> العربية (المملكة العربية السعودية)</label><label class="flex items-center gap-2 p-2 rounded-lg hover:bg-surface-container text-on-surface"><input type="radio" name="lang"/> English (US)</label></div>';
+    } else if (title === 'مظهر التطبيق') {
+      b.innerHTML = '<div class="space-y-2"><label class="flex items-center gap-2 p-2 rounded-lg bg-primary/10 text-primary font-bold"><input type="radio" checked name="theme"/> الفاتح النهاري (افتراضي)</label><label class="flex items-center gap-2 p-2 rounded-lg hover:bg-surface-container text-on-surface"><input type="radio" name="theme"/> الداكن الليلي</label></div>';
+    } else {
+      b.innerHTML = '<p>الخدمة مفعلة وجاهزة للاستخدام.</p>';
+    }
+    d.showModal();
+  }
+</script>
+</body>
+</html>

@@ -160,3 +160,4 @@ CREATE POLICY "User view transactions" ON public.escrow_transactions FOR SELECT 
     USING (wallet_id IN (SELECT id FROM public.escrow_wallets WHERE user_id = auth.uid()) OR public.is_admin());
 CREATE POLICY "User create transaction" ON public.escrow_transactions FOR INSERT TO authenticated WITH CHECK (TRUE);
 CREATE POLICY "Admin manage transactions" ON public.escrow_transactions FOR ALL TO authenticated USING (public.is_admin());
+

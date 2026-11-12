@@ -86,3 +86,4 @@ CREATE TABLE IF NOT EXISTS public.escrow_transactions (
     reference_code TEXT UNIQUE DEFAULT ('TX-' || UPPER(SUBSTRING(MD5(RANDOM()::TEXT) FROM 1 FOR 8))),
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
+
