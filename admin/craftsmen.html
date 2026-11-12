@@ -812,8 +812,7 @@
       ['خالد بن عبد الرحمن', '1076523410', 'نجارة وديكورات خشبية', 'الدمام', '4.92', '115', 'معتمد وثيقة عمل حر'],
       ['عبدالله العتيبي', '1065412980', 'تكييف وتبريد', 'الرياض', '4.80', '64', 'تحت التدقيق']
     ];
-    let csvContent = "data:text/csv;charset=utf-8,﻿" + rows.map(e => e.join(",")).join("
-");
+    let csvContent = "data:text/csv;charset=utf-8,﻿" + rows.map(e => e.join(",")).join("\n");
     const link = document.createElement("a");
     link.setAttribute("href", encodeURI(csvContent));
     link.setAttribute("download", "Miras_Craftsmen_Registry_2026.csv");
