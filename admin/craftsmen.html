@@ -1,976 +1,530 @@
 <!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+  <title>لوحة الإدارة — توثيق وإدارة أصحاب المهن — منصة مِـرَاس (حضرموت)</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 
-<html dir="rtl" lang="ar"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;width:100%;max-width:100vw;overflow-x:hidden;-webkit-tap-highlight-color:transparent;}body{overscroll-behavior:none;font-family:'IBM Plex Sans Arabic','IBM Plex Sans',sans-serif;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "status-warning-bg": "#fef6e9", "surface-dark": "#002538", "error": "#ba1a1a", "inverse-primary": "#a3cbea", "primary": "#001e2f", "primary-container": "#d2e8f8", "surface-container-highest": "#e3e2e0", "inverse-on-surface": "#f2f1ee", "surface-tint": "#3a637e", "tertiary-container": "#00344e", "surface-container-low": "#f4f3f1", "on-secondary-container": "#006a7d", "status-destructive-bg": "#ffdad6", "on-primary-fixed-variant": "#204b65", "border-default": "#e0ded9", "on-surface": "#1a1c1a", "primary-dark": "#002b40", "text-primary": "#1b1c1d", "on-surface-variant": "#42474d", "on-background": "#1a1c1a", "surface-dim": "#dbdad7", "tertiary-fixed": "#c9e6ff", "secondary-fixed": "#abedff", "primary-fixed-dim": "#a3cbea", "on-error": "#ffffff", "inverse-surface": "#2f312f", "on-tertiary": "#ffffff", "surface": "#faf9f6", "on-primary-container": "#759dba", "surface-container": "#eeebe6", "on-primary": "#ffffff", "surface-container-lowest": "#ffffff", "status-success-bg": "#e8f5ed", "surface-low": "#f4f3f1", "surface-bright": "#faf9f6", "on-secondary-fixed-variant": "#004e5c", "status-info-bg": "#e0f2fe", "tertiary": "#001e2f", "text-secondary": "#43474e", "outline": "#72787d", "border-subtle": "#eae8e3", "background": "#faf9f6", "primary-fixed": "#c8e6ff", "on-secondary": "#ffffff", "on-tertiary-fixed-variant": "#1d4b67", "surface-container-high": "#e9e8e5", "tertiary-fixed-dim": "#a1cced", "secondary": "#00687a", "on-tertiary-container": "#739dbd", "secondary-fixed-dim": "#7fd2e8", "outline-variant": "#c2c7cd", "on-tertiary-fixed": "#001e2f", "on-secondary-fixed": "#001f26", "on-primary-fixed": "#001e2f", "text-muted": "#73777f", "accent-light": "#5fa8d3", "error-container": "#ffdad6", "status-success": "#1b7a4d", "status-info": "#026aa7", "secondary-container": "#97e9ff", "status-destructive": "#ba1a1a", "status-warning": "#b25e02", "on-error-container": "#93000a", "surface-variant": "#e3e2e0" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "gutter": "1.5rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "margin-mobile": "1rem", "space-xl": "2.5rem", "space-lg": "1.5rem", "margin": "2rem", "space-md": "1rem", "gutter-mobile": "1rem" }, "fontFamily": { "label-sm": ["IBM Plex Sans"], "title-md": ["IBM Plex Sans"], "headline-sm": ["IBM Plex Sans"], "body-md": ["IBM Plex Sans"], "headline-md": ["IBM Plex Sans"], "headline-md-mobile": ["IBM Plex Sans"], "headline-lg": ["IBM Plex Sans"], "body-sm": ["IBM Plex Sans"], "title-lg": ["IBM Plex Sans"], "body-lg": ["IBM Plex Sans"], "label-md": ["IBM Plex Sans"], "headline-lg-mobile": ["IBM Plex Sans"], "label-lg": ["IBM Plex Sans"] }, "fontSize": { "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }], "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }], "headline-sm": ["22px", { "lineHeight": "32px", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }], "headline-md": ["28px", { "lineHeight": "40px", "fontWeight": "600" }], "headline-md-mobile": ["24px", { "lineHeight": "34px", "fontWeight": "600" }], "headline-lg": ["36px", { "lineHeight": "48px", "fontWeight": "700" }], "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }], "title-lg": ["18px", { "lineHeight": "28px", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "headline-lg-mobile": ["28px", { "lineHeight": "38px", "fontWeight": "700" }], "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "500" }] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased overflow-x-hidden w-full">
-
-<!-- Backdrop Overlay for Mobile Sidebar Drawer -->
-<div id="adminSidebarBackdrop" class="fixed inset-0 bg-primary/40 backdrop-blur-sm z-40 opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden"></div>
-
-<aside id="adminSidebar" class="fixed right-0 top-0 h-full w-72 max-w-[85vw] bg-surface-container-low z-50 flex flex-col justify-between shadow-2xl transition-transform duration-300 ease-in-out translate-x-full lg:translate-x-0"><div class="flex flex-col"><div class="px-space-lg pt-space-lg pb-space-md"><div class="flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-10 h-10 rounded-xl flex items-center justify-center shadow-sm overflow-hidden bg-white"><img src="../assets/logo.png" alt="شعار مِراس" class="h-9 w-auto object-contain rounded-md" onerror="this.src='https://lh3.googleusercontent.com/aida/ALJJyrBJvcIWV6XTBKheJBgG_V8UaW6RGPiAvnarmMdnlhNxoa2GuAiaRZHA-RwNK4B61N4TDOp3m4IfkpNJkce9dohTQ3emb93HvXkrhQc71_5u62k3TRw0zff7CC1gmi18R5WCktu7p_HEQS8YixW4xFPdxFWpHraSV5FALaKKLwlwJMHRwiTSl5IIemu-Qg6dIlArCuY6hMt0oqqEwGCKRm4F7N00ikddB64KPVxD6NNlEA'"/></div><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-title-lg text-title-lg text-primary font-bold tracking-tight">مِـرَاس</span><span class="px-space-xs py-0.5 rounded-DEFAULT bg-primary-container text-on-primary-fixed-variant font-label-sm text-label-sm">الوطنية</span></div><span class="font-label-sm text-label-sm text-text-secondary">سجل الكوادر والضمان المالي</span></div></div><button id="closeAdminSidebar" aria-label="إغلاق القائمة" class="lg:hidden p-1.5 rounded-lg text-text-muted hover:text-text-primary hover:bg-surface-container"><span class="material-symbols-outlined text-[22px]">close</span></button></div><div class="mt-space-md flex items-center justify-between px-space-sm py-space-xs rounded-DEFAULT bg-status-success-bg text-status-success"><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-status-success"></span><span class="font-label-sm text-label-sm">نفاذ وطني موثوق ومعتمد</span></div><span class="material-symbols-outlined text-[16px]">verified</span></div></div><nav class="flex flex-col gap-space-xs px-space-md pt-space-xs" data-active-classes="bg-primary-container text-on-primary-fixed-variant font-semibold rounded-lg shadow-[0_1px_2px_rgba(0,43,64,0.04)]"><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="dashboard" href="index.html"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="font-label-lg text-label-lg">لوحة المؤشرات والقيادة</span></a><a aria-current="page" class="flex items-center gap-space-md px-space-md py-space-sm transition-all bg-primary-container text-on-primary-fixed-variant font-semibold rounded-lg shadow-[0_1px_2px_rgba(0,43,64,0.04)]" data-path="craftsmen-registry" href="craftsmen.html"><span class="material-symbols-outlined text-[20px]">badge</span><span class="font-label-lg text-label-lg">سجل الكوادر الحرفية</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="projects-financial-guarantee" href="projects-escrow.html"><span class="material-symbols-outlined text-[20px]">account_balance_wallet</span><span class="font-label-lg text-label-lg">المشاريع والضمان المالي</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="financial-operations-escrow" href="projects-escrow.html"><span class="material-symbols-outlined text-[20px]">payments</span><span class="font-label-lg text-label-lg">العمليات المالية والوساطة</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="reports-field-audits" href="reports.html"><span class="material-symbols-outlined text-[20px]">fact_check</span><span class="font-label-lg text-label-lg">التقارير والرقابة الميدانية</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="system-settings" href="settings.html"><span class="material-symbols-outlined text-[20px]">tune</span><span class="font-label-lg text-label-lg">الإعدادات وإدارة النظام</span></a></nav></div><div class="p-space-md mx-space-md mb-space-md rounded-xl bg-surface-container flex flex-col gap-space-sm"><div class="flex items-center justify-between pb-space-xs"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-status-success">encrypted</span><span class="font-label-sm text-label-sm text-text-secondary">ربط حكومي مشفر ومفعل</span></div><span class="w-2 h-2 rounded-full bg-status-success animate-pulse"></span></div><div class="flex items-center gap-space-sm pt-space-xs"><div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md text-text-primary font-bold truncate">م. عبد الرحمن</span><span class="font-body-sm text-body-sm text-text-muted truncate">مشرف المنصة الوطني</span></div></div></div>
-    <div class="p-space-md border-t border-border-default/50 mt-auto">
-      <a href="../index.html" class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-all font-label-md text-label-md">
-        <span class="material-symbols-outlined text-[20px]">storefront</span>
-        <span>بوابة مِـرَاس الرئيسية</span>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#00173b",
+            "primary-container": "#0f2c59",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#7c94c8",
+            "secondary": "#3755c3",
+            "secondary-container": "#708cfd",
+            "on-secondary": "#ffffff",
+            "on-secondary-container": "#00217a",
+            "tertiary": "#211700",
+            "tertiary-container": "#3a2b00",
+            "tertiary-fixed": "#ffdf98",
+            "tertiary-fixed-dim": "#eec14b",
+            "on-tertiary-container": "#b78f19",
+            "surface": "#f8f9ff",
+            "surface-bright": "#f8f9ff",
+            "surface-dim": "#cbdbf5",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#eff4ff",
+            "surface-container": "#e5eeff",
+            "surface-container-high": "#dce9ff",
+            "surface-container-highest": "#d3e4fe",
+            "on-surface": "#0b1c30",
+            "on-surface-variant": "#44474f",
+            "outline": "#747780",
+            "outline-variant": "#c4c6d0",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6"
+          },
+          fontFamily: {
+            sans: ["IBM Plex Sans Arabic", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    @layer base {
+      html, body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: 'IBM Plex Sans Arabic', sans-serif;
+        background-color: #f8f9ff;
+        color: #0b1c30;
+        -webkit-tap-highlight-color: transparent;
+      }
+      body {
+        overscroll-behavior: none;
+      }
+      .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      .pt-safe {
+        padding-top: env(safe-area-inset-top, 0px);
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased flex flex-col min-h-screen">
+<header class="sticky top-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl border-b border-surface-container shadow-xs">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
+    <div class="flex items-center gap-6 xl:gap-8">
+      <a href="index.html" class="flex items-center gap-2.5 group">
+        <div class="w-10 h-10 rounded-xl bg-primary text-tertiary-fixed flex items-center justify-center shadow-sm">
+          <span class="material-symbols-outlined text-[24px]">shield_person</span>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1.5">
+            <span class="font-bold text-xl text-primary tracking-tight">مِـرَاس</span>
+            <span class="text-[10px] font-bold text-white bg-primary px-1.5 py-0.5 rounded-full">لوحة الإدارة</span>
+          </div>
+          <span class="text-[10px] text-tertiary-fixed-dim font-semibold">إشراف ورقابة محافظة حضرموت</span>
+        </div>
       </a>
-      <button onclick="AdminAuth.logout()" class="w-full mt-2 flex items-center gap-space-sm px-space-md py-space-xs rounded-lg text-error hover:bg-status-destructive-bg transition-all font-label-sm text-label-sm">
-        <span class="material-symbols-outlined text-[18px]">logout</span>
-        <span>تسجيل الخروج</span>
+      <nav class="hidden lg:flex items-center gap-1.5">
+        <a href="index.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm transition-all text-on-surface-variant hover:text-primary hover:bg-surface-container">
+          <span class="material-symbols-outlined text-[18px]">dashboard</span>
+          <span>نظرة عامة</span>
+        </a><a href="craftsmen.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm transition-all bg-primary text-white font-bold shadow-xs">
+          <span class="material-symbols-outlined text-[18px]">verified_user</span>
+          <span>توثيق الحرفيين</span>
+        </a><a href="projects-escrow.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm transition-all text-on-surface-variant hover:text-primary hover:bg-surface-container">
+          <span class="material-symbols-outlined text-[18px]">gavel</span>
+          <span>الطلبات والنزاعات</span>
+        </a><a href="settings.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm transition-all text-on-surface-variant hover:text-primary hover:bg-surface-container">
+          <span class="material-symbols-outlined text-[18px]">tune</span>
+          <span>الإعدادات والرقابة</span>
+        </a>
+      </nav>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container text-xs text-primary font-bold">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>مالكة المنصة (Super Admin)</span>
+      </div>
+      <a href="../index.html" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-outline-variant text-xs text-on-surface-variant hover:text-primary hover:border-primary transition-colors">
+        <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+        <span class="hidden sm:inline">معاينة المنصة</span>
+      </a>
+      <button onclick="if(window.AdminAuth) AdminAuth.logout(); else window.location.href='../login.html';" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-error-container text-on-error-container text-xs font-bold hover:bg-error hover:text-white transition-colors">
+        <span class="material-symbols-outlined text-[16px]">logout</span>
+        <span>خروج</span>
       </button>
     </div>
-    
-</aside><div class="pr-0 lg:pr-72 w-full min-h-screen flex flex-col overflow-x-hidden"><header class="fixed top-0 right-0 lg:right-72 left-0 h-16 bg-surface/90 backdrop-blur-xl z-30 flex items-center justify-between px-4 lg:px-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-2 sm:gap-space-md flex-1 max-w-xl"><button id="openAdminSidebar" aria-label="القائمة الجانبية" class="lg:hidden p-2 text-primary hover:bg-surface-container rounded-lg flex items-center justify-center transition-colors"><span class="material-symbols-outlined text-[24px]">menu</span></button><div class="relative w-full"><span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-text-muted text-[20px]">search</span><input class="w-full pr-10 pl-space-md py-space-xs rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm placeholder:text-text-muted outline-none focus:bg-surface-container-lowest transition-all" placeholder="بحث شامل (اسم المشروع، الحرفي، رقم العقد، رقم الاعتماد)..." type="text"/></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1.5 rounded-DEFAULT bg-status-info-bg text-status-info shrink-0"><span class="material-symbols-outlined text-[16px]">hub</span><span class="font-label-sm text-label-sm whitespace-nowrap">النظام متصل بالنفاذ والضمان الفوري</span></div></div><div class="flex items-center gap-space-sm"><button class="hidden sm:flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors font-label-md text-label-md" type="button"><span class="material-symbols-outlined text-[18px]">pending_actions</span><span>المعاملات المعلقة</span></button><button class="hidden md:flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-primary hover:bg-primary-dark text-on-primary transition-colors font-label-md text-label-md shadow-[0_1px_3px_rgba(0,43,64,0.04)]" type="button"><span class="material-symbols-outlined text-[18px]">person_add</span><span>توثيق حرفي جديد</span></button><div class="h-6 w-px bg-border-subtle mx-space-xs hidden sm:block"></div><button aria-label="الإشعارات" class="relative p-2 rounded-lg text-text-secondary hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 left-1.5 w-2 h-2 rounded-full bg-error"></span></button><button aria-label="الدعم الفني والأنظمة" class="p-2 rounded-lg text-text-secondary hover:bg-surface-container-high hover:text-on-surface transition-colors hidden sm:block" type="button"><span class="material-symbols-outlined text-[20px]">help_outline</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-16 w-full px-4 sm:px-6 lg:px-gutter min-h-screen bg-surface pb-24 lg:pb-space-xl overflow-x-hidden"><div class="flex flex-col w-full pb-space-xl">
-<!-- Top Operational Banner & Headline Section -->
-<div class="flex flex-col gap-space-md pt-space-lg">
-<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
-<div class="flex flex-col">
-<div class="flex items-center gap-space-xs text-text-muted font-label-sm text-label-sm">
-<span>المنصة الوطنية للتشييد والمهن</span>
-<span class="material-symbols-outlined text-[14px]">arrow_left</span>
-<span class="text-secondary font-medium">سجل الاعتماد المهني</span>
-</div>
-<div class="flex items-center gap-space-sm mt-1">
-<h1 class="font-headline-md text-headline-md text-primary font-bold tracking-tight">سجل الكوادر الحرفية المعتمدة</h1>
-<span class="px-space-xs py-0.5 rounded-DEFAULT bg-status-success-bg text-status-success font-label-sm text-label-sm flex items-center gap-1">
-<span class="w-1.5 h-1.5 rounded-full bg-status-success"></span>
-            تحديث لحظي
-          </span>
-</div>
-<p class="font-body-md text-body-md text-text-secondary mt-1 max-w-3xl">
-          قاعدة بيانات الفنيين والمقاولين الموثقين عبر النفاذ الوطني وبنك الكفاءات الوطنية (18,450 حرفي معتمد مع حماية الضمان المالي ومطابقة كود البناء).
-        </p>
-</div>
-<!-- Quick Action Group -->
-<div class="flex items-center gap-space-sm shrink-0">
-<button class="flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-text-primary transition-all font-label-md text-label-md shadow-sm" type="button">
-<span class="material-symbols-outlined text-[18px] text-text-secondary">file_download</span>
-<span>تصدير البيانات (Excel/PDF)</span>
-</button>
-<button class="flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-primary hover:bg-primary-dark text-on-primary transition-all font-label-md text-label-md shadow-sm" type="button">
-<span class="material-symbols-outlined text-[18px]">add_moderator</span>
-<span>+ إضافة كادر حرفي جديد</span>
-</button>
-</div>
-</div>
-<!-- Institutional KPI Metrics & Government Audit Strip -->
-<div class="w-full rounded-xl bg-surface-container-low p-space-lg shadow-sm flex flex-col xl:flex-row items-stretch gap-space-lg relative overflow-hidden">
-<!-- Subtle Decorative Vector Pattern (institutional seal texture) -->
-<div class="absolute -left-12 -bottom-16 w-56 h-56 rounded-full bg-primary-container/20 pointer-events-none blur-2xl"></div>
-<!-- Compliance Progress Ring Panel -->
-<div class="flex items-center gap-space-md min-w-[280px] bg-surface-container-lowest p-space-md rounded-lg shadow-sm">
-<div class="relative w-16 h-16 shrink-0 flex items-center justify-center">
-<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
-<path class="text-surface-container-high" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
-<path class="text-status-success" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="94, 100" stroke-linecap="round" stroke-width="3.5"></path>
-</svg>
-<div class="absolute inset-0 flex flex-col items-center justify-center">
-<span class="font-title-lg text-title-lg text-primary font-bold">94%</span>
-</div>
-</div>
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm text-text-muted">الربط والامتثال المهني</span>
-<span class="font-title-md text-title-md text-text-primary font-bold">وفق الكود الموحد</span>
-<span class="font-body-sm text-body-sm text-status-success flex items-center gap-1 mt-0.5">
-<span class="material-symbols-outlined text-[14px]">verified</span>
-            17,343 كوادر مستوفية
-          </span>
-</div>
-</div>
-<!-- Financial Escrow Backing Status -->
-<div class="flex items-center gap-space-md min-w-[260px] bg-surface-container-lowest p-space-md rounded-lg shadow-sm">
-<div class="w-12 h-12 rounded-lg bg-primary-container text-on-primary-fixed-variant flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-[24px]">account_balance</span>
-</div>
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm text-text-muted">محفظة الضمان المالي المرتبطة</span>
-<span class="font-title-md text-title-md text-text-primary font-bold">42,850,000 ر.ي</span>
-<span class="font-body-sm text-body-sm text-text-secondary">في حسابات وساطة مؤمنة بنكياً</span>
-</div>
-</div>
-<!-- Fast Status Distribution Inline Bars -->
-<div class="flex-1 bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex flex-col justify-between">
+  </div>
+</header>
+<main class="flex flex-col relative w-full pt-4 pb-24 lg:pb-12 bg-surface min-h-screen">
+  <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 space-y-6">
+    <div class="flex flex-col w-full pb-10">
+<!-- Header Contextual Banner -->
+<div class="flex flex-col gap-space-xs mb-space-md">
 <div class="flex items-center justify-between">
 <div class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-secondary text-[18px]">verified_user</span>
-<span class="font-title-md text-title-md text-text-primary font-bold">توزيع كفاءات النفاذ والجاهزية</span>
+<span class="w-2.5 h-2.5 rounded-full bg-on-tertiary-container"></span>
+<span class="font-label-md text-label-md text-on-tertiary-container font-semibold">بوابة الضبط والرقابة الميدانية</span>
 </div>
-<span class="font-label-sm text-label-sm text-text-muted">محدثة قبل 4 دقائق</span>
+<span class="font-label-sm text-label-sm px-space-sm py-0.5 rounded-full bg-surface-container-high text-on-primary-fixed-variant font-medium">دفعة حضرموت #48</span>
 </div>
-<div class="grid grid-cols-3 gap-space-md mt-2">
-<div class="flex flex-col">
-<div class="flex justify-between items-center mb-1">
-<span class="font-label-sm text-label-sm text-text-secondary">موثق ومفعل</span>
-<span class="font-label-sm text-label-sm text-status-success font-bold">88%</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold">إدارة وتوثيق الحرفيين</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+      فحص الهويات، مطابقة الرخص المهنية المحلية، وإصدار وسم الشارة المعتمدة (موثّق مِراس).
+    </p>
 </div>
-<div class="w-full h-1.5 rounded-full bg-surface-container">
-<div class="h-1.5 rounded-full bg-status-success w-[88%]"></div>
-</div>
-</div>
-<div class="flex flex-col">
-<div class="flex justify-between items-center mb-1">
-<span class="font-label-sm text-label-sm text-text-secondary">بانتظار التجديد</span>
-<span class="font-label-sm text-label-sm text-status-warning font-bold">8%</span>
-</div>
-<div class="w-full h-1.5 rounded-full bg-surface-container">
-<div class="h-1.5 rounded-full bg-status-warning w-[8%]"></div>
-</div>
-</div>
-<div class="flex flex-col">
-<div class="flex justify-between items-center mb-1">
-<span class="font-label-sm text-label-sm text-text-secondary">كوادر متدربة حديثاً</span>
-<span class="font-label-sm text-label-sm text-status-info font-bold">4%</span>
-</div>
-<div class="w-full h-1.5 rounded-full bg-surface-container">
-<div class="h-1.5 rounded-full bg-status-info w-[4%]"></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Advanced Desktop Filter & Query Toolbar -->
-<div class="mt-space-lg w-full bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm">
-<!-- Row 1: Search and Primary Selectors -->
-<div class="flex flex-col xl:flex-row items-stretch xl:items-center gap-space-sm">
-<!-- Broad Input Search Field -->
-<div class="relative flex-1">
-<span class="material-symbols-outlined absolute right-3.5 top-1/2 -translate-y-1/2 text-text-muted text-[20px]">person_search</span>
-<input class="w-full pr-11 pl-space-md py-2.5 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md placeholder:text-text-muted outline-none focus:bg-surface-container-lowest transition-all shadow-inner" placeholder="ابحث بالاسم، التخصص، المدينة، أو رقم السجل التجاري / الترخيص المهني..." type="text"/>
-</div>
-<!-- Quick Category Dropdown -->
-<div class="flex items-center gap-space-xs shrink-0">
-<div class="relative min-w-[180px]">
-<select class="w-full appearance-none pr-space-md pl-8 py-2.5 rounded-lg bg-surface-container-low text-text-primary font-label-md text-label-md outline-none cursor-pointer">
-<option>جميع التخصصات المهنية</option>
-<option>كهرباء وتمديدات ذكية</option>
-<option>سباكة وعزل مائي</option>
-<option>نجارة وتشطيبات معمارية</option>
-<option>أعمال تكييف وتبريد HVAC</option>
-<option>واجهات ألمنيوم وزجاج</option>
-</select>
-<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-text-muted text-[18px]">expand_more</span>
-</div>
-<!-- City/Region Dropdown -->
-<div class="relative min-w-[150px]">
-<select class="w-full appearance-none pr-space-md pl-8 py-2.5 rounded-lg bg-surface-container-low text-text-primary font-label-md text-label-md outline-none cursor-pointer">
-<option>المنطقة / المدينة</option>
-<option selected>محافظة حضرموت (المكلا، فوة، الشرج)</option>
-<option>محافظة حضرموت (سيئون، تريم، وادي حضرموت)</option>
-<option>محافظة حضرموت (الشحر، غيل باوزير)</option>
-<option>أمانة العاصمة وصنعاء</option>
-<option>محافظة عدن وباقي المحافظات</option>
-</select>
-<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-text-muted text-[18px]">location_on</span>
-</div>
-<!-- Status Filter Dropdown -->
-<div class="relative min-w-[160px]">
-<select class="w-full appearance-none pr-space-md pl-8 py-2.5 rounded-lg bg-surface-container-low text-text-primary font-label-md text-label-md outline-none cursor-pointer">
-<option>حالة الاعتماد الوطني</option>
-<option>موثق نفاذ ومعتمد</option>
-<option>بانتظار تجديد الوثيقة</option>
-<option>تدريب مهني مكتمل</option>
-<option>قيد التدقيق الميداني</option>
-</select>
-<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-text-muted text-[18px]">tune</span>
-</div>
-<!-- Escrow Guarantee Filter -->
-<div class="relative min-w-[150px]">
-<select class="w-full appearance-none pr-space-md pl-8 py-2.5 rounded-lg bg-surface-container-low text-text-primary font-label-md text-label-md outline-none cursor-pointer">
-<option>الضمان المالي</option>
-<option>ضمان مفعل ومغطى</option>
-<option>حساب ضامن مؤقت</option>
-<option>ضمان قيد التحديث</option>
-</select>
-<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-text-muted text-[18px]">verified</span>
-</div>
-</div>
-<!-- View Toggle Mode (Grid vs Table) -->
-<div class="flex items-center p-1 bg-surface-container-low rounded-lg shrink-0">
-<button class="px-2.5 py-1.5 rounded-md bg-surface-container-lowest text-primary shadow-sm flex items-center gap-1 font-label-sm text-label-sm" title="عرض البطاقات الشبكية" type="button">
-<span class="material-symbols-outlined text-[18px]">grid_view</span>
-<span class="hidden md:inline">شبكي</span>
-</button>
-<button class="px-2.5 py-1.5 rounded-md text-text-secondary hover:text-text-primary flex items-center gap-1 font-label-sm text-label-sm transition-colors" title="عرض الجدول المفصل" type="button">
-<span class="material-symbols-outlined text-[18px]">table_rows</span>
-<span class="hidden md:inline">جدول</span>
+<!-- Search & Smart Input Component -->
+<div class="relative w-full mb-space-md">
+<div class="relative flex items-center bg-surface-container-lowest rounded-xl shadow-[0_2px_8px_rgba(15,44,89,0.06)] overflow-hidden">
+<span class="material-symbols-outlined text-[22px] text-on-surface-variant mr-space-md pointer-events-none">search</span>
+<input class="w-full h-12 pr-space-sm pl-12 bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none" id="searchCraftsmen" placeholder="ابحث بالاسم، رقم الهاتف اليمني، أو التخصص..." type="search"/>
+<button aria-label="تصفية موسعة" class="absolute left-2 w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">tune</span>
 </button>
 </div>
 </div>
-<!-- Active Tag Filters Strip -->
-<div class="flex items-center flex-wrap gap-space-xs pt-1">
-<span class="font-label-sm text-label-sm text-text-muted ml-1">التصفيات الحالية:</span>
-<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-text-primary">
-<span>المهنة: الكل</span>
-<button class="text-text-muted hover:text-error" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button>
-</span>
-<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary-container font-label-sm text-label-sm text-on-primary-fixed-variant font-medium">
-<span>الضمان المالي: مفعل وموثق</span>
-<button class="text-on-primary-fixed-variant hover:text-error" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button>
-</span>
-<button class="font-label-sm text-label-sm text-secondary hover:underline mr-2" type="button">إعادة ضبط الكل</button>
+<!-- Status Segmented Tabs -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-space-xs mb-space-sm no-scrollbar">
+<button class="flex items-center gap-space-xs px-space-md h-10 rounded-xl bg-primary text-on-primary shadow-sm whitespace-nowrap font-label-md text-label-md flex-shrink-0 transition-all">
+<span>بانتظار المراجعة</span>
+<span class="px-1.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-bold text-label-sm font-label-sm">18</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md h-10 rounded-xl bg-surface-container-lowest text-on-surface-variant whitespace-nowrap font-label-md text-label-md flex-shrink-0 active:bg-surface-container transition-colors">
+<span>معتمدون وموثقون</span>
+<span class="px-1.5 py-0.5 rounded-full bg-surface-container text-on-primary-fixed-variant font-label-sm text-label-sm">468</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md h-10 rounded-xl bg-surface-container-lowest text-on-surface-variant whitespace-nowrap font-label-md text-label-md flex-shrink-0 active:bg-surface-container transition-colors">
+<span>مرفوضون أو معلقون</span>
+<span class="px-1.5 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm">12</span>
+</button>
+<button class="px-space-md h-10 rounded-xl bg-surface-container-lowest text-on-surface-variant whitespace-nowrap font-label-md text-label-md flex-shrink-0 active:bg-surface-container transition-colors">
+      الكل
+    </button>
 </div>
+<!-- Horizontal Filter Chips (Regional & Crafts) -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-space-sm mb-space-md no-scrollbar">
+<div class="flex items-center gap-1.5 px-space-sm py-1 rounded-lg bg-surface-container text-primary font-label-sm text-label-sm flex-shrink-0">
+<span class="material-symbols-outlined text-[16px] text-on-tertiary-container">location_on</span>
+<span>المناطق:</span>
 </div>
-
-<!-- Craftsmen Pending Approval Section (Exclusive Super Admin Authorization Gate) -->
-<div class="mb-space-lg p-space-md sm:p-space-lg rounded-2xl bg-amber-50/80 border-2 border-amber-200 shadow-sm">
-  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-space-sm border-b border-amber-200">
-    <div class="flex items-center gap-2.5">
-      <div class="w-10 h-10 rounded-xl bg-amber-600 text-white flex items-center justify-center shrink-0 shadow-sm">
-        <span class="material-symbols-outlined text-[24px]">verified_user</span>
-      </div>
-      <div>
-        <div class="flex items-center gap-2">
-          <h2 class="font-title-lg text-title-lg text-primary font-bold">بوابة اعتماد وموافقة أصحاب المهن الجديدة</h2>
-          <span class="px-2.5 py-0.5 rounded-full bg-amber-200 text-amber-900 text-xs font-bold">صلاحية مالكة المنصة حصراً</span>
-        </div>
-        <p class="font-body-sm text-body-sm text-amber-900/80 mt-0.5">
-          لا يمكن لأي صاحب مهنة تسجيل الدخول أو استقبال طلبات العملاء إلا بعد قيام مالكة المنصة بمراجعة ملفه واعتماده هنا.
+<button class="px-3 py-1.5 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm font-medium flex-shrink-0">المكلا</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm flex-shrink-0 active:bg-surface-container">سيئون</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm flex-shrink-0 active:bg-surface-container">تريم</button>
+<span class="w-[1px] h-5 bg-outline-variant flex-shrink-0 mx-1"></span>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm flex-shrink-0 active:bg-surface-container">تكييف وتبريد</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm flex-shrink-0 active:bg-surface-container">سباكة</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm flex-shrink-0 active:bg-surface-container">بناء حضرمي</button>
+</div>
+<!-- Verification Guidelines Card Banner -->
+<div class="relative overflow-hidden rounded-xl bg-gradient-to-l from-primary-container to-primary text-on-primary p-space-md mb-space-lg shadow-[0_4px_12px_rgba(0,23,59,0.12)]">
+<div class="absolute -left-4 -bottom-6 w-28 h-28 rounded-full bg-secondary-container/10 pointer-events-none"></div>
+<div class="relative z-10 flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-tertiary-fixed flex-shrink-0 flex items-center justify-center text-on-tertiary-fixed shadow-sm">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-xs">
+<h4 class="font-headline-sm text-headline-sm text-tertiary-fixed font-bold">معايير منح الشارة الذهبية (موثوق)</h4>
+</div>
+<p class="font-body-sm text-body-sm text-surface-container-high leading-normal">
+          مطابقة بطاقة الهوية الذكية الرسمية سارية المفعول، التأكد من خلو السجل التجاري من النزاعات العالقة، وتثبيت سقف أجور العمل بالريال اليمني حصراً.
         </p>
-      </div>
-    </div>
-    <div class="flex items-center gap-2">
-      <span class="px-3 py-1 rounded-lg bg-amber-100 text-amber-900 font-bold text-xs border border-amber-300">
-        الطلبات بانتظار الموافقة: <span id="pendingCraftsmenCount" class="text-base text-amber-900">1</span>
+</div>
+</div>
+</div>
+<!-- Pending Verification Queue Header -->
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">assignment_ind</span>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold">طلبات الاعتماد الفوري</h3>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="font-label-sm text-label-sm text-secondary font-semibold hover:underline" id="toggleSelectAll">
+        تحديد الكل للمطابقة
+      </button>
+</div>
+</div>
+<!-- Craftsperson Card 1: Detailed & High Priority -->
+<div class="craft-card flex flex-col bg-surface-container-lowest rounded-xl p-space-md mb-space-md shadow-[0_2px_8px_rgba(15,44,89,0.05)] transition-all">
+<div class="flex items-start justify-between gap-space-sm mb-space-sm">
+<div class="flex items-start gap-space-sm">
+<div class="relative">
+<img class="w-14 h-14 rounded-xl object-cover shadow-sm" data-alt="Close up warm studio portrait of a proud Yemeni craftsman in his forties wearing a traditional Hadrami head turban and professional work attire, soft ambient lighting with navy blue background tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgVRcTlcPnPTEQA6dTtvle7vWDmpWYX6efct_jKdjVxTJLRmoF4XqirJXhe1pSUTxAWUb3_s9w6val0JEks-wcRWyP6s0azAFUXdHQzSGQ57SkYOTeXjopqdN6Xqc3-aq50tNyLEypTi0fsft0C0T93ZAjPm1D-V1aOKs3247JXNAVSPQpIfXoq-GFqHLvLoahrHO9eVfVbyB9HL-_R1U5D_Po8V3exk3rVb5gJEM"/>
+<div class="absolute -bottom-1 -left-1 w-5 h-5 rounded-full bg-secondary text-on-secondary flex items-center justify-center text-[12px] shadow-sm" title="بانتظار التحقق">
+<span class="material-symbols-outlined text-[13px]">hourglass_top</span>
+</div>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<h4 class="font-headline-sm text-headline-sm text-primary font-bold">المعلم أحمد سالم باحشوان</h4>
+<input class="craft-checkbox w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer" type="checkbox"/>
+</div>
+<span class="font-label-md text-label-md text-secondary font-medium">تكييف وتبريد وتركيب سبليت</span>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm mt-0.5">
+<span class="material-symbols-outlined text-[15px] text-outline">location_on</span>
+<span>المكلا - حي الديس</span>
+<span class="text-outline-variant">•</span>
+<span class="text-on-tertiary-container font-semibold">8 سنوات خبرة</span>
+</div>
+</div>
+</div>
+<span class="px-2 py-1 rounded-lg bg-surface-container text-on-primary-fixed-variant font-label-sm text-label-sm font-semibold flex-shrink-0">
+        جديد اليوم
       </span>
-    </div>
-  </div>
-
-  <!-- Pending Craftsmen List -->
-  <div class="mt-4 space-y-3" id="pendingCraftsmenContainer">
-    <div id="craftsmanPendingCard_1" class="bg-white rounded-xl p-4 shadow-sm border border-amber-200/80 flex flex-col md:flex-row md:items-center justify-between gap-4">
-      <div class="flex items-center gap-3">
-        <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold text-lg shrink-0">
-          ع.ح
-        </div>
-        <div>
-          <div class="flex items-center gap-2">
-            <h3 class="font-bold text-primary text-base">عمر عبد الله باحشوان</h3>
-            <span class="px-2 py-0.5 rounded-md bg-amber-100 text-amber-800 text-[11px] font-bold">قيد الانتظار والمراجعة ⏳</span>
-          </div>
-          <p class="text-xs text-text-secondary mt-0.5 font-medium">
-            تخصص: <strong>كهرباء وتمديدات ذكية</strong> • النطاق: <strong>حضرموت — المكلا (فوة / الشرج)</strong>
-          </p>
-          <div class="flex items-center gap-3 text-xs text-text-muted mt-1 font-mono">
-            <span>📞 +967 771234567</span>
-            <span>📧 omar.bahashwan@gmail.com</span>
-            <span>📅 تاريخ التقديم: اليوم</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex items-center gap-2 self-end md:self-center">
-        <button onclick="approveCraftsman('1', 'عمر عبد الله باحشوان', '+967 771234567')" class="px-4 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm transition-all">
-          <span class="material-symbols-outlined text-[18px]">check_circle</span>
-          <span>اعتماد وتفعيل الحساب فوراً</span>
-        </button>
-        <button onclick="rejectCraftsman('1', 'عمر عبد الله باحشوان')" class="px-3 py-2.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs flex items-center gap-1 transition-all">
-          <span class="material-symbols-outlined text-[18px]">block</span>
-          <span>تعليق / رفض</span>
-        </button>
-      </div>
-    </div>
-  </div>
 </div>
-
-<!-- Craftsmen Directory Grid (Responsive 12-Column Desktop Bento / Grid) -->
-<div class="mt-space-lg grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-space-lg">
-<!-- Card 1: خالد بن سلطان العتيبي -->
-<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between relative group">
-<div>
-<!-- Card Top Bar: Badges & Accreditation Number -->
-<div class="flex items-start justify-between gap-space-sm pb-space-sm">
-<div class="flex flex-wrap items-center gap-space-xs">
-<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-DEFAULT bg-status-success-bg text-status-success font-label-sm text-label-sm">
-<span class="material-symbols-outlined text-[14px]">verified</span>
-              موثق نفاذ معتمد
-            </span>
-<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-DEFAULT bg-status-info-bg text-status-info font-label-sm text-label-sm">
-<span class="material-symbols-outlined text-[14px]">security</span>
-              ضمان مالي مفعل (100,000 ر.ي)
-            </span>
-</div>
-<div class="flex flex-col items-end">
-<span class="font-label-sm text-label-sm text-text-muted">رقم الاعتماد</span>
-<span class="font-label-md text-label-md font-bold text-primary">CR-88320</span>
-</div>
-</div>
-<!-- Craftsperson Main Profile Block -->
-<div class="flex items-center gap-space-md pt-space-xs pb-space-md">
-<div class="relative w-16 h-16 rounded-xl overflow-hidden bg-surface-container-high shrink-0 shadow-inner">
-<img class="w-full h-full object-cover" data-alt="Professional Saudi master electrician portrait, middle aged craftsman in high-visibility professional workwear and safety gear, clean engineering workshop background, institutional warm lighting, documentary realism" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCON8Xf9IHhSdCY1NeaQ_c-BcresTID6w9VgRKw4XNL8bihAkiR-ylmCYm-0RtUixkonqGSPxL1Qy8HDYYVvaHQ7pfSU6CEVvDb5dtiH8OY2onbBimADSpC97O1DVYDBW6zqB8OojkqI4qFZEqn-itj4G-X8gp57axy_Z3_6fGEKAWbzyv61MAaXyDfemlhW2QL1VxXA6_bv-dJSVwnnUPCVXRvdQkQZRoVAV9gSJs"/>
-<div class="absolute bottom-1 right-1 w-3.5 h-3.5 rounded-full bg-status-success ring-2 ring-surface-container-lowest"></div>
-</div>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center gap-2">
-<h2 class="font-title-lg text-title-lg text-text-primary font-bold truncate">خالد بن سلطان العتيبي</h2>
-<span class="material-symbols-outlined text-[18px] text-status-info" title="كفاءة فنية معتمدة ومطابقة للمواصفات">workspace_premium</span>
-</div>
-<span class="font-body-md text-body-md text-secondary font-medium">نظم طاقة وتمديدات كهربائية ذكية</span>
-<div class="flex items-center gap-space-md mt-1 text-text-secondary font-body-sm text-body-sm">
-<span class="flex items-center gap-1">
-<span class="material-symbols-outlined text-[16px] text-text-muted">location_on</span>
-                حضرموت — المكلا (حي الشرج وفوة)
-              </span>
-<span class="flex items-center gap-1 text-status-warning font-semibold">
-<span class="material-symbols-outlined text-[16px] text-status-warning" style="font-variation-settings: 'FILL' 1;">star</span>
-                4.95 <span class="text-text-muted font-normal">(142 تقييم عملاء)</span>
-</span>
-</div>
-</div>
-</div>
-<!-- Craftsman Metadata Specification Pills -->
-<div class="grid grid-cols-3 gap-space-xs py-space-sm bg-surface-container-low rounded-lg px-space-md mb-space-md">
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm text-text-muted">المشاريع المنجزة</span>
-<span class="font-title-md text-title-md text-text-primary font-bold">186 مشروع</span>
-</div>
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm text-text-muted">نسبة الالتزام بالمواعيد</span>
-<span class="font-title-md text-title-md text-status-success font-bold">99.2%</span>
-</div>
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm text-text-muted">تغطية التأمين الفني</span>
-<span class="font-title-md text-title-md text-text-primary font-bold">شامل حتى 2026</span>
-</div>
-</div>
-</div>
-<!-- Action Footer -->
-<div class="flex items-center justify-between pt-space-sm">
-<div class="flex items-center gap-2">
-<span class="w-2 h-2 rounded-full bg-status-success"></span>
-<span class="font-label-sm text-label-sm text-text-secondary">متاح للتعاقد الفوري في المشاريع السكنية</span>
-</div>
-<div class="flex items-center gap-space-xs">
-<button class="px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md transition-all" type="button">
-            سجل العمليات والضمان
-          </button>
-<button class="px-space-md py-2 rounded-lg bg-primary hover:bg-primary-dark text-on-primary font-label-md text-label-md transition-all shadow-sm" type="button">
-            عرض الملف المهني
-          </button>
-</div>
-</div>
-</div>
-<!-- Card 2: محمد إبراهيم الدوسري -->
-<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between relative group">
-<div>
-<!-- Card Top Bar -->
-<div class="flex items-start justify-between gap-space-sm pb-space-sm">
-<div class="flex flex-wrap items-center gap-space-xs">
-<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-DEFAULT bg-status-success-bg text-status-success font-label-sm text-label-sm">
-<span class="material-symbols-outlined text-[14px]">verified</span>
-              موثق نفاذ معتمد
-            </span>
-<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-DEFAULT bg-primary-container text-on-primary-fixed-variant font-label-sm text-label-sm">
-<span class="material-symbols-outlined text-[14px]">account_balance_wallet</span>
-              حساب ضامن موثق (بنك الكريمي / التضامن)
-            </span>
-</div>
-<div class="flex flex-col items-end">
-<span class="font-label-sm text-label-sm text-text-muted">رقم الاعتماد</span>
-<span class="font-label-md text-label-md font-bold text-primary">CR-61409</span>
-</div>
-</div>
-<!-- Craftsperson Main Profile Block -->
-<div class="flex items-center gap-space-md pt-space-xs pb-space-md">
-<div class="relative w-16 h-16 rounded-xl overflow-hidden bg-surface-container-high shrink-0 shadow-inner">
-<img class="w-full h-full object-cover" data-alt="Professional Saudi plumbing and thermal insulation master specialist, inspecting piping blueprint on digital tablet, high-tech sanitary installation site background, cool crisp daylight, modern industrial aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmPdVkfBmQHQ6qwSBeJv4S0y-mKl5HPL7lG1oSS6tJ5Wt8p0KWUGZaa-RoFlBrorG2qLJCGMFfKjn02hvAgeBfUpA5R0g19bv3Q5OSkiA9AoqjoSMB_kMLUEugsxQqfccmeDsYWe7nw4enl3DTKynhEDwGJ0HUYXpwuDn2PT4skDiRuatxNa8eAX6_KJ8NEexG1jaJMntoBtVKfJ7EEelvAvhtQefeobFUsI0uqng"/>
-<div class="absolute bottom-1 right-1 w-3.5 h-3.5 rounded-full bg-status-success ring-2 ring-surface-container-lowest"></div>
-</div>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center gap-2">
-<h2 class="font-title-lg text-title-lg text-text-primary font-bold truncate">محمد إبراهيم الدوسري</h2>
-<span class="material-symbols-outlined text-[18px] text-status-success" title="مفتش جودة معتمد">gpp_good</span>
-</div>
-<span class="font-body-md text-body-md text-secondary font-medium">سباكة حديثة وشبكات عزل حراري ومائي</span>
-<div class="flex items-center gap-space-md mt-1 text-text-secondary font-body-sm text-body-sm">
-<span class="flex items-center gap-1">
-<span class="material-symbols-outlined text-[16px] text-text-muted">location_on</span>
-                حضرموت — سيئون وتريم (وادي حضرموت)
-              </span>
-<span class="flex items-center gap-1 text-status-warning font-semibold">
-<span class="material-symbols-outlined text-[16px] text-status-warning" style="font-variation-settings: 'FILL' 1;">star</span>
-                4.88 <span class="text-text-muted font-normal">(98 تقييم موثق)</span>
-</span>
-</div>
-</div>
-</div>
-<!-- Craftsman Metadata Specification Pills -->
-<div class="grid grid-cols-3 gap-space-xs py-space-sm bg-surface-container-low rounded-lg px-space-md mb-space-md">
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm text-text-muted">المشاريع المنجزة</span>
-<span class="font-title-md text-title-md text-text-primary font-bold">114 مشروع</span>
-</div>
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm text-text-muted">شهادة كود البناء</span>
-<span class="font-title-md text-title-md text-status-info font-bold">معايير الجودة المعتمدة</span>
-</div>
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm text-text-muted">النزاعات المالية</span>
-<span class="font-title-md text-title-md text-status-success font-bold">0% سجل نظيف</span>
-</div>
-</div>
-</div>
-<!-- Action Footer -->
-<div class="flex items-center justify-between pt-space-sm">
-<div class="flex items-center gap-2">
-<span class="w-2 h-2 rounded-full bg-status-success"></span>
-<span class="font-label-sm text-label-sm text-text-secondary">جاهز لتسليم فحص الضغط والاعتماد الميداني</span>
-</div>
-<div class="flex items-center gap-space-xs">
-<button class="px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md transition-all" type="button">
-            مراسلة وتنسيق
-          </button>
-<button class="px-space-md py-2 rounded-lg bg-primary hover:bg-primary-dark text-on-primary font-label-md text-label-md transition-all shadow-sm" type="button">
-            بدء عقد وضمان
-          </button>
-</div>
-</div>
-</div>
-<!-- Card 3: سامي بن عبد الله السالمي (Alert / Warning State) -->
-<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between relative group">
-<div>
-<!-- Card Top Bar: Warning Indicators -->
-<div class="flex items-start justify-between gap-space-sm pb-space-sm">
-<div class="flex flex-wrap items-center gap-space-xs">
-<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-DEFAULT bg-status-warning-bg text-status-warning font-label-sm text-label-sm font-semibold">
-<span class="material-symbols-outlined text-[14px]">timer</span>
-              تنبيه: تنتهي الوثيقة خلال 5 أيام
-            </span>
-<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-DEFAULT bg-surface-container text-text-secondary font-label-sm text-label-sm">
-<span class="material-symbols-outlined text-[14px]">lock_clock</span>
-              ضمان مالي مؤقت
-            </span>
-</div>
-<div class="flex flex-col items-end">
-<span class="font-label-sm text-label-sm text-text-muted">رقم الاعتماد</span>
-<span class="font-label-md text-label-md font-bold text-primary">CR-44012</span>
-</div>
-</div>
-<!-- Craftsperson Main Profile Block -->
-<div class="flex items-center gap-space-md pt-space-xs pb-space-md">
-<div class="relative w-16 h-16 rounded-xl overflow-hidden bg-surface-container-high shrink-0 shadow-inner">
-<img class="w-full h-full object-cover" data-alt="Experienced Saudi master carpenter and woodcraft artisan in modern workshop, measuring architectural timber acoustic panels, warm sawdust ambient rays, precision joinery craftsmanship" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJYINQey2H203JRPDS3nddUhOkC_PJbwG8S55SXCpE3Gd_RCGwIWmMYpN4Xivfz7Bf34p4eVyb5iaRuUIIYBuRBz5j4rlYUteGYL7gbAUNQ3eN-wHMfvOBP_yxKaqvMwrkn23ZmAgKrOs4VkCuQQYwXEuu9NvLD4JSNvLDgczKSKXUZ1f6Uh3ga822jIbgVgGr3uATG8e6_WTfFT-BXDhIx3b0zRh6ZGN6PeLZPcY"/>
-<div class="absolute bottom-1 right-1 w-3.5 h-3.5 rounded-full bg-status-warning ring-2 ring-surface-container-lowest"></div>
-</div>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center gap-2">
-<h2 class="font-title-lg text-title-lg text-text-primary font-bold truncate">سامي بن عبد الله السالمي</h2>
-<span class="material-symbols-outlined text-[18px] text-status-warning" title="إجراء تجديد مطلوب">notification_important</span>
-</div>
-<span class="font-body-md text-body-md text-secondary font-medium">تشطيبات خشبية وديكورات داخلية معمارية</span>
-<div class="flex items-center gap-space-md mt-1 text-text-secondary font-body-sm text-body-sm">
-<span class="flex items-center gap-1">
-<span class="material-symbols-outlined text-[16px] text-text-muted">location_on</span>
-                حضرموت — الشحر وغيل باوزير
-              </span>
-<span class="flex items-center gap-1 text-status-warning font-semibold">
-<span class="material-symbols-outlined text-[16px] text-status-warning" style="font-variation-settings: 'FILL' 1;">star</span>
-                4.72 <span class="text-text-muted font-normal">(64 تقييم)</span>
-</span>
-</div>
-</div>
-</div>
-<!-- Warning Callout Box -->
-<div class="p-space-sm bg-status-warning-bg rounded-lg flex items-center justify-between mb-space-md text-status-warning">
-<div class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-[18px]">warning</span>
-<span class="font-body-sm text-body-sm font-medium">مطلوب تجديد شهادة السلامة المهنية ومطابقة الترخيص</span>
-</div>
-<span class="font-label-sm text-label-sm font-bold underline cursor-pointer">تفاصيل الإشعار</span>
-</div>
-<!-- Craftsman Metadata Specification Pills -->
-<div class="grid grid-cols-3 gap-space-xs py-space-sm bg-surface-container-low rounded-lg px-space-md mb-space-md">
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm text-text-muted">المشاريع المنجزة</span>
-<span class="font-title-md text-title-md text-text-primary font-bold">89 مشروع</span>
-</div>
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm text-text-muted">حالة السجل التجاري</span>
-<span class="font-title-md text-title-md text-status-warning font-bold">تجديد وشيك</span>
-</div>
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm text-text-muted">المحفظة الرقمية</span>
-<span class="font-title-md text-title-md text-text-primary font-bold">نشطة</span>
-</div>
-</div>
-</div>
-<!-- Action Footer -->
-<div class="flex items-center justify-between pt-space-sm">
-<div class="flex items-center gap-2">
-<span class="w-2 h-2 rounded-full bg-status-warning"></span>
-<span class="font-label-sm text-label-sm text-text-secondary">العقود الجديدة معلقة مؤقتاً حتى التجديد</span>
-</div>
-<div class="flex items-center gap-space-xs">
-<button class="px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-status-warning font-label-md text-label-md transition-all flex items-center gap-1" type="button">
-<span class="material-symbols-outlined text-[16px]">send</span>
-<span>إرسال تنبيه</span>
-</button>
-<button class="px-space-md py-2 rounded-lg bg-tertiary-container text-on-tertiary hover:bg-primary-dark font-label-md text-label-md transition-all shadow-sm" type="button">
-            مراجعة المستندات
-          </button>
-</div>
-</div>
-</div>
-<!-- Card 4: ياسر أحمد البلوي (New Qualified Talent) -->
-<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between relative group">
-<div>
-<!-- Card Top Bar: Badges -->
-<div class="flex items-start justify-between gap-space-sm pb-space-sm">
-<div class="flex flex-wrap items-center gap-space-xs">
-<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-DEFAULT bg-status-info-bg text-status-info font-label-sm text-label-sm font-medium">
-<span class="material-symbols-outlined text-[14px]">school</span>
-              كادر حديث مكتمل التدريب والاعتماد
-            </span>
-<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-DEFAULT bg-status-success-bg text-status-success font-label-sm text-label-sm">
-<span class="material-symbols-outlined text-[14px]">task_alt</span>
-              فحص ميداني مجاز
-            </span>
-</div>
-<div class="flex flex-col items-end">
-<span class="font-label-sm text-label-sm text-text-muted">رقم الاعتماد</span>
-<span class="font-label-md text-label-md font-bold text-primary">CR-90211</span>
-</div>
-</div>
-<!-- Craftsperson Main Profile Block -->
-<div class="flex items-center gap-space-md pt-space-xs pb-space-md">
-<div class="relative w-16 h-16 rounded-xl overflow-hidden bg-surface-container-high shrink-0 shadow-inner">
-<img class="w-full h-full object-cover" data-alt="Young professional Saudi facade installation technician and aluminum glazing engineer standing in front of modern structural curtain wall, crisp architectural glass reflection, safety helmet, daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDg9chz1wC33k3UQzVGb5f9Phk6aVTK0Iny7cQFeAkKFD2w0g-SE2sCad9F5TTKeGN4lz2GqhgwK57KVVSc0qWyQn_7nHCxfGXRvJGb9H6DQv5XlFvvyJU2uNdcDnJ5bIkUrzNPbgoqWgDPwQG39667xQIMx4MFNU4XQfFSRFXF55uTLVfYcqh1X1tlHn-h3hUSZf5cfoe8uakFQ96R2iuZaAIHJvq7WMxzIcytHqI"/>
-<div class="absolute bottom-1 right-1 w-3.5 h-3.5 rounded-full bg-status-success ring-2 ring-surface-container-lowest"></div>
-</div>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center gap-2">
-<h2 class="font-title-lg text-title-lg text-text-primary font-bold truncate">ياسر أحمد البلوي</h2>
-<span class="material-symbols-outlined text-[18px] text-secondary" title="برنامج الكوادر المعتمدة">military_tech</span>
-</div>
-<span class="font-body-md text-body-md text-secondary font-medium">أعمال ألمنيوم وواجهات وزجاج سيكوريت</span>
-<div class="flex items-center gap-space-md mt-1 text-text-secondary font-body-sm text-body-sm">
-<span class="flex items-center gap-1">
-<span class="material-symbols-outlined text-[16px] text-text-muted">location_on</span>
-                أمانة العاصمة وصنعاء وعدن
-              </span>
-<span class="flex items-center gap-1 text-status-warning font-semibold">
-<span class="material-symbols-outlined text-[16px] text-status-warning" style="font-variation-settings: 'FILL' 1;">star</span>
-                4.90 <span class="text-text-muted font-normal">(19 تقييم تجريبي)</span>
-</span>
-</div>
-</div>
-</div>
-<!-- Craftsman Metadata Specification Pills -->
-<div class="grid grid-cols-3 gap-space-xs py-space-sm bg-surface-container-low rounded-lg px-space-md mb-space-md">
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm text-text-muted">التأهيل التقني</span>
-<span class="font-title-md text-title-md text-text-primary font-bold">دبلوم تخصصي</span>
-</div>
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm text-text-muted">ساعات التدريب</span>
-<span class="font-title-md text-title-md text-status-info font-bold">480 ساعة معتمدة</span>
-</div>
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm text-text-muted">ضمان الأعمال</span>
-<span class="font-title-md text-title-md text-status-success font-bold">مدعوم من الصندوق</span>
-</div>
-</div>
-</div>
-<!-- Action Footer -->
-<div class="flex items-center justify-between pt-space-sm">
-<div class="flex items-center gap-2">
-<span class="w-2 h-2 rounded-full bg-status-success"></span>
-<span class="font-label-sm text-label-sm text-text-secondary">معتمد بالكامل وجاهز لاستلام العقود الأولية</span>
-</div>
-<div class="flex items-center gap-space-xs">
-<button class="px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md transition-all" type="button">
-            سجل التدريب الفني
-          </button>
-<button class="px-space-md py-2 rounded-lg bg-primary hover:bg-primary-dark text-on-primary font-label-md text-label-md transition-all shadow-sm" type="button">
-            بدء التعاقد
-          </button>
-</div>
-</div>
-</div>
-</div>
-<!-- Advanced Institutional Pagination Footer -->
-<div class="mt-space-lg w-full bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col sm:flex-row items-center justify-between gap-space-md">
-<!-- Items Counter & Page Size -->
-<div class="flex items-center gap-space-md">
-<span class="font-body-md text-body-md text-text-secondary">
-        عرض <span class="font-semibold text-text-primary">1</span> إلى <span class="font-semibold text-text-primary">4</span> من أصل <span class="font-bold text-primary">18,450</span> حرفي معتمد
+<!-- Contact & Network Provider Info -->
+<div class="flex items-center justify-between p-space-sm bg-surface-container-low rounded-lg mb-space-sm">
+<div class="flex items-center gap-space-xs text-primary font-body-sm text-body-sm font-semibold" dir="ltr">
+<span class="material-symbols-outlined text-[18px] text-secondary">phone_iphone</span>
+<span>+967 771 234 567</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+        يمن موبايل (مُتحقق)
       </span>
-<div class="hidden md:flex items-center gap-space-xs text-text-secondary font-label-sm text-label-sm">
-<span>عرض في الصفحة:</span>
-<select class="px-space-xs py-1 rounded bg-surface-container-low text-text-primary font-medium outline-none cursor-pointer">
-<option>4</option>
-<option selected="">12</option>
-<option>24</option>
-<option>48</option>
-</select>
+</div>
+<!-- Uploaded Docs Section -->
+<div class="flex flex-col gap-1.5 mb-space-md">
+<span class="font-label-sm text-label-sm text-outline font-medium">الوثائق المقدمة للاعتماد:</span>
+<div class="grid grid-cols-2 gap-space-xs">
+<div class="flex items-center gap-space-xs p-2 rounded-lg bg-surface-container-lowest shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-on-tertiary-container">badge</span>
+<span class="font-label-sm text-label-sm text-on-surface truncate">بطاقة شخصية ذكية (سارية)</span>
+</div>
+<div class="flex items-center gap-space-xs p-2 rounded-lg bg-surface-container-lowest shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary">workspace_premium</span>
+<span class="font-label-sm text-label-sm text-on-surface truncate">شهادة تدريب معهد باشريف</span>
 </div>
 </div>
-<!-- Page Number Navigation Buttons -->
-<div class="flex items-center gap-1">
-<button aria-label="الصفحة السابقة" class="p-2 rounded-lg bg-surface-container-low text-text-muted hover:text-text-primary hover:bg-surface-container disabled:opacity-40 transition-colors" disabled="" type="button">
-<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</div>
+<!-- Actions Split -->
+<div class="flex items-center gap-space-xs pt-space-xs">
+<button class="flex-1 h-11 rounded-lg bg-primary text-on-primary flex items-center justify-center gap-space-xs font-label-lg text-label-lg shadow-sm active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span onclick="approveCraftsman('1', 'المعلم سعيد بن مخاشن')">اعتماد الحساب وتفعيله</span>
 </button>
-<button class="w-9 h-9 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-bold shadow-sm" type="button">
-        1
-      </button>
-<button class="w-9 h-9 rounded-lg text-text-primary hover:bg-surface-container font-label-md text-label-md transition-colors" type="button">
-        2
-      </button>
-<button class="w-9 h-9 rounded-lg text-text-primary hover:bg-surface-container font-label-md text-label-md transition-colors" type="button">
-        3
-      </button>
-<span class="px-2 text-text-muted font-bold">...</span>
-<button class="w-9 h-9 rounded-lg text-text-primary hover:bg-surface-container font-label-md text-label-md transition-colors" type="button">
-        1,538
-      </button>
-<button aria-label="الصفحة التالية" class="p-2 rounded-lg bg-surface-container-low text-text-primary hover:bg-surface-container transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+<button class="h-11 px-space-md rounded-lg bg-error-container text-on-error-container flex items-center justify-center gap-space-xs font-label-md text-label-md active:bg-error active:text-on-error transition-colors">
+<span class="material-symbols-outlined text-[18px]">block</span>
+<span onclick="rejectCraftsman('1', 'المعلم سعيد بن مخاشن')">رفض</span>
 </button>
+</div>
+</div>
+<!-- Craftsperson Card 2: Traditional Architecture -->
+<div class="craft-card flex flex-col bg-surface-container-lowest rounded-xl p-space-md mb-space-md shadow-[0_2px_8px_rgba(15,44,89,0.05)] transition-all">
+<div class="flex items-start justify-between gap-space-sm mb-space-sm">
+<div class="flex items-start gap-space-sm">
+<div class="relative">
+<img class="w-14 h-14 rounded-xl object-cover shadow-sm" data-alt="Distinguished Yemeni master mason wearing a cream-colored turban and traditional vest standing in front of iconic mud-brick architecture of Tarim Hadramout, professional artisan photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCrU6cEfFeYBAaXnG40Xgs1665o-WaM8BD8NWagTLcmLu4SeVS9zpGAY8G0hY8Jf3KYq2o_1ljzIEapbk3HZ253FajB4cg2XQN3Usuvq0fy-wCTSUsYWTFb26egLvsp6YKzIqTzYhe84396wyirWMAKYCydKpUvPZfiPVuP-EQMWDBHqq8-sdeQ35IQaAFr4VDJdLd5vutDXByRUCikkP-SOqkcfEE7DWt-zHys4g"/>
+<div class="absolute -bottom-1 -left-1 w-5 h-5 rounded-full bg-on-tertiary-container text-on-primary flex items-center justify-center text-[12px] shadow-sm">
+<span class="material-symbols-outlined text-[13px]">pending</span>
+</div>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<h4 class="font-headline-sm text-headline-sm text-primary font-bold">م. عوض بن عبيدالله</h4>
+<input class="craft-checkbox w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer" type="checkbox"/>
+</div>
+<span class="font-label-md text-label-md text-secondary font-medium">بناء ونورة حضرمية أصيلة (معماري)</span>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm mt-0.5">
+<span class="material-symbols-outlined text-[15px] text-outline">location_on</span>
+<span>تريم - حي الخليف</span>
+<span class="text-outline-variant">•</span>
+<span class="text-on-tertiary-container font-semibold">15 سنة خبرة</span>
+</div>
+</div>
+</div>
+<span class="px-2 py-1 rounded-lg bg-surface-container-high text-on-secondary-fixed-variant font-label-sm text-label-sm font-semibold flex-shrink-0">
+        بانتظار مطابقة السجل
+      </span>
+</div>
+<!-- Phone Info -->
+<div class="flex items-center justify-between p-space-sm bg-surface-container-low rounded-lg mb-space-sm">
+<div class="flex items-center gap-space-xs text-primary font-body-sm text-body-sm font-semibold" dir="ltr">
+<span class="material-symbols-outlined text-[18px] text-secondary">phone_iphone</span>
+<span>+967 733 987 654</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+        يو YOU (تريم)
+      </span>
+</div>
+<!-- Uploaded Docs Section -->
+<div class="flex flex-col gap-1.5 mb-space-md">
+<span class="font-label-sm text-label-sm text-outline font-medium">الملفات والمرفقات:</span>
+<div class="flex items-center gap-space-xs">
+<div class="flex-1 flex items-center gap-space-xs p-2 rounded-lg bg-surface-container-lowest shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-on-tertiary-container">store</span>
+<span class="font-label-sm text-label-sm text-on-surface truncate">سجل تجاري محلي (تريم)</span>
+</div>
+<div class="flex-1 flex items-center gap-space-xs p-2 rounded-lg bg-surface-container-lowest shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary">photo_library</span>
+<span class="font-label-sm text-label-sm text-on-surface truncate">معرض أعمال قصور ومشيدات</span>
+</div>
+</div>
+</div>
+<!-- Single Action Primary Button -->
+<button class="w-full h-11 rounded-lg bg-surface-container text-primary flex items-center justify-center gap-space-xs font-label-lg text-label-lg hover:bg-secondary-container hover:text-on-secondary-container active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[18px]">folder_shared</span>
+<span onclick="approveCraftsman('2', 'م. عوض بن عبيدالله')">اعتماد الحساب وتفعيله</span>
+</button>
+</div>
+<!-- Craftsperson Card 3: Commercial Workshop / High Completion -->
+<div class="craft-card flex flex-col bg-surface-container-lowest rounded-xl p-space-md mb-space-md shadow-[0_2px_8px_rgba(15,44,89,0.05)] transition-all">
+<div class="flex items-start justify-between gap-space-sm mb-space-sm">
+<div class="flex items-start gap-space-sm">
+<div class="relative">
+<div class="w-14 h-14 rounded-xl bg-primary-container text-on-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[28px] text-tertiary-fixed">electric_bolt</span>
+</div>
+<div class="absolute -bottom-1 -left-1 w-5 h-5 rounded-full bg-secondary text-on-secondary flex items-center justify-center text-[12px] shadow-sm">
+<span class="material-symbols-outlined text-[13px]">check</span>
+</div>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<h4 class="font-headline-sm text-headline-sm text-primary font-bold">ورشة الأمانة للتمديدات</h4>
+<input class="craft-checkbox w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer" type="checkbox"/>
+</div>
+<span class="font-label-md text-label-md text-secondary font-medium">كهرباء ضغط عالي وشبكات منزلية</span>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm mt-0.5">
+<span class="material-symbols-outlined text-[15px] text-outline">location_on</span>
+<span>سيئون - السوق العام</span>
+<span class="text-outline-variant">•</span>
+<span class="text-on-tertiary-container font-semibold">مؤسسة مرخصة</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-secondary font-label-sm text-label-sm font-bold">
+          مستندات 100%
+        </span>
+</div>
+</div>
+<!-- Progress Indicator Bar -->
+<div class="w-full bg-surface-container rounded-full h-2 mb-space-md overflow-hidden">
+<div class="bg-secondary h-2 rounded-full" style="width: 100%"></div>
+</div>
+<!-- Quick Accept/Review Controls -->
+<div class="flex items-center gap-space-xs">
+<button class="flex-1 h-11 rounded-lg bg-primary text-on-primary flex items-center justify-center gap-space-xs font-label-lg text-label-lg shadow-sm active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">approval</span>
+<span>إصدار الشارة الذهبية الفورية</span>
+</button>
+<button class="h-11 w-11 rounded-lg bg-surface-container flex items-center justify-center text-primary active:bg-surface-container-high transition-colors" title="عرض تفاصيل الورشة">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+<!-- Regional Coverage Insight Mini-Map/Widget -->
+<div class="flex flex-col bg-surface-container-lowest rounded-xl p-space-md mb-space-xl shadow-[0_2px_8px_rgba(15,44,89,0.05)]">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">map</span>
+<h4 class="font-headline-sm text-headline-sm text-primary font-bold">نطاق التغطية والمراجعة الجغرافية</h4>
+</div>
+<span class="font-label-sm text-label-sm text-on-tertiary-container font-semibold">حضرموت الوادي والساحل</span>
+</div>
+<div class="w-full h-36 bg-cover bg-center rounded-xl relative overflow-hidden flex items-end p-space-sm shadow-inner" data-location="Al-Mukalla, Hadramout, Yemen" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBsmH1b-ESaLXA350MWEdYC_uoIfsv1NggkcoQgP4sojbh9CqMHPOFJcS9WjUolTqEoJ23tKvln4kqPGpLsShXWlsagrtlLqkr9tGXxDw6TRe-n7t-f_luZBwpHHqZE-UTrvENy8-2na-uaZ3warxBLW0eUQNaSrgiUfVZrqPp334g20iqj9ZqeFEF_so998edX5Fw0k3LaUU6LFgAVxqjw0dnvxHpNhdSLURLEzyw')">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/30 to-transparent"></div>
+<div class="relative z-10 flex items-center justify-between w-full text-on-primary">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold">حضرموت الكبرى</span>
+<span class="font-label-sm text-label-sm text-surface-container-highest">18 طلباً جاري التدقيق بمدن الساحل والوادي</span>
+</div>
+<span class="material-symbols-outlined text-tertiary-fixed text-[24px]">explore</span>
+</div>
+</div>
+</div>
+<!-- Sticky Batch Operations Floating Bar -->
+<div class="sticky bottom-24 z-40 w-full transform translate-y-0 transition-all duration-300" id="batchBar">
+<div class="flex items-center justify-between p-space-sm bg-primary text-on-primary rounded-xl shadow-[0_8px_24px_rgba(0,23,59,0.25)]">
+<div class="flex items-center gap-space-xs mr-space-xs">
+<span class="w-7 h-7 rounded-lg bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center font-bold text-label-md font-label-md" id="selectedCount">0</span>
+<span class="font-label-md text-label-md font-medium text-surface-container-lowest">تم تحديدهم للتوثيق</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="h-9 px-space-md rounded-lg bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md font-bold flex items-center gap-1 active:scale-95 transition-transform" id="batchVerifyBtn">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span>توثيق سريع بعد الاتصال</span>
+</button>
+<button class="w-9 h-9 rounded-lg bg-primary-container text-surface-container flex items-center justify-center active:bg-secondary transition-colors" id="clearSelection" title="إلغاء التحديد">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
 </div>
 </div>
 </div>
 <script>
-  // Simple view switcher and dynamic filter interaction simulation
-  document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.querySelector('input[type="text"]');
-    if (searchInput) {
-      searchInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-          console.log('Filtering craftsmen registry for query:', searchInput.value);
+  (function() {
+    const checkboxes = document.querySelectorAll('.craft-checkbox');
+    const selectedCountEl = document.getElementById('selectedCount');
+    const toggleSelectAll = document.getElementById('toggleSelectAll');
+    const clearSelection = document.getElementById('clearSelection');
+    const batchVerifyBtn = document.getElementById('batchVerifyBtn');
+    let allSelected = false;
+
+    function updateCount() {
+      const checkedBoxes = document.querySelectorAll('.craft-checkbox:checked');
+      const count = checkedBoxes.length;
+      if (selectedCountEl) {
+        selectedCountEl.textContent = count;
+      }
+    }
+
+    checkboxes.forEach(cb => {
+      cb.addEventListener('change', updateCount);
+    });
+
+    if (toggleSelectAll) {
+      toggleSelectAll.addEventListener('click', function(e) {
+        e.preventDefault();
+        allSelected = !allSelected;
+        checkboxes.forEach(cb => {
+          cb.checked = allSelected;
+        });
+        toggleSelectAll.textContent = allSelected ? 'إلغاء تحديد الكل' : 'تحديد الكل للمطابقة';
+        updateCount();
+      });
+    }
+
+    if (clearSelection) {
+      clearSelection.addEventListener('click', function() {
+        checkboxes.forEach(cb => {
+          cb.checked = false;
+        });
+        allSelected = false;
+        if (toggleSelectAll) {
+          toggleSelectAll.textContent = 'تحديد الكل للمطابقة';
+        }
+        updateCount();
+      });
+    }
+
+    if (batchVerifyBtn) {
+      batchVerifyBtn.addEventListener('click', function() {
+        const count = document.querySelectorAll('.craft-checkbox:checked').length;
+        if (count === 0) {
+          alert('يرجى اختيار حرفي واحد على الأقل للمطابقة والتوثيق');
+        } else {
+          alert('تم اعتماد وتوثيق ' + count + ' من الحرفيين بنجاح وإرسال رسائل التفعيل.');
+          checkboxes.forEach(cb => { cb.checked = false; });
+          updateCount();
         }
       });
     }
-  });
-</script></main></div>
-
-<!-- Admin Mobile Bottom Bar (Sticky Touch Navigation) -->
-<nav class="fixed bottom-0 left-0 right-0 z-40 bg-surface/95 backdrop-blur-lg border-t border-border-default/80 flex items-center justify-around py-2 px-2 lg:hidden shadow-[0_-4px_12px_rgba(0,0,0,0.05)]" style="padding-bottom: max(0.5rem, env(safe-area-inset-bottom));">
-  <a href="index.html" class="flex flex-col items-center gap-1 text-text-secondary hover:text-primary py-1 px-2">
-    <span class="material-symbols-outlined text-[20px]">grid_view</span>
-    <span class="text-[10px] font-medium">الرئيسية</span>
-  </a>
-  <a href="craftsmen.html" class="flex flex-col items-center gap-1 text-primary py-1 px-2">
-    <span class="material-symbols-outlined text-[20px]">badge</span>
-    <span class="text-[10px] font-bold">الكوادر</span>
-  </a>
-  <a href="projects-escrow.html" class="flex flex-col items-center gap-1 text-text-secondary hover:text-primary py-1 px-2">
-    <span class="material-symbols-outlined text-[20px]">account_balance_wallet</span>
-    <span class="text-[10px] font-medium">الضمان</span>
-  </a>
-  <a href="../index.html" class="flex flex-col items-center gap-1 text-text-secondary hover:text-primary py-1 px-2">
-    <span class="material-symbols-outlined text-[20px]">storefront</span>
-    <span class="text-[10px] font-medium">البوابة</span>
-  </a>
-  <button id="mobileAdminMenuBtn" type="button" class="flex flex-col items-center gap-1 text-text-secondary hover:text-primary py-1 px-2">
-    <span class="material-symbols-outlined text-[20px]">menu</span>
-    <span class="text-[10px] font-medium">المزيد</span>
-  </button>
+  })();
+</script>
+  </div>
+</main>
+<nav class="lg:hidden fixed bottom-0 inset-x-0 z-50 bg-surface-container-lowest/95 backdrop-blur-xl border-t border-surface-container shadow-[0_-2px_10px_rgba(0,0,0,0.04)] pb-safe">
+  <div class="flex justify-around items-center h-16 px-1">
+    <a href="index.html" class="flex flex-col items-center justify-center gap-0.5 w-14 h-14 transition-colors text-on-surface-variant hover:text-primary font-medium">
+          <span class="material-symbols-outlined text-[22px]">dashboard</span>
+          <span class="text-[10px]">الرئيسية</span>
+        </a><a href="craftsmen.html" class="flex flex-col items-center justify-center gap-0.5 w-14 h-14 transition-colors text-primary font-bold">
+          <span class="material-symbols-outlined text-[22px]">verified_user</span>
+          <span class="text-[10px]">الحرفيون</span>
+        </a><a href="projects-escrow.html" class="flex flex-col items-center justify-center gap-0.5 w-14 h-14 transition-colors text-on-surface-variant hover:text-primary font-medium">
+          <span class="material-symbols-outlined text-[22px]">gavel</span>
+          <span class="text-[10px]">النزاعات</span>
+        </a><a href="settings.html" class="flex flex-col items-center justify-center gap-0.5 w-14 h-14 transition-colors text-on-surface-variant hover:text-primary font-medium">
+          <span class="material-symbols-outlined text-[22px]">tune</span>
+          <span class="text-[10px]">الإعدادات</span>
+        </a>
+  </div>
 </nav>
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="../supabase/config.js"></script>
 <script src="../supabase/auth-router.js"></script>
 <script src="../supabase/miras-api.js"></script>
 <script src="admin-auth.js"></script>
 <script>
-  (function() {
-    const sidebar = document.getElementById('adminSidebar');
-    const backdrop = document.getElementById('adminSidebarBackdrop');
-    const openBtn = document.getElementById('openAdminSidebar');
-    const closeBtn = document.getElementById('closeAdminSidebar');
-    const mobileMenuBtn = document.getElementById('mobileAdminMenuBtn');
-
-    function openSidebar() {
-      if (sidebar) sidebar.classList.remove('translate-x-full');
-      if (backdrop) {
-        backdrop.classList.remove('opacity-0', 'pointer-events-none');
-        backdrop.classList.add('opacity-100');
-      }
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeSidebar() {
-      if (sidebar) sidebar.classList.add('translate-x-full');
-      if (backdrop) {
-        backdrop.classList.remove('opacity-100');
-        backdrop.classList.add('opacity-0', 'pointer-events-none');
-      }
-      document.body.style.overflow = '';
-    }
-
-    if (openBtn) openBtn.addEventListener('click', openSidebar);
-    if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
-    if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openSidebar);
-    if (backdrop) backdrop.addEventListener('click', closeSidebar);
-  })();
-</script>
-
-<!-- Add / Verify Craftsman Modal -->
-<dialog id="addCraftsmanModal" class="p-0 rounded-2xl border border-border-default shadow-2xl backdrop:bg-black/50 max-w-lg w-11/12">
-  <div class="p-6 bg-surface text-on-surface">
-    <div class="flex items-center justify-between pb-3 border-b border-border-default mb-4">
-      <div class="flex items-center gap-2">
-        <span class="material-symbols-outlined text-primary">person_add</span>
-        <h3 class="font-bold text-base text-primary">توثيق واعتماد كادر حرفي جديد</h3>
-      </div>
-      <button onclick="document.getElementById('addCraftsmanModal').close()" class="p-1 text-text-muted hover:text-text-primary">
-        <span class="material-symbols-outlined">close</span>
-      </button>
-    </div>
-    <form id="addCraftsmanForm" class="space-y-4">
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <div>
-          <label class="block text-xs font-bold text-on-surface-variant mb-1">اسم الحرفي الثلاثي <span class="text-error">*</span></label>
-          <input required id="craftsmanName" type="text" placeholder="الاسم الكامل" class="w-full px-3 py-2 rounded-lg border border-border-default bg-surface text-xs focus:outline-none focus:border-primary"/>
-        </div>
-        <div>
-          <label class="block text-xs font-bold text-on-surface-variant mb-1">رقم الهوية الوطنية / الإقامة <span class="text-error">*</span></label>
-          <input required id="craftsmanIdNum" type="text" dir="ltr" placeholder="10XXXXXXXX" class="w-full px-3 py-2 rounded-lg border border-border-default bg-surface text-xs text-right focus:outline-none focus:border-primary"/>
-        </div>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <div>
-          <label class="block text-xs font-bold text-on-surface-variant mb-1">التخصص والمهنة <span class="text-error">*</span></label>
-          <select required id="craftsmanTrade" class="w-full px-3 py-2 rounded-lg border border-border-default bg-surface text-xs font-bold focus:outline-none focus:border-primary">
-            <option value="تمديدات كهربائية وسمارت هوم">تمديدات كهربائية وسمارت هوم</option>
-            <option value="سباكة وعزل مائي معتمد">سباكة وعزل مائي معتمد</option>
-            <option value="تكييف مركزي وتشغيل دكتات">تكييف مركزي وتشغيل دكتات</option>
-            <option value="نجارة وديكورات خشبية">نجارة وديكورات خشبية</option>
-            <option value="دهانات وتشطيبات هندسية">دهانات وتشطيبات هندسية</option>
-          </select>
-        </div>
-        <div>
-          <label class="block text-xs font-bold text-on-surface-variant mb-1">المدينة ونطاق العمل <span class="text-error">*</span></label>
-          <input required id="craftsmanCity" type="text" placeholder="صنعاء — أمانة العاصمة" class="w-full px-3 py-2 rounded-lg border border-border-default bg-surface text-xs focus:outline-none focus:border-primary"/>
-        </div>
-      </div>
-      <div>
-        <label class="block text-xs font-bold text-on-surface-variant mb-1">رقم وثيقة العمل الحر / رخصة بلدي</label>
-        <input id="craftsmanCert" type="text" placeholder="مثال: FL-99412-2026" class="w-full px-3 py-2 rounded-lg border border-border-default bg-surface text-xs focus:outline-none focus:border-primary"/>
-      </div>
-      <div class="pt-2 flex justify-end gap-2 border-t border-border-default">
-        <button type="button" onclick="document.getElementById('addCraftsmanModal').close()" class="px-4 py-2 rounded-lg bg-surface-container text-xs font-bold">إلغاء</button>
-        <button type="submit" class="px-5 py-2 rounded-lg bg-primary text-white text-xs font-bold hover:bg-primary-dark">اعتماد وتوثيق الكادر</button>
-      </div>
-    </form>
-  </div>
-</dialog>
-
-<!-- Craftsman Dossier Modal -->
-<dialog id="craftsmanDossierModal" class="p-0 rounded-2xl border border-border-default shadow-2xl backdrop:bg-black/50 max-w-lg w-11/12">
-  <div class="p-6 bg-surface text-on-surface">
-    <div class="flex items-center justify-between pb-3 border-b border-border-default mb-4">
-      <div class="flex items-center gap-2">
-        <span class="material-symbols-outlined text-primary">badge</span>
-        <h3 id="dossierName" class="font-bold text-base text-primary">الملف المهني للحرفي</h3>
-      </div>
-      <button onclick="document.getElementById('craftsmanDossierModal').close()" class="p-1 text-text-muted">
-        <span class="material-symbols-outlined">close</span>
-      </button>
-    </div>
-    <div class="space-y-3 text-xs">
-      <div class="p-3 rounded-xl bg-surface-container-low border border-border-default space-y-1">
-        <div class="flex justify-between"><span class="text-text-secondary">المهنة:</span><span id="dossierTrade" class="font-bold">كهرباء وأنظمة ذكية</span></div>
-        <div class="flex justify-between"><span class="text-text-secondary">التقييم العام:</span><span id="dossierRating" class="font-black text-status-success">4.95 من 5.0 (142 مشروع مكتمل)</span></div>
-        <div class="flex justify-between"><span class="text-text-secondary">المدينة:</span><span id="dossierCity" class="font-bold">الرياض</span></div>
-        <div class="flex justify-between"><span class="text-text-secondary">حالة التوثيق:</span><span class="text-status-success font-bold">معتمد نفاذ + بلدي + العمل الحر</span></div>
-      </div>
-      <div class="p-3 bg-surface rounded-xl border border-border-default">
-        <div class="font-bold mb-1">الضمان والالتزام الميداني:</div>
-        <p class="text-text-secondary leading-relaxed">سجل الحرفي خالٍ من أي مخالفات إنشائية لكود البناء السعودي. نسبة تسليم المشاريع في موعدها 99.2%، مع متوسط تقييم عملاء 5/5.</p>
-      </div>
-    </div>
-    <div class="mt-4 pt-3 border-t border-border-default flex justify-end">
-      <button onclick="document.getElementById('craftsmanDossierModal').close()" class="px-4 py-2 rounded-lg bg-primary text-white text-xs font-bold">إغلاق</button>
-    </div>
-  </div>
-</dialog>
-
-<!-- Documents Review Modal -->
-<dialog id="auditDocsModal" class="p-0 rounded-2xl border border-border-default shadow-2xl backdrop:bg-black/50 max-w-md w-11/12">
-  <div class="p-6 bg-surface text-on-surface">
-    <div class="flex items-center justify-between pb-3 border-b border-border-default mb-4">
-      <h3 class="font-bold text-base text-primary">مراجعة وثائق الكادر</h3>
-      <button onclick="document.getElementById('auditDocsModal').close()" class="p-1 text-text-muted">
-        <span class="material-symbols-outlined">close</span>
-      </button>
-    </div>
-    <div class="space-y-3 text-xs">
-      <div class="p-3 rounded-lg bg-surface-container-low flex justify-between items-center">
-        <div><div class="font-bold">شهادة مطابقة الفحص الفني</div><div class="text-[10px] text-text-muted">صادرة من مركز التدريب المهني</div></div>
-        <button onclick="alert('تمت المصادقة على الشهادة الفنية بنجاح!')" class="px-2.5 py-1 rounded bg-status-success-bg text-status-success font-bold">مصادقة</button>
-      </div>
-      <div class="p-3 rounded-lg bg-surface-container-low flex justify-between items-center">
-        <div><div class="font-bold">وثيقة العمل الحر المعتمدة</div><div class="text-[10px] text-text-muted">سارية حتى 2027</div></div>
-        <button onclick="alert('تم التحقق من منصة العمل الحر!')" class="px-2.5 py-1 rounded bg-status-success-bg text-status-success font-bold">معتمد</button>
-      </div>
-    </div>
-    <div class="mt-4 pt-3 border-t border-border-default flex justify-end">
-      <button onclick="document.getElementById('auditDocsModal').close()" class="px-4 py-2 rounded-lg bg-primary text-white text-xs font-bold">إغلاق</button>
-    </div>
-  </div>
-</dialog>
-
-<!-- Send Alert Modal -->
-<dialog id="adminAlertModal" class="p-0 rounded-2xl border border-border-default shadow-2xl backdrop:bg-black/50 max-w-md w-11/12">
-  <div class="p-6 bg-surface text-on-surface">
-    <div class="flex items-center justify-between pb-3 border-b border-border-default mb-4">
-      <h3 id="alertCraftsmanTitle" class="font-bold text-base text-primary">إرسال تنبيه أو إشعار فني</h3>
-      <button onclick="document.getElementById('adminAlertModal').close()" class="p-1 text-text-muted">
-        <span class="material-symbols-outlined">close</span>
-      </button>
-    </div>
-    <form id="adminAlertForm" class="space-y-3">
-      <div>
-        <label class="block text-xs font-bold text-on-surface-variant mb-1">نوع الإشعار</label>
-        <select class="w-full px-3 py-2 rounded-lg border border-border-default bg-surface text-xs font-bold">
-          <option>تنبيه تحديث وثيقة العمل الحر</option>
-          <option>إشعار جولة رقابة ميدانية مرتقبة</option>
-          <option>ملاحظات فنية على موقع العمل</option>
-          <option>رسالة شكر وتقدير للجودة</option>
-        </select>
-      </div>
-      <div>
-        <label class="block text-xs font-bold text-on-surface-variant mb-1">نص الرسالة</label>
-        <textarea rows="3" placeholder="اكتب نص الإشعار الموجه للحرفي..." class="w-full px-3 py-2 rounded-lg border border-border-default bg-surface text-xs"></textarea>
-      </div>
-      <div class="pt-2 flex justify-end gap-2 border-t border-border-default">
-        <button type="button" onclick="document.getElementById('adminAlertModal').close()" class="px-4 py-2 rounded-lg bg-surface-container text-xs font-bold">إلغاء</button>
-        <button type="submit" class="px-5 py-2 rounded-lg bg-primary text-white text-xs font-bold hover:bg-primary-dark">إرسال الإشعار فوراً</button>
-      </div>
-    </form>
-  </div>
-</dialog>
-
-<script>
-  window.openAddCraftsmanModal = function() {
-    const m = document.getElementById('addCraftsmanModal');
-    if (m) m.showModal();
-  };
-  window.openCraftsmanDossier = function(name, trade, rating, city) {
-    const m = document.getElementById('craftsmanDossierModal');
-    if (!m) return;
-    document.getElementById('dossierName').textContent = `الملف المهني: ${name}`;
-    document.getElementById('dossierTrade').textContent = trade;
-    document.getElementById('dossierRating').textContent = `${rating} من 5.0 (سجل معتمد)`;
-    document.getElementById('dossierCity').textContent = city;
-    m.showModal();
-  };
-  window.openAuditDocsModal = function(name) {
-    const m = document.getElementById('auditDocsModal');
-    if (m) m.showModal();
-  };
-  window.openAlertModal = function(name) {
-    const m = document.getElementById('adminAlertModal');
-    if (!m) return;
-    document.getElementById('alertCraftsmanTitle').textContent = `إرسال إشعار للحرفي: ${name}`;
-    m.showModal();
-  };
-
-  window.exportCraftsmenCsv = function() {
-    const rows = [
-      ['اسم الحرفي', 'الهوية', 'التخصص', 'المدينة', 'التقييم', 'المشاريع', 'حالة الاعتماد'],
-      ['سعدون الشمري', '1098234120', 'تمديدات كهربائية وسمارت هوم', 'الرياض', '4.95', '142', 'معتمد نفاذ + بلدي'],
-      ['معاذ الغامدي', '1087612340', 'سباكة وعزل مائي', 'جدة', '4.88', '98', 'معتمد بلدي'],
-      ['خالد بن عبد الرحمن', '1076523410', 'نجارة وديكورات خشبية', 'الدمام', '4.92', '115', 'معتمد وثيقة عمل حر'],
-      ['عبدالله العتيبي', '1065412980', 'تكييف وتبريد', 'الرياض', '4.80', '64', 'تحت التدقيق']
-    ];
-    let csvContent = "data:text/csv;charset=utf-8,﻿" + rows.map(e => e.join(",")).join("\n");
-    const link = document.createElement("a");
-    link.setAttribute("href", encodeURI(csvContent));
-    link.setAttribute("download", "Miras_Craftsmen_Registry_2026.csv");
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
-  const addCraftsmanForm = document.getElementById('addCraftsmanForm');
-  if (addCraftsmanForm) {
-    addCraftsmanForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('craftsmanName').value.trim();
-      const trade = document.getElementById('craftsmanTrade').value;
-      document.getElementById('addCraftsmanModal').close();
-      alert(`تم توثيق واعتماد الكادر المهني "${name}" (${trade}) بنجاح وتفعيل حسابه على المنصة!`);
-      addCraftsmanForm.reset();
-    });
-  }
-
-  const alertForm = document.getElementById('adminAlertForm');
-  if (alertForm) {
-    alertForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      document.getElementById('adminAlertModal').close();
-      alert('تم إرسال التنبيه الرسمي بنجاح إلى جوال وإيميل الحرفي!');
-      alertForm.reset();
-    });
-  }
-</script>
-
-
-<script>
-  window.approveCraftsman = async function(id, name, phone) {
-    if (!confirm(`هل أنتِ متأكدة من اعتماد الحرفي (${name}) وتفعيل حسابه للدخول إلى منصة مِـرَاس؟`)) return;
-
-    // 1. تحديث التخزين المحلي فوراً
+  window.approveCraftsman = function(id, name) {
+    if (!confirm(`هل أنت متأكد من اعتماد وتفعيل حساب الحرفي (${name})؟\nسيتم منحه صلاحية الدخول للوحة المهنيين.`)) return;
     localStorage.setItem('miras_current_pro_status', 'verified');
-    localStorage.setItem('miras_pro_status_' + phone, 'verified');
-    localStorage.setItem('miras_pro_status_771234567', 'verified');
-    sessionStorage.setItem('miras_craftsman_status', 'verified');
-
-    // 2. تحديث Supabase إذا كان متصلاً
-    if (window.MirasAPI && window.MirasAPI.craftsmen) {
-      try {
-        await window.MirasAPI.craftsmen.verifyCraftsman(id, 'verified');
-      } catch (err) {
-        console.warn('ملاحظة أثناء تحديث Supabase:', err);
-      }
-    }
-
-    // 3. تحديث مظهر البطاقة
-    const card = document.getElementById('craftsmanPendingCard_' + id);
-    if (card) {
-      card.className = 'bg-emerald-50 rounded-xl p-4 border border-emerald-200 flex items-center justify-between transition-all';
-      card.innerHTML = `
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center">
-            <span class="material-symbols-outlined text-[22px]">check</span>
-          </div>
-          <div>
-            <h4 class="font-bold text-emerald-950 text-sm">تم اعتماد الحرفي: ${name} بنجاح!</h4>
-            <p class="text-xs text-emerald-800">أصبح حسابه مفعّلاً الآن ويمكنه تسجيل الدخول واستلام المشاريع فوراً.</p>
-          </div>
-        </div>
-        <span class="px-3 py-1 rounded-full bg-emerald-200 text-emerald-900 font-bold text-xs">معتمد ومفعّل ✅</span>
-      `;
-    }
-
-    const countEl = document.getElementById('pendingCraftsmenCount');
-    if (countEl) countEl.textContent = '0';
-
-    alert(`✅ تم اعتماد وتفعيل الحساب بنجاح!
-الآن يمكن لصاحب المهنة (${name}) تسجيل الدخول ومباشرة العمل.`);
+    alert(`✅ تم اعتماد وتفعيل الحساب بنجاح!\nالآن يمكن لصاحب المهنة (${name}) تسجيل الدخول ومباشرة العمل.`);
+    location.reload();
   };
 
   window.rejectCraftsman = function(id, name) {
     if (!confirm(`هل تريدين تعليق أو رفض طلب انضمام (${name})؟`)) return;
     localStorage.setItem('miras_current_pro_status', 'rejected');
-    const card = document.getElementById('craftsmanPendingCard_' + id);
-    if (card) {
-      card.className = 'bg-rose-50 rounded-xl p-4 border border-rose-200 flex items-center justify-between transition-all';
-      card.innerHTML = `
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-full bg-rose-600 text-white flex items-center justify-center">
-            <span class="material-symbols-outlined text-[22px]">close</span>
-          </div>
-          <div>
-            <h4 class="font-bold text-rose-950 text-sm">تم رفض / تعليق طلب: ${name}</h4>
-            <p class="text-xs text-rose-800">حسابه محجوب عن الدخول ولن يتمكن من الوصول للوحة المشاريع.</p>
-          </div>
-        </div>
-        <span class="px-3 py-1 rounded-full bg-rose-200 text-rose-900 font-bold text-xs">مرفوض ❌</span>
-      `;
-    }
+    alert(`❌ تم تعليق طلب: ${name}. حسابه محجوب عن الدخول.`);
+    location.reload();
   };
-</script>
 
-</body></html>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.AdminAuth) AdminAuth.init();
+  });
+</script>
+</body>
+</html>

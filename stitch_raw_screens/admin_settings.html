@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;font-family:'IBM Plex Sans Arabic',sans-serif;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'on-primary': '#ffffff', 'on-secondary-fixed': '#001453', 'surface-dim': '#cbdbf5', 'surface-container': '#e5eeff', 'surface-container-lowest': '#ffffff', 'on-primary-fixed-variant': '#2d4674', 'outline-variant': '#c4c6d0', 'surface-tint': '#465e8e', 'secondary-container': '#708cfd', 'primary-fixed-dim': '#aec7fd', 'inverse-on-surface': '#eaf1ff', 'tertiary-fixed-dim': '#eec14b', 'surface-container-high': '#dce9ff', 'primary-container': '#0f2c59', 'surface': '#f8f9ff', 'secondary-fixed': '#dde1ff', 'on-primary-container': '#7c94c8', 'primary': '#00173b', 'outline': '#747780', 'on-tertiary-fixed': '#251a00', 'on-background': '#0b1c30', 'on-secondary-container': '#00217a', 'secondary': '#3755c3', 'on-tertiary': '#ffffff', 'on-secondary': '#ffffff', 'error': '#ba1a1a', 'on-tertiary-fixed-variant': '#5a4300', 'inverse-primary': '#aec7fd', 'tertiary-container': '#3a2b00', 'primary-fixed': '#d8e2ff', 'tertiary-fixed': '#ffdf98', 'on-error': '#ffffff', 'surface-container-highest': '#d3e4fe', 'secondary-fixed-dim': '#b8c4ff', 'error-container': '#ffdad6', 'surface-variant': '#d3e4fe', 'tertiary': '#211700', 'on-surface': '#0b1c30', 'on-error-container': '#93000a', 'on-primary-fixed': '#001a41', 'surface-bright': '#f8f9ff', 'surface-container-low': '#eff4ff', 'on-surface-variant': '#44474f', 'on-tertiary-container': '#b78f19', 'background': '#f8f9ff', 'inverse-surface': '#213145', 'on-secondary-fixed-variant': '#173bab' }, borderRadius: { 'DEFAULT': '0.25rem', 'lg': '0.5rem', 'xl': '0.75rem', 'full': '9999px' }, spacing: { 'space-xs': '0.25rem', 'margin-desktop': '2.5rem', 'margin': '1rem', 'space-xl': '2rem', 'space-lg': '1.5rem', 'gutter': '1rem', 'space-md': '1rem', 'gutter-desktop': '1.5rem', 'space-sm': '0.5rem' }, fontFamily: { 'display': ['IBM Plex Sans Arabic'], 'headline-lg': ['IBM Plex Sans Arabic'], 'label-sm': ['IBM Plex Sans Arabic'], 'label-lg': ['IBM Plex Sans Arabic'], 'body-sm': ['IBM Plex Sans Arabic'], 'headline-lg-mobile': ['IBM Plex Sans Arabic'], 'headline-sm': ['IBM Plex Sans Arabic'], 'headline-md': ['IBM Plex Sans Arabic'], 'body-lg': ['IBM Plex Sans Arabic'], 'label-md': ['IBM Plex Sans Arabic'], 'body-md': ['IBM Plex Sans Arabic'], 'display-mobile': ['IBM Plex Sans Arabic'] }, fontSize: { 'display': ['3rem', { lineHeight: '3.75rem', letterSpacing: '-0.02em', fontWeight: '700' }], 'headline-lg': ['2rem', { lineHeight: '2.5rem', fontWeight: '700' }], 'label-sm': ['0.6875rem', { lineHeight: '1rem', fontWeight: '500' }], 'label-lg': ['0.9375rem', { lineHeight: '1.25rem', fontWeight: '600' }], 'body-sm': ['0.8125rem', { lineHeight: '1.25rem', fontWeight: '400' }], 'headline-lg-mobile': ['1.5rem', { lineHeight: '2rem', fontWeight: '700' }], 'headline-sm': ['1.125rem', { lineHeight: '1.625rem', fontWeight: '600' }], 'headline-md': ['1.375rem', { lineHeight: '1.875rem', fontWeight: '600' }], 'body-lg': ['1.0625rem', { lineHeight: '1.75rem', fontWeight: '400' }], 'label-md': ['0.8125rem', { lineHeight: '1.125rem', fontWeight: '500' }], 'body-md': ['0.9375rem', { lineHeight: '1.5rem', fontWeight: '400' }], 'display-mobile': ['2.25rem', { lineHeight: '2.75rem', letterSpacing: '-0.01em', fontWeight: '700' }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(15,44,89,0.04)] pt-safe"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-primary-container flex items-center justify-center text-on-tertiary-container shadow-[0_2px_6px_rgba(15,44,89,0.12)]"><span class="material-symbols-outlined text-[20px]">shield_person</span></div><div class="flex flex-col"><div class="flex items-center gap-space-xs"><h1 class="font-headline-sm text-headline-sm text-primary leading-tight tracking-tight">مِراس</h1><span class="text-outline-variant font-body-sm text-body-sm">|</span><span class="font-label-md text-label-md text-on-surface">لوحة الإدارة</span></div><div class="flex items-center gap-space-xs"><span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container animate-pulse"></span><span class="font-label-sm text-label-sm text-on-tertiary-container font-semibold">إشراف حضرموت العام</span></div></div></div><div class="flex items-center gap-space-xs"><button aria-label="الإشعارات والإنذارات" class="relative w-11 h-11 flex items-center justify-center rounded-lg hover:bg-surface-container text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2 left-2 min-w-[18px] h-[18px] px-1 bg-error text-on-error font-label-sm text-label-sm flex items-center justify-center rounded-full ring-2 ring-surface font-bold">5</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_2px_4px_rgba(0,23,59,0.15)]"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full px-margin pt-16 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full gap-space-lg pb-12">
+<!-- System Profile Summary Card -->
+<section class="relative overflow-hidden rounded-xl bg-primary text-on-primary p-space-md shadow-md">
+<div class="absolute -top-10 -left-10 w-36 h-36 rounded-full bg-secondary/20 blur-2xl pointer-events-none"></div>
+<div class="absolute bottom-0 right-0 w-44 h-44 rounded-full bg-tertiary-fixed-dim/10 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="inline-flex items-center gap-space-xs px-2.5 py-1 rounded-full bg-surface-container-lowest/10 backdrop-blur-md">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-tertiary-fixed font-semibold tracking-wide">إدارة العمليات والسياسات المركزية</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary-fixed-dim">النسخة v2.4 - حضرموت</span>
+</div>
+<div class="flex items-center justify-between mt-1">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-primary font-bold">بوابة الرقابة والسياسات</span>
+<span class="font-body-sm text-body-sm text-primary-fixed-dim">التحكم التشغيلي، الرسوم، والتدقيق الجغرافي للمنصة</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-surface-container-lowest/10 flex items-center justify-center text-tertiary-fixed shadow-inner">
+<span class="material-symbols-outlined text-[26px]">tune</span>
+</div>
+</div>
+<!-- Quick Platform Health Metrics -->
+<div class="grid grid-cols-3 gap-space-xs mt-2 pt-space-xs">
+<div class="flex flex-col p-2 rounded-lg bg-surface-container-lowest/5">
+<span class="font-label-sm text-label-sm text-primary-fixed-dim">حالة النظام</span>
+<span class="font-label-lg text-label-lg text-on-primary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            مستقر 100%
+          </span>
+</div>
+<div class="flex flex-col p-2 rounded-lg bg-surface-container-lowest/5">
+<span class="font-label-sm text-label-sm text-primary-fixed-dim">المهنيين الموثقين</span>
+<span class="font-label-lg text-label-lg text-on-primary font-bold">105 معلماً</span>
+</div>
+<div class="flex flex-col p-2 rounded-lg bg-surface-container-lowest/5">
+<span class="font-label-sm text-label-sm text-primary-fixed-dim">نطاق التغطية</span>
+<span class="font-label-lg text-label-lg text-on-primary font-bold">4 مناطق</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Categories & Platform Fee Management -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">category</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary">تصنيفات المهن وعمولات المنصة</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">3 تصنيفات نشطة</span>
+</div>
+<!-- Category Item 1 -->
+<div class="w-full rounded-xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col gap-space-sm transition-all duration-200 hover:shadow-md">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-11 h-11 rounded-lg bg-surface-container-low flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[24px]">ac_unit</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg text-primary font-bold">تكييف وتبريد</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-secondary-container font-label-sm text-label-sm font-semibold">مطلوب بكثافة</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">38 مهني معتمد ومفحوص</span>
+</div>
+</div>
+<button aria-label="تعديل تصنيف تكييف وتبريد" class="w-9 h-9 rounded-lg bg-surface-container-low hover:bg-surface-container text-primary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-outline">عمولة مِراس الحالية:</span>
+<span class="px-2 py-0.5 rounded-md bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-bold">0% (فترة الإطلاق الترويجية)</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-tertiary-container font-semibold">تعديل نسبة الرسوم ←</span>
+</div>
+</div>
+<!-- Category Item 2 -->
+<div class="w-full rounded-xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col gap-space-sm transition-all duration-200 hover:shadow-md">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-11 h-11 rounded-lg bg-surface-container-low flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined text-[24px]">domain</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg text-primary font-bold">بناء وعمارة حضرمية (نورة وطين)</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+                إرث أصيل
+              </span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">22 معلم عمارة تقليدية مسجل</span>
+</div>
+</div>
+<button aria-label="تعديل تصنيف بناء وعمارة حضرمية" class="w-9 h-9 rounded-lg bg-surface-container-low hover:bg-surface-container text-primary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-outline">بروتوكول القبول:</span>
+<span class="px-2 py-0.5 rounded-md bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">فحص إلزامي للهوية وخبرة الوادي</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-medium">الاشتراطات المعمارية ←</span>
+</div>
+</div>
+<!-- Category Item 3 -->
+<div class="w-full rounded-xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col gap-space-sm transition-all duration-200 hover:shadow-md">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-11 h-11 rounded-lg bg-surface-container-low flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[24px]">plumbing</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg text-primary font-bold">سباكة ومضخات</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm font-medium">شبكات مياه</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">45 فني معتمد في الساحل والوادي</span>
+</div>
+</div>
+<button aria-label="تعديل تصنيف سباكة ومضخات" class="w-9 h-9 rounded-lg bg-surface-container-low hover:bg-surface-container text-primary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-outline">حالة الطوارئ:</span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container-highest text-primary font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            خدمة الاستجابة الفورية مفعلة
+          </span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">إعدادات النوبات ←</span>
+</div>
+</div>
+<!-- Add Category Trigger -->
+<button class="w-full h-12 rounded-xl bg-surface-container hover:bg-surface-container-high text-primary font-label-lg text-label-lg font-bold flex items-center justify-center gap-space-xs transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span>إضافة تصنيف مهني جديد لحضرموت</span>
+</button>
+</section>
+<!-- Geographical Coverage Boundaries -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">map</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary">نطاق التغطية الجغرافية والمدن</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-tertiary-container font-semibold">المحافظة: حضرموت</span>
+</div>
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col gap-space-md">
+<!-- Zone 1: Mukalla -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-primary/5 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">location_city</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-primary font-bold">مدينة المكلا وضواحيها</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">الشرج، الديس، فوه، روكب، بويش (18 حي)</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer select-none">
+<input aria-label="تفعيل مدينة المكلا" checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-12 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:right-[2px] rtl:after:right-auto rtl:after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Zone 2: Seiyun & Tarim -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-primary/5 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">apartment</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-primary font-bold">سيئون وتريم (وادي حضرموت)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">السحيل، الغرفة، عيديد، الخليف وعاصمة الغناء</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer select-none">
+<input aria-label="تفعيل سيئون وتريم" checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-12 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:right-[2px] rtl:after:right-auto rtl:after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Zone 3: Shihr & Ghayl -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-primary/5 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">sailing</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-primary font-bold">الشحر وغيل باوزير</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">الخور، المجرف، القارة وعيون المياه التاريخية</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer select-none">
+<input aria-label="تفعيل الشحر وغيل باوزير" checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-12 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:right-[2px] rtl:after:right-auto rtl:after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Zone 4: Doan & Qatn -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-tertiary-fixed-dim/20 flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined text-[20px]">nature_people</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg text-primary font-bold">وادي دوعن والقطن</span>
+<span class="px-2 py-0.2 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-semibold">تجريبي</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">الهجرين، صيف، الخريبة ومناطق الوادي الأيمن</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer select-none">
+<input aria-label="تفعيل وادي دوعن والقطن" checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-12 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:right-[2px] rtl:after:right-auto rtl:after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- Financial, Guarantee & Trust Settings -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary">السياسات المالية وحماية المستخدمين</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-tertiary-container font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">shield</span>
+        معايير الصرامة
+      </span>
+</div>
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col gap-space-md">
+<!-- Setting 1: Currency Standard -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-primary font-bold">عملة التسعير المعتمدة</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">الريال اليمني (YER) حصراً لمنع التذبذب</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-md bg-surface-container-high text-primary font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+          إلزامي مقفل
+        </span>
+</div>
+<!-- Setting 2: Golden Warranty -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-tertiary-container text-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">workspace_premium</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-primary font-bold">مدة ضمان مِراس الذهبي</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">حماية شاملة ضد عيوب الصيانة والتركيب</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface-container-lowest shadow-sm">
+<span class="font-label-lg text-label-lg text-primary font-bold">30 يوماً</span>
+<span class="material-symbols-outlined text-[16px] text-outline">expand_more</span>
+</div>
+</div>
+<!-- Setting 3: Auto-Refund Threshold -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">currency_exchange</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-primary font-bold">الاسترداد التلقائي للإلغاء</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">إرجاع فوري لمحفظة العميل خلال 15 دقيقة</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer select-none">
+<input aria-label="تفعيل الاسترداد التلقائي" checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-12 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:right-[2px] rtl:after:right-auto rtl:after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Setting 4: Multi-channel OTP Verification -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-secondary/10 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">mark_chat_read</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-primary font-bold">تحقق OTP عبر واتساب والرسائل</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">تسريع إشعارات الاتفاقيات وإتمام العمليات</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer select-none">
+<input aria-label="تفعيل التحقق الثنائي عبر واتساب" checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-12 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:right-[2px] rtl:after:right-auto rtl:after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- System Audit Log & Security -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">history_toggle_off</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary">سجل الرقابة وتدقيق النظام</h2>
+</div>
+<span class="font-label-sm text-label-sm text-outline">مشفر SHA-256</span>
+</div>
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col gap-space-sm">
+<!-- Audit Entry 1 -->
+<div class="flex items-start gap-space-sm pb-space-sm">
+<div class="w-8 h-8 rounded-full bg-primary-container text-tertiary-fixed flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">admin_panel_settings</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<span class="font-label-md text-label-md text-primary font-bold truncate">تحديث سياسة توثيق الحرفيين</span>
+<span class="font-label-sm text-label-sm text-outline shrink-0">10:15 ص</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">بواسطة المشرف العام (مكتب المكلا الإداري)</span>
+</div>
+</div>
+<!-- Audit Entry 2 -->
+<div class="flex items-start gap-space-sm pt-space-xs">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-secondary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">cloud_sync</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<span class="font-label-md text-label-md text-primary font-bold truncate">نسخ احتياطي مجدول لقاعدة البيانات</span>
+<span class="font-label-sm text-label-sm text-outline shrink-0">04:00 ص</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">تأمين سجل الحسابات، الطلبات، وتقييمات العملاء</span>
+</div>
+</div>
+<!-- Export Audit Button -->
+<button class="mt-2 w-full h-11 rounded-lg bg-surface-container-low hover:bg-surface-container text-primary font-label-md text-label-md font-semibold flex items-center justify-center gap-space-xs transition-colors" id="exportAuditBtn" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>تصدير سجل الأنشطة والتدقيق (Audit Log CSV)</span>
+</button>
+</div>
+</section>
+<!-- Emergency & Safe Logout Section -->
+<section class="flex flex-col gap-space-sm pt-2">
+<!-- Maintenance Mode Card -->
+<div class="rounded-xl bg-error-container/30 p-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-error-container text-on-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">emergency_home</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-error-container font-bold">وضع الصيانة الطارئة للمنصة</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">إيقاف استقبال طلبات جديدة فوراً في المحافظة</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer select-none">
+<input aria-label="تفعيل وضع الصيانة" class="sr-only peer" id="emergencyToggle" type="checkbox"/>
+<div class="w-12 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:right-[2px] rtl:after:right-auto rtl:after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-error"></div>
+</label>
+</div>
+<!-- Admin Safe Logout -->
+<button class="w-full h-12 rounded-xl bg-surface-container-lowest hover:bg-error-container/20 text-error font-label-lg text-label-lg font-bold flex items-center justify-center gap-space-xs transition-all shadow-sm" id="adminLogoutBtn" type="button">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+<span>تسجيل الخروج الإداري الآمن</span>
+</button>
+<!-- Cultural Endnote -->
+<div class="flex items-center justify-center gap-1.5 text-center mt-2 text-outline">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim">verified</span>
+<span class="font-label-sm text-label-sm">منصة مِراس - صُممت لصون أمانة الحرفة وعمارة حضرموت</span>
+</div>
+</section>
+</div>
+<script>
+  // Micro-interactions and toast notifications for admin console
+  (function () {
+    const exportBtn = document.getElementById('exportAuditBtn');
+    if (exportBtn) {
+      exportBtn.addEventListener('click', function () {
+        const originalText = exportBtn.innerHTML;
+        exportBtn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">sync</span><span>جاري تجهيز السجل وتشفيره...</span>';
+        setTimeout(() => {
+          exportBtn.innerHTML = '<span class="material-symbols-outlined text-[18px] text-primary">done_all</span><span>تم تصدير ملف سجل التدقيق بنجاح</span>';
+          setTimeout(() => {
+            exportBtn.innerHTML = originalText;
+          }, 2400);
+        }, 1000);
+      });
+    }
+
+    const emergencyToggle = document.getElementById('emergencyToggle');
+    if (emergencyToggle) {
+      emergencyToggle.addEventListener('change', function (e) {
+        if (e.target.checked) {
+          const confirmed = confirm('تنبيه أمني: تفعيل وضع الصيانة الطارئة سيمنع جميع العملاء في حضرموت من تقديم طلبات جديدة مؤقتاً. هل ترغب بالاستمرار؟');
+          if (!confirmed) {
+            e.target.checked = false;
+          }
+        }
+      });
+    }
+
+    const logoutBtn = document.getElementById('adminLogoutBtn');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', function () {
+        if (confirm('تأكيد تسجيل الخروج من جلسة الإشراف والرقابة؟')) {
+          logoutBtn.innerHTML = '<span class="material-symbols-outlined text-[20px] animate-spin">hourglass_empty</span><span>جاري إغلاق الجلسة المشفرة...</span>';
+          setTimeout(() => {
+            alert('تم إنهاء الجلسة الإدارية بنجاح.');
+          }, 800);
+        }
+      });
+    }
+  })();
+</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-4px_16px_rgba(15,44,89,0.06)]" data-active-classes="text-primary font-bold bg-surface-container/60"><div class="flex justify-around items-center h-20 px-space-xs"><a class="flex flex-col items-center justify-center gap-space-xs min-w-[70px] h-14 rounded-xl text-on-surface-variant hover:text-primary transition-all duration-200" data-path="admin-overview" href="#"><span class="material-symbols-outlined text-[22px]">dashboard</span><span class="font-label-sm text-label-sm">الرئيسية</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[70px] h-14 rounded-xl text-on-surface-variant hover:text-primary transition-all duration-200" data-path="craftsmen-verification" href="#"><span class="material-symbols-outlined text-[22px]">verified</span><span class="font-label-sm text-label-sm">المهنيين</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[70px] h-14 rounded-xl text-on-surface-variant hover:text-primary transition-all duration-200" data-path="orders-disputes" href="#"><span class="material-symbols-outlined text-[22px]">assignment_late</span><span class="font-label-sm text-label-sm">الطلبات</span></a><a aria-current="page" class="flex flex-col items-center justify-center gap-space-xs min-w-[70px] h-14 rounded-xl transition-all duration-200 text-primary font-bold bg-surface-container/60" data-path="system-settings-audit" href="#"><span class="material-symbols-outlined text-[22px]">policy</span><span class="font-label-sm text-label-sm">الرقابة</span></a></div></nav></body></html>

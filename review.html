@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+  <title>تقييم الخدمة والمهني — منصة مِـرَاس (حضرموت)</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#00173b",
+            "primary-container": "#0f2c59",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#7c94c8",
+            "secondary": "#3755c3",
+            "secondary-container": "#708cfd",
+            "on-secondary": "#ffffff",
+            "on-secondary-container": "#00217a",
+            "tertiary": "#211700",
+            "tertiary-container": "#3a2b00",
+            "tertiary-fixed": "#ffdf98",
+            "tertiary-fixed-dim": "#eec14b",
+            "on-tertiary-container": "#b78f19",
+            "surface": "#f8f9ff",
+            "surface-bright": "#f8f9ff",
+            "surface-dim": "#cbdbf5",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#eff4ff",
+            "surface-container": "#e5eeff",
+            "surface-container-high": "#dce9ff",
+            "surface-container-highest": "#d3e4fe",
+            "on-surface": "#0b1c30",
+            "on-surface-variant": "#44474f",
+            "outline": "#747780",
+            "outline-variant": "#c4c6d0",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6"
+          },
+          fontFamily: {
+            sans: ["IBM Plex Sans Arabic", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    @layer base {
+      html, body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: 'IBM Plex Sans Arabic', sans-serif;
+        background-color: #f8f9ff;
+        color: #0b1c30;
+        -webkit-tap-highlight-color: transparent;
+      }
+      body {
+        overscroll-behavior: none;
+      }
+      .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      .pt-safe {
+        padding-top: env(safe-area-inset-top, 0px);
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased flex flex-col min-h-screen">
+<header class="sticky top-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl border-b border-surface-container shadow-xs">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
+    <div class="flex items-center gap-6 xl:gap-8">
+      <a href="index.html" class="flex items-center gap-2.5 group">
+        <div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-tertiary-fixed shadow-sm group-hover:scale-105 transition-transform">
+          <span class="material-symbols-outlined text-[24px]">handyman</span>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1.5">
+            <span class="font-bold text-xl text-primary tracking-tight group-hover:text-secondary transition-colors">مِـرَاس</span>
+            <span class="text-[10px] font-bold text-white bg-primary px-1.5 py-0.5 rounded-full">حضرموت</span>
+          </div>
+          <span class="text-[10px] text-on-surface-variant font-medium">شبكة المهن والكوادر الحرفية المعتمدة</span>
+        </div>
+      </a>
+      <nav class="hidden lg:flex items-center gap-1.5">
+        <a href="index.html" class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm transition-all text-on-surface-variant hover:text-primary hover:bg-surface-container">
+          <span class="material-symbols-outlined text-[18px]">home</span>
+          <span>الرئيسية</span>
+        </a><a href="explore.html" class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm transition-all text-on-surface-variant hover:text-primary hover:bg-surface-container">
+          <span class="material-symbols-outlined text-[18px]">explore</span>
+          <span>استكشاف المهن</span>
+        </a><a href="my-requests.html" class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm transition-all bg-primary text-white font-bold shadow-xs">
+          <span class="material-symbols-outlined text-[18px]">work</span>
+          <span>طلباتي</span>
+        </a><a href="favorites.html" class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm transition-all text-on-surface-variant hover:text-primary hover:bg-surface-container">
+          <span class="material-symbols-outlined text-[18px]">favorite</span>
+          <span>المفضلة</span>
+        </a><a href="support.html" class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm transition-all text-on-surface-variant hover:text-primary hover:bg-surface-container">
+          <span class="material-symbols-outlined text-[18px]">support_agent</span>
+          <span>الدعم الحضرمي</span>
+        </a>
+      </nav>
+    </div>
+    <div class="flex items-center gap-2.5 sm:gap-3">
+      <div class="hidden md:flex items-center bg-surface-container-low px-3 py-1.5 rounded-xl border border-outline-variant/30 text-xs text-on-surface-variant gap-1.5">
+        <span class="material-symbols-outlined text-tertiary-fixed-dim text-sm">location_on</span>
+        <span class="font-bold text-primary">حضرموت:</span>
+        <span>المكلا • سيئون • تريم • الشحر</span>
+      </div>
+      <a href="join-pro.html" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-tertiary-fixed text-tertiary-container font-bold text-xs sm:text-sm hover:bg-tertiary-fixed-dim transition-colors shadow-xs">
+        <span class="material-symbols-outlined text-[18px]">engineering</span>
+        <span>انضم كمهني</span>
+      </a>
+      <a href="login.html" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-primary text-white font-bold text-xs sm:text-sm hover:bg-primary-container transition-colors shadow-xs">
+        <span class="material-symbols-outlined text-[18px]">person</span>
+        <span class="hidden sm:inline">تسجيل الدخول</span>
+      </a>
+    </div>
+  </div>
+</header>
+<main class="flex flex-col relative w-full pt-4 pb-24 lg:pb-12 bg-surface min-h-screen">
+  <div class="max-w-3xl mx-auto w-full px-4 sm:px-6 lg:px-8 space-y-6">
+    <div class="flex flex-col w-full pb-safe">
+<!-- Content Container -->
+<div class="flex flex-col gap-space-md px-margin py-space-md">
+<!-- 1. Success Notification & Order Summary Card -->
+<div class="flex flex-col bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden">
+<!-- Subtle arabesque background tint highlight -->
+<div class="absolute -top-12 -left-12 w-32 h-32 bg-secondary-container/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center gap-space-sm mb-space-sm">
+<div class="w-8 h-8 rounded-full bg-primary-container text-tertiary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant">طلب مكتمل</span>
+<h2 class="font-headline-sm text-headline-sm text-primary truncate">تم اكتمال الطلب بنجاح #MRS-8492</h2>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-lg p-space-sm flex flex-col gap-space-xs text-on-surface">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="font-headline-sm text-headline-sm text-primary-container">صيانة مكيف سبلت وتعبئة فريون أصلي</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">18,000 <span class="font-label-sm text-label-sm text-on-surface-variant">ر.ي</span></span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container">location_on</span>
+<span>حي فوة، المكلا • حضرموت</span>
+</div>
+</div>
+</div>
+<!-- 2. Artisan Profile Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center gap-space-md">
+<div class="relative shrink-0">
+<img class="w-16 h-16 rounded-full object-cover shadow-sm" data-alt="A dignified and warm middle-aged Yemeni craftsman in traditional Hadrami light-colored attire, smiling respectfully in a sunlit workshop in Mukalla, professional and skilled artisan portrait with natural warm ambient light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVzgDMcGACDZq1Jv55pZJ5G5Mt2LiwvKOujTLiVWu_1eiE_monReahwoJaxvfuVoTa1tFQSEZqOEt4MHoSxRheIcyPW9R7mebYsCxIF613-6GDsZo1zwFx7t9bvd2CYtXPprAUuB99FPA9BCaT4QVGT3oR-s6sNsB-l1mH9Z9Mu1RYBN7HNS6tLuFWhlf3s95o130pd_d3mQGL4zCdR1a4wzbmOibVg3BbS5Wsgkg"/>
+<div class="absolute -bottom-1 -left-1 bg-tertiary-fixed text-tertiary-container rounded-full p-0.5 flex items-center justify-center shadow" title="موثق مِراس">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center gap-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-primary truncate">المعلم سعيد بن مخاشن</h3>
+<span class="bg-tertiary-fixed/40 text-on-tertiary-fixed-variant font-label-sm text-label-sm px-2 py-0.5 rounded-full shrink-0">
+            موثّق مِراس
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">فني تكييف وتبريد معتمد</p>
+<div class="flex items-center gap-space-xs mt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px] text-secondary">workspace_premium</span>
+<span>خبرة 14 سنة في ساحل حضرموت</span>
+</div>
+</div>
+</div>
+<!-- 3. Overall Interactive Star Rating -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col items-center justify-center text-center gap-space-sm">
+<span class="font-label-lg text-label-lg text-on-surface-variant">ما تقييمك لجودة الخدمة المقدمة؟</span>
+<!-- Stars Row -->
+<div class="flex items-center justify-center gap-2 my-1" dir="ltr" id="stars-container">
+<button class="star-btn active transition-transform transform active:scale-125 focus:outline-none" data-val="1" type="button">
+<span class="material-symbols-outlined text-[38px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button class="star-btn active transition-transform transform active:scale-125 focus:outline-none" data-val="2" type="button">
+<span class="material-symbols-outlined text-[38px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button class="star-btn active transition-transform transform active:scale-125 focus:outline-none" data-val="3" type="button">
+<span class="material-symbols-outlined text-[38px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button class="star-btn active transition-transform transform active:scale-125 focus:outline-none" data-val="4" type="button">
+<span class="material-symbols-outlined text-[38px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button class="star-btn active transition-transform transform active:scale-125 focus:outline-none" data-val="5" type="button">
+<span class="material-symbols-outlined text-[38px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+</div>
+<div class="bg-surface-container-low px-4 py-1.5 rounded-full">
+<span class="font-headline-sm text-headline-sm text-primary" id="rating-text">ممتاز وفوق التوقعات! 🌟</span>
+</div>
+</div>
+<!-- 4. Detailed Rating Criteria -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-md">
+<h4 class="font-headline-sm text-headline-sm text-primary">تقييم معايير الجودة</h4>
+<div class="flex flex-col gap-space-sm">
+<!-- Criterion 1 -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-secondary">schedule</span>
+<span class="font-body-md text-body-md text-on-surface">الالتزام بالميعاد والموقع</span>
+</div>
+<div class="flex items-center gap-1 text-tertiary-fixed-dim">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">5.0</span>
+</div>
+</div>
+<!-- Criterion 2 -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-secondary">cleaning_services</span>
+<span class="font-body-md text-body-md text-on-surface">دقة الفحص ونظافة المكان</span>
+</div>
+<div class="flex items-center gap-1 text-tertiary-fixed-dim">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">5.0</span>
+</div>
+</div>
+<!-- Criterion 3 -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-secondary">price_check</span>
+<span class="font-body-md text-body-md text-on-surface">الأمانة والشفافية في التسعير</span>
+</div>
+<div class="flex items-center gap-1 text-tertiary-fixed-dim">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">5.0</span>
+</div>
+</div>
+<!-- Criterion 4 -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-secondary">handshake</span>
+<span class="font-body-md text-body-md text-on-surface">حسن التعامل والأخلاق المهنية</span>
+</div>
+<div class="flex items-center gap-1 text-tertiary-fixed-dim">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">5.0</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 5. Quick Compliment Badges -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<h4 class="font-headline-sm text-headline-sm text-primary">وسوم الإشادة السريعة</h4>
+<span class="font-label-sm text-label-sm text-on-surface-variant">اختر ما يناسب تجربتك</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<button class="compliment-chip active px-3 py-2 rounded-full font-label-md text-label-md transition-all flex items-center gap-1.5 bg-primary-container text-on-primary" type="button">
+<span>⏱️</span>
+<span>وصل في الوقت المحدد</span>
+</button>
+<button class="compliment-chip active px-3 py-2 rounded-full font-label-md text-label-md transition-all flex items-center gap-1.5 bg-primary-container text-on-primary" type="button">
+<span>🧼</span>
+<span>ترك المكان نظيفاً</span>
+</button>
+<button class="compliment-chip active px-3 py-2 rounded-full font-label-md text-label-md transition-all flex items-center gap-1.5 bg-primary-container text-on-primary" type="button">
+<span>🛠️</span>
+<span>شغل نظيف ومتقن</span>
+</button>
+<button class="compliment-chip px-3 py-2 rounded-full font-label-md text-label-md transition-all flex items-center gap-1.5 bg-surface-container-low text-on-surface hover:bg-surface-container-high" type="button">
+<span>💡</span>
+<span>شرح المشكلة بأمانة</span>
+</button>
+<button class="compliment-chip px-3 py-2 rounded-full font-label-md text-label-md transition-all flex items-center gap-1.5 bg-surface-container-low text-on-surface hover:bg-surface-container-high" type="button">
+<span>🏷️</span>
+<span>التزم بالسعر المتفق عليه</span>
+</button>
+<button class="compliment-chip active px-3 py-2 rounded-full font-label-md text-label-md transition-all flex items-center gap-1.5 bg-primary-container text-on-primary" type="button">
+<span>🤝</span>
+<span>تعامل وأخلاق عالية</span>
+</button>
+</div>
+</div>
+<!-- 6. Review Text Area & Photo Attachments -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<h4 class="font-headline-sm text-headline-sm text-primary">المراجعة التفصيلية</h4>
+<span class="font-label-sm text-label-sm text-on-surface-variant">اختياري</span>
+</div>
+<div class="relative w-full">
+<textarea class="w-full bg-surface-container-low text-on-surface rounded-xl p-space-md font-body-md text-body-md placeholder:text-on-surface-variant/70 focus:outline-none focus:bg-surface-container-lowest focus:shadow-md transition-all resize-none" placeholder="شاركنا تجربتك بالتفصيل لمساعدة أهالي حضرموت في اختيار الأفضل..." rows="4">ما شاء الله تبارك الله، المعلم سعيد قمة في الأمانة والإتقان. فحص المكيف بدقة وتم تعبئة فريون أمريكي أصلي مع تنظيف الفلاتر بالكامل. أنصح بالتعامل معه وبشدة.</textarea>
+</div>
+<!-- Photo Attachments -->
+<div class="flex flex-col gap-space-xs mt-1">
+<span class="font-label-md text-label-md text-on-surface">صور العمل بعد الإنجاز:</span>
+<div class="flex items-center gap-space-sm overflow-x-auto py-1">
+<!-- Preview Image 1 -->
+<div class="relative w-20 h-20 rounded-xl overflow-hidden shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Close up photograph of a perfectly cleaned, freshly serviced white modern split air conditioning indoor unit on a pristine wall in a Mukalla home, showing frosty cool airflow ribbon test." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA74KOVkhfIx716rZAxYADT6EFFuCrSGwyqj7uDCzAm_V39nK76ArSC2CtxD4Tdk_0T0-lniACZ2hEVpdDEgr2VAtrchnVuuiXhkC_mwYZMJyr8iLad_CeFjxXaf0_YTeDZuPLL3ahW-LT5SFuzZrcUFscmDCxCNu2K9UBBIp1EZoJlwLsQLp1mD1U75tunOZxuMxujYoS9Luwph2qfJj5c_T2_VCRiATJzWvHmUmg"/>
+<button class="absolute top-1 right-1 w-5 h-5 rounded-full bg-primary-container/80 text-on-primary flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-[12px]">close</span>
+</button>
+</div>
+<!-- Preview Image 2 -->
+<div class="relative w-20 h-20 rounded-xl overflow-hidden shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Technical pressure gauge attached to outdoor condensing unit of an air conditioner during precise refrigerant refill, pristine copper piping and neat finish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuvn9w4suwn0RZVzO3UtzlROXWlvmfX8YOCZvgZsyo_9FvKEu3RPWlmmMD5z97XPfReFR41fQUmlFpnF3sL1osZBU7IckgUMBEY035bEKIWNxAPvPyaxdYr_TvNzkKEMJSglSHzS0XadNPwOpcNapJ1ZK9_1DyGeiqZwMK7LG_EnVGi8u65vJMLLSMTCXnUJNNSsKOZR2StctHinlgHmaWU9LIwvKSgfHTzWzqKoc"/>
+<button class="absolute top-1 right-1 w-5 h-5 rounded-full bg-primary-container/80 text-on-primary flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-[12px]">close</span>
+</button>
+</div>
+<!-- Add Photo Button -->
+<button class="w-20 h-20 rounded-xl bg-surface-container-low hover:bg-surface-container-high flex flex-col items-center justify-center gap-1 text-on-surface-variant shrink-0 active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-[24px] text-secondary">add_a_photo</span>
+<span class="font-label-sm text-label-sm">إضافة صورة</span>
+</button>
+</div>
+</div>
+</div>
+<!-- 7. Tip the Artisan (Local Support) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-full bg-tertiary-fixed/60 text-tertiary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h4 class="font-headline-sm text-headline-sm text-primary">إكرامية تقديراً لإتقان الحرفي</h4>
+<span class="font-label-sm text-label-sm text-on-surface-variant">مبادرة كرم محلية لدعم المعلمين والشباب المهنيين</span>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-2 mt-1">
+<button class="tip-btn py-2.5 rounded-lg font-label-md text-label-md text-center transition-all bg-surface-container-low text-on-surface hover:bg-surface-container-high" type="button">
+          بدون
+        </button>
+<button class="tip-btn py-2.5 rounded-lg font-label-md text-label-md text-center transition-all bg-surface-container-low text-on-surface hover:bg-surface-container-high" type="button">
+          500 ر.ي
+        </button>
+<button class="tip-btn active py-2.5 rounded-lg font-label-md text-label-md text-center transition-all bg-primary-container text-on-primary font-bold shadow-sm" type="button">
+          1,000 ر.ي
+        </button>
+<button class="tip-btn py-2.5 rounded-lg font-label-md text-label-md text-center transition-all bg-surface-container-low text-on-surface hover:bg-surface-container-high" type="button">
+          2,000 ر.ي
+        </button>
+</div>
+</div>
+<!-- 8. Verified Identity & Privacy Toggle -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-primary truncate">نشر التقييم باسم العميل الموثّق</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">سالم باوزير • حي فوة، المكلا</span>
+</div>
+</div>
+<!-- Modern Toggle Switch -->
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" id="privacy-toggle" type="checkbox"/>
+<div class="w-12 h-7 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:right-[2px] after:bg-white after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- 9. Bottom Action Buttons -->
+<div class="flex flex-col gap-space-xs mt-space-sm mb-space-lg">
+<button class="w-full h-12 bg-primary-container text-on-primary rounded-lg font-label-lg text-label-lg flex items-center justify-center gap-space-xs shadow-md active:scale-[0.98] transition-all hover:bg-primary" type="button">
+<span>إرسال التقييم واعتماد المراجعة</span>
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<button class="w-full h-11 bg-transparent text-on-surface-variant rounded-lg font-label-md text-label-md flex items-center justify-center hover:bg-surface-container-low transition-colors" type="button">
+        تخطي والعودة للرئيسية
+      </button>
+</div>
+</div>
+</div>
+<script>
+  (function initReviewInteractions() {
+    // Star rating handler
+    const stars = document.querySelectorAll('.star-btn');
+    const ratingText = document.getElementById('rating-text');
+    const statusMessages = [
+      'بحاجة إلى تحسين كبير ⚠️',
+      'مقبول، ولكن توجد ملاحظات 🛠️',
+      'جيد وأنجز المطلوب 👍',
+      'رائع ومتقن جداً ✨',
+      'ممتاز وفوق التوقعات! 🌟'
+    ];
+
+    stars.forEach(star => {
+      star.addEventListener('click', () => {
+        const val = parseInt(star.getAttribute('data-val'), 10);
+        stars.forEach(s => {
+          const sVal = parseInt(s.getAttribute('data-val'), 10);
+          const icon = s.querySelector('.material-symbols-outlined');
+          if (sVal <= val) {
+            icon.classList.remove('text-on-surface-variant/40');
+            icon.classList.add('text-tertiary-fixed-dim');
+            icon.style.fontVariationSettings = "'FILL' 1";
+          } else {
+            icon.classList.remove('text-tertiary-fixed-dim');
+            icon.classList.add('text-on-surface-variant/40');
+            icon.style.fontVariationSettings = "'FILL' 0";
+          }
+        });
+        if (ratingText && statusMessages[val - 1]) {
+          ratingText.textContent = statusMessages[val - 1];
+        }
+      });
+    });
+
+    // Compliment chips toggle
+    const chips = document.querySelectorAll('.compliment-chip');
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const isActive = chip.classList.contains('bg-primary-container');
+        if (isActive) {
+          chip.classList.remove('bg-primary-container', 'text-on-primary');
+          chip.classList.add('bg-surface-container-low', 'text-on-surface');
+        } else {
+          chip.classList.remove('bg-surface-container-low', 'text-on-surface');
+          chip.classList.add('bg-primary-container', 'text-on-primary');
+        }
+      });
+    });
+
+    // Tip buttons selection
+    const tipBtns = document.querySelectorAll('.tip-btn');
+    tipBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tipBtns.forEach(b => {
+          b.classList.remove('bg-primary-container', 'text-on-primary', 'font-bold', 'shadow-sm');
+          b.classList.add('bg-surface-container-low', 'text-on-surface');
+        });
+        btn.classList.remove('bg-surface-container-low', 'text-on-surface');
+        btn.classList.add('bg-primary-container', 'text-on-primary', 'font-bold', 'shadow-sm');
+      });
+    });
+  })();
+</script>
+  </div>
+</main>
+<nav class="lg:hidden fixed bottom-0 inset-x-0 z-50 bg-surface-container-lowest/95 backdrop-blur-xl border-t border-surface-container shadow-[0_-2px_10px_rgba(0,0,0,0.04)] pb-safe">
+  <div class="flex justify-around items-center h-16 px-1">
+    <a href="index.html" class="flex flex-col items-center justify-center gap-0.5 w-14 h-14 transition-colors text-on-surface-variant hover:text-primary font-medium">
+          <span class="material-symbols-outlined text-[22px]">home</span>
+          <span class="text-[10px]">الرئيسية</span>
+        </a><a href="explore.html" class="flex flex-col items-center justify-center gap-0.5 w-14 h-14 transition-colors text-on-surface-variant hover:text-primary font-medium">
+          <span class="material-symbols-outlined text-[22px]">explore</span>
+          <span class="text-[10px]">استكشف</span>
+        </a><a href="my-requests.html" class="flex flex-col items-center justify-center gap-0.5 w-14 h-14 transition-colors text-primary font-bold">
+          <span class="material-symbols-outlined text-[22px]">work</span>
+          <span class="text-[10px]">طلباتي</span>
+        </a><a href="favorites.html" class="flex flex-col items-center justify-center gap-0.5 w-14 h-14 transition-colors text-on-surface-variant hover:text-primary font-medium">
+          <span class="material-symbols-outlined text-[22px]">favorite</span>
+          <span class="text-[10px]">المفضلة</span>
+        </a><a href="profile.html" class="flex flex-col items-center justify-center gap-0.5 w-14 h-14 transition-colors text-on-surface-variant hover:text-primary font-medium">
+          <span class="material-symbols-outlined text-[22px]">person</span>
+          <span class="text-[10px]">حسابي</span>
+        </a>
+  </div>
+</nav>
+<footer class="w-full bg-primary text-on-primary mt-12 py-10 border-t border-primary-container">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <div class="space-y-3">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-surface-container-lowest/15 flex items-center justify-center text-tertiary-fixed">
+            <span class="material-symbols-outlined text-[20px]">handyman</span>
+          </div>
+          <span class="font-bold text-xl text-white">منصة مِـرَاس</span>
+        </div>
+        <p class="text-xs text-on-primary-container leading-relaxed">
+          المنظومة الأولى لتوثيق وتسهيل خدمات الحرفيين وأصحاب المهن في محافظة حضرموت، بضمان مالي موثوق وأسعار عادلة بالريال اليمني.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-sm text-tertiary-fixed mb-3">نطاق التغطية الحضرمية</h4>
+        <ul class="text-xs space-y-1.5 text-on-primary-container">
+          <li>المكلا (المركز، فوة، الشرج، الديس، خلف)</li>
+          <li>سيئون وتريم (وادي حضرموت)</li>
+          <li>الشحر وغيل باوزير</li>
+          <li>وادي دوعن والقطن</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-sm text-tertiary-fixed mb-3">روابط هامة</h4>
+        <ul class="text-xs space-y-1.5 text-on-primary-container">
+          <li><a href="explore.html" class="hover:text-white transition-colors">استكشاف المهن والخدمات</a></li>
+          <li><a href="join-pro.html" class="hover:text-white transition-colors">انضمام أصحاب المهن والكوادر</a></li>
+          <li><a href="support.html" class="hover:text-white transition-colors">مركز الدعم والمساندة الحضرمية</a></li>
+          <li><a href="account-type.html" class="hover:text-white transition-colors">اختيار نوع الحساب</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-sm text-tertiary-fixed mb-3">التواصل الرسمي</h4>
+        <p class="text-xs text-on-primary-container leading-relaxed">
+          هاتف المنصة: +967 7XXXXXXXX<br/>
+          البريد الإلكتروني: support@miras.ye<br/>
+          المكلا — محافظة حضرموت — الجمهورية اليمنية
+        </p>
+      </div>
+    </div>
+
+    <div class="pt-6 border-t border-primary-container/60 flex flex-col sm:flex-row items-center justify-between text-xs text-on-primary-container gap-3">
+      <p>© 2026 مِـرَاس — جميع الحقوق محفوظة لمالكة المنصة.</p>
+      <div class="flex items-center gap-4">
+        <a href="support.html" class="hover:text-white transition-colors">المساعدة والشكاوى</a>
+        <a href="admin/index.html" class="hover:text-white transition-colors text-tertiary-fixed">بوابة الإدارة</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase/config.js"></script>
+<script src="supabase/auth-router.js"></script>
+<script src="supabase/miras-api.js"></script>
+
+</body>
+</html>
