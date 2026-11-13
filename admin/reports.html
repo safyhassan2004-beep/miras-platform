@@ -148,7 +148,7 @@
         </button>
         <div>
           <h1 class="text-lg font-bold text-primary">تقارير الجودة والرقابة الميدانية</h1>
-          <p class="text-[11px] text-text-secondary hidden sm:block">رصد المطابقة الفنية لكود البناء السعودي ومؤشرات حل النزاعات</p>
+          <p class="text-[11px] text-text-secondary hidden sm:block">رصد المطابقة الفنية لالمعايير الهندسية والمواصفات المعتمدة ومؤشرات حل النزاعات</p>
         </div>
       </div>
       <div class="flex items-center gap-3">
@@ -227,7 +227,7 @@
                 <th class="py-3 px-4">رقم الجولة / المشروع</th>
                 <th class="py-3 px-4">اسم الحرفي والمهنة</th>
                 <th class="py-3 px-4">المشرف الهندسي الميداني</th>
-                <th class="py-3 px-4">المدينة / النطاق</th>
+                <th class="py-3 px-4">عدن / النطاق</th>
                 <th class="py-3 px-4">حالة المطابقة الفنية</th>
                 <th class="py-3 px-4">تاريخ المعاينة</th>
                 <th class="py-3 px-4 text-center">الإجراء</th>
@@ -238,7 +238,7 @@
                 <td class="py-3 px-4 font-bold text-primary">AUD-2026-809<div class="text-[10px] text-text-muted">مشروع: #ORD-7712</div></td>
                 <td class="py-3 px-4"><div class="font-bold">سعدون الشمري</div><div class="text-[10px] text-text-muted">تمديدات كهربائية وسمارت هوم</div></td>
                 <td class="py-3 px-4">م. عبد الإله الزهراني</td>
-                <td class="py-3 px-4">الرياض — النرجس</td>
+                <td class="py-3 px-4">حضرموت — المكلا (فوة)</td>
                 <td class="py-3 px-4"><span class="px-2 py-0.5 rounded-full bg-status-success-bg text-status-success font-bold text-[10px]">مطابق 100% لكود البناء</span></td>
                 <td class="py-3 px-4 text-text-secondary">11 نوفمبر 2026</td>
                 <td class="py-3 px-4 text-center"><button onclick="viewAuditDetails('AUD-2026-809')" class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-primary font-bold">معاينة</button></td>
@@ -364,10 +364,10 @@
     if (exportCsvBtn) {
       exportCsvBtn.addEventListener('click', () => {
         const rows = [
-          ['رقم الجولة', 'رقم المشروع', 'الحرفي', 'المهنة', 'المشرف', 'المدينة', 'الحالة', 'التاريخ'],
-          ['AUD-2026-809', '#ORD-7712', 'سعدون الشمري', 'تمديدات كهربائية', 'م. عبد الإله الزهراني', 'الرياض', 'مطابق 100%', '2026-11-11'],
-          ['AUD-2026-808', '#ORD-7690', 'معاذ الغامدي', 'سباكة وعزل', 'م. طارق العتيبي', 'جدة', 'ملاحظات قيد المعالجة', '2026-11-10'],
-          ['AUD-2026-807', '#ORD-7654', 'خالد بن عبد الرحمن', 'نجارة وديكورات', 'م. فيصل الدوسري', 'الدمام', 'مطابق ومعتمد', '2026-11-09'],
+          ['رقم الجولة', 'رقم المشروع', 'الحرفي', 'المهنة', 'المشرف', 'عدن', 'الحالة', 'التاريخ'],
+          ['AUD-2026-809', '#ORD-7712', 'سعدون الشمري', 'تمديدات كهربائية', 'م. عبد الإله الزهراني', 'حضرموت — المكلا', 'مطابق 100%', '2026-11-11'],
+          ['AUD-2026-808', '#ORD-7690', 'معاذ الغامدي', 'سباكة وعزل', 'م. طارق العتيبي', 'حضرموت — سيئون', 'ملاحظات قيد المعالجة', '2026-11-10'],
+          ['AUD-2026-807', '#ORD-7654', 'خالد بن عبد الرحمن', 'نجارة وديكورات', 'م. فيصل الدوسري', 'حضرموت — الشحر', 'مطابق ومعتمد', '2026-11-09'],
           ['AUD-2026-806', '#ORD-7622', 'فهد القحطاني', 'جبس وتشطيبات', 'لجنة فض النزاعات', 'الخبر', 'نزاع جودة', '2026-11-08']
         ];
         let csvContent = "data:text/csv;charset=utf-8,\uFEFF" + rows.map(e => e.join(",")).join("\n");

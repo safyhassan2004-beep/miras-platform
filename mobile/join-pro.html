@@ -75,7 +75,7 @@
 <div class="flex flex-col gap-space-xs">
 <label class="font-label-md text-label-md text-on-surface font-semibold" for="city">المدينة</label>
 <div class="relative flex items-center">
-<input class="w-full bg-surface-container-low text-on-surface placeholder:text-outline rounded-lg px-space-md py-3 pr-10 font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-lowest focus:shadow-[0_0_0_2px_#7fd2e8] transition-all" id="city" placeholder="الرياض، جدة، الدمام..." type="text">
+<input class="w-full bg-surface-container-low text-on-surface placeholder:text-outline rounded-lg px-space-md py-3 pr-10 font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-lowest focus:shadow-[0_0_0_2px_#7fd2e8] transition-all" id="city" placeholder="حضرموت — المكلا، سيئون، الشحر..." value="حضرموت — المكلا" type="text">
 <span class="material-symbols-outlined absolute right-3 text-outline text-[20px] pointer-events-none">location_city</span>
 </div>
 </div>
@@ -336,7 +336,10 @@
 
       setTimeout(() => {
         alert('تم تقديم طلب الانضمام وتوثيق البيانات بنجاح!');
-        window.location.href = '../pro/index.html';
+        localStorage.setItem('miras_current_pro_status', 'pending');
+        sessionStorage.setItem('miras_craftsman_status', 'pending');
+        alert('تم استلام طلب انضمامك بنجاح! حسابك المهني قيد المراجعة والاعتماد من قبل مالكة المنصة. ستتمكن من تسجيل الدخول فور الموافقة.');
+        window.location.href = 'pro-login.html?pending=true';
       }, 800);
     });
   }

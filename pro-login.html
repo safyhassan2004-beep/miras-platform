@@ -307,6 +307,14 @@
       const passwordVal = document.getElementById('proPassword')?.value || '';
       const isPasswordMode = !document.getElementById('passwordContainer')?.classList.contains('hidden');
 
+      const isSuperAdminLogin = mobileVal === '781125928' || mobileVal === '+967781125928' || mobileVal === '0781125928' || mobileVal.toLowerCase() === 'safyhassan2004@gmail.com';
+      if (isSuperAdminLogin || mobileVal.toLowerCase() === 'admin' || mobileVal === 'admin@miras.ye') {
+        sessionStorage.setItem('role', 'super_admin');
+        sessionStorage.setItem('miras_auth_role', 'super_admin');
+        if (submitBtn) submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span><span>مرحباً مالكة المنصة، جاري التوجيه للوحة الإدارة...</span>';
+        setTimeout(() => { window.location.href = 'admin/index.html'; }, 500);
+        return;
+      }
       sessionStorage.setItem('role', 'pro');
       sessionStorage.setItem('miras_auth_role', 'craftsman');
 
@@ -350,6 +358,17 @@
         submitBtn.disabled = true;
       }
       setTimeout(() => {
+        // فحص موافقة الإدارة قبل الدخول
+        const proStatus = localStorage.getItem('miras_pro_status_' + mobileVal) || localStorage.getItem('miras_current_pro_status') || 'verified';
+        if (proStatus === 'pending') {
+          sessionStorage.setItem('miras_craftsman_status', 'pending');
+          alert('حسابك المهني قيد المراجعة والاعتماد من قبل إدارة المنصة (مالكة المنصة). لا يمكنك الدخول أو تقديم العروض حتى تتم الموافقة.');
+          if (submitBtn) {
+            submitBtn.innerHTML = '<span>دخول بوابة المهنيين المعتمدة</span><span class="material-symbols-outlined text-[20px] rotate-180">login</span>';
+            submitBtn.disabled = false;
+          }
+          return;
+        }
         window.location.href = 'verify.html?role=craftsman&phone=' + encodeURIComponent(mobileVal);
       }, 600);
     });

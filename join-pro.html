@@ -478,7 +478,11 @@
 
       setTimeout(() => {
         alert('تم استلام طلب انضمامك وتوثيق بياناتك بنجاح في منظومة مِـرَاس!');
-        window.location.href = 'pro/index.html';
+        localStorage.setItem('miras_current_pro_status', 'pending');
+        localStorage.setItem('miras_pro_status_' + phoneInput, 'pending');
+        sessionStorage.setItem('miras_craftsman_status', 'pending');
+        alert('تم استلام طلب انضمامك وتوثيق بياناتك بنجاح! حسابك الآن بانتظار مراجعة واعتماد مالكة المنصة (Super Admin). ستتمكن من تسجيل الدخول فور الموافقة.');
+        window.location.href = 'pro-login.html?pending=true';
       }, 800);
     });
   }

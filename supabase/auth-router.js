@@ -52,7 +52,7 @@ window.MirasRouter = {
             phone_number: isOwner ? '+967781125928' : normPhone,
             role: safeRole,
             country: 'Yemen',
-            city: city || 'صنعاء',
+            city: city || 'حضرموت — المكلا',
             trade_category: tradeCategory || 'صيانة وتشطيبات عامة'
           }
         }
@@ -126,6 +126,22 @@ window.MirasRouter = {
           }
           if (!error && profile) {
             if (profile.role === 'craftsman') {
+              // فحص حالة الاعتماد من قبل مالكة المنصة
+              const { data: pro } = await supabase
+                .from('craftsmen_profiles')
+                .select('verification_status')
+                .eq('user_id', user.id)
+                .single();
+
+              const vStatus = pro?.verification_status || 'pending';
+              sessionStorage.setItem('miras_craftsman_status', vStatus);
+
+              if (vStatus !== 'verified') {
+                alert('حسابك المهني قيد المراجعة والاعتماد من قبل إدارة المنصة . لا يمكنك الدخول حتى تتم الموافقة.');
+                sessionStorage.setItem('miras_auth_role', 'craftsman');
+                return this.navigate('pro-login.html?pending=true');
+              }
+
               sessionStorage.setItem('miras_auth_role', 'craftsman');
               return this.navigate('pro/index.html');
             }
