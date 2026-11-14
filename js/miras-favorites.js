@@ -109,3 +109,4 @@ const MirasFavorites = {
 };
 
 window.MirasFavorites = MirasFavorites;
+

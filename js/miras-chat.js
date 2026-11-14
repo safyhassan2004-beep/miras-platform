@@ -84,3 +84,4 @@ const MirasChat = {
 };
 
 window.MirasChat = MirasChat;
+

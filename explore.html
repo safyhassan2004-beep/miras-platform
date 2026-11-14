@@ -222,6 +222,67 @@
 </button>
 </div>
 </section>
+
+<!-- Trade Categories Bar (Horizontal Scroll) -->
+<section class="px-margin py-2 bg-surface">
+  <div class="flex items-center gap-2 overflow-x-auto pb-1 -mx-margin px-margin scrollbar-none" id="tradeCategoriesBar">
+    <button data-cat="all" onclick="filterByTradeCategory('all')" class="trade-cat-chip px-3.5 py-1.5 rounded-xl font-label-sm text-label-sm font-semibold bg-primary text-on-primary whitespace-nowrap shadow-xs transition-all flex items-center gap-1.5" type="button">
+      <span>كافة المهن</span>
+    </button>
+    <button data-cat="hvac" onclick="filterByTradeCategory('hvac')" class="trade-cat-chip px-3.5 py-1.5 rounded-xl font-label-sm text-label-sm font-semibold bg-surface-container-lowest text-on-surface hover:bg-surface-container whitespace-nowrap shadow-xs transition-all flex items-center gap-1.5" type="button">
+      <span class="material-symbols-outlined text-[16px] text-secondary">ac_unit</span>
+      <span>تكييف وتبريد</span>
+    </button>
+    <button data-cat="plumbing" onclick="filterByTradeCategory('plumbing')" class="trade-cat-chip px-3.5 py-1.5 rounded-xl font-label-sm text-label-sm font-semibold bg-surface-container-lowest text-on-surface hover:bg-surface-container whitespace-nowrap shadow-xs transition-all flex items-center gap-1.5" type="button">
+      <span class="material-symbols-outlined text-[16px] text-secondary">plumbing</span>
+      <span>سباكة وصحي</span>
+    </button>
+    <button data-cat="electrical" onclick="filterByTradeCategory('electrical')" class="trade-cat-chip px-3.5 py-1.5 rounded-xl font-label-sm text-label-sm font-semibold bg-surface-container-lowest text-on-surface hover:bg-surface-container whitespace-nowrap shadow-xs transition-all flex items-center gap-1.5" type="button">
+      <span class="material-symbols-outlined text-[16px] text-secondary">electrical_services</span>
+      <span>كهرباء وتمديدات</span>
+    </button>
+    <button data-cat="carpentry" onclick="filterByTradeCategory('carpentry')" class="trade-cat-chip px-3.5 py-1.5 rounded-xl font-label-sm text-label-sm font-semibold bg-surface-container-lowest text-on-surface hover:bg-surface-container whitespace-nowrap shadow-xs transition-all flex items-center gap-1.5" type="button">
+      <span class="material-symbols-outlined text-[16px] text-secondary">carpenter</span>
+      <span>نجارة وألمنيوم</span>
+    </button>
+    <button data-cat="painting" onclick="filterByTradeCategory('painting')" class="trade-cat-chip px-3.5 py-1.5 rounded-xl font-label-sm text-label-sm font-semibold bg-surface-container-lowest text-on-surface hover:bg-surface-container whitespace-nowrap shadow-xs transition-all flex items-center gap-1.5" type="button">
+      <span class="material-symbols-outlined text-[16px] text-secondary">format_paint</span>
+      <span>دهان وديكور</span>
+    </button>
+    <button data-cat="construction" onclick="filterByTradeCategory('construction')" class="trade-cat-chip px-3.5 py-1.5 rounded-xl font-label-sm text-label-sm font-semibold bg-surface-container-lowest text-on-surface hover:bg-surface-container whitespace-nowrap shadow-xs transition-all flex items-center gap-1.5" type="button">
+      <span class="material-symbols-outlined text-[16px] text-secondary">foundation</span>
+      <span>بناء حضرمي</span>
+    </button>
+    <button data-cat="auto" onclick="filterByTradeCategory('auto')" class="trade-cat-chip px-3.5 py-1.5 rounded-xl font-label-sm text-label-sm font-semibold bg-surface-container-lowest text-on-surface hover:bg-surface-container whitespace-nowrap shadow-xs transition-all flex items-center gap-1.5" type="button">
+      <span class="material-symbols-outlined text-[16px] text-secondary">car_repair</span>
+      <span>صيانة سيارات</span>
+    </button>
+    <button data-cat="tailoring" onclick="filterByTradeCategory('tailoring')" class="trade-cat-chip px-3.5 py-1.5 rounded-xl font-label-sm text-label-sm font-semibold bg-surface-container-lowest text-on-surface hover:bg-surface-container whitespace-nowrap shadow-xs transition-all flex items-center gap-1.5" type="button">
+      <span class="material-symbols-outlined text-[16px] text-secondary">content_cut</span>
+      <span>خياطة وتطريز</span>
+    </button>
+    <button data-cat="tech" onclick="filterByTradeCategory('tech')" class="trade-cat-chip px-3.5 py-1.5 rounded-xl font-label-sm text-label-sm font-semibold bg-surface-container-lowest text-on-surface hover:bg-surface-container whitespace-nowrap shadow-xs transition-all flex items-center gap-1.5" type="button">
+      <span class="material-symbols-outlined text-[16px] text-secondary">terminal</span>
+      <span>خدمات تقنية</span>
+    </button>
+  </div>
+</section>
+
+<!-- Active Category Alert Banner -->
+<div id="activeCategoryAlert" class="hidden px-margin py-1.5">
+  <div class="bg-primary/10 border border-primary/20 rounded-xl px-3 py-2 flex items-center justify-between gap-2 text-xs">
+    <div class="flex items-center gap-1.5 text-primary font-bold">
+      <span class="material-symbols-outlined text-[18px]">filter_alt</span>
+      <span>تصنيف المهن المختار:</span>
+      <span id="activeCategoryName" class="underline">تكييف وتبريد</span>
+    </div>
+    <button type="button" onclick="filterByTradeCategory('all')" class="text-on-surface-variant hover:text-error flex items-center gap-0.5 text-[11px] font-semibold bg-surface-container px-2 py-0.5 rounded-lg transition-colors">
+      <span>إلغاء التصفية (عرض الكل)</span>
+      <span class="material-symbols-outlined text-[14px]">close</span>
+    </button>
+  </div>
+</div>
+
 <!-- Region & Criteria Compact Selector Panel -->
 <section class="px-margin py-2.5 bg-surface-container-low flex items-center justify-between gap-2 overflow-x-auto shadow-sm">
 <div class="flex items-center gap-1.5 overflow-x-auto scrollbar-none py-0.5">
@@ -233,8 +294,8 @@
 </button>
 <!-- Category Tag Filter -->
 <div class="flex items-center gap-1 bg-surface-container-lowest px-2.5 py-1.5 rounded-lg text-on-surface font-label-sm text-label-sm shadow-sm whitespace-nowrap">
-<span class="material-symbols-outlined text-[15px] text-secondary">ac_unit</span>
-<span>تكييف، كهرباء، صيانة</span>
+<span class="material-symbols-outlined text-[15px] text-secondary">verified</span>
+<span id="headerCategoryTag">مهن حضرموت المعتمدة</span>
 </div>
 <!-- Sorting Pill -->
 <button class="flex items-center gap-1 bg-surface-container-lowest px-2.5 py-1.5 rounded-lg text-on-surface-variant font-label-sm text-label-sm shadow-sm whitespace-nowrap" id="sortTriggerBtn">
@@ -247,24 +308,28 @@
 <span>5K - 50K+ ر.ي</span>
 </div>
 </section>
+
 <!-- Results Count & Context Banner -->
 <div class="px-margin pt-4 pb-2 flex items-center justify-between">
 <div class="flex items-center gap-1.5">
 <span class="w-1.5 h-3.5 bg-secondary rounded-full"></span>
-<p class="font-label-md text-label-md text-on-surface font-semibold">
-        تم العثور على <span class="text-secondary font-bold">24</span> مهني موثق في المكلا وضواحيها
-      </p>
+<p class="font-label-md text-label-md text-on-surface font-semibold" id="resultsCountBanner">
+  تم العثور على <span id="resultsCountNumber" class="text-secondary font-bold">18</span> <span id="resultsCategoryContext">مهني موثق في المكلا وضواحيها</span>
+</p>
 </div>
 <span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-md">موثوق</span>
 </div>
-<!-- Listings List (Mobile Optimized Stack) -->
-<div class="px-margin py-2 flex flex-col gap-4">
-<!-- Card 1: ورشة النبراس (Air Conditioning / Fast Service) -->
-<article class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex flex-col gap-3 relative transition-all active:scale-[0.99]">
+
+<!-- Listings List (Mobile & Desktop Optimized Stack) -->
+<div class="px-margin py-2 flex flex-col gap-4" id="artisanListingsContainer">
+
+<!-- ================= 1. HVAC / تكييف وتبريد ================= -->
+<!-- Card 1: ورشة النبراس للتبريد -->
+<article data-category="hvac" class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex flex-col gap-3 relative transition-all active:scale-[0.99]">
 <div class="flex items-start justify-between gap-3">
 <div class="flex items-center gap-3">
 <div class="relative w-14 h-14 rounded-2xl overflow-hidden bg-surface-container-high flex-shrink-0 shadow-sm">
-<img class="w-full h-full object-cover" data-alt="Close up professional portrait of Saeed, an experienced Yemeni HVAC technician wearing dark blue workshop attire smiling gently in a clean modern workshop in Al-Mukalla Yemen, soft ambient daylighting, photorealistic warm tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvfb0MrhbqjlwJ1S3vCO07WX3vLtU7dpmAYjE7PlDNMYgS5VV8waOxaMF6u4J5v36pmcEFPtKXeuftJ6fCJr2Xi_OctOgSuaN3GJISXVHvD4G96GbhwzE3G1ih6lBHwCNCPqaIpJ9EFulohjZAvpXyBWONy9bIdpdkD889_VHp8jKWtywOrvj5cs1r52jpgioTAlOquLZ9zasjRsnxWP8ImugSPv8qRxRa4lr9Eqg"/>
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvfb0MrhbqjlwJ1S3vCO07WX3vLtU7dpmAYjE7PlDNMYgS5VV8waOxaMF6u4J5v36pmcEFPtKXeuftJ6fCJr2Xi_OctOgSuaN3GJISXVHvD4G96GbhwzE3G1ih6lBHwCNCPqaIpJ9EFulohjZAvpXyBWONy9bIdpdkD889_VHp8jKWtywOrvj5cs1r52jpgioTAlOquLZ9zasjRsnxWP8ImugSPv8qRxRa4lr9Eqg" alt="ورشة النبراس للتبريد"/>
 <div class="absolute -bottom-1 -right-1 bg-surface-container-lowest p-0.5 rounded-full shadow-sm">
 <span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">verified</span>
 </div>
@@ -272,22 +337,22 @@
 <div class="flex flex-col min-w-0">
 <div class="flex items-center gap-1.5">
 <h2 class="font-headline-sm text-headline-sm text-primary font-bold truncate">ورشة النبراس للتبريد</h2>
+<span class="bg-tertiary-fixed text-on-tertiary-container text-[10px] font-bold px-1.5 py-0.2 rounded-full">تكييف</span>
 </div>
 <p class="font-label-sm text-label-sm text-on-surface-variant truncate">فني معتمد: سعيد بن مخاشن</p>
 <div class="flex items-center gap-2 mt-0.5 text-on-surface-variant font-label-sm text-label-sm">
 <span class="flex items-center gap-0.5">
 <span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
-                المكلا - فُوّة
-              </span>
+المكلا - فُوّة
+</span>
 <span class="text-outline-variant">•</span>
 <span class="text-emerald-700 font-semibold flex items-center gap-1">
 <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                متاح اليوم
-              </span>
+متاح اليوم
+</span>
 </div>
 </div>
 </div>
-<!-- Rating & Fav -->
 <div class="flex flex-col items-end gap-2 flex-shrink-0">
 <button aria-label="إضافة للمفضلة" class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:text-tertiary-fixed-dim transition-colors" onclick="toggleFavorite(this)" type="button">
 <span class="material-symbols-outlined text-[19px]">favorite</span>
@@ -299,26 +364,24 @@
 </div>
 </div>
 </div>
-<!-- Service Highlights & Badges -->
 <div class="flex items-center gap-1.5 flex-wrap">
 <span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">صيانة سبليت ومركزي</span>
 <span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">شحن غاز أصلي</span>
 <span class="bg-tertiary-fixed text-on-tertiary-fixed px-2 py-0.5 rounded-md font-label-sm text-label-sm font-semibold flex items-center gap-0.5">
 <span class="material-symbols-outlined text-[13px]">bolt</span>
-          خدمة سريعة
-        </span>
+خدمة سريعة
+</span>
 </div>
-<!-- Action Footer -->
-<div class="pt-2 flex items-center justify-between gap-2">
+<div class="pt-2 flex items-center justify-between gap-2 border-t border-surface-container">
 <div class="flex flex-col">
 <span class="font-label-sm text-label-sm text-on-surface-variant">السعر التقديري</span>
 <span class="font-label-lg text-label-lg text-primary font-bold">يبدأ من 12,000 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">ر.ي</span></span>
 </div>
 <div class="flex items-center gap-1.5">
-<a aria-label="اتصال فوري" class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary active:scale-95 transition-transform" href="tel:+967770000001" title="اتصال بالمهني">
+<a aria-label="اتصال فوري" class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary active:scale-95 transition-transform" href="tel:+967781125928" title="اتصال بالمهني">
 <span class="material-symbols-outlined text-[20px]">call</span>
 </a>
-<a aria-label="واتساب المهني" target="_blank" class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center active:scale-95 transition-transform" href="https://wa.me/967770000001?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%85%20%D8%B3%D8%B9%D9%8A%D8%AF%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%AE%D8%AF%D9%85%D8%A9%20%D8%B9%D8%A8%D8%B1%20%D9%85%D9%90%D8%B1%D9%8E%D8%A7%D8%B3" title="واتساب المهني">
+<a aria-label="واتساب المهني" target="_blank" class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center active:scale-95 transition-transform" href="https://wa.me/967781125928?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%85%20%D8%B3%D8%B9%D9%8A%D8%AF%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%AE%D8%AF%D9%85%D8%A9%20%D8%AA%D9%83%D9%8A%D9%8A%D9%81%20%D8%B9%D8%A8%D8%B1%20%D9%85%D9%90%D8%B1%D9%8E%D8%A7%D8%B3" title="واتساب المهني">
 <span class="material-symbols-outlined text-[20px]">chat</span>
 </a>
 <button onclick="window.location.href='book-service.html?craftsman_id=1';" class="px-4 h-10 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold flex items-center gap-1.5 shadow-sm active:scale-95 transition-all" type="button">
@@ -328,12 +391,78 @@
 </div>
 </div>
 </article>
-<!-- Card 2: المهندس عمر بكران (Electrical / Tarim / Gallery Portfolio) -->
-<article class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex flex-col gap-3 relative transition-all active:scale-[0.99]">
+
+<!-- Card 1B: مركز الريان للتكييف المركزي -->
+<article data-category="hvac" class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex flex-col gap-3 relative transition-all active:scale-[0.99]">
 <div class="flex items-start justify-between gap-3">
 <div class="flex items-center gap-3">
 <div class="relative w-14 h-14 rounded-2xl overflow-hidden bg-surface-container-high flex-shrink-0 shadow-sm">
-<img class="w-full h-full object-cover" data-alt="Authentic smiling middle aged master electrician Omar in Tarim Yemen holding specialized voltage tools, dressed in beige linen work shirt, warm interior mudbrick building background, soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNLPGmNqjGAsAk4Dvogaec_6J9yRrTBsBJmUzFpvfcml6CrX6ZvGXLBnDOlgaXaOY5RxZvlGqJ1Ng7mH4XwT2YYGwji6LmhhMh3nystJiC-wxusZI-p48fb9rIfQbkE23HYDr-jA4t7ITQ9aXk8P1BBahZAg16e-QQch9FsQdgF6jzzXQyegCBCNqIO4AtAVqyQzRjOAV-snXBrOWifmfJBpzH-ISIXm8x8zRZz2A"/>
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAo_sGOwgiy2SLIEuzYnLAVbAT1SqhbWskKmEJ1N5J_ZbU43QH2vyWghadkgbtXD5jUJU6MfkrPs0zQv83kpoUHFdwodNpzimFwwsYOLy6j3hpLCLdyD9d32Kafddv_qCe7CIqcOe3MBNAuzic6SlfYORAngjWmEorfuoCjzuqXrmN6tsdhMuWbhkiHP-ogNLYYraMYsUMv7P5PGBbb0-GqGW4C5bzkWxp6sWnvJSY" alt="مركز الريان للتكييف"/>
+<div class="absolute -bottom-1 -right-1 bg-surface-container-lowest p-0.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold truncate">مركز الريان للتكييف المركزي</h2>
+<span class="bg-tertiary-fixed text-on-tertiary-container text-[10px] font-bold px-1.5 py-0.2 rounded-full">تكييف</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">فني معتمد: طارق باداود</p>
+<div class="flex items-center gap-2 mt-0.5 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
+سيئون - شارع المطار
+</span>
+<span class="text-outline-variant">•</span>
+<span class="text-emerald-700 font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+جاهز للكشف
+</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2 flex-shrink-0">
+<button aria-label="إضافة للمفضلة" class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:text-tertiary-fixed-dim transition-colors" onclick="toggleFavorite(this)" type="button">
+<span class="material-symbols-outlined text-[19px]">favorite</span>
+</button>
+<div class="flex items-center gap-1 bg-surface-container-low px-2 py-0.5 rounded-lg text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.85</span>
+<span class="text-on-surface-variant text-[11px]">(64)</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">غرف تبريد ومستودعات</span>
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">صيانة مكيفات باكيج وVRF</span>
+</div>
+<div class="pt-2 flex items-center justify-between gap-2 border-t border-surface-container">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">كشف دوري وفحص</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">يبدأ من 15,000 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">ر.ي</span></span>
+</div>
+<div class="flex items-center gap-1.5">
+<a aria-label="اتصال فوري" class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary active:scale-95 transition-transform" href="tel:+967781125928" title="اتصال">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</a>
+<a aria-label="واتساب المهني" target="_blank" class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center active:scale-95 transition-transform" href="https://wa.me/967781125928?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%85%D8%B1%D9%83%D8%B2%20%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D9%86%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%AE%D8%AF%D9%85%D8%A9%20%D8%AA%D9%83%D9%8A%D9%8A%D9%81" title="واتساب">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</a>
+<button onclick="window.location.href='book-service.html?craftsman_id=101';" class="px-4 h-10 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold flex items-center gap-1.5 shadow-sm active:scale-95 transition-all" type="button">
+<span>طلب خدمة</span>
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+</button>
+</div>
+</div>
+</article>
+
+<!-- ================= 2. ELECTRICAL / كهرباء وتمديدات ================= -->
+<!-- Card 2: م. عمر بكران -->
+<article data-category="electrical" class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex flex-col gap-3 relative transition-all active:scale-[0.99]">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="relative w-14 h-14 rounded-2xl overflow-hidden bg-surface-container-high flex-shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNLPGmNqjGAsAk4Dvogaec_6J9yRrTBsBJmUzFpvfcml6CrX6ZvGXLBnDOlgaXaOY5RxZvlGqJ1Ng7mH4XwT2YYGwji6LmhhMh3nystJiC-wxusZI-p48fb9rIfQbkE23HYDr-jA4t7ITQ9aXk8P1BBahZAg16e-QQch9FsQdgF6jzzXQyegCBCNqIO4AtAVqyQzRjOAV-snXBrOWifmfJBpzH-ISIXm8x8zRZz2A" alt="المهندس عمر بكران"/>
 <div class="absolute -bottom-1 -right-1 bg-surface-container-lowest p-0.5 rounded-full shadow-sm">
 <span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">verified</span>
 </div>
@@ -341,20 +470,19 @@
 <div class="flex flex-col min-w-0">
 <div class="flex items-center gap-1.5">
 <h2 class="font-headline-sm text-headline-sm text-primary font-bold truncate">م. عمر بكران</h2>
-<span class="bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold px-1.5 py-0.5 rounded">9 سنوات خبرة</span>
+<span class="bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold px-1.5 py-0.5 rounded">كهرباء</span>
 </div>
 <p class="font-label-sm text-label-sm text-on-surface-variant truncate">تمديدات كهربائية وإنارة ذكية</p>
 <div class="flex items-center gap-2 mt-0.5 text-on-surface-variant font-label-sm text-label-sm">
 <span class="flex items-center gap-0.5">
 <span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
-                تريم - الخليف
-              </span>
+تريم - الخليف وعيديد
+</span>
 <span class="text-outline-variant">•</span>
 <span class="text-on-surface-variant">متواجد للمشاريع</span>
 </div>
 </div>
 </div>
-<!-- Rating & Fav -->
 <div class="flex flex-col items-end gap-2 flex-shrink-0">
 <button aria-label="إضافة للمفضلة" class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:text-tertiary-fixed-dim transition-colors" onclick="toggleFavorite(this)" type="button">
 <span class="material-symbols-outlined text-[19px]">favorite</span>
@@ -366,35 +494,20 @@
 </div>
 </div>
 </div>
-<!-- Portfolio Work Samples Preview -->
-<div class="flex flex-col gap-1.5">
-<span class="font-label-sm text-label-sm text-on-surface-variant">نماذج من أعمال فلل وقصور تريم:</span>
-<div class="grid grid-cols-3 gap-2">
-<div class="h-16 rounded-xl overflow-hidden bg-surface-container">
-<img class="w-full h-full object-cover" data-alt="Interior lighting installation in a traditional Hadrami villa in Tarim Yemen, elegant warm recessed LED strips along mud architecture arches and ceiling panels" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQIu-caX6X4UQ_TTwVEIrr8gr3GtZxrJBQj2jzzYV0tjYHczQVctgsJkDXY_HmPLxRPyFLstA99xMnjjgQcSduhnH-dTUNBFZhjiM9EIxI0Y4KQamyrVM_T1haUIgGQUMynBj8IQmUYPVIk24wJt5_doazzzwqWwQXqxVO6QcKM1Qs95POTfyp72rC5JgJpFbXWYNT0wh5oSs9gWhDMuXwCNyBuDXtvxhtXkBhdeI"/>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">تأسيس فلل وقصور</span>
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">لوحات تحكم ذكية</span>
 </div>
-<div class="h-16 rounded-xl overflow-hidden bg-surface-container">
-<img class="w-full h-full object-cover" data-alt="Clean and meticulously arranged home electrical circuit breaker panel inside a luxury home in Seiyun Hadramout, labeled wires and switches" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc958OdpRcNU_I5NMhoX3UFB7cgIseVuL5J0pUIR2bL1bQe_FtCyR8Mkz7owc-lPu7yZt09x1hwR_CkJ2iulbUi2Mu7gH62LxXed96jV9HBVZZgfwf0Gs_qbH66w-IXzmG8IByqRjSfHmoXCYvLvII0PIS-IVXA9DtFp2-zo4tKMqE4klMvxi7k93Y3Ewti7ThrcUvc2cUph_jN6xv3I45xd-GaM2fozWHIeSX8Ts"/>
-</div>
-<div class="relative h-16 rounded-xl overflow-hidden bg-surface-container">
-<img class="w-full h-full object-cover" data-alt="Exterior night illumination and modern architectural garden spotlights illuminating a palace in Hadramout Yemen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEstCFbFWicA_VxMCEf_JmqJxNr1_U3fl1AHKXPsUpFAqbq1WzSWXpWztAV8EHtU3QahrHj_NAkz3av8S902tfPtNHhSeusuyHWCeNrhiPXmMklwKHZbDFgcJTLgNYTZUk6Aj9DT2wuq69u-5MwCIu6uFYhqtKYTBFDrFOm7Sgi-J-bkVyFLXxA772Z4iEOSziiHTP-EeRBx-ce38kpYYEnOkc3vXSDv5D3rShqnU"/>
-<div class="absolute inset-0 bg-primary/60 flex items-center justify-center text-on-primary font-label-sm text-label-sm font-bold backdrop-blur-xs">
-              +14 صورة
-            </div>
-</div>
-</div>
-</div>
-<!-- Action Footer -->
-<div class="pt-2 flex items-center justify-between gap-2">
+<div class="pt-2 flex items-center justify-between gap-2 border-t border-surface-container">
 <div class="flex flex-col">
 <span class="font-label-sm text-label-sm text-on-surface-variant">سعر المعاينة والتأسيس</span>
 <span class="font-label-lg text-label-lg text-primary font-bold">يبدأ من 7,000 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">ر.ي</span></span>
 </div>
 <div class="flex items-center gap-1.5">
-<a aria-label="اتصال مباشر" class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary active:scale-95 transition-transform" href="tel:+967770000002" title="اتصال بالمهني">
+<a aria-label="اتصال مباشر" class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary active:scale-95 transition-transform" href="tel:+967781125928" title="اتصال">
 <span class="material-symbols-outlined text-[20px]">call</span>
 </a>
-<a aria-label="واتساب المهني" target="_blank" class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center active:scale-95 transition-transform" href="https://wa.me/967770000002?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%A7%D9%84%D9%85%D9%87%D9%86%D8%AF%D8%B3%20%D8%B9%D9%85%D8%B1%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%AE%D8%AF%D9%85%D8%A9%20%D8%B9%D8%A8%D8%B1%20%D9%85%D9%90%D8%B1%D9%8E%D8%A7%D8%B3" title="واتساب المهني">
+<a aria-label="واتساب المهني" target="_blank" class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center active:scale-95 transition-transform" href="https://wa.me/967781125928?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%A7%D9%84%D9%85%D9%87%D9%86%D8%AF%D8%B3%20%D8%B9%D9%85%D8%B1%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%AE%D8%AF%D9%85%D8%A9%20%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A1" title="واتساب">
 <span class="material-symbols-outlined text-[20px]">chat</span>
 </a>
 <button onclick="window.location.href='artisan-profile.html?id=2';" class="px-4 h-10 rounded-xl bg-surface-container-high text-primary font-label-md text-label-md font-semibold active:scale-95 transition-all" type="button">
@@ -403,12 +516,73 @@
 </div>
 </div>
 </article>
-<!-- Card 3: المعلم ياسر الجابري (Plumbing / 24/7 / Work Guarantee) -->
-<article class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex flex-col gap-3 relative transition-all active:scale-[0.99]">
+
+<!-- Card 2B: كهربائي المكلا الحديثة -->
+<article data-category="electrical" class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex flex-col gap-3 relative transition-all active:scale-[0.99]">
 <div class="flex items-start justify-between gap-3">
 <div class="flex items-center gap-3">
 <div class="relative w-14 h-14 rounded-2xl overflow-hidden bg-surface-container-high flex-shrink-0 shadow-sm">
-<img class="w-full h-full object-cover" data-alt="Portrait of master plumber Yasir Al-Jabiri in Seiyun, wearing a modest Yemeni traditional headscarf and navy work polo, honest and confident expression, daytime warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTtk0YQlZf9RrOIcnnUpunQPP6CkWOuOeaIaF5b1imUp4pnBmdNJ_97JPC_XNDJ7wZB6YuJpdOaSa3v4gydUF12uE9FmbM4Ei7IrCAwpVh90f2KHpGdVUnDFgNUllzuN7QRIZwYD19jY81fNL8SCLyWiWwNoymoFmAVXM6RlatEeW0AYEYvNfRiPEWmQHYeKn9VcdMFUQk1PpR_jyiBYSGuDTxcngYL9XL6sb_waI"/>
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQIu-caX6X4UQ_TTwVEIrr8gr3GtZxrJBQj2jzzYV0tjYHczQVctgsJkDXY_HmPLxRPyFLstA99xMnjjgQcSduhnH-dTUNBFZhjiM9EIxI0Y4KQamyrVM_T1haUIgGQUMynBj8IQmUYPVIk24wJt5_doazzzwqWwQXqxVO6QcKM1Qs95POTfyp72rC5JgJpFbXWYNT0wh5oSs9gWhDMuXwCNyBuDXtvxhtXkBhdeI" alt="كهربائي المكلا الحديثة"/>
+<div class="absolute -bottom-1 -right-1 bg-surface-container-lowest p-0.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold truncate">كهربائي المكلا (أحمد باطاهر)</h2>
+<span class="bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold px-1.5 py-0.5 rounded">كهرباء</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">إصلاح أعطال القواطع والتماس الكهرباء</p>
+<div class="flex items-center gap-2 mt-0.5 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
+المكلا - الديس والشرج
+</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2 flex-shrink-0">
+<button aria-label="إضافة للمفضلة" class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:text-tertiary-fixed-dim transition-colors" onclick="toggleFavorite(this)" type="button">
+<span class="material-symbols-outlined text-[19px]">favorite</span>
+</button>
+<div class="flex items-center gap-1 bg-surface-container-low px-2 py-0.5 rounded-lg text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.9</span>
+<span class="text-on-surface-variant text-[11px]">(91)</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">كشف التماس بالأجهزة</span>
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">طاقة شمسية ومحولات</span>
+</div>
+<div class="pt-2 flex items-center justify-between gap-2 border-t border-surface-container">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">كشف طارئ وإصلاح</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">يبدأ من 8,000 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">ر.ي</span></span>
+</div>
+<div class="flex items-center gap-1.5">
+<a aria-label="اتصال مباشر" class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary active:scale-95 transition-transform" href="tel:+967781125928" title="اتصال">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</a>
+<a aria-label="واتساب المهني" target="_blank" class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center active:scale-95 transition-transform" href="https://wa.me/967781125928?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A%20%D8%A7%D9%84%D9%85%D9%83%D9%84%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%AE%D8%AF%D9%85%D8%A9" title="واتساب">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</a>
+<button onclick="window.location.href='book-service.html?craftsman_id=201';" class="px-4 h-10 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold flex items-center gap-1.5 shadow-sm active:scale-95 transition-all" type="button">
+<span>طلب خدمة</span>
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+</button>
+</div>
+</div>
+</article>
+
+<!-- ================= 3. PLUMBING / سباكة وصحي ================= -->
+<!-- Card 3: المعلم ياسر الجابري -->
+<article data-category="plumbing" class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex flex-col gap-3 relative transition-all active:scale-[0.99]">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="relative w-14 h-14 rounded-2xl overflow-hidden bg-surface-container-high flex-shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTtk0YQlZf9RrOIcnnUpunQPP6CkWOuOeaIaF5b1imUp4pnBmdNJ_97JPC_XNDJ7wZB6YuJpdOaSa3v4gydUF12uE9FmbM4Ei7IrCAwpVh90f2KHpGdVUnDFgNUllzuN7QRIZwYD19jY81fNL8SCLyWiWwNoymoFmAVXM6RlatEeW0AYEYvNfRiPEWmQHYeKn9VcdMFUQk1PpR_jyiBYSGuDTxcngYL9XL6sb_waI" alt="المعلم ياسر الجابري"/>
 <div class="absolute -bottom-1 -right-1 bg-surface-container-lowest p-0.5 rounded-full shadow-sm">
 <span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">verified</span>
 </div>
@@ -416,19 +590,19 @@
 <div class="flex flex-col min-w-0">
 <div class="flex items-center gap-1.5">
 <h2 class="font-headline-sm text-headline-sm text-primary font-bold truncate">المعلم ياسر الجابري</h2>
+<span class="bg-tertiary-fixed text-on-tertiary-container text-[10px] font-bold px-1.5 py-0.2 rounded-full">سباكة</span>
 </div>
 <p class="font-label-sm text-label-sm text-on-surface-variant truncate">سباكة وصحي وكشف تسربات المياه</p>
 <div class="flex items-center gap-2 mt-0.5 text-on-surface-variant font-label-sm text-label-sm">
 <span class="flex items-center gap-0.5">
 <span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
-                سيئون - مريمة
-              </span>
+سيئون - مريمة
+</span>
 <span class="text-outline-variant">•</span>
 <span class="text-secondary font-semibold">متاح طوارئ 24/7</span>
 </div>
 </div>
 </div>
-<!-- Rating & Fav -->
 <div class="flex flex-col items-end gap-2 flex-shrink-0">
 <button aria-label="إضافة للمفضلة" class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:text-tertiary-fixed-dim transition-colors" onclick="toggleFavorite(this)" type="button">
 <span class="material-symbols-outlined text-[19px]">favorite</span>
@@ -440,28 +614,26 @@
 </div>
 </div>
 </div>
-<!-- Feature Pill Badges -->
 <div class="flex items-center gap-2 flex-wrap">
 <span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium flex items-center gap-1">
 <span class="material-symbols-outlined text-[14px] text-primary">plumbing</span>
-          أجهزة ضغط حديثة
-        </span>
+أجهزة ضغط وفحص إلكتروني
+</span>
 <span class="bg-tertiary-fixed/80 text-on-tertiary-fixed px-2.5 py-1 rounded-md font-label-sm text-label-sm font-bold flex items-center gap-1">
 <span class="material-symbols-outlined text-[14px]">verified_user</span>
-          ضمان خطي 30 يوم
-        </span>
+ضمان خطي 30 يوم
+</span>
 </div>
-<!-- Action Footer -->
-<div class="pt-2 flex items-center justify-between gap-2">
+<div class="pt-2 flex items-center justify-between gap-2 border-t border-surface-container">
 <div class="flex flex-col">
 <span class="font-label-sm text-label-sm text-on-surface-variant">كشف أولي وإصلاح</span>
 <span class="font-label-lg text-label-lg text-primary font-bold">يبدأ من 6,000 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">ر.ي</span></span>
 </div>
 <div class="flex items-center gap-1.5">
-<a aria-label="اتصال فوري" class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary active:scale-95 transition-transform" href="tel:+967770000003" title="اتصال بالمهني">
+<a aria-label="اتصال فوري" class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary active:scale-95 transition-transform" href="tel:+967781125928" title="اتصال">
 <span class="material-symbols-outlined text-[20px]">call</span>
 </a>
-<a aria-label="واتساب المهني" target="_blank" class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center active:scale-95 transition-transform" href="https://wa.me/967770000003?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%85%20%D9%8A%D8%A7%D8%B3%D8%B1%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%AE%D8%AF%D9%85%D8%A9%20%D8%B3%D8%A8%D8%A7%D9%83%D8%A9%20%D8%B9%D8%A8%D8%B1%20%D9%85%D9%90%D8%B1%D9%8E%D8%A7%D8%B3" title="واتساب المهني">
+<a aria-label="واتساب المهني" target="_blank" class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center active:scale-95 transition-transform" href="https://wa.me/967781125928?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%85%20%D9%8A%D8%A7%D8%B3%D8%B1%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%AE%D8%AF%D9%85%D8%A9%20%D8%B3%D8%A8%D8%A7%D9%83%D8%A9" title="واتساب">
 <span class="material-symbols-outlined text-[20px]">chat</span>
 </a>
 <button onclick="window.location.href='book-service.html?craftsman_id=3';" class="px-4 h-10 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold flex items-center gap-1.5 shadow-sm active:scale-95 transition-all" type="button">
@@ -471,12 +643,73 @@
 </div>
 </div>
 </article>
-<!-- Card 4: مؤسسة الأحقاف للنجارة والديكور (Woodwork / Heritage) -->
-<article class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex flex-col gap-3 relative transition-all active:scale-[0.99]">
+
+<!-- Card 3B: مؤسسة الشحر للسباكة وضخ المياه -->
+<article data-category="plumbing" class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex flex-col gap-3 relative transition-all active:scale-[0.99]">
 <div class="flex items-start justify-between gap-3">
 <div class="flex items-center gap-3">
 <div class="relative w-14 h-14 rounded-2xl overflow-hidden bg-surface-container-high flex-shrink-0 shadow-sm">
-<img class="w-full h-full object-cover" data-alt="Exterior of traditional Hadrami wooden craftsmanship store in Ash-Shihr Yemen with intricately carved teak and mahogany windows and doors on display, artisan working with chisel in background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzZIhEZFtbh3gYcwwjo5Icei_-7BkUHceUJc_5jHtkvWXCe_LfsdVr2jKj8gARek6HWx4i9q3ADWBt_tO2NXgTLKNInM20ihVLU2zT6SNoQfd5tW-KV1RgQ-0eV3e00PqaDKZDN3Evd8EgIUFv_wVUrPoN5rupM7mXd1QpSY8KQg-HeRHj_7zv7XyiI9miqkQD4K8ubAI7rSiB1U2FH6wpU8qG1-TGSNVcFvLbhJQ"/>
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9IXmgNxrVWqbblFigI3IAccYpGaEMxGPNYRwcGANonWO2lk5wcGp0Fg0OFwu7UkV4U8RKgu6VhbG6_Q9Zn4L0-3FG7gFM8dNAH0U2pdTUjBXDfE2m4dp6GrFx2RNdfhV2DEUckSJwqTlX9IsqGnwXhqUHqCfA7kQvsnaYkrBaYFyFXLzYCB9DnAnVtrVsAKccrZjtP8Xu0WgaTE70sB4xPV1hyeEfw7mwrR0zQFY" alt="مؤسسة الشحر للسباكة"/>
+<div class="absolute -bottom-1 -right-1 bg-surface-container-lowest p-0.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold truncate">مؤسسة الشحر للسباكة والضخ</h2>
+<span class="bg-tertiary-fixed text-on-tertiary-container text-[10px] font-bold px-1.5 py-0.2 rounded-full">سباكة</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">تركيب مضخات، فلاتر تحلية، وتمديد شبكات</p>
+<div class="flex items-center gap-2 mt-0.5 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
+الشحر - حي المحط والخور
+</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2 flex-shrink-0">
+<button aria-label="إضافة للمفضلة" class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:text-tertiary-fixed-dim transition-colors" onclick="toggleFavorite(this)" type="button">
+<span class="material-symbols-outlined text-[19px]">favorite</span>
+</button>
+<div class="flex items-center gap-1 bg-surface-container-low px-2 py-0.5 rounded-lg text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.8</span>
+<span class="text-on-surface-variant text-[11px]">(48)</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">صيانة مضخات دينامو</span>
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">عزل خزانات مياه</span>
+</div>
+<div class="pt-2 flex items-center justify-between gap-2 border-t border-surface-container">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">معاينة وتركيب</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">يبدأ من 8,000 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">ر.ي</span></span>
+</div>
+<div class="flex items-center gap-1.5">
+<a aria-label="اتصال فوري" class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary active:scale-95 transition-transform" href="tel:+967781125928" title="اتصال">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</a>
+<a aria-label="واتساب المهني" target="_blank" class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center active:scale-95 transition-transform" href="https://wa.me/967781125928?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%2C%20%D8%A3%D9%88%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%AE%D8%AF%D9%85%D8%A9%20%D8%B3%D8%A8%D8%A7%D9%83%D8%A9" title="واتساب">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</a>
+<button onclick="window.location.href='book-service.html?craftsman_id=301';" class="px-4 h-10 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold flex items-center gap-1.5 shadow-sm active:scale-95 transition-all" type="button">
+<span>طلب خدمة</span>
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+</button>
+</div>
+</div>
+</article>
+
+<!-- ================= 4. CARPENTRY / نجارة وألمنيوم ================= -->
+<!-- Card 4: مؤسسة الأحقاف للنجارة -->
+<article data-category="carpentry" class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex flex-col gap-3 relative transition-all active:scale-[0.99]">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="relative w-14 h-14 rounded-2xl overflow-hidden bg-surface-container-high flex-shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzZIhEZFtbh3gYcwwjo5Icei_-7BkUHceUJc_5jHtkvWXCe_LfsdVr2jKj8gARek6HWx4i9q3ADWBt_tO2NXgTLKNInM20ihVLU2zT6SNoQfd5tW-KV1RgQ-0eV3e00PqaDKZDN3Evd8EgIUFv_wVUrPoN5rupM7mXd1QpSY8KQg-HeRHj_7zv7XyiI9miqkQD4K8ubAI7rSiB1U2FH6wpU8qG1-TGSNVcFvLbhJQ" alt="مؤسسة الأحقاف للنجارة"/>
 <div class="absolute -bottom-1 -right-1 bg-surface-container-lowest p-0.5 rounded-full shadow-sm">
 <span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">verified</span>
 </div>
@@ -484,19 +717,19 @@
 <div class="flex flex-col min-w-0">
 <div class="flex items-center gap-1.5">
 <h2 class="font-headline-sm text-headline-sm text-primary font-bold truncate">مؤسسة الأحقاف للنجارة</h2>
+<span class="bg-tertiary-fixed text-on-tertiary-container text-[10px] font-bold px-1.5 py-0.2 rounded-full">نجارة</span>
 </div>
 <p class="font-label-sm text-label-sm text-on-surface-variant truncate">أبواب ونوافذ حضرمية تراثية وديكور</p>
 <div class="flex items-center gap-2 mt-0.5 text-on-surface-variant font-label-sm text-label-sm">
 <span class="flex items-center gap-0.5">
 <span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
-                الشحر - المحط
-              </span>
+الشحر - المحط
+</span>
 <span class="text-outline-variant">•</span>
 <span class="text-on-surface-variant">ورشة مركزية</span>
 </div>
 </div>
 </div>
-<!-- Rating & Fav -->
 <div class="flex flex-col items-end gap-2 flex-shrink-0">
 <button aria-label="إضافة للمفضلة" class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:text-tertiary-fixed-dim transition-colors" onclick="toggleFavorite(this)" type="button">
 <span class="material-symbols-outlined text-[19px]">favorite</span>
@@ -508,22 +741,20 @@
 </div>
 </div>
 </div>
-<!-- Feature Pill Badges -->
 <div class="flex items-center gap-1.5 flex-wrap">
 <span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">أخشاب سدر وميريندي</span>
 <span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">نقوش تراثية يدوية</span>
 </div>
-<!-- Action Footer -->
-<div class="pt-2 flex items-center justify-between gap-2">
+<div class="pt-2 flex items-center justify-between gap-2 border-t border-surface-container">
 <div class="flex flex-col">
 <span class="font-label-sm text-label-sm text-on-surface-variant">تفصيل المتر والمقايسة</span>
 <span class="font-label-lg text-label-lg text-primary font-bold">يبدأ من 25,000 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">ر.ي</span></span>
 </div>
 <div class="flex items-center gap-1.5">
-<a aria-label="اتصال فوري" class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary active:scale-95 transition-transform" href="tel:+967770000004" title="اتصال بالورشة">
+<a aria-label="اتصال فوري" class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary active:scale-95 transition-transform" href="tel:+967781125928" title="اتصال">
 <span class="material-symbols-outlined text-[20px]">call</span>
 </a>
-<a aria-label="واتساب المهني" target="_blank" class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center active:scale-95 transition-transform" href="https://wa.me/967770000004?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%85%D8%A4%D8%B3%D8%B3%D8%A9%20%D8%A7%D9%84%D8%A3%D8%AD%D9%82%D8%A7%D9%81%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%85%D9%82%D8%A7%D9%8A%D8%B3%D8%A9%20%D9%86%D8%AC%D8%A7%D8%B1%D8%A9%20%D8%B9%D8%A8%D8%B1%20%D9%85%D9%90%D8%B1%D9%8E%D8%A7%D8%B3" title="واتساب الورشة">
+<a aria-label="واتساب المهني" target="_blank" class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center active:scale-95 transition-transform" href="https://wa.me/967781125928?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%85%D8%A4%D8%B3%D8%B3%D8%A9%20%D8%A7%D9%84%D8%A3%D8%AD%D9%82%D8%A7%D9%81%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%85%D9%82%D8%A7%D9%8A%D8%B3%D8%A9%20%D9%86%D8%AC%D8%A7%D8%B1%D8%A9" title="واتساب">
 <span class="material-symbols-outlined text-[20px]">chat</span>
 </a>
 <button onclick="window.location.href='artisan-profile.html?id=4';" class="px-4 h-10 rounded-xl bg-surface-container-high text-primary font-label-md text-label-md font-semibold active:scale-95 transition-all" type="button">
@@ -532,6 +763,618 @@
 </div>
 </div>
 </article>
+
+<!-- Card 4B: ورشة السقاف للألمنيوم والمطابخ -->
+<article data-category="carpentry" class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex flex-col gap-3 relative transition-all active:scale-[0.99]">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="relative w-14 h-14 rounded-2xl overflow-hidden bg-surface-container-high flex-shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc958OdpRcNU_I5NMhoX3UFB7cgIseVuL5J0pUIR2bL1bQe_FtCyR8Mkz7owc-lPu7yZt09x1hwR_CkJ2iulbUi2Mu7gH62LxXed96jV9HBVZZgfwf0Gs_qbH66w-IXzmG8IByqRjSfHmoXCYvLvII0PIS-IVXA9DtFp2-zo4tKMqE4klMvxi7k93Y3Ewti7ThrcUvc2cUph_jN6xv3I45xd-GaM2fozWHIeSX8Ts" alt="ورشة السقاف للألمنيوم"/>
+<div class="absolute -bottom-1 -right-1 bg-surface-container-lowest p-0.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold truncate">ورشة السقاف للألمنيوم والشتر</h2>
+<span class="bg-tertiary-fixed text-on-tertiary-container text-[10px] font-bold px-1.5 py-0.2 rounded-full">ألمنيوم</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">مطابخ حديثة، واجهات زجاجية، وشتر كهربائي</p>
+<div class="flex items-center gap-2 mt-0.5 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
+المكلا - الشرج
+</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-low px-2 py-0.5 rounded-lg text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.85</span>
+<span class="text-on-surface-variant text-[11px]">(59)</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">ألمنيوم دبل جلاس عازل</span>
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">مطابخ كلادينج فاخرة</span>
+</div>
+<div class="pt-2 flex items-center justify-between gap-2 border-t border-surface-container">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">مقايسة وتصميم</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">يبدأ من 30,000 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">ر.ي</span></span>
+</div>
+<div class="flex items-center gap-1.5">
+<a aria-label="اتصال فوري" class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary active:scale-95 transition-transform" href="tel:+967781125928" title="اتصال">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</a>
+<a aria-label="واتساب المهني" target="_blank" class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center active:scale-95 transition-transform" href="https://wa.me/967781125928?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%88%D8%B1%D8%B4%D8%A9%20%D8%A7%D9%84%D8%B3%D9%82%D8%A7%D9%81%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%AE%D8%AF%D9%85%D8%A9%20%D8%A3%D9%84%D9%85%D9%86%D9%8A%D9%88%D9%85" title="واتساب">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</a>
+<button onclick="window.location.href='book-service.html?craftsman_id=401';" class="px-4 h-10 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold flex items-center gap-1.5 shadow-sm active:scale-95 transition-all" type="button">
+<span>طلب مقايسة</span>
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+</button>
+</div>
+</div>
+</article>
+
+<!-- ================= 5. PAINTING / دهان وديكور ================= -->
+<!-- Card 5: المعلم سالم باداود للديكور -->
+<article data-category="painting" class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex flex-col gap-3 relative transition-all active:scale-[0.99]">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="relative w-14 h-14 rounded-2xl overflow-hidden bg-surface-container-high flex-shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEstCFbFWicA_VxMCEf_JmqJxNr1_U3fl1AHKXPsUpFAqbq1WzSWXpWztAV8EHtU3QahrHj_NAkz3av8S902tfPtNHhSeusuyHWCeNrhiPXmMklwKHZbDFgcJTLgNYTZUk6Aj9DT2wuq69u-5MwCIu6uFYhqtKYTBFDrFOm7Sgi-J-bkVyFLXxA772Z4iEOSziiHTP-EeRBx-ce38kpYYEnOkc3vXSDv5D3rShqnU" alt="المعلم سالم باداود"/>
+<div class="absolute -bottom-1 -right-1 bg-surface-container-lowest p-0.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold truncate">المعلم سالم باداود (دهانات حديثة)</h2>
+<span class="bg-tertiary-fixed text-on-tertiary-container text-[10px] font-bold px-1.5 py-0.2 rounded-full">دهان</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">دهانات جوتن، رغوة، بديل رخام وخشب</p>
+<div class="flex items-center gap-2 mt-0.5 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
+المكلا - حي المتضررين
+</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-low px-2 py-0.5 rounded-lg text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.9</span>
+<span class="text-on-surface-variant text-[11px]">(80)</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">تشطيب داخلي وخارجي</span>
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">معالجة رطوبة الجدران</span>
+</div>
+<div class="pt-2 flex items-center justify-between gap-2 border-t border-surface-container">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">سعر المتر المربع</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">يبدأ من 10,000 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">ر.ي</span></span>
+</div>
+<div class="flex items-center gap-1.5">
+<a aria-label="اتصال فوري" class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary active:scale-95 transition-transform" href="tel:+967781125928" title="اتصال">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</a>
+<a aria-label="واتساب المهني" target="_blank" class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center active:scale-95 transition-transform" href="https://wa.me/967781125928?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%85%20%D8%B3%D8%A7%D9%84%D9%85%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%AE%D8%AF%D9%85%D8%A9%20%D8%AF%D9%87%D8%A7%D9%86" title="واتساب">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</a>
+<button onclick="window.location.href='book-service.html?craftsman_id=501';" class="px-4 h-10 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold flex items-center gap-1.5 shadow-sm active:scale-95 transition-all" type="button">
+<span>طلب خدمة</span>
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+</button>
+</div>
+</div>
+</article>
+
+<!-- Card 5B: مؤسسة النقاء للجبس والديكور -->
+<article data-category="painting" class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex flex-col gap-3 relative transition-all active:scale-[0.99]">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="relative w-14 h-14 rounded-2xl overflow-hidden bg-surface-container-high flex-shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeBJRumuvpNF3WuFQi2nEyx3EijDYwM3sLvqH13Qbn28muLmP-S5K8UKhO46ydp8AY2oqbgiq0q0DhaX5f2Xow1IktUHg0nqGJeYF9-IL-xRVLBtNFgbUN-8Y4-hT9wB7pB2YwLOySI5OC8qdnbGTEeA5MqV86QLIi5PCu5-YoOJ7AiaJ1rMIHVqoo47NUtMUwvTqCppmffep6tXP9bHwE5HREILUPflbo-MHr_QY" alt="مؤسسة النقاء للديكور"/>
+<div class="absolute -bottom-1 -right-1 bg-surface-container-lowest p-0.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold truncate">مؤسسة النقاء للجبس والديكور</h2>
+<span class="bg-tertiary-fixed text-on-tertiary-container text-[10px] font-bold px-1.5 py-0.2 rounded-full">ديكور</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">جبس بورد وأسقف فرنسية معلقة</p>
+<div class="flex items-center gap-2 mt-0.5 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
+سيئون - السحيل
+</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-low px-2 py-0.5 rounded-lg text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.75</span>
+<span class="text-on-surface-variant text-[11px]">(42)</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">إضاءات مخفية LED</span>
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">تصاميم كلاسيكية ومودرن</span>
+</div>
+<div class="pt-2 flex items-center justify-between gap-2 border-t border-surface-container">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">مقايسة شاملة</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">يبدأ من 14,000 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">ر.ي</span></span>
+</div>
+<div class="flex items-center gap-1.5">
+<a aria-label="اتصال فوري" class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary active:scale-95 transition-transform" href="tel:+967781125928" title="اتصال">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</a>
+<a aria-label="واتساب المهني" target="_blank" class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center active:scale-95 transition-transform" href="https://wa.me/967781125928?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%85%D8%A4%D8%B3%D8%B3%D8%A9%20%D8%A7%D9%84%D9%86%D9%82%D8%A7%D8%A1%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%AE%D8%AF%D9%85%D8%A9%20%D8%AC%D8%A8%D8%B3" title="واتساب">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</a>
+<button onclick="window.location.href='book-service.html?craftsman_id=502';" class="px-4 h-10 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold flex items-center gap-1.5 shadow-sm active:scale-95 transition-all" type="button">
+<span>طلب خدمة</span>
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+</button>
+</div>
+</div>
+</article>
+
+<!-- ================= 6. CONSTRUCTION / بناء حضرمي ================= -->
+<!-- Card 6: مقاولات العمارة الطينية (عوض باحيدرة) -->
+<article data-category="construction" class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex flex-col gap-3 relative transition-all active:scale-[0.99]">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="relative w-14 h-14 rounded-2xl overflow-hidden bg-surface-container-high flex-shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeBJRumuvpNF3WuFQi2nEyx3EijDYwM3sLvqH13Qbn28muLmP-S5K8UKhO46ydp8AY2oqbgiq0q0DhaX5f2Xow1IktUHg0nqGJeYF9-IL-xRVLBtNFgbUN-8Y4-hT9wB7pB2YwLOySI5OC8qdnbGTEeA5MqV86QLIi5PCu5-YoOJ7AiaJ1rMIHVqoo47NUtMUwvTqCppmffep6tXP9bHwE5HREILUPflbo-MHr_QY" alt="المعلم عوض باحيدرة"/>
+<div class="absolute -bottom-1 -right-1 bg-surface-container-lowest p-0.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold truncate">مقاولات العمارة الطينية (باحيدرة)</h2>
+<span class="bg-tertiary-fixed text-on-tertiary-container text-[10px] font-bold px-1.5 py-0.2 rounded-full">بناء حضرمي</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">ترميم مبانٍ تراثية وبناء بالطين والنورة</p>
+<div class="flex items-center gap-2 mt-0.5 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
+دوعن والمكلا
+</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-low px-2 py-0.5 rounded-lg text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>5.0</span>
+<span class="text-on-surface-variant text-[11px]">(98)</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">بناء مدر وحجر</span>
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">عزل نورة تقليدي مقاوم للأمطار</span>
+</div>
+<div class="pt-2 flex items-center justify-between gap-2 border-t border-surface-container">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">استشارة وترميم</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">يبدأ من 20,000 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">ر.ي</span></span>
+</div>
+<div class="flex items-center gap-1.5">
+<a aria-label="اتصال فوري" class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary active:scale-95 transition-transform" href="tel:+967781125928" title="اتصال">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</a>
+<a aria-label="واتساب المهني" target="_blank" class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center active:scale-95 transition-transform" href="https://wa.me/967781125928?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%85%20%D8%B9%D9%88%D8%B6%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9%20%D8%A8%D9%86%D8%A7%D8%A1" title="واتساب">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</a>
+<button onclick="window.location.href='book-service.html?craftsman_id=601';" class="px-4 h-10 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold flex items-center gap-1.5 shadow-sm active:scale-95 transition-all" type="button">
+<span>طلب استشارة</span>
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+</button>
+</div>
+</div>
+</article>
+
+<!-- Card 6B: مؤسسة بن هلابي للترميم والبناء -->
+<article data-category="construction" class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex flex-col gap-3 relative transition-all active:scale-[0.99]">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="relative w-14 h-14 rounded-2xl overflow-hidden bg-surface-container-high flex-shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAo_sGOwgiy2SLIEuzYnLAVbAT1SqhbWskKmEJ1N5J_ZbU43QH2vyWghadkgbtXD5jUJU6MfkrPs0zQv83kpoUHFdwodNpzimFwwsYOLy6j3hpLCLdyD9d32Kafddv_qCe7CIqcOe3MBNAuzic6SlfYORAngjWmEorfuoCjzuqXrmN6tsdhMuWbhkiHP-ogNLYYraMYsUMv7P5PGBbb0-GqGW4C5bzkWxp6sWnvJSY" alt="مؤسسة بن هلابي"/>
+<div class="absolute -bottom-1 -right-1 bg-surface-container-lowest p-0.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold truncate">مؤسسة بن هلابي للمقاولات العامة</h2>
+<span class="bg-tertiary-fixed text-on-tertiary-container text-[10px] font-bold px-1.5 py-0.2 rounded-full">مقاولات</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">بناء عظم، تشطيب، وتأسيس قواعد مسلحة</p>
+<div class="flex items-center gap-2 mt-0.5 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
+شبام وتريم
+</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-low px-2 py-0.5 rounded-lg text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.9</span>
+<span class="text-on-surface-variant text-[11px]">(53)</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">إشراف هندسي معتمد</span>
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">عقود موثقة وضمان إنجاز</span>
+</div>
+<div class="pt-2 flex items-center justify-between gap-2 border-t border-surface-container">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">مقايسة وعقد إشراف</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">يبدأ من 25,000 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">ر.ي</span></span>
+</div>
+<div class="flex items-center gap-1.5">
+<a aria-label="اتصال فوري" class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary active:scale-95 transition-transform" href="tel:+967781125928" title="اتصال">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</a>
+<a aria-label="واتساب المهني" target="_blank" class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center active:scale-95 transition-transform" href="https://wa.me/967781125928?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%85%D8%A4%D8%B3%D8%B3%D8%A9%20%D8%A8%D9%86%20%D9%87%D9%84%D8%A7%D8%A8%D9%8A%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%85%D9%82%D8%A7%D9%8A%D8%B3%D8%A9%20%D8%A8%D9%86%D8%A7%D8%A1" title="واتساب">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</a>
+<button onclick="window.location.href='book-service.html?craftsman_id=602';" class="px-4 h-10 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold flex items-center gap-1.5 shadow-sm active:scale-95 transition-all" type="button">
+<span>طلب خدمة</span>
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+</button>
+</div>
+</div>
+</article>
+
+<!-- ================= 7. AUTO / صيانة سيارات ================= -->
+<!-- Card 7: مركز السلام لفحص وبرمجة السيارات -->
+<article data-category="auto" class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex flex-col gap-3 relative transition-all active:scale-[0.99]">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="relative w-14 h-14 rounded-2xl overflow-hidden bg-surface-container-high flex-shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTtk0YQlZf9RrOIcnnUpunQPP6CkWOuOeaIaF5b1imUp4pnBmdNJ_97JPC_XNDJ7wZB6YuJpdOaSa3v4gydUF12uE9FmbM4Ei7IrCAwpVh90f2KHpGdVUnDFgNUllzuN7QRIZwYD19jY81fNL8SCLyWiWwNoymoFmAVXM6RlatEeW0AYEYvNfRiPEWmQHYeKn9VcdMFUQk1PpR_jyiBYSGuDTxcngYL9XL6sb_waI" alt="مركز السلام لفحص السيارات"/>
+<div class="absolute -bottom-1 -right-1 bg-surface-container-lowest p-0.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold truncate">مركز السلام لفحص وبرمجة السيارات</h2>
+<span class="bg-tertiary-fixed text-on-tertiary-container text-[10px] font-bold px-1.5 py-0.2 rounded-full">سيارات</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">فحص كمبيوتر شامل، ميكانيكا، وتكييف سيارات</p>
+<div class="flex items-center gap-2 mt-0.5 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
+المكلا - منطقة خلف والشرج
+</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-low px-2 py-0.5 rounded-lg text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.88</span>
+<span class="text-on-surface-variant text-[11px]">(110)</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">أجهزة كشف أعطال متطورة</span>
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">صيانة هايبرد وبنزين</span>
+</div>
+<div class="pt-2 flex items-center justify-between gap-2 border-t border-surface-container">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">فحص كمبيوتر وتقرير</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">يبدأ من 10,000 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">ر.ي</span></span>
+</div>
+<div class="flex items-center gap-1.5">
+<a aria-label="اتصال فوري" class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary active:scale-95 transition-transform" href="tel:+967781125928" title="اتصال">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</a>
+<a aria-label="واتساب المهني" target="_blank" class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center active:scale-95 transition-transform" href="https://wa.me/967781125928?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%85%D8%B1%D9%83%D8%B2%20%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%81%D8%AD%D8%B5%20%D8%B3%D9%8A%D8%A7%D8%B1%D8%A9" title="واتساب">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</a>
+<button onclick="window.location.href='book-service.html?craftsman_id=701';" class="px-4 h-10 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold flex items-center gap-1.5 shadow-sm active:scale-95 transition-all" type="button">
+<span>حجز كشف</span>
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+</button>
+</div>
+</div>
+</article>
+
+<!-- Card 7B: ورشة الوادي للسيارات -->
+<article data-category="auto" class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex flex-col gap-3 relative transition-all active:scale-[0.99]">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="relative w-14 h-14 rounded-2xl overflow-hidden bg-surface-container-high flex-shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNLPGmNqjGAsAk4Dvogaec_6J9yRrTBsBJmUzFpvfcml6CrX6ZvGXLBnDOlgaXaOY5RxZvlGqJ1Ng7mH4XwT2YYGwji6LmhhMh3nystJiC-wxusZI-p48fb9rIfQbkE23HYDr-jA4t7ITQ9aXk8P1BBahZAg16e-QQch9FsQdgF6jzzXQyegCBCNqIO4AtAVqyQzRjOAV-snXBrOWifmfJBpzH-ISIXm8x8zRZz2A" alt="ورشة الوادي للسيارات"/>
+<div class="absolute -bottom-1 -right-1 bg-surface-container-lowest p-0.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold truncate">ورشة الوادي لميكانيكا وكهرباء السيارات</h2>
+<span class="bg-tertiary-fixed text-on-tertiary-container text-[10px] font-bold px-1.5 py-0.2 rounded-full">سيارات</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">توضيب محركات، كهرباء، وتغيير زيوت وفلاتر</p>
+<div class="flex items-center gap-2 mt-0.5 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
+سيئون - المنطقة الصناعية
+</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-low px-2 py-0.5 rounded-lg text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.7</span>
+<span class="text-on-surface-variant text-[11px]">(67)</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">صيانة عاجلة على الطريق</span>
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">قطع غيار أصلية</span>
+</div>
+<div class="pt-2 flex items-center justify-between gap-2 border-t border-surface-container">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">فحص وصيانة</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">يبدأ من 9,000 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">ر.ي</span></span>
+</div>
+<div class="flex items-center gap-1.5">
+<a aria-label="اتصال فوري" class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary active:scale-95 transition-transform" href="tel:+967781125928" title="اتصال">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</a>
+<a aria-label="واتساب المهني" target="_blank" class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center active:scale-95 transition-transform" href="https://wa.me/967781125928?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%88%D8%B1%D8%B4%D8%A9%20%D8%A7%D9%84%D9%88%D8%A7%D8%AF%D9%8A%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%B5%D9%8A%D8%A7%D9%86%D8%A9%20%D8%B3%D9%8A%D8%A7%D8%B1%D8%A9" title="واتساب">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</a>
+<button onclick="window.location.href='book-service.html?craftsman_id=702';" class="px-4 h-10 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold flex items-center gap-1.5 shadow-sm active:scale-95 transition-all" type="button">
+<span>طلب خدمة</span>
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+</button>
+</div>
+</div>
+</article>
+
+<!-- ================= 8. TAILORING / خياطة وتطريز ================= -->
+<!-- Card 8: مشغل النخبة للتطريز الحضرمي -->
+<article data-category="tailoring" class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex flex-col gap-3 relative transition-all active:scale-[0.99]">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="relative w-14 h-14 rounded-2xl overflow-hidden bg-surface-container-high flex-shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzZIhEZFtbh3gYcwwjo5Icei_-7BkUHceUJc_5jHtkvWXCe_LfsdVr2jKj8gARek6HWx4i9q3ADWBt_tO2NXgTLKNInM20ihVLU2zT6SNoQfd5tW-KV1RgQ-0eV3e00PqaDKZDN3Evd8EgIUFv_wVUrPoN5rupM7mXd1QpSY8KQg-HeRHj_7zv7XyiI9miqkQD4K8ubAI7rSiB1U2FH6wpU8qG1-TGSNVcFvLbhJQ" alt="مشغل النخبة"/>
+<div class="absolute -bottom-1 -right-1 bg-surface-container-lowest p-0.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold truncate">مشغل النخبة للخياطة والتطريز</h2>
+<span class="bg-tertiary-fixed text-on-tertiary-container text-[10px] font-bold px-1.5 py-0.2 rounded-full">خياطة</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">تفصيل ثياب حضرمية، تطريز يدوي، وزي مناسبات</p>
+<div class="flex items-center gap-2 mt-0.5 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
+تريم والشحر
+</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-low px-2 py-0.5 rounded-lg text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.92</span>
+<span class="text-on-surface-variant text-[11px]">(85)</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">أقمشة يابانية وإندونيسية فاخرة</span>
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">دقة بالمقاييس وتسليم سريع</span>
+</div>
+<div class="pt-2 flex items-center justify-between gap-2 border-t border-surface-container">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">تفصيل الثوب الكامل</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">يبدأ من 8,000 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">ر.ي</span></span>
+</div>
+<div class="flex items-center gap-1.5">
+<a aria-label="اتصال فوري" class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary active:scale-95 transition-transform" href="tel:+967781125928" title="اتصال">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</a>
+<a aria-label="واتساب المهني" target="_blank" class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center active:scale-95 transition-transform" href="https://wa.me/967781125928?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%85%D8%B4%D8%BA%D9%84%20%D8%A7%D9%84%D9%86%D8%AE%D8%A8%D8%A9%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%AE%D9%8A%D8%A7%D8%B7%D8%A9" title="واتساب">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</a>
+<button onclick="window.location.href='book-service.html?craftsman_id=801';" class="px-4 h-10 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold flex items-center gap-1.5 shadow-sm active:scale-95 transition-all" type="button">
+<span>طلب تفصيل</span>
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+</button>
+</div>
+</div>
+</article>
+
+<!-- Card 8B: خياطة دانة حضرموت التراثية -->
+<article data-category="tailoring" class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex flex-col gap-3 relative transition-all active:scale-[0.99]">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="relative w-14 h-14 rounded-2xl overflow-hidden bg-surface-container-high flex-shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvfb0MrhbqjlwJ1S3vCO07WX3vLtU7dpmAYjE7PlDNMYgS5VV8waOxaMF6u4J5v36pmcEFPtKXeuftJ6fCJr2Xi_OctOgSuaN3GJISXVHvD4G96GbhwzE3G1ih6lBHwCNCPqaIpJ9EFulohjZAvpXyBWONy9bIdpdkD889_VHp8jKWtywOrvj5cs1r52jpgioTAlOquLZ9zasjRsnxWP8ImugSPv8qRxRa4lr9Eqg" alt="دانة حضرموت"/>
+<div class="absolute -bottom-1 -right-1 bg-surface-container-lowest p-0.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold truncate">خياطة دانة حضرموت (أزياء تراثية)</h2>
+<span class="bg-tertiary-fixed text-on-tertiary-container text-[10px] font-bold px-1.5 py-0.2 rounded-full">تطريز</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">دراعات حضرمية ومقاطب بتطريز أصيل</p>
+<div class="flex items-center gap-2 mt-0.5 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
+المكلا - حي البلاد القديمة
+</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-low px-2 py-0.5 rounded-lg text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.8</span>
+<span class="text-on-surface-variant text-[11px]">(39)</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">شغل يدوي عالي الجودة</span>
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">تصاميم أفراح ومناسبات</span>
+</div>
+<div class="pt-2 flex items-center justify-between gap-2 border-t border-surface-container">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">تفصيل وتطريز</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">يبدأ من 12,000 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">ر.ي</span></span>
+</div>
+<div class="flex items-center gap-1.5">
+<a aria-label="اتصال فوري" class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary active:scale-95 transition-transform" href="tel:+967781125928" title="اتصال">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</a>
+<a aria-label="واتساب المهني" target="_blank" class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center active:scale-95 transition-transform" href="https://wa.me/967781125928?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%AF%D8%A7%D9%86%D8%A9%20%D8%AD%D8%B6%D8%B1%D9%85%D9%88%D8%AA%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%AE%D9%8A%D8%A7%D8%B7%D8%A9" title="واتساب">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</a>
+<button onclick="window.location.href='book-service.html?craftsman_id=802';" class="px-4 h-10 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold flex items-center gap-1.5 shadow-sm active:scale-95 transition-all" type="button">
+<span>طلب خدمة</span>
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+</button>
+</div>
+</div>
+</article>
+
+<!-- ================= 9. TECH / خدمات تقنية ================= -->
+<!-- Card 9: تقنية حضرموت للشبكات والكاميرات -->
+<article data-category="tech" class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex flex-col gap-3 relative transition-all active:scale-[0.99]">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="relative w-14 h-14 rounded-2xl overflow-hidden bg-surface-container-high flex-shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc958OdpRcNU_I5NMhoX3UFB7cgIseVuL5J0pUIR2bL1bQe_FtCyR8Mkz7owc-lPu7yZt09x1hwR_CkJ2iulbUi2Mu7gH62LxXed96jV9HBVZZgfwf0Gs_qbH66w-IXzmG8IByqRjSfHmoXCYvLvII0PIS-IVXA9DtFp2-zo4tKMqE4klMvxi7k93Y3Ewti7ThrcUvc2cUph_jN6xv3I45xd-GaM2fozWHIeSX8Ts" alt="تقنية حضرموت"/>
+<div class="absolute -bottom-1 -right-1 bg-surface-container-lowest p-0.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold truncate">تقنية حضرموت للشبكات والكاميرات</h2>
+<span class="bg-tertiary-fixed text-on-tertiary-container text-[10px] font-bold px-1.5 py-0.2 rounded-full">تقنية</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">كاميرات مراقبة، شبكات واي فاي، وربط سيرفرات</p>
+<div class="flex items-center gap-2 mt-0.5 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
+المكلا - الروكب وفُوّة
+</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-low px-2 py-0.5 rounded-lg text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.95</span>
+<span class="text-on-surface-variant text-[11px]">(78)</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">كاميرات هيكفيجن وداهوا</span>
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">تمديدات ألياف وبث لاسلكي</span>
+</div>
+<div class="pt-2 flex items-center justify-between gap-2 border-t border-surface-container">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">تركيب وبرمجة نقطية</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">يبدأ من 15,000 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">ر.ي</span></span>
+</div>
+<div class="flex items-center gap-1.5">
+<a aria-label="اتصال فوري" class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary active:scale-95 transition-transform" href="tel:+967781125928" title="اتصال">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</a>
+<a aria-label="واتساب المهني" target="_blank" class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center active:scale-95 transition-transform" href="https://wa.me/967781125928?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D8%AD%D8%B6%D8%B1%D9%85%D9%88%D8%AA%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%AE%D8%AF%D9%85%D8%A9%20%D9%83%D8%A7%D9%85%D9%8A%D8%B1%D8%A7%D8%AA" title="واتساب">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</a>
+<button onclick="window.location.href='book-service.html?craftsman_id=901';" class="px-4 h-10 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold flex items-center gap-1.5 shadow-sm active:scale-95 transition-all" type="button">
+<span>طلب تركيب</span>
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+</button>
+</div>
+</div>
+</article>
+
+<!-- Card 9B: مركز إبداع للحلول التقنية -->
+<article data-category="tech" class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex flex-col gap-3 relative transition-all active:scale-[0.99]">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="relative w-14 h-14 rounded-2xl overflow-hidden bg-surface-container-high flex-shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQIu-caX6X4UQ_TTwVEIrr8gr3GtZxrJBQj2jzzYV0tjYHczQVctgsJkDXY_HmPLxRPyFLstA99xMnjjgQcSduhnH-dTUNBFZhjiM9EIxI0Y4KQamyrVM_T1haUIgGQUMynBj8IQmUYPVIk24wJt5_doazzzwqWwQXqxVO6QcKM1Qs95POTfyp72rC5JgJpFbXWYNT0wh5oSs9gWhDMuXwCNyBuDXtvxhtXkBhdeI" alt="مركز إبداع للتقنية"/>
+<div class="absolute -bottom-1 -right-1 bg-surface-container-lowest p-0.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold truncate">مركز إبداع للصيانة وحلول الأعمال</h2>
+<span class="bg-tertiary-fixed text-on-tertiary-container text-[10px] font-bold px-1.5 py-0.2 rounded-full">أنظمة</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">صيانة حواسيب، أنظمة محاسبية، ودعم فني للشركات</p>
+<div class="flex items-center gap-2 mt-0.5 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
+سيئون - شارع الجزائر
+</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-low px-2 py-0.5 rounded-lg text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.85</span>
+<span class="text-on-surface-variant text-[11px]">(61)</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">أنظمة نقاط بيع POS</span>
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-md font-label-sm text-label-sm font-medium">استرجاع بيانات وحماية</span>
+</div>
+<div class="pt-2 flex items-center justify-between gap-2 border-t border-surface-container">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">كشف وصيانة نظام</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">يبدأ من 10,000 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">ر.ي</span></span>
+</div>
+<div class="flex items-center gap-1.5">
+<a aria-label="اتصال فوري" class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary active:scale-95 transition-transform" href="tel:+967781125928" title="اتصال">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</a>
+<a aria-label="واتساب المهني" target="_blank" class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center active:scale-95 transition-transform" href="https://wa.me/967781125928?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%85%D8%B1%D9%83%D8%B2%20%D8%A5%D8%A8%D8%AF%D8%A7%D8%B9%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%AE%D8%AF%D9%85%D8%A9%20%D8%AA%D9%82%D9%86%D9%8A%D8%A9" title="واتساب">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</a>
+<button onclick="window.location.href='book-service.html?craftsman_id=902';" class="px-4 h-10 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold flex items-center gap-1.5 shadow-sm active:scale-95 transition-all" type="button">
+<span>طلب خدمة</span>
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+</button>
+</div>
+</div>
+</article>
+
+<!-- Empty State for Unmatched Filters -->
+<div id="noResultsState" class="hidden flex flex-col items-center justify-center text-center p-8 bg-surface-container-lowest rounded-2xl shadow-xs border border-surface-container my-4">
+  <div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-primary mb-3">
+    <span class="material-symbols-outlined text-[32px] text-tertiary-fixed-dim">search_off</span>
+  </div>
+  <h3 class="font-bold text-primary text-base mb-1">لا توجد نتائج تطابق هذا التصنيف حالياً</h3>
+  <p class="text-xs text-on-surface-variant max-w-xs mb-4">جرّب اختيار تصنيف مهني آخر أو الضغط على الزر أدناه لعرض كافة الكوادر المسجلة في حضرموت.</p>
+  <button type="button" onclick="filterByTradeCategory('all')" class="h-10 px-5 rounded-xl bg-primary text-white text-xs font-bold hover:bg-primary-container transition-colors shadow-xs">
+    عرض كافة الكوادر والمهن
+  </button>
+</div>
+
 </div>
 <!-- Regional Map Peek Floating Toast / Interactive Banner -->
 <div class="px-margin my-4">
@@ -768,6 +1611,135 @@
         if (activeCityLabel) activeCityLabel.textContent = btn.querySelector('span').textContent;
       });
     });
+
+    // ================= محرك تصفية المهن والمجالات =================
+    const TRADE_LABELS = {
+      all: 'كافة المهن والخدمات',
+      hvac: 'تكييف وتبريد',
+      plumbing: 'سباكة وصحي',
+      electrical: 'كهرباء وتمديدات',
+      carpentry: 'نجارة وألمنيوم',
+      painting: 'دهان وديكور',
+      construction: 'بناء حضرمي',
+      auto: 'صيانة سيارات',
+      tailoring: 'خياطة وتطريز',
+      tech: 'خدمات تقنية'
+    };
+
+    function normalizeCategory(cat) {
+      if (!cat) return 'all';
+      const c = cat.toLowerCase().trim();
+      if (c === 'hvac' || c.includes('تكييف') || c.includes('تبريد')) return 'hvac';
+      if (c === 'plumbing' || c.includes('سباك') || c.includes('صحي')) return 'plumbing';
+      if (c === 'electrical' || c.includes('كهرب')) return 'electrical';
+      if (c === 'carpentry' || c.includes('نجار') || c.includes('المنيوم') || c.includes('ألمنيوم')) return 'carpentry';
+      if (c === 'painting' || c.includes('دهان') || c.includes('ديكور') || c.includes('بوية') || c.includes('جبس')) return 'painting';
+      if (c === 'construction' || c.includes('بناء') || c.includes('طين') || c.includes('مقاول')) return 'construction';
+      if (c === 'auto' || c.includes('سيار') || c.includes('ميكانيك') || c.includes('ورش')) return 'auto';
+      if (c === 'tailoring' || c.includes('خياط') || c.includes('تطريز') || c.includes('ثياب')) return 'tailoring';
+      if (c === 'tech' || c.includes('تقني') || c.includes('كمبيوتر') || c.includes('كاميرا') || c.includes('شبك')) return 'tech';
+      return 'all';
+    }
+
+    window.filterByTradeCategory = function(targetCat, updateUrl = true) {
+      const normCat = normalizeCategory(targetCat);
+      const cards = document.querySelectorAll('#artisanListingsContainer > article');
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const cardCat = card.getAttribute('data-category');
+        if (normCat === 'all' || cardCat === normCat) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      // تحديث أزرار شريط المهن
+      document.querySelectorAll('.trade-cat-chip').forEach(chip => {
+        const chipCat = chip.getAttribute('data-cat');
+        if (chipCat === normCat) {
+          chip.classList.remove('bg-surface-container-lowest', 'text-on-surface');
+          chip.classList.add('bg-primary', 'text-on-primary', 'shadow-xs');
+        } else {
+          chip.classList.remove('bg-primary', 'text-on-primary', 'shadow-xs');
+          chip.classList.add('bg-surface-container-lowest', 'text-on-surface');
+        }
+      });
+
+      // تحديث الإحصائيات والشريط العلوي
+      const bannerCount = document.getElementById('resultsCountNumber');
+      const bannerContext = document.getElementById('resultsCategoryContext');
+      const alertBox = document.getElementById('activeCategoryAlert');
+      const alertName = document.getElementById('activeCategoryName');
+      const headerCategoryTag = document.getElementById('headerCategoryTag');
+      const noRes = document.getElementById('noResultsState');
+
+      if (bannerCount) bannerCount.textContent = String(visibleCount);
+      if (bannerContext) {
+        bannerContext.textContent = normCat === 'all' 
+          ? 'مهني موثق في المكلا وضواحيها' 
+          : `كوادر متخصصة في قسم ${TRADE_LABELS[normCat] || normCat}`;
+      }
+      if (headerCategoryTag) {
+        headerCategoryTag.textContent = normCat === 'all' ? 'مهن حضرموت المعتمدة' : TRADE_LABELS[normCat];
+      }
+
+      if (alertBox && alertName) {
+        if (normCat !== 'all') {
+          alertBox.classList.remove('hidden');
+          alertName.textContent = TRADE_LABELS[normCat] || normCat;
+        } else {
+          alertBox.classList.add('hidden');
+        }
+      }
+
+      if (noRes) {
+        if (visibleCount === 0) noRes.classList.remove('hidden');
+        else noRes.classList.add('hidden');
+      }
+
+      if (updateUrl) {
+        const url = new URL(window.location);
+        if (normCat === 'all') {
+          url.searchParams.delete('category');
+        } else {
+          url.searchParams.set('category', normCat);
+        }
+        window.history.replaceState({}, '', url);
+      }
+    };
+
+    // تطبيق التصفية التلقائية من رابط الصفحة
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const catParam = urlParams.get('category');
+      if (catParam) {
+        filterByTradeCategory(catParam, false);
+      }
+    });
+
+    // تصفية البحث المباشر
+    const searchInput = document.getElementById('exploreSearchInput');
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const q = e.target.value.toLowerCase().trim();
+        const cards = document.querySelectorAll('#artisanListingsContainer > article');
+        let visible = 0;
+        cards.forEach(card => {
+          const text = card.textContent.toLowerCase();
+          if (!q || text.includes(q)) {
+            card.classList.remove('hidden');
+            visible++;
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+        const bannerCount = document.getElementById('resultsCountNumber');
+        if (bannerCount) bannerCount.textContent = String(visible);
+      });
+    }
   </script>
 </div>
   </div>
