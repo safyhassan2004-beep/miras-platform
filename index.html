@@ -77,10 +77,10 @@
     ::-webkit-scrollbar {
       display: none;
     }
-      /* تحسين وتصغير خطوط نسخة الجوال لتكون مريحة وأنيقة وغير مزدحمة */
+      /* تحسين وتنسيق خطوط نسخة الجوال لتكون مريحة وأنيقة وواضحة */
     @media (max-width: 768px) {
       html {
-        font-size: 13.5px !important;
+        font-size: 14.75px !important;
       }
       body {
         line-height: 1.55 !important;
@@ -90,44 +90,44 @@
       }
       /* العناوين الرئيسية والفرعية */
       h1, .text-3xl, .text-2xl, .text-headline-lg-mobile, .font-headline-lg-mobile, .text-display-lg-mobile, .font-display-lg-mobile {
-        font-size: 1.25rem !important;
+        font-size: 1.30rem !important;
         line-height: 1.45 !important;
       }
       h2, .text-xl, .text-headline-md, .font-headline-md {
-        font-size: 1.05rem !important;
+        font-size: 1.12rem !important;
         line-height: 1.4 !important;
       }
       h3, .text-lg, .text-headline-sm, .font-headline-sm {
-        font-size: 0.92rem !important;
+        font-size: 0.98rem !important;
         line-height: 1.35 !important;
       }
       /* النصوص والفقرات */
       p, .text-base, .text-body-md, .font-body-md {
-        font-size: 0.82rem !important;
+        font-size: 0.88rem !important;
         line-height: 1.5 !important;
       }
       .text-sm, .text-body-sm, .font-body-sm {
-        font-size: 0.74rem !important;
+        font-size: 0.80rem !important;
         line-height: 1.45 !important;
       }
       .text-xs, .text-label-sm, .font-label-sm {
-        font-size: 0.68rem !important;
+        font-size: 0.72rem !important;
         line-height: 1.35 !important;
       }
       .text-label-md, .font-label-md, .text-label-lg, .font-label-lg {
-        font-size: 0.76rem !important;
+        font-size: 0.82rem !important;
         line-height: 1.35 !important;
       }
       /* المدخلات والأزرار */
       input, select, textarea {
-        font-size: 0.82rem !important;
+        font-size: 0.88rem !important;
       }
       button:not(.material-symbols-outlined) {
-        font-size: 0.78rem !important;
+        font-size: 0.82rem !important;
       }
       /* الشرائح والبطاقات الصغيرة */
       .city-chip, .filter-chip, .network-chip {
-        font-size: 0.72rem !important;
+        font-size: 0.76rem !important;
       }
     }
   </style>
@@ -249,91 +249,212 @@
 </form>
 </div>
 </section>
-<!-- 2. Categories Section -->
+<!-- 2. Categories Section (Standalone Specialty Boxes on Mobile & Laptop) -->
 <section class="px-margin mb-space-lg">
 <div class="flex items-center justify-between mb-space-sm">
-<div class="flex items-center gap-1.5">
-<span class="w-1.5 h-4 bg-tertiary-fixed-dim rounded-full"></span>
-<h2 class="font-headline-sm text-headline-sm text-primary font-bold">تصنيفات المهن</h2>
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-4.5 bg-tertiary-fixed-dim rounded-full"></span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold">تصنيفات المهن والتخصصات</h2>
+<p class="text-xs text-on-surface-variant hidden sm:block">اختر تخصصك المطلوب للوصول المباشر إلى خيرة الحرفيين بحضرموت</p>
 </div>
-<a class="font-label-sm text-label-sm text-secondary hover:text-primary font-medium flex items-center" href="join-pro.html">
-<span>عرض الكل</span>
-<span class="material-symbols-outlined text-[16px]">arrow_back_ios</span>
+</div>
+<a class="font-label-sm text-label-sm text-secondary hover:text-primary font-medium flex items-center gap-1 transition-colors" href="explore.html">
+<span>عرض كافة المهن (285+)</span>
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
 </a>
 </div>
-<!-- 3-Column Grid for Quick Trade Access -->
-<div class="grid grid-cols-3 gap-2.5">
+
+<!-- Responsive Standalone Boxes: 2 cols on mobile, 3 on tablet, 5 cols on laptop -->
+<div id="tradesCategoriesGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
 <!-- 1: HVAC -->
-<a class="group flex flex-col items-center justify-center p-3 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all duration-200 text-center" href="explore.html?category=hvac">
-<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center text-secondary mb-2 group-hover:scale-105 transition-transform">
-<span class="material-symbols-outlined text-[26px]">ac_unit</span>
+<a href="explore.html?category=hvac" onclick="event.preventDefault(); window.MirasTrades.navigate('hvac');" data-trade-id="hvac" class="trade-specialty-card group relative flex flex-col items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-surface-container-lowest border border-surface-container-high hover:border-primary/40 shadow-xs hover:shadow-md transition-all duration-200 active:scale-95 cursor-pointer text-center select-none overflow-hidden min-h-[160px] sm:min-h-[180px]" title="تكييف وتبريد - صيانة، تنظيف وتركيب المكيفات">
+<div class="w-full flex items-center justify-between gap-1 mb-2">
+<span class="text-[10px] sm:text-[11px] font-bold px-2 py-0.5 rounded-full border bg-amber-100 text-amber-900 border-amber-200">الأعلى طلباً</span>
+<span class="material-symbols-outlined text-surface-container-highest group-hover:text-primary transition-colors text-[18px]">north_west</span>
 </div>
-<span class="font-label-md text-label-md text-on-surface font-semibold truncate w-full">تكييف وتبريد</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">38 خبير</span>
+<div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl border flex items-center justify-center mb-2 transition-all duration-200 shadow-xs bg-blue-50 text-blue-700 border-blue-200 group-hover:bg-blue-600 group-hover:text-white">
+<span class="material-symbols-outlined text-[26px] sm:text-[28px]">ac_unit</span>
+</div>
+<div class="w-full my-auto">
+<h3 class="font-bold text-on-surface text-xs sm:text-sm md:text-base group-hover:text-primary transition-colors truncate">تكييف وتبريد</h3>
+<p class="text-[10px] sm:text-xs text-on-surface-variant line-clamp-1 mt-0.5 font-normal">صيانة، تنظيف وتركيب المكيفات</p>
+</div>
+<div class="mt-2.5 w-full pt-2 border-t border-surface-container-low flex items-center justify-center gap-1 text-[10px] sm:text-[11px] font-semibold text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+<span>38 خبير معتمد</span>
+</div>
 </a>
+
 <!-- 2: Plumbing -->
-<a class="group flex flex-col items-center justify-center p-3 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all duration-200 text-center" href="explore.html?category=plumbing">
-<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center text-secondary mb-2 group-hover:scale-105 transition-transform">
-<span class="material-symbols-outlined text-[26px]">plumbing</span>
+<a href="explore.html?category=plumbing" onclick="event.preventDefault(); window.MirasTrades.navigate('plumbing');" data-trade-id="plumbing" class="trade-specialty-card group relative flex flex-col items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-surface-container-lowest border border-surface-container-high hover:border-primary/40 shadow-xs hover:shadow-md transition-all duration-200 active:scale-95 cursor-pointer text-center select-none overflow-hidden min-h-[160px] sm:min-h-[180px]" title="سباكة وصحي - تأسيس وصيانة شبكات المياه">
+<div class="w-full flex items-center justify-between gap-1 mb-2">
+<span class="text-[10px] sm:text-[11px] font-bold px-2 py-0.5 rounded-full border bg-emerald-100 text-emerald-900 border-emerald-200">طوارئ 24/7</span>
+<span class="material-symbols-outlined text-surface-container-highest group-hover:text-primary transition-colors text-[18px]">north_west</span>
 </div>
-<span class="font-label-md text-label-md text-on-surface font-semibold truncate w-full">سباكة وصحي</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">45 فني</span>
+<div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl border flex items-center justify-center mb-2 transition-all duration-200 shadow-xs bg-cyan-50 text-cyan-700 border-cyan-200 group-hover:bg-cyan-600 group-hover:text-white">
+<span class="material-symbols-outlined text-[26px] sm:text-[28px]">plumbing</span>
+</div>
+<div class="w-full my-auto">
+<h3 class="font-bold text-on-surface text-xs sm:text-sm md:text-base group-hover:text-primary transition-colors truncate">سباكة وصحي</h3>
+<p class="text-[10px] sm:text-xs text-on-surface-variant line-clamp-1 mt-0.5 font-normal">تأسيس وصيانة شبكات المياه</p>
+</div>
+<div class="mt-2.5 w-full pt-2 border-t border-surface-container-low flex items-center justify-center gap-1 text-[10px] sm:text-[11px] font-semibold text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+<span>45 فني معتمد</span>
+</div>
 </a>
+
 <!-- 3: Electrical -->
-<a class="group flex flex-col items-center justify-center p-3 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all duration-200 text-center" href="explore.html?category=electrical">
-<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center text-secondary mb-2 group-hover:scale-105 transition-transform">
-<span class="material-symbols-outlined text-[26px]">electrical_services</span>
+<a href="explore.html?category=electrical" onclick="event.preventDefault(); window.MirasTrades.navigate('electrical');" data-trade-id="electrical" class="trade-specialty-card group relative flex flex-col items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-surface-container-lowest border border-surface-container-high hover:border-primary/40 shadow-xs hover:shadow-md transition-all duration-200 active:scale-95 cursor-pointer text-center select-none overflow-hidden min-h-[160px] sm:min-h-[180px]" title="كهرباء وتمديدات - شبكات منزلية وتجارية وطاقة">
+<div class="w-full flex items-center justify-between gap-1 mb-2">
+<span class="text-[10px] sm:text-[11px] font-bold px-2 py-0.5 rounded-full border bg-blue-100 text-blue-900 border-blue-200">معتمد رسمياً</span>
+<span class="material-symbols-outlined text-surface-container-highest group-hover:text-primary transition-colors text-[18px]">north_west</span>
 </div>
-<span class="font-label-md text-label-md text-on-surface font-semibold truncate w-full">كهرباء وتمديدات</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">52 مهني</span>
+<div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl border flex items-center justify-center mb-2 transition-all duration-200 shadow-xs bg-amber-50 text-amber-700 border-amber-200 group-hover:bg-amber-500 group-hover:text-white">
+<span class="material-symbols-outlined text-[26px] sm:text-[28px]">electrical_services</span>
+</div>
+<div class="w-full my-auto">
+<h3 class="font-bold text-on-surface text-xs sm:text-sm md:text-base group-hover:text-primary transition-colors truncate">كهرباء وتمديدات</h3>
+<p class="text-[10px] sm:text-xs text-on-surface-variant line-clamp-1 mt-0.5 font-normal">شبكات منزلية وتجارية وطاقة</p>
+</div>
+<div class="mt-2.5 w-full pt-2 border-t border-surface-container-low flex items-center justify-center gap-1 text-[10px] sm:text-[11px] font-semibold text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+<span>52 مهني معتمد</span>
+</div>
 </a>
+
 <!-- 4: Carpentry -->
-<a class="group flex flex-col items-center justify-center p-3 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all duration-200 text-center" href="explore.html?category=carpentry">
-<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center text-secondary mb-2 group-hover:scale-105 transition-transform">
-<span class="material-symbols-outlined text-[26px]">carpenter</span>
+<a href="explore.html?category=carpentry" onclick="event.preventDefault(); window.MirasTrades.navigate('carpentry');" data-trade-id="carpentry" class="trade-specialty-card group relative flex flex-col items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-surface-container-lowest border border-surface-container-high hover:border-primary/40 shadow-xs hover:shadow-md transition-all duration-200 active:scale-95 cursor-pointer text-center select-none overflow-hidden min-h-[160px] sm:min-h-[180px]" title="نجارة وألمنيوم - أبواب، مطابخ وديكورات خشبية">
+<div class="w-full flex items-center justify-between gap-1 mb-2">
+<span class="text-[10px] sm:text-[11px] font-bold px-2 py-0.5 rounded-full border bg-orange-100 text-orange-900 border-orange-200">حرفي متمرس</span>
+<span class="material-symbols-outlined text-surface-container-highest group-hover:text-primary transition-colors text-[18px]">north_west</span>
 </div>
-<span class="font-label-md text-label-md text-on-surface font-semibold truncate w-full">نجارة وألمنيوم</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">29 معلم</span>
+<div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl border flex items-center justify-center mb-2 transition-all duration-200 shadow-xs bg-orange-50 text-orange-700 border-orange-200 group-hover:bg-orange-600 group-hover:text-white">
+<span class="material-symbols-outlined text-[26px] sm:text-[28px]">carpenter</span>
+</div>
+<div class="w-full my-auto">
+<h3 class="font-bold text-on-surface text-xs sm:text-sm md:text-base group-hover:text-primary transition-colors truncate">نجارة وألمنيوم</h3>
+<p class="text-[10px] sm:text-xs text-on-surface-variant line-clamp-1 mt-0.5 font-normal">أبواب، مطابخ وديكورات خشبية</p>
+</div>
+<div class="mt-2.5 w-full pt-2 border-t border-surface-container-low flex items-center justify-center gap-1 text-[10px] sm:text-[11px] font-semibold text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+<span>29 معلم معتمد</span>
+</div>
 </a>
+
 <!-- 5: Painting -->
-<a class="group flex flex-col items-center justify-center p-3 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all duration-200 text-center" href="explore.html?category=painting">
-<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center text-secondary mb-2 group-hover:scale-105 transition-transform">
-<span class="material-symbols-outlined text-[26px]">format_paint</span>
+<a href="explore.html?category=painting" onclick="event.preventDefault(); window.MirasTrades.navigate('painting');" data-trade-id="painting" class="trade-specialty-card group relative flex flex-col items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-surface-container-lowest border border-surface-container-high hover:border-primary/40 shadow-xs hover:shadow-md transition-all duration-200 active:scale-95 cursor-pointer text-center select-none overflow-hidden min-h-[160px] sm:min-h-[180px]" title="دهان وديكور - دهانات داخلية وخارجية وتشطيب">
+<div class="w-full flex items-center justify-between gap-1 mb-2">
+<span class="text-[10px] sm:text-[11px] font-bold px-2 py-0.5 rounded-full border bg-teal-100 text-teal-900 border-teal-200">تشطيب راقٍ</span>
+<span class="material-symbols-outlined text-surface-container-highest group-hover:text-primary transition-colors text-[18px]">north_west</span>
 </div>
-<span class="font-label-md text-label-md text-on-surface font-semibold truncate w-full">دهان وديكور</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">34 حرفي</span>
+<div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl border flex items-center justify-center mb-2 transition-all duration-200 shadow-xs bg-emerald-50 text-emerald-700 border-emerald-200 group-hover:bg-emerald-600 group-hover:text-white">
+<span class="material-symbols-outlined text-[26px] sm:text-[28px]">format_paint</span>
+</div>
+<div class="w-full my-auto">
+<h3 class="font-bold text-on-surface text-xs sm:text-sm md:text-base group-hover:text-primary transition-colors truncate">دهان وديكور</h3>
+<p class="text-[10px] sm:text-xs text-on-surface-variant line-clamp-1 mt-0.5 font-normal">دهانات داخلية وخارجية وتشطيب</p>
+</div>
+<div class="mt-2.5 w-full pt-2 border-t border-surface-container-low flex items-center justify-center gap-1 text-[10px] sm:text-[11px] font-semibold text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+<span>34 حرفي معتمد</span>
+</div>
 </a>
+
 <!-- 6: Traditional Construction -->
-<a class="group flex flex-col items-center justify-center p-3 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all duration-200 text-center" href="explore.html?category=construction">
-<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center text-secondary mb-2 group-hover:scale-105 transition-transform">
-<span class="material-symbols-outlined text-[26px]">foundation</span>
+<a href="explore.html?category=construction" onclick="event.preventDefault(); window.MirasTrades.navigate('construction');" data-trade-id="construction" class="trade-specialty-card group relative flex flex-col items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-surface-container-lowest border border-surface-container-high hover:border-primary/40 shadow-xs hover:shadow-md transition-all duration-200 active:scale-95 cursor-pointer text-center select-none overflow-hidden min-h-[160px] sm:min-h-[180px]" title="بناء وطين حضرمي - عمارة الطين، نورة وتراث أصيل">
+<div class="w-full flex items-center justify-between gap-1 mb-2">
+<span class="text-[10px] sm:text-[11px] font-bold px-2 py-0.5 rounded-full border bg-yellow-100 text-yellow-900 border-yellow-300">تراث حضرمي</span>
+<span class="material-symbols-outlined text-surface-container-highest group-hover:text-primary transition-colors text-[18px]">north_west</span>
 </div>
-<span class="font-label-md text-label-md text-on-surface font-semibold truncate w-full">بناء حضرمي</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">22 مقاول</span>
+<div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl border flex items-center justify-center mb-2 transition-all duration-200 shadow-xs bg-yellow-50 text-yellow-800 border-yellow-200 group-hover:bg-yellow-600 group-hover:text-white">
+<span class="material-symbols-outlined text-[26px] sm:text-[28px]">foundation</span>
+</div>
+<div class="w-full my-auto">
+<h3 class="font-bold text-on-surface text-xs sm:text-sm md:text-base group-hover:text-primary transition-colors truncate">بناء وطين حضرمي</h3>
+<p class="text-[10px] sm:text-xs text-on-surface-variant line-clamp-1 mt-0.5 font-normal">عمارة الطين، نورة وتراث أصيل</p>
+</div>
+<div class="mt-2.5 w-full pt-2 border-t border-surface-container-low flex items-center justify-center gap-1 text-[10px] sm:text-[11px] font-semibold text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+<span>22 مقاول معتمد</span>
+</div>
 </a>
+
 <!-- 7: Automotive -->
-<a class="group flex flex-col items-center justify-center p-3 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all duration-200 text-center" href="explore.html?category=auto">
-<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center text-secondary mb-2 group-hover:scale-105 transition-transform">
-<span class="material-symbols-outlined text-[26px]">car_repair</span>
+<a href="explore.html?category=auto" onclick="event.preventDefault(); window.MirasTrades.navigate('auto');" data-trade-id="auto" class="trade-specialty-card group relative flex flex-col items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-surface-container-lowest border border-surface-container-high hover:border-primary/40 shadow-xs hover:shadow-md transition-all duration-200 active:scale-95 cursor-pointer text-center select-none overflow-hidden min-h-[160px] sm:min-h-[180px]" title="صيانة سيارات - ميكانيكا، كهرباء وفحص كمبيوتر">
+<div class="w-full flex items-center justify-between gap-1 mb-2">
+<span class="text-[10px] sm:text-[11px] font-bold px-2 py-0.5 rounded-full border bg-rose-100 text-rose-900 border-rose-200">فحص فوري</span>
+<span class="material-symbols-outlined text-surface-container-highest group-hover:text-primary transition-colors text-[18px]">north_west</span>
 </div>
-<span class="font-label-md text-label-md text-on-surface font-semibold truncate w-full">صيانة سيارات</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">19 ورشة</span>
+<div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl border flex items-center justify-center mb-2 transition-all duration-200 shadow-xs bg-rose-50 text-rose-700 border-rose-200 group-hover:bg-rose-600 group-hover:text-white">
+<span class="material-symbols-outlined text-[26px] sm:text-[28px]">car_repair</span>
+</div>
+<div class="w-full my-auto">
+<h3 class="font-bold text-on-surface text-xs sm:text-sm md:text-base group-hover:text-primary transition-colors truncate">صيانة سيارات</h3>
+<p class="text-[10px] sm:text-xs text-on-surface-variant line-clamp-1 mt-0.5 font-normal">ميكانيكا، كهرباء وفحص كمبيوتر</p>
+</div>
+<div class="mt-2.5 w-full pt-2 border-t border-surface-container-low flex items-center justify-center gap-1 text-[10px] sm:text-[11px] font-semibold text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+<span>19 ورشة معتمدة</span>
+</div>
 </a>
+
 <!-- 8: Tailoring -->
-<a class="group flex flex-col items-center justify-center p-3 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all duration-200 text-center" href="explore.html?category=tailoring">
-<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center text-secondary mb-2 group-hover:scale-105 transition-transform">
-<span class="material-symbols-outlined text-[26px]">content_cut</span>
+<a href="explore.html?category=tailoring" onclick="event.preventDefault(); window.MirasTrades.navigate('tailoring');" data-trade-id="tailoring" class="trade-specialty-card group relative flex flex-col items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-surface-container-lowest border border-surface-container-high hover:border-primary/40 shadow-xs hover:shadow-md transition-all duration-200 active:scale-95 cursor-pointer text-center select-none overflow-hidden min-h-[160px] sm:min-h-[180px]" title="خياطة وتطريز - تفصيل ثياب وتطريز حضرمي">
+<div class="w-full flex items-center justify-between gap-1 mb-2">
+<span class="text-[10px] sm:text-[11px] font-bold px-2 py-0.5 rounded-full border bg-purple-100 text-purple-900 border-purple-200">أصالة حضرمية</span>
+<span class="material-symbols-outlined text-surface-container-highest group-hover:text-primary transition-colors text-[18px]">north_west</span>
 </div>
-<span class="font-label-md text-label-md text-on-surface font-semibold truncate w-full">خياطة وتطريز</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">31 معمل</span>
+<div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl border flex items-center justify-center mb-2 transition-all duration-200 shadow-xs bg-purple-50 text-purple-700 border-purple-200 group-hover:bg-purple-600 group-hover:text-white">
+<span class="material-symbols-outlined text-[26px] sm:text-[28px]">content_cut</span>
+</div>
+<div class="w-full my-auto">
+<h3 class="font-bold text-on-surface text-xs sm:text-sm md:text-base group-hover:text-primary transition-colors truncate">خياطة وتطريز</h3>
+<p class="text-[10px] sm:text-xs text-on-surface-variant line-clamp-1 mt-0.5 font-normal">تفصيل ثياب وتطريز حضرمي</p>
+</div>
+<div class="mt-2.5 w-full pt-2 border-t border-surface-container-low flex items-center justify-center gap-1 text-[10px] sm:text-[11px] font-semibold text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+<span>31 معمل معتمد</span>
+</div>
 </a>
-<!-- 9: Tech & Design -->
-<a class="group flex flex-col items-center justify-center p-3 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all duration-200 text-center" href="explore.html?category=tech">
-<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center text-secondary mb-2 group-hover:scale-105 transition-transform">
-<span class="material-symbols-outlined text-[26px]">terminal</span>
+
+<!-- 9: Tech & Systems -->
+<a href="explore.html?category=tech" onclick="event.preventDefault(); window.MirasTrades.navigate('tech');" data-trade-id="tech" class="trade-specialty-card group relative flex flex-col items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-surface-container-lowest border border-surface-container-high hover:border-primary/40 shadow-xs hover:shadow-md transition-all duration-200 active:scale-95 cursor-pointer text-center select-none overflow-hidden min-h-[160px] sm:min-h-[180px]" title="خدمات تقنية - شبكات، كاميرات وحلول ذكية">
+<div class="w-full flex items-center justify-between gap-1 mb-2">
+<span class="text-[10px] sm:text-[11px] font-bold px-2 py-0.5 rounded-full border bg-indigo-100 text-indigo-900 border-indigo-200">حلول ذكية</span>
+<span class="material-symbols-outlined text-surface-container-highest group-hover:text-primary transition-colors text-[18px]">north_west</span>
 </div>
-<span class="font-label-md text-label-md text-on-surface font-semibold truncate w-full">خدمات تقنية</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">17 مختص</span>
+<div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl border flex items-center justify-center mb-2 transition-all duration-200 shadow-xs bg-indigo-50 text-indigo-700 border-indigo-200 group-hover:bg-indigo-600 group-hover:text-white">
+<span class="material-symbols-outlined text-[26px] sm:text-[28px]">terminal</span>
+</div>
+<div class="w-full my-auto">
+<h3 class="font-bold text-on-surface text-xs sm:text-sm md:text-base group-hover:text-primary transition-colors truncate">خدمات تقنية</h3>
+<p class="text-[10px] sm:text-xs text-on-surface-variant line-clamp-1 mt-0.5 font-normal">شبكات، كاميرات وحلول ذكية</p>
+</div>
+<div class="mt-2.5 w-full pt-2 border-t border-surface-container-low flex items-center justify-center gap-1 text-[10px] sm:text-[11px] font-semibold text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+<span>17 مختص معتمد</span>
+</div>
+</a>
+
+<!-- 10: All Trades (Comprehensive Directory) -->
+<a href="explore.html" onclick="event.preventDefault(); window.MirasTrades.navigate('all');" data-trade-id="all" class="trade-specialty-card group relative flex flex-col items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-surface-container-lowest border border-primary/25 hover:border-primary shadow-xs hover:shadow-md transition-all duration-200 active:scale-95 cursor-pointer text-center select-none overflow-hidden min-h-[160px] sm:min-h-[180px]" title="كافة التخصصات - استعراض جميع المهن والكوادر">
+<div class="w-full flex items-center justify-between gap-1 mb-2">
+<span class="text-[10px] sm:text-[11px] font-bold px-2 py-0.5 rounded-full border bg-primary/10 text-primary border-primary/20">دليل شامل</span>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-0.5 transition-transform text-[18px]">arrow_back</span>
+</div>
+<div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl border flex items-center justify-center mb-2 transition-all duration-200 shadow-xs bg-primary/10 text-primary border-primary/20 group-hover:bg-primary group-hover:text-white">
+<span class="material-symbols-outlined text-[26px] sm:text-[28px]">grid_view</span>
+</div>
+<div class="w-full my-auto">
+<h3 class="font-bold text-primary text-xs sm:text-sm md:text-base group-hover:text-secondary transition-colors truncate">كافة التخصصات</h3>
+<p class="text-[10px] sm:text-xs text-on-surface-variant line-clamp-1 mt-0.5 font-normal">استعراض جميع المهن والكوادر</p>
+</div>
+<div class="mt-2.5 w-full pt-2 border-t border-primary/10 flex items-center justify-center gap-1 text-[10px] sm:text-[11px] font-bold text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span>285+ مهني وكادر</span>
+</div>
 </a>
 </div>
 </section>
@@ -560,6 +681,7 @@
 <script src="supabase/miras-api.js"></script>
 <script src="js/miras-favorites.js"></script>
 <script src="js/miras-map.js"></script>
+<script src="js/miras-trades.js"></script>
 
 <script>
   window.handleHomeSearch = function(e) {
