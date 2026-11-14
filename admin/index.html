@@ -77,6 +77,59 @@
     ::-webkit-scrollbar {
       display: none;
     }
+      /* تحسين وتصغير خطوط نسخة الجوال لتكون مريحة وأنيقة وغير مزدحمة */
+    @media (max-width: 768px) {
+      html {
+        font-size: 13.5px !important;
+      }
+      body {
+        line-height: 1.55 !important;
+        letter-spacing: -0.01em !important;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+      /* العناوين الرئيسية والفرعية */
+      h1, .text-3xl, .text-2xl, .text-headline-lg-mobile, .font-headline-lg-mobile, .text-display-lg-mobile, .font-display-lg-mobile {
+        font-size: 1.25rem !important;
+        line-height: 1.45 !important;
+      }
+      h2, .text-xl, .text-headline-md, .font-headline-md {
+        font-size: 1.05rem !important;
+        line-height: 1.4 !important;
+      }
+      h3, .text-lg, .text-headline-sm, .font-headline-sm {
+        font-size: 0.92rem !important;
+        line-height: 1.35 !important;
+      }
+      /* النصوص والفقرات */
+      p, .text-base, .text-body-md, .font-body-md {
+        font-size: 0.82rem !important;
+        line-height: 1.5 !important;
+      }
+      .text-sm, .text-body-sm, .font-body-sm {
+        font-size: 0.74rem !important;
+        line-height: 1.45 !important;
+      }
+      .text-xs, .text-label-sm, .font-label-sm {
+        font-size: 0.68rem !important;
+        line-height: 1.35 !important;
+      }
+      .text-label-md, .font-label-md, .text-label-lg, .font-label-lg {
+        font-size: 0.76rem !important;
+        line-height: 1.35 !important;
+      }
+      /* المدخلات والأزرار */
+      input, select, textarea {
+        font-size: 0.82rem !important;
+      }
+      button:not(.material-symbols-outlined) {
+        font-size: 0.78rem !important;
+      }
+      /* الشرائح والبطاقات الصغيرة */
+      .city-chip, .filter-chip, .network-chip {
+        font-size: 0.72rem !important;
+      }
+    }
   </style>
 </head>
 <body class="bg-surface text-on-surface antialiased flex flex-col min-h-screen">
@@ -425,6 +478,7 @@
 <script src="../supabase/config.js"></script>
 <script src="../supabase/auth-router.js"></script>
 <script src="../supabase/miras-api.js"></script>
+<script src="../js/miras-app.js"></script>
 <script src="admin-auth.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {

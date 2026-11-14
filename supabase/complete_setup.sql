@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS public.profiles (
     country TEXT NOT NULL DEFAULT 'Yemen',
     is_admin BOOLEAN NOT NULL DEFAULT FALSE,
     avatar_url TEXT,
-    city TEXT DEFAULT 'صنعاء',
+    city TEXT DEFAULT 'المكلا',
     national_id_verified BOOLEAN DEFAULT FALSE,
     created_at TIMESTAMPTZ DEFAULT NOW(),
     updated_at TIMESTAMPTZ DEFAULT NOW()
@@ -31,11 +31,11 @@ CREATE TABLE IF NOT EXISTS public.profiles (
 -- تحديث وضمان وجود كافة الأعمدة في حال وجود جدول قديم
 ALTER TABLE public.profiles 
     ADD COLUMN IF NOT EXISTS role TEXT NOT NULL DEFAULT 'client' CHECK (role IN ('client', 'craftsman', 'admin', 'super_admin')),
-    is_super_admin BOOLEAN NOT NULL DEFAULT FALSE,
-    country TEXT NOT NULL DEFAULT 'Yemen',
+    ADD COLUMN IF NOT EXISTS is_super_admin BOOLEAN NOT NULL DEFAULT FALSE,
+    ADD COLUMN IF NOT EXISTS country TEXT NOT NULL DEFAULT 'Yemen',
     ADD COLUMN IF NOT EXISTS is_admin BOOLEAN NOT NULL DEFAULT FALSE,
     ADD COLUMN IF NOT EXISTS phone_number TEXT UNIQUE,
-    ADD COLUMN IF NOT EXISTS city TEXT DEFAULT 'صنعاء',
+    ADD COLUMN IF NOT EXISTS city TEXT DEFAULT 'المكلا',
     ADD COLUMN IF NOT EXISTS national_id_verified BOOLEAN DEFAULT FALSE,
     ADD COLUMN IF NOT EXISTS updated_at TIMESTAMPTZ DEFAULT NOW();
 
@@ -112,11 +112,13 @@ CREATE TABLE IF NOT EXISTS public.service_orders (
     title TEXT NOT NULL,
     trade_category TEXT NOT NULL,
     description TEXT,
-    city TEXT NOT NULL DEFAULT 'صنعاء',
+    city TEXT NOT NULL DEFAULT 'المكلا',
     location_details TEXT,
+    attachment_url TEXT,
+    cancellation_reason TEXT,
     estimated_budget NUMERIC(10, 2),
     final_amount NUMERIC(10, 2),
-    status TEXT NOT NULL DEFAULT 'open' CHECK (status IN ('open', 'bidding', 'in_progress', 'completed', 'cancelled')),
+    status TEXT NOT NULL DEFAULT 'new' CHECK (status IN ('new', 'pending_review', 'accepted', 'in_progress', 'completed', 'rejected', 'cancelled', 'open', 'bidding')),
     created_at TIMESTAMPTZ DEFAULT NOW(),
     updated_at TIMESTAMPTZ DEFAULT NOW()
 );
@@ -274,7 +276,7 @@ BEGIN
         safe_role := 'super_admin';
         user_name := COALESCE(NEW.raw_user_meta_data->>'full_name', 'مالكة المنصة (Super Admin)');
         user_phone := '+967781125928';
-        user_city := 'صنعاء';
+        user_city := 'المكلا';
         user_country := 'Yemen';
     ELSE
         -- قاعدة الأمان: منع أي تسجيل عام من إعطاء نفسه صلاحيات Admin أو Super Admin
@@ -288,8 +290,8 @@ BEGIN
 
         user_name := COALESCE(NEW.raw_user_meta_data->>'full_name', 'مستخدم مِـرَاس');
         user_phone := public.normalize_yemen_phone(COALESCE(NEW.raw_user_meta_data->>'phone_number', NEW.phone, ''));
-        user_city := COALESCE(NEW.raw_user_meta_data->>'city', 'صنعاء');
-        user_country := COALESCE(NEW.raw_user_meta_data->>'country', 'Yemen');
+        user_city := COALESCE(NEW.raw_user_meta_data->>'city', 'المكلا');
+        user_country := 'Yemen';
     END IF;
 
     user_trade := COALESCE(NEW.raw_user_meta_data->>'trade_category', 'صيانة وتشطيبات عامة');
@@ -333,7 +335,7 @@ BEGIN
     VALUES (NEW.id, 0.00, 0.00)
     ON CONFLICT (user_id) DO NOTHING;
 
-    -- 3. في حال كان صاحب مهنة، إنشاء ملف مهني
+    -- 3. في حال كان صاحب مهنة: يبدأ معلقاً (pending) بانتظار موافقة مالكة المنصة
     IF safe_role = 'craftsman' THEN
         INSERT INTO public.craftsmen_profiles (
             user_id, 
@@ -346,12 +348,38 @@ BEGIN
         VALUES (
             NEW.id,
             user_trade,
-            'verified',
-            TRUE,
+            'pending', -- معلق حتى توافق عليه مالكة المنصة
+            FALSE,
             5.00,
             2
         )
         ON CONFLICT (user_id) DO NOTHING;
+
+        -- إشعار إداري لمالكة المنصة
+        INSERT INTO public.notifications (
+            user_id, target_role, title, message, type, link, actor_name
+        ) VALUES (
+            NEW.id,
+            'super_admin',
+            'طلب انضمام حرفي جديد',
+            'سجل الحرفي ' || user_name || ' في تخصص (' || user_trade || ') وهو بانتظار مراجعتك واعتمادك.',
+            'verification',
+            'admin/craftsmen.html',
+            user_name
+        );
+    ELSE
+        -- إشعار تسجيل عميل جديد
+        INSERT INTO public.notifications (
+            user_id, target_role, title, message, type, link, actor_name
+        ) VALUES (
+            NEW.id,
+            'super_admin',
+            'تسجيل عميل جديد',
+            'انضم العميل ' || user_name || ' إلى مِـرَاس من مدينة ' || user_city || '.',
+            'system',
+            'admin/index.html',
+            user_name
+        );
     END IF;
 
     RETURN NEW;
@@ -571,7 +599,7 @@ BEGIN
         INSERT INTO public.profiles (
             id, full_name, phone_number, role, is_admin, is_super_admin, city, country, national_id_verified, updated_at
         ) VALUES (
-            owner_user_id, 'مالكة المنصة (Super Admin)', '+967781125928', 'super_admin', TRUE, TRUE, 'صنعاء', 'Yemen', TRUE, NOW()
+            owner_user_id, 'مالكة المنصة (Super Admin)', '+967781125928', 'super_admin', TRUE, TRUE, 'المكلا', 'Yemen', TRUE, NOW()
         )
         ON CONFLICT (id) DO UPDATE SET
             full_name = 'مالكة المنصة (Super Admin)',
@@ -579,7 +607,7 @@ BEGIN
             role = 'super_admin',
             is_admin = TRUE,
             is_super_admin = TRUE,
-            city = 'صنعاء',
+            city = 'المكلا',
             country = 'Yemen',
             national_id_verified = TRUE,
             updated_at = NOW();
@@ -593,4 +621,177 @@ BEGIN
         RAISE NOTICE 'ℹ️ حساب safyhassan2004@gmail.com جاهز للترقية الفورية بمجرد إنشائه في auth.users.';
     END IF;
 END $$;
+
+-- ------------------------------------------------------------------------------
+-- 18. جداول معرض الأعمال والمحادثات والدعم الحضرمي والمفضلة وسجل النشاطات
+-- ------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS public.craftsman_portfolio (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    craftsman_id UUID NOT NULL REFERENCES public.craftsmen_profiles(id) ON DELETE CASCADE,
+    title TEXT NOT NULL,
+    description TEXT,
+    image_url TEXT NOT NULL,
+    completion_date DATE,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS public.conversations (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    order_id UUID REFERENCES public.service_orders(id) ON DELETE SET NULL,
+    client_id UUID NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
+    craftsman_id UUID NOT NULL REFERENCES public.craftsmen_profiles(id) ON DELETE CASCADE,
+    last_message TEXT,
+    last_message_at TIMESTAMPTZ DEFAULT NOW(),
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    CONSTRAINT unique_conversation_order UNIQUE (order_id, client_id, craftsman_id)
+);
+
+CREATE TABLE IF NOT EXISTS public.messages (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    conversation_id UUID NOT NULL REFERENCES public.conversations(id) ON DELETE CASCADE,
+    sender_id UUID NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
+    receiver_id UUID NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
+    content TEXT NOT NULL,
+    attachment_url TEXT,
+    is_read BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- مركز خدمة العملاء والدعم الحضرمي اليدوي (بدون روبوتات)
+CREATE TABLE IF NOT EXISTS public.support_tickets (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID REFERENCES public.profiles(id) ON DELETE SET NULL,
+    user_name TEXT NOT NULL,
+    user_phone TEXT,
+    user_role TEXT DEFAULT 'client',
+    subject TEXT NOT NULL,
+    category TEXT DEFAULT 'general' CHECK (category IN ('general', 'orders', 'payments', 'craftsmen', 'complaint', 'suggestion')),
+    status TEXT NOT NULL DEFAULT 'new' CHECK (status IN ('new', 'in_progress', 'waiting_user', 'closed')),
+    priority TEXT NOT NULL DEFAULT 'normal' CHECK (priority IN ('low', 'normal', 'urgent')),
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS public.support_messages (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    ticket_id UUID NOT NULL REFERENCES public.support_tickets(id) ON DELETE CASCADE,
+    sender_id UUID REFERENCES public.profiles(id) ON DELETE SET NULL,
+    sender_type TEXT NOT NULL CHECK (sender_type IN ('user', 'admin')),
+    sender_name TEXT NOT NULL DEFAULT 'خدمة عملاء مِـرَاس',
+    message TEXT NOT NULL,
+    attachment_url TEXT,
+    is_read BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS public.favorites (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
+    craftsman_id UUID NOT NULL REFERENCES public.craftsmen_profiles(id) ON DELETE CASCADE,
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    CONSTRAINT unique_user_craftsman_fav UNIQUE (user_id, craftsman_id)
+);
+
+CREATE TABLE IF NOT EXISTS public.admin_activity_logs (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    actor_id UUID REFERENCES public.profiles(id) ON DELETE SET NULL,
+    actor_name TEXT,
+    action_type TEXT NOT NULL,
+    entity_type TEXT NOT NULL,
+    entity_id UUID,
+    details JSONB,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- تفعيل RLS للجداول الإضافية
+ALTER TABLE public.craftsman_portfolio ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.conversations ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.messages ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.support_tickets ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.support_messages ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.favorites ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.admin_activity_logs ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Public view portfolio" ON public.craftsman_portfolio FOR SELECT TO public USING (TRUE);
+CREATE POLICY "Craftsman manage own portfolio" ON public.craftsman_portfolio FOR ALL TO authenticated 
+    USING (craftsman_id IN (SELECT id FROM public.craftsmen_profiles WHERE user_id = auth.uid()) OR public.is_admin());
+
+CREATE POLICY "Participants view conversation" ON public.conversations FOR SELECT TO authenticated
+    USING (client_id = auth.uid() OR craftsman_id IN (SELECT id FROM public.craftsmen_profiles WHERE user_id = auth.uid()) OR public.is_admin());
+CREATE POLICY "Participants create conversation" ON public.conversations FOR INSERT TO authenticated
+    WITH CHECK (client_id = auth.uid() OR craftsman_id IN (SELECT id FROM public.craftsmen_profiles WHERE user_id = auth.uid()) OR public.is_admin());
+
+CREATE POLICY "Participants view messages" ON public.messages FOR SELECT TO authenticated
+    USING (sender_id = auth.uid() OR receiver_id = auth.uid() OR public.is_admin());
+CREATE POLICY "Participants insert messages" ON public.messages FOR INSERT TO authenticated
+    WITH CHECK (sender_id = auth.uid());
+
+CREATE POLICY "User view own tickets" ON public.support_tickets FOR SELECT TO authenticated
+    USING (user_id = auth.uid() OR public.is_admin());
+CREATE POLICY "User create support tickets" ON public.support_tickets FOR INSERT TO public
+    WITH CHECK (TRUE);
+CREATE POLICY "Admin full access tickets" ON public.support_tickets FOR ALL TO authenticated
+    USING (public.is_admin());
+
+CREATE POLICY "View ticket messages" ON public.support_messages FOR SELECT TO authenticated
+    USING (ticket_id IN (SELECT id FROM public.support_tickets WHERE user_id = auth.uid()) OR public.is_admin());
+CREATE POLICY "Insert ticket messages" ON public.support_messages FOR INSERT TO public
+    WITH CHECK (TRUE);
+CREATE POLICY "Admin full access support messages" ON public.support_messages FOR ALL TO authenticated
+    USING (public.is_admin());
+
+CREATE POLICY "User manage favorites" ON public.favorites FOR ALL TO authenticated
+    USING (user_id = auth.uid()) WITH CHECK (user_id = auth.uid());
+
+CREATE POLICY "Admin view activity logs" ON public.admin_activity_logs FOR SELECT TO authenticated
+    USING (public.is_admin());
+CREATE POLICY "Authenticated insert activity logs" ON public.admin_activity_logs FOR INSERT TO authenticated
+    WITH CHECK (TRUE);
+
+-- تفعيل Realtime
+DO $$
+BEGIN
+    EXECUTE 'ALTER PUBLICATION supabase_realtime ADD TABLE public.messages';
+EXCEPTION WHEN duplicate_object THEN NULL;
+END $$;
+
+DO $$
+BEGIN
+    EXECUTE 'ALTER PUBLICATION supabase_realtime ADD TABLE public.support_messages';
+EXCEPTION WHEN duplicate_object THEN NULL;
+END $$;
+
+DO $$
+BEGIN
+    EXECUTE 'ALTER PUBLICATION supabase_realtime ADD TABLE public.support_tickets';
+EXCEPTION WHEN duplicate_object THEN NULL;
+END $$;
+
+DO $$
+BEGIN
+    EXECUTE 'ALTER PUBLICATION supabase_realtime ADD TABLE public.notifications';
+EXCEPTION WHEN duplicate_object THEN NULL;
+END $$;
+
+DO $$
+BEGIN
+    EXECUTE 'ALTER PUBLICATION supabase_realtime ADD TABLE public.service_orders';
+EXCEPTION WHEN duplicate_object THEN NULL;
+END $$;
+
+-- إعداد حاويات التخزين
+INSERT INTO storage.buckets (id, name, public)
+VALUES 
+    ('avatars', 'avatars', true),
+    ('portfolio', 'portfolio', true),
+    ('request_attachments', 'request_attachments', true),
+    ('support_attachments', 'support_attachments', true)
+ON CONFLICT (id) DO NOTHING;
+
+DROP POLICY IF EXISTS "Public access to avatars" ON storage.objects;
+DROP POLICY IF EXISTS "Authenticated upload files" ON storage.objects;
+CREATE POLICY "Public access to avatars" ON storage.objects FOR SELECT TO public
+    USING (bucket_id IN ('avatars', 'portfolio', 'request_attachments', 'support_attachments'));
+CREATE POLICY "Authenticated upload files" ON storage.objects FOR INSERT TO public
+    WITH CHECK (bucket_id IN ('avatars', 'portfolio', 'request_attachments', 'support_attachments'));
 

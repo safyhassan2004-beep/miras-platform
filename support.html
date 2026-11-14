@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
-  <title>فريق مِـرَاس — الدعم والمساندة الحضرمية — منصة مِـرَاس (حضرموت)</title>
+  <title>الدعم الحضرمي المباشر — منصة مِـرَاس (حضرموت)</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
@@ -77,9 +77,64 @@
     ::-webkit-scrollbar {
       display: none;
     }
+      /* تحسين وتصغير خطوط نسخة الجوال لتكون مريحة وأنيقة وغير مزدحمة */
+    @media (max-width: 768px) {
+      html {
+        font-size: 13.5px !important;
+      }
+      body {
+        line-height: 1.55 !important;
+        letter-spacing: -0.01em !important;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+      /* العناوين الرئيسية والفرعية */
+      h1, .text-3xl, .text-2xl, .text-headline-lg-mobile, .font-headline-lg-mobile, .text-display-lg-mobile, .font-display-lg-mobile {
+        font-size: 1.25rem !important;
+        line-height: 1.45 !important;
+      }
+      h2, .text-xl, .text-headline-md, .font-headline-md {
+        font-size: 1.05rem !important;
+        line-height: 1.4 !important;
+      }
+      h3, .text-lg, .text-headline-sm, .font-headline-sm {
+        font-size: 0.92rem !important;
+        line-height: 1.35 !important;
+      }
+      /* النصوص والفقرات */
+      p, .text-base, .text-body-md, .font-body-md {
+        font-size: 0.82rem !important;
+        line-height: 1.5 !important;
+      }
+      .text-sm, .text-body-sm, .font-body-sm {
+        font-size: 0.74rem !important;
+        line-height: 1.45 !important;
+      }
+      .text-xs, .text-label-sm, .font-label-sm {
+        font-size: 0.68rem !important;
+        line-height: 1.35 !important;
+      }
+      .text-label-md, .font-label-md, .text-label-lg, .font-label-lg {
+        font-size: 0.76rem !important;
+        line-height: 1.35 !important;
+      }
+      /* المدخلات والأزرار */
+      input, select, textarea {
+        font-size: 0.82rem !important;
+      }
+      button:not(.material-symbols-outlined) {
+        font-size: 0.78rem !important;
+      }
+      /* الشرائح والبطاقات الصغيرة */
+      .city-chip, .filter-chip, .network-chip {
+        font-size: 0.72rem !important;
+      }
+    }
   </style>
 </head>
 <body class="bg-surface text-on-surface antialiased flex flex-col min-h-screen">
+
+<!-- Top Navigation Bar -->
 <header class="sticky top-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl border-b border-surface-container shadow-xs">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
     <div class="flex items-center gap-6 xl:gap-8">
@@ -99,16 +154,20 @@
         <a href="index.html" class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm transition-all text-on-surface-variant hover:text-primary hover:bg-surface-container">
           <span class="material-symbols-outlined text-[18px]">home</span>
           <span>الرئيسية</span>
-        </a><a href="explore.html" class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm transition-all text-on-surface-variant hover:text-primary hover:bg-surface-container">
+        </a>
+        <a href="explore.html" class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm transition-all text-on-surface-variant hover:text-primary hover:bg-surface-container">
           <span class="material-symbols-outlined text-[18px]">explore</span>
           <span>استكشاف المهن</span>
-        </a><a href="my-requests.html" class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm transition-all text-on-surface-variant hover:text-primary hover:bg-surface-container">
+        </a>
+        <a href="my-requests.html" class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm transition-all text-on-surface-variant hover:text-primary hover:bg-surface-container">
           <span class="material-symbols-outlined text-[18px]">work</span>
           <span>طلباتي</span>
-        </a><a href="favorites.html" class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm transition-all text-on-surface-variant hover:text-primary hover:bg-surface-container">
+        </a>
+        <a href="favorites.html" class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm transition-all text-on-surface-variant hover:text-primary hover:bg-surface-container">
           <span class="material-symbols-outlined text-[18px]">favorite</span>
           <span>المفضلة</span>
-        </a><a href="support.html" class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm transition-all bg-primary text-white font-bold shadow-xs">
+        </a>
+        <a href="support.html" class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm transition-all bg-primary text-white font-bold shadow-xs">
           <span class="material-symbols-outlined text-[18px]">support_agent</span>
           <span>الدعم الحضرمي</span>
         </a>
@@ -124,96 +183,392 @@
         <span class="material-symbols-outlined text-[18px]">engineering</span>
         <span>انضم كمهني</span>
       </a>
-      <a href="login.html" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-primary text-white font-bold text-xs sm:text-sm hover:bg-primary-container transition-colors shadow-xs">
+      <a href="login.html" id="topAuthBtn" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-primary text-white font-bold text-xs sm:text-sm hover:bg-primary-container transition-colors shadow-xs">
         <span class="material-symbols-outlined text-[18px]">person</span>
         <span class="hidden sm:inline">تسجيل الدخول</span>
       </a>
     </div>
   </div>
 </header>
-<main class="flex flex-col relative w-full pt-4 pb-24 lg:pb-12 bg-surface min-h-screen">
-  <div class="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 space-y-6">
-    <div class="flex flex-col w-full flex-1 max-w-xl mx-auto px-margin pt-space-sm pb-28 space-y-4"><div class="bg-surface-container-low border border-primary-fixed/40 rounded-xl p-3 shadow-sm flex items-start gap-2.5"><span class="material-symbols-outlined text-secondary text-[22px] shrink-0 mt-0.5">verified_user</span><div class="text-right"><span class="font-label-sm text-label-sm font-bold text-primary block">محادثة رسمية ومباشرة مع غرفة عمليات مِراس بحضرموت</span><span class="font-body-sm text-[12px] text-on-surface-variant leading-relaxed">خدمة مجانية لحماية حقوق العملاء وتوجيه الحرفيين المعتمدين بالمكلا وسيئون وعموم مدن المحافظة.</span></div></div><div class="flex justify-center"><span class="bg-surface-container text-on-surface-variant font-label-sm text-[12px] px-3 py-1 rounded-full">اليوم • السبت</span></div><div class="flex items-start gap-2.5"><div class="relative shrink-0 mt-1"><img class="w-9 h-9 rounded-full object-cover ring-1 ring-outline-variant/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNC0WY6G1FZwlJeRfxDTG8-3GdkzebGBDdAkjd2jeFRY61zjIXsCn690oVhpZVkX3SfqGTbV_4LQWoBxLBOlsBBmLBnsdfwt-JJkbn6HbXpjZuUeh38UYx0n2jZuPzgGRZ-h6ydY-NvkAcSmBogQ4pncmxG4MtJde2Mhay_g5B3T6mpU6_9U7ChX1yT-_ALaPH5FE-ASXE7_V27iDqrc9u7KHBPh3j-S94gC0D0WM" alt="سارة باوزير"></div><div class="flex flex-col max-w-[85%]"><div class="flex items-center gap-2 mb-1"><span class="font-label-sm text-label-sm font-bold text-primary">سارة باوزير</span><span class="font-label-sm text-[12px] text-secondary font-bold">إسعاد العملاء</span><span class="font-label-sm text-[11px] text-on-surface-variant">10:41 ص</span></div><div class="bg-surface-container-lowest text-on-surface p-3.5 rounded-2xl rounded-tr-sm shadow-sm space-y-2 border border-surface-container"><p class="font-body-sm text-body-sm text-on-surface leading-relaxed">حيّاك الله وبياك في مِراس حضرموت! 🌸 عون وسند لك في أي استفسار أو بلاغ ضمان أو طلب توجيه معلم فني معتمد إلى موقعك. كيف نقدر نخدمك اليوم؟</p></div></div></div><div class="pt-1"><span class="font-label-sm text-[12px] text-on-surface-variant block mb-2 font-bold">خيارات الاستفسار السريع بنقرة واحدة:</span><div class="flex flex-wrap gap-2"><button type="button" class="bg-surface-container-lowest border border-secondary/30 hover:bg-secondary-fixed/20 text-primary font-label-sm text-[12px] font-bold px-3 py-2 rounded-xl flex items-center gap-1.5 shadow-sm active:scale-[0.98] transition-transform"><span>🛡️</span><span>استفسار عن تفعيل الضمان الذهبي</span></button><button type="button" class="bg-surface-container-lowest border border-secondary/30 hover:bg-secondary-fixed/20 text-primary font-label-sm text-[12px] font-bold px-3 py-2 rounded-xl flex items-center gap-1.5 shadow-sm active:scale-[0.98] transition-transform"><span>🚨</span><span>طلب توجيه معلم فني طارئ لموقعي</span></button><button type="button" class="bg-surface-container-lowest border border-secondary/30 hover:bg-secondary-fixed/20 text-primary font-label-sm text-[12px] font-bold px-3 py-2 rounded-xl flex items-center gap-1.5 shadow-sm active:scale-[0.98] transition-transform"><span>🔍</span><span>التحقق من توثيق ورشة أو معلم</span></button><button type="button" class="bg-surface-container-lowest border border-secondary/30 hover:bg-secondary-fixed/20 text-primary font-label-sm text-[12px] font-bold px-3 py-2 rounded-xl flex items-center gap-1.5 shadow-sm active:scale-[0.98] transition-transform"><span>🤝</span><span>طلب وساطة أو حل نزاع صيانة</span></button></div></div><div class="flex flex-col items-end"><div class="flex items-center gap-1 mb-1"><span class="font-label-sm text-[11px] text-on-surface-variant">10:43 ص</span></div><div class="bg-primary text-on-primary p-3 rounded-2xl rounded-tl-sm shadow-sm max-w-[80%]"><p class="font-body-sm text-body-sm leading-relaxed text-on-primary">السلام عليكم، أحتاج فني سباكة معتمد بشكل عاجل لكشف تسريب ماء في منزلنا بالشرج بالمكلا، هل يشمل ذلك الضمان الذهبي؟</p></div><div class="flex items-center gap-1 mt-1 text-secondary"><span class="material-symbols-outlined text-[14px]">done_all</span><span class="font-label-sm text-[11px] text-on-surface-variant">تمت القراءة</span></div></div><div class="flex items-start gap-2.5"><div class="relative shrink-0 mt-1"><img class="w-9 h-9 rounded-full object-cover ring-1 ring-outline-variant/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7UNCUOJuUroeqVxp0_JUe7f0l7nNR9SbZqjPKKnETqzv_9LADoJnJKQLYXi-ZEq542m4Kp_soMo1qzxtEhba29SjRPDfpeT9iDXt0V1kwN06IRzk-Nz2g2utJ015nHCkxDmSgDMnGN8sAkYQyfL7mIqdJoXQg7V7yahE3Gr745RTpHUm3P0nbrIOr0CB_1lSxD7fUyMvqtqjpP4d9putzopgvZGLNK25pnRBRMdI" alt="م. عبدالله العمودي"></div><div class="flex flex-col max-w-[85%]"><div class="flex items-center gap-2 mb-1"><span class="font-label-sm text-label-sm font-bold text-primary">م. عبدالله العمودي</span><span class="font-label-sm text-[12px] bg-tertiary-fixed text-on-tertiary-fixed px-1.5 py-0.5 rounded font-bold">إشراف الجودة</span><span class="font-label-sm text-[11px] text-on-surface-variant">10:44 ص</span></div><div class="bg-surface-container-lowest text-on-surface p-3.5 rounded-2xl rounded-tr-sm shadow-sm space-y-2 border border-surface-container"><p class="font-body-sm text-body-sm text-on-surface leading-relaxed">وعليكم السلام ورحمة الله وبركاته، أهلاً بك يا غالي. نعم بالكامل! فريق سباكة معتمد من مكتب المكلا (فوة - الديس) جاهز فوراً. كل عمل يتم تحت مظلة الضمان الذهبي لـ ٣٠ يوماً بفاتورة رسمية.</p><div class="bg-surface-container-low p-2.5 rounded-lg flex items-center justify-between gap-2 border border-outline-variant/30"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[20px]">fmd_good</span><span class="font-label-sm text-label-sm font-bold text-primary">معلم السباكة الأقرب للشرج جاهز</span></div><span class="font-label-sm text-[12px] text-emerald-600 font-bold">وصول خلال 20 دقيقة</span></div></div></div></div></div><div class="fixed bottom-16 inset-x-0 z-40 bg-surface-container-lowest/95 backdrop-blur-xl border-t border-surface-container shadow-lg"><div class="max-w-xl mx-auto px-margin py-2.5 flex flex-col gap-1.5"><div class="flex items-center justify-between px-1 text-on-surface-variant"><span class="font-label-sm text-[11px] flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">schedule</span>ساعات العمل: 7:30 ص - 10:00 م (طوارئ على مدار 24/7)</span><span class="font-label-sm text-[11px] text-primary font-bold">مكاتبنا: المكلا • سيئون</span></div><div class="flex items-center gap-2"><button type="button" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary active:scale-95 transition-transform shrink-0" aria-label="إرفاق صورة أو فاتورة"><span class="material-symbols-outlined text-[20px]">attach_file</span></button><button type="button" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary active:scale-95 transition-transform shrink-0" aria-label="التقاط صورة للخلل"><span class="material-symbols-outlined text-[20px]">photo_camera</span></button><div class="flex-1 min-w-0 relative"><input type="text" placeholder="اكتب استفسارك أو مشكلتك هنا..." class="w-full h-11 px-4 text-right bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-full outline-none ring-1 ring-transparent focus:ring-secondary transition-all"></div><button type="button" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary active:scale-95 transition-transform shrink-0" aria-label="تسجيل صوتي"><span class="material-symbols-outlined text-[20px]">mic</span></button><button type="button" class="w-11 h-11 rounded-full bg-primary text-tertiary-fixed flex items-center justify-center shadow-md hover:opacity-90 active:scale-95 transition-transform shrink-0" aria-label="إرسال الرسالة"><span class="material-symbols-outlined text-[22px] rotate-180">send</span></button></div></div></div>
+
+<!-- Main Support Chat View -->
+<main class="flex flex-col relative w-full pt-4 pb-32 lg:pb-16 bg-surface min-h-[calc(100vh-8rem)]">
+  <div class="max-w-2xl mx-auto w-full px-4 sm:px-6 space-y-4">
+
+    <!-- Official Operations Banner -->
+    <div class="bg-surface-container-low border border-primary-fixed/40 rounded-2xl p-4 shadow-sm flex items-start gap-3">
+      <div class="w-10 h-10 rounded-xl bg-primary-container text-tertiary-fixed flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+        <span class="material-symbols-outlined text-[24px]">support_agent</span>
+      </div>
+      <div class="text-right flex-1">
+        <span class="font-bold text-primary text-sm sm:text-base block">مركز خدمة عملاء مِـرَاس — حضرموت</span>
+        <p class="text-xs text-on-surface-variant leading-relaxed mt-0.5">
+          محادثة مباشرة مع إدارة المنصة بالمكلا وسيئون لمساندتك، تفعيل الضمان الذهبي، وحل أي استفسار بكل أمان ومصداقية.
+          <span class="text-secondary font-semibold block mt-1">✨ كل رد يكتبه فريق خدمة العملاء يدوياً لخدمتك.</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Active Ticket Header (If open) -->
+    <div id="ticketHeaderCard" class="hidden bg-surface-container-lowest rounded-xl p-3 border border-surface-container flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span class="text-xs font-bold text-primary" id="ticketSubjectDisplay">تذكرة دعم مفتوحة</span>
+        <span class="text-[11px] px-2 py-0.5 rounded-full bg-surface-container text-secondary font-medium" id="ticketStatusBadge">جديدة</span>
+      </div>
+      <button type="button" id="newTicketBtn" class="text-xs text-secondary hover:underline font-bold">
+        + فتح موضوع جديد
+      </button>
+    </div>
+
+    <!-- Messages Container -->
+    <div id="messagesList" class="flex flex-col space-y-3 min-h-[280px]">
+      <div class="text-center py-8 text-on-surface-variant text-xs flex flex-col items-center justify-center gap-2">
+        <span class="material-symbols-outlined text-[32px] text-outline animate-spin">progress_activity</span>
+        <span>جارِ تحميل تذاكر ومحادثات الدعم...</span>
+      </div>
+    </div>
+
   </div>
 </main>
+
+<!-- Sticky Bottom Chat Bar -->
+<div class="fixed bottom-16 lg:bottom-0 inset-x-0 z-40 bg-surface-container-lowest/95 backdrop-blur-xl border-t border-surface-container shadow-lg">
+  <div class="max-w-2xl mx-auto px-4 py-3 flex flex-col gap-2">
+    
+    <!-- Meta notice -->
+    <div class="flex items-center justify-between text-on-surface-variant text-[11px]">
+      <span class="flex items-center gap-1">
+        <span class="material-symbols-outlined text-[14px] text-secondary">schedule</span>
+        <span>ساعات الدعم: 8:00 ص - 10:00 م (خدمة طوارئ الحرفيين 24/7)</span>
+      </span>
+      <span class="text-primary font-bold hidden sm:inline">حضرموت: المكلا • سيئون</span>
+    </div>
+
+    <!-- Quick preset chips -->
+    <div class="flex items-center gap-1.5 overflow-x-auto pb-1" id="quickPills">
+      <button type="button" onclick="setQuickMessage('استفسار عن تفعيل الضمان الذهبي للخدمة')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-surface-container text-xs text-on-surface hover:bg-surface-container-high transition-colors font-medium">
+        🛡️ استفسار عن الضمان
+      </button>
+      <button type="button" onclick="setQuickMessage('طلب توجيه فني طارئ إلى موقعي في حضرموت')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-surface-container text-xs text-on-surface hover:bg-surface-container-high transition-colors font-medium">
+        🚨 طلب فني طارئ
+      </button>
+      <button type="button" onclick="setQuickMessage('استفسار عن توثيق حساب صاحب مهنة')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-surface-container text-xs text-on-surface hover:bg-surface-container-high transition-colors font-medium">
+        🔍 توثيق حساب مهني
+      </button>
+      <button type="button" onclick="setQuickMessage('طلب مساعدة في الدفع أو تسوية طلب')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-surface-container text-xs text-on-surface hover:bg-surface-container-high transition-colors font-medium">
+        💼 مساعدة مالية
+      </button>
+    </div>
+
+    <!-- Input Form -->
+    <form id="supportInputForm" class="flex items-center gap-2" onsubmit="event.preventDefault(); sendSupportMessage();">
+      <label class="w-10 h-10 rounded-xl bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors cursor-pointer shrink-0" title="إرفاق صورة">
+        <span class="material-symbols-outlined text-[20px]">attach_file</span>
+        <input type="file" id="supportAttachmentInput" accept="image/*" class="hidden" onchange="handleAttachmentSelected(this)"/>
+      </label>
+      
+      <div class="flex-1 relative">
+        <input type="text" id="supportMessageText" required
+          placeholder="اكتب استفسارك أو مشكلتك لإدارة مِـرَاس..."
+          class="w-full h-11 px-4 text-sm rounded-xl bg-surface-container-low text-on-surface placeholder:text-outline focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all shadow-inner"/>
+      </div>
+
+      <button type="submit" id="supportSubmitBtn"
+        class="w-11 h-11 rounded-xl bg-primary hover:bg-primary-container text-tertiary-fixed flex items-center justify-center shadow-md active:scale-95 transition-all shrink-0">
+        <span class="material-symbols-outlined text-[22px] rotate-180">send</span>
+      </button>
+    </form>
+    
+    <div id="attachmentIndicator" class="hidden text-xs text-secondary flex items-center gap-1">
+      <span class="material-symbols-outlined text-[14px]">attachment</span>
+      <span id="attachmentName">صورة مرفقة جاهزة</span>
+      <button type="button" onclick="clearAttachment()" class="text-error hover:underline text-[11px] mr-2">إلغاء</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- Mobile Bottom Navigation (lg:hidden) -->
 <nav class="lg:hidden fixed bottom-0 inset-x-0 z-50 bg-surface-container-lowest/95 backdrop-blur-xl border-t border-surface-container shadow-[0_-2px_10px_rgba(0,0,0,0.04)] pb-safe">
   <div class="flex justify-around items-center h-16 px-1">
     <a href="index.html" class="flex flex-col items-center justify-center gap-0.5 w-14 h-14 transition-colors text-on-surface-variant hover:text-primary font-medium">
-          <span class="material-symbols-outlined text-[22px]">home</span>
-          <span class="text-[10px]">الرئيسية</span>
-        </a><a href="explore.html" class="flex flex-col items-center justify-center gap-0.5 w-14 h-14 transition-colors text-on-surface-variant hover:text-primary font-medium">
-          <span class="material-symbols-outlined text-[22px]">explore</span>
-          <span class="text-[10px]">استكشف</span>
-        </a><a href="my-requests.html" class="flex flex-col items-center justify-center gap-0.5 w-14 h-14 transition-colors text-on-surface-variant hover:text-primary font-medium">
-          <span class="material-symbols-outlined text-[22px]">work</span>
-          <span class="text-[10px]">طلباتي</span>
-        </a><a href="favorites.html" class="flex flex-col items-center justify-center gap-0.5 w-14 h-14 transition-colors text-on-surface-variant hover:text-primary font-medium">
-          <span class="material-symbols-outlined text-[22px]">favorite</span>
-          <span class="text-[10px]">المفضلة</span>
-        </a><a href="profile.html" class="flex flex-col items-center justify-center gap-0.5 w-14 h-14 transition-colors text-primary font-bold">
-          <span class="material-symbols-outlined text-[22px]">person</span>
-          <span class="text-[10px]">حسابي</span>
-        </a>
+      <span class="material-symbols-outlined text-[22px]">home</span>
+      <span class="text-[10px]">الرئيسية</span>
+    </a>
+    <a href="explore.html" class="flex flex-col items-center justify-center gap-0.5 w-14 h-14 transition-colors text-on-surface-variant hover:text-primary font-medium">
+      <span class="material-symbols-outlined text-[22px]">explore</span>
+      <span class="text-[10px]">استكشف</span>
+    </a>
+    <a href="my-requests.html" class="flex flex-col items-center justify-center gap-0.5 w-14 h-14 transition-colors text-on-surface-variant hover:text-primary font-medium">
+      <span class="material-symbols-outlined text-[22px]">work</span>
+      <span class="text-[10px]">طلباتي</span>
+    </a>
+    <a href="favorites.html" class="flex flex-col items-center justify-center gap-0.5 w-14 h-14 transition-colors text-on-surface-variant hover:text-primary font-medium">
+      <span class="material-symbols-outlined text-[22px]">favorite</span>
+      <span class="text-[10px]">المفضلة</span>
+    </a>
+    <a href="profile.html" class="flex flex-col items-center justify-center gap-0.5 w-14 h-14 transition-colors text-on-surface-variant hover:text-primary font-medium">
+      <span class="material-symbols-outlined text-[22px]">person</span>
+      <span class="text-[10px]">حسابي</span>
+    </a>
   </div>
 </nav>
-<footer class="w-full bg-primary text-on-primary mt-12 py-10 border-t border-primary-container">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-      <div class="space-y-3">
-        <div class="flex items-center gap-2">
-          <div class="w-8 h-8 rounded-lg bg-surface-container-lowest/15 flex items-center justify-center text-tertiary-fixed">
-            <span class="material-symbols-outlined text-[20px]">handyman</span>
-          </div>
-          <span class="font-bold text-xl text-white">منصة مِـرَاس</span>
-        </div>
-        <p class="text-xs text-on-primary-container leading-relaxed">
-          المنظومة الأولى لتوثيق وتسهيل خدمات الحرفيين وأصحاب المهن في محافظة حضرموت، بضمان مالي موثوق وأسعار عادلة بالريال اليمني.
-        </p>
-      </div>
 
-      <div>
-        <h4 class="font-bold text-sm text-tertiary-fixed mb-3">نطاق التغطية الحضرمية</h4>
-        <ul class="text-xs space-y-1.5 text-on-primary-container">
-          <li>المكلا (المركز، فوة، الشرج، الديس، خلف)</li>
-          <li>سيئون وتريم (وادي حضرموت)</li>
-          <li>الشحر وغيل باوزير</li>
-          <li>وادي دوعن والقطن</li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 class="font-bold text-sm text-tertiary-fixed mb-3">روابط هامة</h4>
-        <ul class="text-xs space-y-1.5 text-on-primary-container">
-          <li><a href="explore.html" class="hover:text-white transition-colors">استكشاف المهن والخدمات</a></li>
-          <li><a href="join-pro.html" class="hover:text-white transition-colors">انضمام أصحاب المهن والكوادر</a></li>
-          <li><a href="support.html" class="hover:text-white transition-colors">مركز الدعم والمساندة الحضرمية</a></li>
-          <li><a href="account-type.html" class="hover:text-white transition-colors">اختيار نوع الحساب</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 class="font-bold text-sm text-tertiary-fixed mb-3">التواصل الرسمي</h4>
-        <p class="text-xs text-on-primary-container leading-relaxed">
-          هاتف المنصة: +967 7XXXXXXXX<br/>
-          البريد الإلكتروني: support@miras.ye<br/>
-          المكلا — محافظة حضرموت — الجمهورية اليمنية
-        </p>
-      </div>
-    </div>
-
-    <div class="pt-6 border-t border-primary-container/60 flex flex-col sm:flex-row items-center justify-between text-xs text-on-primary-container gap-3">
-      <p>© 2026 مِـرَاس — جميع الحقوق محفوظة لمالكة المنصة.</p>
-      <div class="flex items-center gap-4">
-        <a href="support.html" class="hover:text-white transition-colors">المساعدة والشكاوى</a>
-        <a href="admin/index.html" class="hover:text-white transition-colors text-tertiary-fixed">بوابة الإدارة</a>
-      </div>
-    </div>
-  </div>
-</footer>
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase/config.js"></script>
 <script src="supabase/auth-router.js"></script>
 <script src="supabase/miras-api.js"></script>
+
+<script>
+  let currentUser = null;
+  let currentProfile = null;
+  let activeTicketId = null;
+  let selectedFile = null;
+
+  window.setQuickMessage = function(txt) {
+    const input = document.getElementById('supportMessageText');
+    if (input) {
+      input.value = txt;
+      input.focus();
+    }
+  };
+
+  window.handleAttachmentSelected = function(fileInput) {
+    if (fileInput.files && fileInput.files[0]) {
+      selectedFile = fileInput.files[0];
+      document.getElementById('attachmentIndicator').classList.remove('hidden');
+      document.getElementById('attachmentName').textContent = selectedFile.name;
+    }
+  };
+
+  window.clearAttachment = function() {
+    selectedFile = null;
+    document.getElementById('supportAttachmentInput').value = '';
+    document.getElementById('attachmentIndicator').classList.add('hidden');
+  };
+
+  async function initSupportPage() {
+    currentUser = await window.MirasAPI.auth.getCurrentUser();
+    if (currentUser) {
+      currentProfile = await window.MirasAPI.auth.getCurrentProfile();
+      const topAuth = document.getElementById('topAuthBtn');
+      if (topAuth) {
+        topAuth.href = currentProfile?.role === 'super_admin' ? 'admin/index.html' : (currentProfile?.role === 'craftsman' ? 'pro/index.html' : 'profile.html');
+        topAuth.innerHTML = '<span class="material-symbols-outlined text-[18px]">account_circle</span><span class="hidden sm:inline">' + (currentProfile?.full_name?.split(' ')[0] || 'حسابي') + '</span>';
+      }
+    }
+
+    await loadUserSupportTickets();
+  }
+
+  async function loadUserSupportTickets() {
+    const container = document.getElementById('messagesList');
+    const userId = currentUser?.id || localStorage.getItem('miras_guest_support_id');
+
+    if (!userId) {
+      renderWelcomeNewTicketView();
+      return;
+    }
+
+    const { data: tickets, error } = await window.MirasAPI.support.getUserTickets(userId);
+
+    if (tickets && tickets.length > 0) {
+      activeTicketId = tickets[0].id;
+      showActiveTicketHeader(tickets[0]);
+      await loadTicketMessages(activeTicketId);
+      
+      // Subscribe to live realtime messages
+      window.MirasAPI.support.subscribeToTicket(activeTicketId, (newMsg) => {
+        appendSingleMessageToUI(newMsg);
+      });
+    } else {
+      renderWelcomeNewTicketView();
+    }
+  }
+
+  function showActiveTicketHeader(ticket) {
+    const card = document.getElementById('ticketHeaderCard');
+    const subj = document.getElementById('ticketSubjectDisplay');
+    const badge = document.getElementById('ticketStatusBadge');
+    if (card && subj && badge) {
+      card.classList.remove('hidden');
+      subj.textContent = ticket.subject || 'تذكرة الدعم الحالية';
+      const statusMap = window.MirasAPI.CONSTANTS.TICKET_STATUSES;
+      badge.textContent = statusMap[ticket.status] || ticket.status;
+    }
+  }
+
+  function renderWelcomeNewTicketView() {
+    const container = document.getElementById('messagesList');
+    container.innerHTML = `
+      <div class="bg-surface-container-lowest rounded-2xl p-6 border border-surface-container shadow-xs text-center space-y-3">
+        <div class="w-12 h-12 rounded-2xl bg-primary-container text-tertiary-fixed flex items-center justify-center mx-auto shadow-sm">
+          <span class="material-symbols-outlined text-[28px]">contact_support</span>
+        </div>
+        <h3 class="text-base font-bold text-primary">أهلاً بك في غرفة عمليات مِـرَاس</h3>
+        <p class="text-xs text-on-surface-variant max-w-md mx-auto leading-relaxed">
+          يسعدنا تواصلك معنا دائماً! اكتب استفسارك أو مشكلتك في المربع أدناه وسيتلقاه فريق خدمة العملاء مباشرة ويجيبك يدوياً عبر هذه النافذة.
+        </p>
+        <div class="pt-2 flex flex-wrap justify-center gap-2 text-xs text-secondary font-medium">
+          <span class="inline-flex items-center gap-1 bg-surface-container px-3 py-1 rounded-full">
+            <span class="material-symbols-outlined text-[14px]">shield</span> ضمان مالي معتمد
+          </span>
+          <span class="inline-flex items-center gap-1 bg-surface-container px-3 py-1 rounded-full">
+            <span class="material-symbols-outlined text-[14px]">verified</span> فحص كوادر حضرموت
+          </span>
+        </div>
+      </div>
+    `;
+  }
+
+  async function loadTicketMessages(ticketId) {
+    const container = document.getElementById('messagesList');
+    container.innerHTML = '<div class="text-center py-6 text-xs text-outline">جارِ جلب الرسائل...</div>';
+
+    const { data: messages } = await window.MirasAPI.support.getTicketMessages(ticketId);
+
+    if (!messages || messages.length === 0) {
+      renderWelcomeNewTicketView();
+      return;
+    }
+
+    container.innerHTML = '';
+    messages.forEach(msg => {
+      appendSingleMessageToUI(msg);
+    });
+  }
+
+  function appendSingleMessageToUI(msg) {
+    const container = document.getElementById('messagesList');
+    const isUser = msg.sender_type === 'user';
+    const timeStr = msg.created_at ? new Date(msg.created_at).toLocaleTimeString('ar-YE', { hour: '2-digit', minute: '2-digit' }) : '';
+
+    const div = document.createElement('div');
+    div.className = isUser ? 'flex flex-col items-end' : 'flex items-start gap-2.5';
+
+    if (isUser) {
+      div.innerHTML = `
+        <div class="flex items-center gap-1 mb-1">
+          <span class="text-[11px] text-on-surface-variant font-medium">${timeStr}</span>
+          <span class="text-xs font-bold text-primary">أنت</span>
+        </div>
+        <div class="bg-primary text-white p-3 rounded-2xl rounded-tl-sm shadow-xs max-w-[85%] text-xs leading-relaxed space-y-2">
+          <p>${escapeHtml(msg.message)}</p>
+          ${msg.attachment_url ? `<img src="${msg.attachment_url}" class="rounded-lg max-h-48 w-full object-cover mt-1" alt="مرفق"/>` : ''}
+        </div>
+      `;
+    } else {
+      div.innerHTML = `
+        <div class="w-8 h-8 rounded-full bg-primary-container text-tertiary-fixed flex items-center justify-center shrink-0 shadow-xs mt-1">
+          <span class="material-symbols-outlined text-[18px]">support_agent</span>
+        </div>
+        <div class="flex flex-col max-w-[85%]">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs font-bold text-primary">${escapeHtml(msg.sender_name || 'خدمة عملاء مِـرَاس')}</span>
+            <span class="text-[10px] bg-secondary-container text-on-secondary-container px-1.5 py-0.2 rounded-full font-bold">رسمي</span>
+            <span class="text-[11px] text-on-surface-variant">${timeStr}</span>
+          </div>
+          <div class="bg-surface-container-lowest text-on-surface p-3.5 rounded-2xl rounded-tr-sm shadow-xs border border-surface-container text-xs leading-relaxed space-y-2">
+            <p>${escapeHtml(msg.message)}</p>
+            ${msg.attachment_url ? `<img src="${msg.attachment_url}" class="rounded-lg max-h-48 w-full object-cover mt-1" alt="مرفق"/>` : ''}
+          </div>
+        </div>
+      `;
+    }
+
+    container.appendChild(div);
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  }
+
+  window.sendSupportMessage = async function() {
+    const input = document.getElementById('supportMessageText');
+    const submitBtn = document.getElementById('supportSubmitBtn');
+    const text = input?.value?.trim();
+    if (!text) return;
+
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[18px]">progress_activity</span>';
+
+    let attachmentUrl = null;
+    if (selectedFile) {
+      const { url } = await window.MirasAPI.storage.uploadFile('support_attachments', selectedFile);
+      attachmentUrl = url;
+    }
+
+    let userId = currentUser?.id;
+    if (!userId) {
+      userId = localStorage.getItem('miras_guest_support_id');
+      if (!userId) {
+        userId = 'guest_' + Math.random().toString(36).substring(2, 10);
+        localStorage.setItem('miras_guest_support_id', userId);
+      }
+    }
+
+    const userName = currentProfile?.full_name || 'مستخدم مِـرَاس';
+    const userPhone = currentProfile?.phone_number || '';
+    const userRole = currentProfile?.role || 'client';
+
+    if (!activeTicketId) {
+      // إنشاء تذكرة جديدة
+      const { data, error } = await window.MirasAPI.support.createTicket({
+        userId: currentUser?.id || null,
+        userName: userName,
+        userPhone: userPhone,
+        userRole: userRole,
+        subject: text.substring(0, 50) + (text.length > 50 ? '...' : ''),
+        category: 'general',
+        message: text,
+        attachmentUrl: attachmentUrl
+      });
+
+      if (data?.ticket) {
+        activeTicketId = data.ticket.id;
+        showActiveTicketHeader(data.ticket);
+        const container = document.getElementById('messagesList');
+        container.innerHTML = '';
+        appendSingleMessageToUI(data.message);
+
+        window.MirasAPI.support.subscribeToTicket(activeTicketId, (newMsg) => {
+          appendSingleMessageToUI(newMsg);
+        });
+      }
+    } else {
+      // إرسال رسالة للتذكرة النشطة
+      const { data: newMsg } = await window.MirasAPI.support.sendReply({
+        ticketId: activeTicketId,
+        senderId: currentUser?.id || null,
+        senderType: 'user',
+        senderName: userName,
+        message: text,
+        attachmentUrl: attachmentUrl
+      });
+
+      if (newMsg) {
+        appendSingleMessageToUI(newMsg);
+      }
+    }
+
+    input.value = '';
+    clearAttachment();
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = '<span class="material-symbols-outlined text-[22px] rotate-180">send</span>';
+  };
+
+  document.getElementById('newTicketBtn')?.addEventListener('click', () => {
+    activeTicketId = null;
+    document.getElementById('ticketHeaderCard').classList.add('hidden');
+    renderWelcomeNewTicketView();
+  });
+
+  function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+
+  document.addEventListener('DOMContentLoaded', initSupportPage);
+</script>
 
 </body>
 </html>

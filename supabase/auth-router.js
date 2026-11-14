@@ -155,14 +155,19 @@ window.MirasRouter = {
       }
     }
 
-    // 2. وضع المعاينة والتطوير:
-    const role = explicitRole || sessionStorage.getItem('miras_auth_role') || 'client';
+    // 2. وضع التوجيه الاحتياطي:
+    const role = explicitRole || sessionStorage.getItem('miras_auth_role') || sessionStorage.getItem('role') || 'client';
     if (role === 'admin' || role === 'super_admin') {
       return this.navigate('admin/index.html');
     } else if (role === 'craftsman' || role === 'pro') {
+      const vStatus = localStorage.getItem('miras_current_pro_status') || sessionStorage.getItem('miras_craftsman_status') || 'pending';
+      if (vStatus !== 'verified') {
+        alert('عذراً، حساب صاحب المهنة بانتظار المراجعة والاعتماد من قبل مالكة المنصة (Super Admin).\nلا يمكنك الدخول إلى لوحة الحرفيين حتى يتم تفعيل حسابك من الإدارة.');
+        return this.navigate('login.html?role=craftsman&pending=true');
+      }
       return this.navigate('pro/index.html');
     } else {
-      return this.navigate('index.html');
+      return this.navigate('my-requests.html');
     }
   },
 

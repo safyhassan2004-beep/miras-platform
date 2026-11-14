@@ -1,0 +1,23 @@
+{
+  "name": "مِـرَاس — شبكة الحرفيين والمهن المعتمدة بحضرموت",
+  "short_name": "مِـرَاس",
+  "description": "المنظومة الأولى لتوثيق وتسهيل خدمات الحرفيين وأصحاب المهن في محافظة حضرموت بضمان مالي موثوق وأسعار عادلة بالريال اليمني",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#00173b",
+  "theme_color": "#00173b",
+  "dir": "rtl",
+  "lang": "ar",
+  "categories": ["business", "utilities", "productivity"],
+  "icons": [
+    {
+      "src": "assets/logo.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
+
