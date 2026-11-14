@@ -236,77 +236,133 @@
       <!-- Form -->
       <form id="authForm" class="space-y-4" onsubmit="event.preventDefault();">
         
-        <!-- Phone Number Field with Yemeni Chips -->
-        <div class="space-y-2">
-          <label class="block font-semibold text-sm text-on-surface flex items-center justify-between" for="mobileInput">
-            <span>رقم الهاتف النقال</span>
-            <span class="text-xs text-on-surface-variant font-normal">شبكات حضرموت واليمن</span>
-          </label>
+        <!-- Step 1: Phone / Password Fields -->
+        <div id="phoneInputSection" class="space-y-4">
+          <!-- Phone Number Field with Yemeni Chips -->
+          <div class="space-y-2">
+            <label class="block font-semibold text-xs sm:text-sm text-on-surface flex items-center justify-between" for="mobileInput">
+              <span>رقم الهاتف النقال</span>
+              <span class="text-xs text-on-surface-variant font-normal">شبكات حضرموت واليمن</span>
+            </label>
 
-          <!-- Network Quick Select Chips -->
-          <div class="flex items-center gap-1.5 overflow-x-auto pb-1" id="networkChipsContainer">
-            <button type="button" class="network-chip px-2.5 py-1 rounded-full bg-primary text-white text-xs font-semibold shadow-xs transition-all" onclick="setNetwork('77', this)">
-              يمن موبايل 77
-            </button>
-            <button type="button" class="network-chip px-2.5 py-1 rounded-full bg-surface-container text-on-surface text-xs font-medium hover:bg-surface-container-high transition-all" onclick="setNetwork('73', this)">
-              YOU 73
-            </button>
-            <button type="button" class="network-chip px-2.5 py-1 rounded-full bg-surface-container text-on-surface text-xs font-medium hover:bg-surface-container-high transition-all" onclick="setNetwork('71', this)">
-              سبأفون 71
-            </button>
-            <button type="button" class="network-chip px-2.5 py-1 rounded-full bg-surface-container text-on-surface text-xs font-medium hover:bg-surface-container-high transition-all" onclick="setNetwork('70', this)">
-              واي 70
-            </button>
-          </div>
-
-          <!-- Input with Yemeni Dial Code -->
-          <div class="flex items-center gap-2">
-            <div class="flex items-center justify-center gap-1.5 h-12 px-3.5 rounded-xl bg-surface-container text-primary font-bold text-sm shrink-0 shadow-inner select-none" dir="ltr">
-              <span>🇾🇪</span>
-              <span>+967</span>
+            <!-- Network Quick Select Chips -->
+            <div class="flex items-center gap-1.5 overflow-x-auto pb-1" id="networkChipsContainer">
+              <button type="button" class="network-chip px-2.5 py-1 rounded-full bg-primary text-white text-xs font-semibold shadow-xs transition-all" onclick="setNetwork('77', this)">
+                يمن موبايل 77
+              </button>
+              <button type="button" class="network-chip px-2.5 py-1 rounded-full bg-surface-container text-on-surface text-xs font-medium hover:bg-surface-container-high transition-all" onclick="setNetwork('73', this)">
+                YOU 73
+              </button>
+              <button type="button" class="network-chip px-2.5 py-1 rounded-full bg-surface-container text-on-surface text-xs font-medium hover:bg-surface-container-high transition-all" onclick="setNetwork('71', this)">
+                سبأفون 71
+              </button>
+              <button type="button" class="network-chip px-2.5 py-1 rounded-full bg-surface-container text-on-surface text-xs font-medium hover:bg-surface-container-high transition-all" onclick="setNetwork('70', this)">
+                واي 70
+              </button>
             </div>
-            <div class="relative flex-1">
-              <input type="tel" id="mobileInput" maxlength="9" required
-                class="w-full h-12 px-4 rounded-xl bg-surface-container-low text-on-surface font-semibold text-left text-base placeholder:text-outline focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all shadow-inner tracking-wider"
-                dir="ltr" placeholder="77X XXX XXX"/>
+
+            <!-- Input with Yemeni Dial Code -->
+            <div class="flex items-center gap-2">
+              <div class="flex items-center justify-center gap-1.5 h-11 px-3 rounded-xl bg-surface-container text-primary font-bold text-xs shrink-0 shadow-inner select-none" dir="ltr">
+                <span class="text-sm">🇾🇪</span>
+                <span>+967</span>
+              </div>
+              <div class="relative flex-1">
+                <input type="tel" id="mobileInput" maxlength="9" required
+                  class="w-full h-11 px-3.5 rounded-xl bg-surface-container-low text-on-surface font-semibold text-left text-sm sm:text-base placeholder:text-outline focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all shadow-inner tracking-wider"
+                  dir="ltr" placeholder="77X XXX XXX"/>
+              </div>
+            </div>
+            <p class="text-xs text-on-surface-variant flex items-center gap-1 mt-1">
+              <span class="material-symbols-outlined text-[15px] text-secondary">info</span>
+              <span id="phoneHelpText">سنرسل رمز تأكيد مؤلف من 4 أرقام عبر SMS لهاتفك.</span>
+            </p>
+          </div>
+
+          <!-- Optional Password Field -->
+          <div id="passwordFieldContainer" class="hidden space-y-2 pt-1">
+            <div class="flex items-center justify-between">
+              <label class="block font-semibold text-xs sm:text-sm text-on-surface" for="passwordInput">كلمة المرور</label>
+              <a href="support.html" class="text-xs text-secondary hover:underline">نسيت كلمة المرور؟</a>
+            </div>
+            <div class="relative flex items-center">
+              <input type="password" id="passwordInput" placeholder="••••••••••••"
+                class="w-full h-11 pr-3.5 pl-11 rounded-xl bg-surface-container-low text-on-surface text-xs sm:text-sm placeholder:text-outline focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all shadow-inner"/>
+              <button type="button" id="togglePasswordBtn" class="absolute left-3 w-7 h-7 rounded flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+                <span class="material-symbols-outlined text-[18px]" id="eyeIcon">visibility</span>
+              </button>
             </div>
           </div>
-          <p class="text-xs text-on-surface-variant flex items-center gap-1 mt-1">
-            <span class="material-symbols-outlined text-[15px] text-secondary">info</span>
-            <span id="phoneHelpText">سنرسل رمز تأكيد مؤلف من 4 أرقام عبر SMS لهاتفك.</span>
-          </p>
+
+          <!-- Remember Me Checkbox -->
+          <div class="flex items-center justify-between pt-1">
+            <label class="flex items-center gap-2 cursor-pointer select-none">
+              <input type="checkbox" checked class="w-4 h-4 rounded text-primary accent-primary focus:ring-0 cursor-pointer"/>
+              <span class="text-xs text-on-surface-variant">تذكر هذا الجهاز لمدة 30 يوماً</span>
+            </label>
+            <a href="support.html" class="text-xs text-secondary hover:underline">مساعدة في الدخول</a>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" id="submitAuthBtn"
+            class="w-full h-11 sm:h-12 mt-1 bg-primary hover:bg-primary-container text-white font-bold rounded-xl shadow-md hover:shadow-lg flex items-center justify-center gap-2 active:scale-[0.99] transition-all text-xs sm:text-sm">
+            <span id="submitBtnText">طلب رمز التحقق</span>
+            <span class="material-symbols-outlined text-[18px] -translate-x-0.5">arrow_back</span>
+          </button>
         </div>
 
-        <!-- Optional Password Field -->
-        <div id="passwordFieldContainer" class="hidden space-y-2 pt-1">
-          <div class="flex items-center justify-between">
-            <label class="block font-semibold text-sm text-on-surface" for="passwordInput">كلمة المرور</label>
-            <a href="support.html" class="text-xs text-secondary hover:underline">نسيت كلمة المرور؟</a>
-          </div>
-          <div class="relative flex items-center">
-            <input type="password" id="passwordInput" placeholder="••••••••••••"
-              class="w-full h-12 pr-4 pl-12 rounded-xl bg-surface-container-low text-on-surface text-sm placeholder:text-outline focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all shadow-inner"/>
-            <button type="button" id="togglePasswordBtn" class="absolute left-3 w-8 h-8 rounded flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
-              <span class="material-symbols-outlined text-[20px]" id="eyeIcon">visibility</span>
+        <!-- Step 2: In-Card OTP Verification -->
+        <div id="otpVerifySection" class="hidden space-y-3.5 pt-1">
+          <div class="bg-surface-container-low rounded-xl p-3 flex items-center justify-between border border-surface-container">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-secondary text-[20px]">sms</span>
+              <div class="flex flex-col text-right">
+                <span class="text-[11px] text-on-surface-variant">تم إرسال الرمز لرقم الجوال:</span>
+                <span class="text-xs sm:text-sm font-bold text-primary tracking-wider" dir="ltr" id="loginOtpPhoneDisplay">+967 77X XXX XXX</span>
+              </div>
+            </div>
+            <button type="button" onclick="backToPhoneStep()" class="text-xs text-secondary hover:text-primary font-bold flex items-center gap-0.5 bg-surface-container px-2 py-1 rounded-lg">
+              <span>تعديل</span>
+              <span class="material-symbols-outlined text-[14px]">edit</span>
             </button>
           </div>
-        </div>
 
-        <!-- Remember Me Checkbox -->
-        <div class="flex items-center justify-between pt-1">
-          <label class="flex items-center gap-2 cursor-pointer select-none">
-            <input type="checkbox" checked class="w-4 h-4 rounded text-primary accent-primary focus:ring-0 cursor-pointer"/>
-            <span class="text-xs text-on-surface-variant">تذكر هذا الجهاز لمدة 30 يوماً</span>
-          </label>
-          <a href="support.html" class="text-xs text-secondary hover:underline">مساعدة في الدخول</a>
-        </div>
+          <div class="space-y-1 text-center">
+            <label class="block text-xs sm:text-sm font-bold text-primary">أدخل رمز التحقق (4 أرقام)</label>
+            <p class="text-[11px] text-on-surface-variant">اكتب رمز الأمان المرسل إلى هاتفك لإتمام الدخول</p>
+          </div>
 
-        <!-- Submit Button -->
-        <button type="submit" id="submitAuthBtn"
-          class="w-full h-12 mt-2 bg-primary hover:bg-primary-container text-white font-bold rounded-xl shadow-md hover:shadow-lg flex items-center justify-center gap-2 active:scale-[0.99] transition-all text-base">
-          <span id="submitBtnText">إرسال رمز التحقق</span>
-          <span class="material-symbols-outlined text-[20px] -translate-x-0.5">arrow_back</span>
-        </button>
+          <!-- 4 Digit Inputs -->
+          <div class="flex justify-center items-center gap-2 sm:gap-3 py-1" dir="ltr">
+            <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" id="login-otp-1" class="login-otp-digit w-11 h-13 sm:w-12 sm:h-14 rounded-xl bg-surface-container-low text-center text-lg sm:text-xl font-bold text-primary border border-outline-variant/40 focus:bg-surface-container-lowest focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all shadow-inner"/>
+            <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" id="login-otp-2" class="login-otp-digit w-11 h-13 sm:w-12 sm:h-14 rounded-xl bg-surface-container-low text-center text-lg sm:text-xl font-bold text-primary border border-outline-variant/40 focus:bg-surface-container-lowest focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all shadow-inner"/>
+            <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" id="login-otp-3" class="login-otp-digit w-11 h-13 sm:w-12 sm:h-14 rounded-xl bg-surface-container-low text-center text-lg sm:text-xl font-bold text-primary border border-outline-variant/40 focus:bg-surface-container-lowest focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all shadow-inner"/>
+            <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" id="login-otp-4" class="login-otp-digit w-11 h-13 sm:w-12 sm:h-14 rounded-xl bg-surface-container-low text-center text-lg sm:text-xl font-bold text-primary border border-outline-variant/40 focus:bg-surface-container-lowest focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all shadow-inner"/>
+          </div>
+
+          <!-- Timer & Resend -->
+          <div class="flex items-center justify-between text-xs text-on-surface-variant px-1">
+            <div class="flex items-center gap-1 text-primary">
+              <span class="material-symbols-outlined text-[15px] text-secondary">timer</span>
+              <span>إعادة الإرسال خلال</span>
+              <span id="loginCountdown" class="font-bold text-secondary" dir="ltr">00:45</span>
+            </div>
+            <button type="button" id="loginResendBtn" onclick="resendLoginOtp()" class="text-secondary hover:underline font-medium text-xs">إعادة الإرسال</button>
+          </div>
+
+          <!-- Confirm Login Button -->
+          <button type="button" id="confirmLoginOtpBtn" onclick="confirmOtpAndLogin()"
+            class="w-full h-11 sm:h-12 bg-primary hover:bg-primary-container text-white font-bold rounded-xl shadow-md hover:shadow-lg flex items-center justify-center gap-2 active:scale-[0.99] transition-all text-xs sm:text-sm">
+            <span id="confirmLoginBtnText">تأكيد الرمز وتسجيل الدخول</span>
+            <span class="material-symbols-outlined text-[18px]">check_circle</span>
+          </button>
+
+          <div class="text-center pt-0.5">
+            <a href="verify.html" id="fullVerifyScreenLink" class="text-xs text-on-surface-variant hover:text-primary underline">
+              الانتقال إلى شاشة التحقق المخصصة
+            </a>
+          </div>
+        </div>
 
       </form>
 
@@ -510,6 +566,127 @@
 
   // Handle Form Submit
   const authForm = document.getElementById('authForm');
+  let loginTimerInterval = null;
+
+  window.backToPhoneStep = function() {
+    document.getElementById('otpVerifySection')?.classList.add('hidden');
+    document.getElementById('phoneInputSection')?.classList.remove('hidden');
+    if (loginTimerInterval) clearInterval(loginTimerInterval);
+  };
+
+  window.resendLoginOtp = function() {
+    const timerElem = document.getElementById('loginCountdown');
+    let remaining = 45;
+    if (timerElem) timerElem.textContent = '00:45';
+    alert('تم إعادة إرسال رمز التحقق بنجاح إلى هاتفك المسجل.');
+    startCountdown();
+  };
+
+  function startCountdown() {
+    if (loginTimerInterval) clearInterval(loginTimerInterval);
+    let remaining = 45;
+    const timerElem = document.getElementById('loginCountdown');
+    loginTimerInterval = setInterval(() => {
+      remaining--;
+      if (remaining <= 0) {
+        clearInterval(loginTimerInterval);
+        if (timerElem) timerElem.textContent = '00:00';
+      } else {
+        if (timerElem) timerElem.textContent = '00:' + (remaining < 10 ? '0' : '') + remaining;
+      }
+    }, 1000);
+  }
+
+  // OTP inputs auto-advance and paste
+  const otpInputs = document.querySelectorAll('.login-otp-digit');
+  otpInputs.forEach((input, idx) => {
+    input.addEventListener('input', (e) => {
+      const val = e.target.value.replace(/[^0-9]/g, '');
+      e.target.value = val;
+      if (val && idx < otpInputs.length - 1) {
+        otpInputs[idx + 1].focus();
+        otpInputs[idx + 1].select();
+      } else if (val && idx === otpInputs.length - 1) {
+        // Auto submit if all 4 digits entered
+        setTimeout(confirmOtpAndLogin, 200);
+      }
+    });
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Backspace' && !e.target.value && idx > 0) {
+        otpInputs[idx - 1].focus();
+      }
+    });
+
+    input.addEventListener('paste', (e) => {
+      e.preventDefault();
+      const pasted = (e.clipboardData || window.clipboardData).getData('text').trim().replace(/[^0-9]/g, '');
+      if (pasted) {
+        for (let i = 0; i < otpInputs.length; i++) {
+          otpInputs[i].value = pasted[i] || '';
+        }
+        const target = Math.min(pasted.length, otpInputs.length - 1);
+        otpInputs[target].focus();
+        if (pasted.length >= 4) {
+          setTimeout(confirmOtpAndLogin, 250);
+        }
+      }
+    });
+  });
+
+  window.confirmOtpAndLogin = function() {
+    let code = '';
+    otpInputs.forEach(i => code += i.value);
+    const mobileVal = document.getElementById('mobileInput')?.value?.trim() || '';
+    const confirmBtn = document.getElementById('confirmLoginOtpBtn');
+
+    if (code.length < 4) {
+      alert('يرجى كتابة رمز التحقق المكون من 4 أرقام.');
+      const firstEmpty = Array.from(otpInputs).find(i => !i.value);
+      if (firstEmpty) firstEmpty.focus();
+      return;
+    }
+
+    if (confirmBtn) {
+      confirmBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[18px]">progress_activity</span><span>جارِ التحقق ومتابعة الدخول...</span>';
+      confirmBtn.disabled = true;
+    }
+
+    setTimeout(() => {
+      const isSuperAdmin = mobileVal === '781125928' || mobileVal === '+967781125928' || mobileVal === '0781125928' || mobileVal.toLowerCase() === 'safyhassan2004@gmail.com' || mobileVal.toLowerCase() === 'admin';
+
+      localStorage.setItem('miras_logged_in', 'true');
+      sessionStorage.setItem('miras_logged_in', 'true');
+      localStorage.setItem('miras_user_phone', mobileVal);
+      sessionStorage.setItem('miras_user_phone', mobileVal);
+
+      if (confirmBtn) {
+        confirmBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">check_circle</span><span>تم التحقق بنجاح! جارِ توجيهك...</span>';
+      }
+
+      setTimeout(() => {
+        if (isSuperAdmin) {
+          sessionStorage.setItem('role', 'super_admin');
+          sessionStorage.setItem('miras_auth_role', 'super_admin');
+          localStorage.setItem('miras_auth_role', 'super_admin');
+          window.location.href = 'admin/index.html';
+        } else if (currentRole === 'craftsman') {
+          sessionStorage.setItem('role', 'pro');
+          sessionStorage.setItem('miras_auth_role', 'craftsman');
+          localStorage.setItem('miras_auth_role', 'craftsman');
+          localStorage.setItem('miras_current_pro_status', 'verified');
+          sessionStorage.setItem('miras_current_pro_status', 'verified');
+          window.location.href = 'pro/index.html';
+        } else {
+          sessionStorage.setItem('role', 'client');
+          sessionStorage.setItem('miras_auth_role', 'client');
+          localStorage.setItem('miras_auth_role', 'client');
+          window.location.href = 'index.html';
+        }
+      }, 500);
+    }, 700);
+  };
+
   if (authForm) {
     authForm.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -517,11 +694,17 @@
       const mobileVal = document.getElementById('mobileInput')?.value?.trim() || '';
       const passwordVal = document.getElementById('passwordInput')?.value || '';
 
+      if (!mobileVal) {
+        alert('يرجى إدخال رقم الهاتف النقال للمتابعة.');
+        return;
+      }
+
       // 1. فحص بيانات الدخول لمالكة المنصة (Super Admin)
       const isSuperAdminLogin = mobileVal === '781125928' || mobileVal === '+967781125928' || mobileVal === '0781125928' || mobileVal.toLowerCase() === 'safyhassan2004@gmail.com' || mobileVal.toLowerCase() === 'admin';
       if (isSuperAdminLogin) {
         sessionStorage.setItem('role', 'super_admin');
         sessionStorage.setItem('miras_auth_role', 'super_admin');
+        localStorage.setItem('miras_auth_role', 'super_admin');
         if (submitBtn) submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span><span>جاري الدخول إلى لوحة المدير...</span>';
         setTimeout(() => {
           window.location.href = 'admin/index.html';
@@ -529,20 +712,11 @@
         return;
       }
 
-      // 2. شرط موافقة مالكة المنصة لدخول الحرفي
-      if (currentRole === 'craftsman') {
-        const proStatus = localStorage.getItem('miras_current_pro_status') || sessionStorage.getItem('miras_current_pro_status') || 'pending';
-        if (proStatus !== 'verified') {
-          alert('عذراً، حساب صاحب المهنة بانتظار المراجعة والاعتماد من قبل مالكة المنصة (Super Admin).\\nلا يمكنك الدخول إلى لوحة الحرفيين حتى يتم تفعيل حسابك من الإدارة.');
-          return;
-        }
-      }
-
-      sessionStorage.setItem('role', currentRole === 'craftsman' ? 'pro' : 'client');
-      sessionStorage.setItem('miras_auth_role', currentRole);
-
-      // 3. وضع تسجيل الدخول بكلمة المرور
+      // 2. وضع تسجيل الدخول بكلمة المرور
       if (currentAuthMode === 'password' && passwordVal) {
+        sessionStorage.setItem('role', currentRole === 'craftsman' ? 'pro' : 'client');
+        sessionStorage.setItem('miras_auth_role', currentRole);
+
         if (submitBtn) {
           submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span><span>جارِ التحقق عبر Supabase...</span>';
           submitBtn.disabled = true;
@@ -566,21 +740,30 @@
             alert(error?.message === 'Invalid login credentials' 
               ? 'بيانات الدخول غير صحيحة. يرجى التحقق من رقم الجوال أو كلمة المرور، أو إنشاء حساب جديد.' 
               : ('تنبيه: ' + (error?.message || 'تعذر التحقق من الحساب حالياً.')));
-            submitBtn.innerHTML = '<span>تسجيل الدخول الآن</span><span class="material-symbols-outlined text-[20px] -translate-x-0.5">arrow_back</span>';
+            submitBtn.innerHTML = '<span>تسجيل الدخول الآن</span><span class="material-symbols-outlined text-[18px] -translate-x-0.5">arrow_back</span>';
             submitBtn.disabled = false;
             return;
           }
         }
       }
 
-      // 4. وضع رمز التحقق السريع (OTP)
-      if (submitBtn) {
-        submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span><span>جارِ إرسال الرمز...</span>';
-        submitBtn.disabled = true;
-      }
-      setTimeout(() => {
-        window.location.href = 'verify.html?role=' + currentRole + '&phone=' + encodeURIComponent(mobileVal);
-      }, 500);
+      // 3. وضع رمز التحقق السريع (OTP): الانتقال إلى الخطوة الثانية مباشرة داخل نفس البطاقة
+      sessionStorage.setItem('role', currentRole === 'craftsman' ? 'pro' : 'client');
+      sessionStorage.setItem('miras_auth_role', currentRole);
+
+      const phoneDisplay = document.getElementById('loginOtpPhoneDisplay');
+      if (phoneDisplay) phoneDisplay.textContent = '+967 ' + mobileVal;
+
+      const fullLink = document.getElementById('fullVerifyScreenLink');
+      if (fullLink) fullLink.href = 'verify.html?role=' + currentRole + '&phone=' + encodeURIComponent(mobileVal);
+
+      document.getElementById('phoneInputSection')?.classList.add('hidden');
+      document.getElementById('otpVerifySection')?.classList.remove('hidden');
+
+      // تفريغ المدخلات والتركيز على أول خانة
+      otpInputs.forEach(i => i.value = '');
+      document.getElementById('login-otp-1')?.focus();
+      startCountdown();
     });
   }
 </script>

@@ -188,98 +188,98 @@
   <div class="max-w-3xl mx-auto w-full px-4 sm:px-6 lg:px-8 space-y-6">
     <div class="flex flex-col w-full pb-space-xl">
 <!-- Progress Stepper Tracker -->
-<div class="w-full bg-surface-container-low rounded-xl p-space-md shadow-sm mb-space-md">
-<div class="flex items-center justify-between mb-space-xs">
-<div class="flex items-center gap-space-xs">
-<span class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-label-sm">1</span>
-<span class="font-label-md text-label-md text-primary font-bold">البيانات الأساسية</span>
+<div class="w-full bg-surface-container-low rounded-xl p-3.5 sm:p-4 shadow-sm mb-4">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-1.5">
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs font-bold">1</span>
+<span class="text-xs sm:text-sm text-primary font-bold">البيانات الأساسية</span>
 </div>
-<div class="flex items-center gap-1.5 text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5 text-on-surface-variant text-xs">
 <span>الخطوة التالية:</span>
 <span class="font-medium text-outline">رمز التحقق (OTP)</span>
 </div>
 </div>
 <!-- Progress Indicator Bar -->
-<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden flex">
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden flex">
 <div class="bg-primary h-full w-1/2 rounded-full transition-all duration-300"></div>
 <div class="bg-transparent h-full w-1/2"></div>
 </div>
 <div class="flex justify-between items-center mt-1">
-<span class="text-tertiary-fixed-dim font-label-sm text-label-sm font-semibold">مرحلة 1 من 2</span>
-<span class="text-outline font-label-sm text-label-sm">50% مكتمل</span>
+<span class="text-tertiary-fixed-dim text-xs font-semibold">مرحلة 1 من 2</span>
+<span class="text-outline text-xs">50% مكتمل</span>
 </div>
 </div>
 <!-- Header Section with Local Architectural Touch -->
-<div class="relative w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm mb-space-md overflow-hidden">
+<div class="relative w-full bg-surface-container-lowest rounded-xl p-3.5 sm:p-4 shadow-sm mb-4 overflow-hidden">
 <div class="absolute -left-6 -top-6 w-24 h-24 rounded-full bg-secondary-fixed/20 pointer-events-none"></div>
-<div class="relative z-10 flex flex-col gap-space-xs">
-<div class="inline-flex items-center gap-1.5 self-start px-space-sm py-0.5 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm">
-<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">verified</span>
+<div class="relative z-10 flex flex-col gap-1">
+<div class="inline-flex items-center gap-1.5 self-start px-2.5 py-0.5 rounded-full bg-surface-container-high text-primary text-xs font-medium">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">verified</span>
 <span>منظومة الحرفيين المعتمدة</span>
 </div>
-<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold">إنشاء حساب عميل جديد</h1>
-<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+<h1 class="text-base sm:text-lg lg:text-xl text-primary font-bold">إنشاء حساب عميل جديد</h1>
+<p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
         احصل على نخبة الحرفيين والفنيين الموثوقين بالقرب من مسكنك في حضرموت، بضمان وجودة مِراس.
       </p>
 </div>
 </div>
 <!-- Registration Form Card -->
-<form class="flex flex-col gap-space-md bg-surface-container-lowest rounded-xl p-space-md shadow-sm" id="clientRegisterForm" onsubmit="event.preventDefault();">
+<form class="flex flex-col gap-3.5 bg-surface-container-lowest rounded-xl p-3.5 sm:p-4 shadow-sm" id="clientRegisterForm" onsubmit="event.preventDefault();">
 <!-- Field 1: Full Name -->
-<div class="flex flex-col gap-1.5">
-<label class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center justify-between" for="fullName">
+<div class="flex flex-col gap-1">
+<label class="text-xs sm:text-sm text-on-surface font-semibold flex items-center justify-between" for="fullName">
 <span>الاسم الكامل</span>
-<span class="text-tertiary-fixed-dim font-label-sm text-label-sm font-normal">مطابق للهوية الشخصية</span>
+<span class="text-tertiary-fixed-dim text-xs font-normal">مطابق للهوية الشخصية</span>
 </label>
 <div class="relative flex items-center">
 <span class="absolute right-3.5 text-on-surface-variant pointer-events-none flex items-center">
-<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="material-symbols-outlined text-[20px]">person</span>
 </span>
-<input class="w-full h-12 pr-11 pl-4 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md placeholder:text-outline focus:bg-surface-container-lowest focus:outline-none transition-all shadow-inner" id="fullName" name="fullName" placeholder="مثال: سالم صالح باوزير" required="" type="text"/>
+<input class="w-full h-11 pr-10 pl-3.5 rounded-lg bg-surface-container-low text-on-surface text-xs sm:text-sm placeholder:text-outline focus:bg-surface-container-lowest focus:outline-none transition-all shadow-inner" id="fullName" name="fullName" placeholder="مثال: سالم صالح باوزير" required="" type="text"/>
 </div>
 </div>
 <!-- Field 2: Yemeni Phone Number with Network Selector -->
-<div class="flex flex-col gap-1.5">
-<label class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center justify-between" for="phoneNumber">
+<div class="flex flex-col gap-1">
+<label class="text-xs sm:text-sm text-on-surface font-semibold flex items-center justify-between" for="phoneNumber">
 <span>رقم الهاتف النقال</span>
-<span class="text-on-surface-variant font-label-sm text-label-sm">يمن موبايل، YOU، سبأفون، واي</span>
+<span class="text-on-surface-variant text-xs">يمن موبايل، YOU، سبأفون، واي</span>
 </label>
 <!-- Network Quick Select Chips -->
 <div class="flex items-center gap-1.5 overflow-x-auto pb-1" id="networkPills">
-<button class="network-chip px-2.5 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-medium transition-all shadow-sm" onclick="setNetwork('77', this)" type="button">
+<button class="network-chip px-2.5 py-1 rounded-full bg-primary text-on-primary text-xs font-medium transition-all shadow-sm" onclick="setNetwork('77', this)" type="button">
           يمن موبايل 77
         </button>
-<button class="network-chip px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-medium transition-all" onclick="setNetwork('73', this)" type="button">
+<button class="network-chip px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface text-xs font-medium transition-all" onclick="setNetwork('73', this)" type="button">
           YOU 73
         </button>
-<button class="network-chip px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-medium transition-all" onclick="setNetwork('71', this)" type="button">
+<button class="network-chip px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface text-xs font-medium transition-all" onclick="setNetwork('71', this)" type="button">
           سبأفون 71
         </button>
-<button class="network-chip px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-medium transition-all" onclick="setNetwork('70', this)" type="button">
+<button class="network-chip px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface text-xs font-medium transition-all" onclick="setNetwork('70', this)" type="button">
           واي 70
         </button>
 </div>
 <!-- Input Combo with Fixed Yemen Flag & Code -->
 <div class="flex items-center gap-2">
-<div class="flex items-center justify-center gap-1.5 h-12 px-3 rounded-lg bg-surface-container text-primary font-label-md text-label-md font-bold select-none shrink-0 shadow-inner" dir="ltr">
-<span class="text-base">🇾🇪</span>
+<div class="flex items-center justify-center gap-1.5 h-11 px-3 rounded-lg bg-surface-container text-primary text-xs font-bold select-none shrink-0 shadow-inner" dir="ltr">
+<span class="text-sm">🇾🇪</span>
 <span>+967</span>
 </div>
 <div class="relative flex-1">
-<input class="w-full h-12 px-3.5 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md text-right placeholder:text-outline focus:bg-surface-container-lowest focus:outline-none transition-all shadow-inner tracking-wider" dir="ltr" id="phoneNumber" maxlength="9" name="phoneNumber" placeholder="77X XXX XXX" required="" type="tel"/>
+<input class="w-full h-11 px-3.5 rounded-lg bg-surface-container-low text-on-surface text-xs sm:text-sm text-right placeholder:text-outline focus:bg-surface-container-lowest focus:outline-none transition-all shadow-inner tracking-wider" dir="ltr" id="phoneNumber" maxlength="9" name="phoneNumber" placeholder="77X XXX XXX" required="" type="tel"/>
 </div>
 </div>
 </div>
 <!-- Location Duo: City & Neighborhood -->
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
 <!-- Field 3: Hadramout Cities -->
-<div class="flex flex-col gap-1.5">
-<label class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center gap-1" for="citySelect">
-<span class="material-symbols-outlined text-tertiary-fixed-dim text-[18px]" style="font-variation-settings: 'FILL' 1;">location_city</span>
+<div class="flex flex-col gap-1">
+<label class="text-xs sm:text-sm text-on-surface font-semibold flex items-center gap-1" for="citySelect">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[16px]" style="font-variation-settings: 'FILL' 1;">location_city</span>
 <span>المدينة في حضرموت</span>
 </label>
 <div class="relative">
-<select class="w-full h-12 pr-4 pl-10 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md appearance-none focus:bg-surface-container-lowest focus:outline-none transition-all shadow-inner cursor-pointer" id="citySelect" name="citySelect" onchange="updateDistricts(this.value)" required="">
+<select class="w-full h-11 pr-3.5 pl-9 rounded-lg bg-surface-container-low text-on-surface text-xs sm:text-sm appearance-none focus:bg-surface-container-lowest focus:outline-none transition-all shadow-inner cursor-pointer" id="citySelect" name="citySelect" onchange="updateDistricts(this.value)" required="">
 <option disabled="" selected="" value="">اختر مدينتك</option>
 <option value="المكلا">المكلا (عاصمة المحافظة)</option>
 <option value="سيئون">سيئون (حاضرة الوادي)</option>
@@ -290,18 +290,18 @@
 <option value="غيل باوزير">غيل باوزير</option>
 </select>
 <span class="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">
-<span class="material-symbols-outlined text-[22px]">expand_more</span>
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
 </span>
 </div>
 </div>
 <!-- Field 4: Neighborhood / Area -->
-<div class="flex flex-col gap-1.5">
-<label class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center gap-1" for="districtInput">
-<span class="material-symbols-outlined text-tertiary-fixed-dim text-[18px]" style="font-variation-settings: 'FILL' 1;">home_pin</span>
+<div class="flex flex-col gap-1">
+<label class="text-xs sm:text-sm text-on-surface font-semibold flex items-center gap-1" for="districtInput">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[16px]" style="font-variation-settings: 'FILL' 1;">home_pin</span>
 <span>الحي أو المنطقة</span>
 </label>
 <div class="relative flex items-center">
-<input class="w-full h-12 px-4 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md placeholder:text-outline focus:bg-surface-container-lowest focus:outline-none transition-all shadow-inner" id="districtInput" list="districtSuggestions" name="districtInput" placeholder="مثال: فوة، الديس، السحيل..." required="" type="text"/>
+<input class="w-full h-11 px-3.5 rounded-lg bg-surface-container-low text-on-surface text-xs sm:text-sm placeholder:text-outline focus:bg-surface-container-lowest focus:outline-none transition-all shadow-inner" id="districtInput" list="districtSuggestions" name="districtInput" placeholder="مثال: فوة، الديس، السحيل..." required="" type="text"/>
 <datalist id="districtSuggestions">
 <option value="فوة (المساكن، المتضررين)"></option>
 <option value="الديس"></option>
@@ -317,15 +317,15 @@
 </div>
 </div>
 <!-- Field 5: Password with Visibility Toggle & Strength Bar -->
-<div class="flex flex-col gap-1.5">
-<label class="font-label-lg text-label-lg text-on-surface font-semibold" for="password">كلمة المرور</label>
+<div class="flex flex-col gap-1">
+<label class="text-xs sm:text-sm text-on-surface font-semibold" for="password">كلمة المرور</label>
 <div class="relative flex items-center">
 <span class="absolute right-3.5 text-on-surface-variant pointer-events-none flex items-center">
-<span class="material-symbols-outlined text-[22px]">lock</span>
+<span class="material-symbols-outlined text-[20px]">lock</span>
 </span>
-<input class="w-full h-12 pr-11 pl-11 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md placeholder:text-outline focus:bg-surface-container-lowest focus:outline-none transition-all shadow-inner" id="password" name="password" oninput="checkPasswordStrength(this.value)" placeholder="8 رموز على الأقل (أرقام وحروف)" required="" type="password"/>
-<button aria-label="إظهار أو إخفاء كلمة المرور" class="absolute left-3 w-8 h-8 rounded flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" onclick="togglePassVisibility('password', 'eyeIcon1')" type="button">
-<span class="material-symbols-outlined text-[20px]" id="eyeIcon1">visibility_off</span>
+<input class="w-full h-11 pr-10 pl-10 rounded-lg bg-surface-container-low text-on-surface text-xs sm:text-sm placeholder:text-outline focus:bg-surface-container-lowest focus:outline-none transition-all shadow-inner" id="password" name="password" oninput="checkPasswordStrength(this.value)" placeholder="8 رموز على الأقل (أرقام وحروف)" required="" type="password"/>
+<button aria-label="إظهار أو إخفاء كلمة المرور" class="absolute left-3 w-7 h-7 rounded flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" onclick="togglePassVisibility('password', 'eyeIcon1')" type="button">
+<span class="material-symbols-outlined text-[18px]" id="eyeIcon1">visibility_off</span>
 </button>
 </div>
 <!-- Password Strength Indicator -->
@@ -336,38 +336,38 @@
 <div class="h-1 flex-1 rounded-full bg-surface-container-highest transition-all duration-300" id="bar3"></div>
 <div class="h-1 flex-1 rounded-full bg-surface-container-highest transition-all duration-300" id="bar4"></div>
 </div>
-<div class="flex justify-between items-center">
-<span class="font-label-sm text-label-sm text-outline" id="strengthText">مقياس قوة الحماية</span>
-<span class="font-label-sm text-label-sm text-outline">توصية: ادمج أرقاماً ورموزاً</span>
+<div class="flex justify-between items-center text-[11px] text-outline">
+<span id="strengthText">مقياس قوة الحماية</span>
+<span>توصية: ادمج أرقاماً ورموزاً</span>
 </div>
 </div>
 </div>
 <!-- Field 6: Confirm Password -->
-<div class="flex flex-col gap-1.5">
-<label class="font-label-lg text-label-lg text-on-surface font-semibold" for="confirmPassword">تأكيد كلمة المرور</label>
+<div class="flex flex-col gap-1">
+<label class="text-xs sm:text-sm text-on-surface font-semibold" for="confirmPassword">تأكيد كلمة المرور</label>
 <div class="relative flex items-center">
 <span class="absolute right-3.5 text-on-surface-variant pointer-events-none flex items-center">
-<span class="material-symbols-outlined text-[22px]">lock_reset</span>
+<span class="material-symbols-outlined text-[20px]">lock_reset</span>
 </span>
-<input class="w-full h-12 pr-11 pl-11 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md placeholder:text-outline focus:bg-surface-container-lowest focus:outline-none transition-all shadow-inner" id="confirmPassword" name="confirmPassword" oninput="validateMatch()" placeholder="أعد كتابة كلمة المرور" required="" type="password"/>
-<button aria-label="إظهار أو إخفاء تأكيد كلمة المرور" class="absolute left-3 w-8 h-8 rounded flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" onclick="togglePassVisibility('confirmPassword', 'eyeIcon2')" type="button">
-<span class="material-symbols-outlined text-[20px]" id="eyeIcon2">visibility_off</span>
+<input class="w-full h-11 pr-10 pl-10 rounded-lg bg-surface-container-low text-on-surface text-xs sm:text-sm placeholder:text-outline focus:bg-surface-container-lowest focus:outline-none transition-all shadow-inner" id="confirmPassword" name="confirmPassword" oninput="validateMatch()" placeholder="أعد كتابة كلمة المرور" required="" type="password"/>
+<button aria-label="إظهار أو إخفاء تأكيد كلمة المرور" class="absolute left-3 w-7 h-7 rounded flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" onclick="togglePassVisibility('confirmPassword', 'eyeIcon2')" type="button">
+<span class="material-symbols-outlined text-[18px]" id="eyeIcon2">visibility_off</span>
 </button>
 </div>
-<span class="font-label-sm text-label-sm text-error hidden flex items-center gap-1" id="matchFeedback">
-<span class="material-symbols-outlined text-[14px]">error</span>
+<span class="text-xs text-error hidden flex items-center gap-1" id="matchFeedback">
+<span class="material-symbols-outlined text-[13px]">error</span>
 <span>كلمتا المرور غير متطابقتين</span>
 </span>
 </div>
 <!-- Terms & Conditions Agreement Checkbox -->
-<label class="flex items-start gap-3 p-space-xs cursor-pointer select-none rounded-lg hover:bg-surface-container-low/50 transition-colors">
+<label class="flex items-start gap-2.5 p-1 cursor-pointer select-none rounded-lg hover:bg-surface-container-low/50 transition-colors">
 <div class="relative flex items-center justify-center shrink-0 mt-0.5">
 <input class="peer sr-only" id="termsCheckbox" name="termsCheckbox" required="" type="checkbox"/>
-<div class="w-5 h-5 rounded bg-surface-container-high peer-checked:bg-primary transition-all flex items-center justify-center shadow-inner">
-<span class="material-symbols-outlined text-white text-[16px] scale-0 peer-checked:scale-100 transition-transform">check</span>
+<div class="w-4 h-4 rounded bg-surface-container-high peer-checked:bg-primary transition-all flex items-center justify-center shadow-inner">
+<span class="material-symbols-outlined text-white text-[14px] scale-0 peer-checked:scale-100 transition-transform">check</span>
 </div>
 </div>
-<div class="font-body-sm text-body-sm text-on-surface leading-snug">
+<div class="text-xs text-on-surface leading-relaxed">
         أوافق بكامل الأهلية على 
         <a class="text-secondary font-semibold hover:underline" href="support.html">شروط الاستخدام</a> 
         و 
@@ -376,43 +376,43 @@
       </div>
 </label>
 <!-- Primary Action CTA Button -->
-<button class="group w-full h-12 bg-primary hover:bg-primary-container text-on-primary rounded-lg font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 active:scale-[0.99] transition-all shadow-md mt-space-xs" type="submit">
+<button class="group w-full h-11 sm:h-12 bg-primary hover:bg-primary-container text-on-primary rounded-lg text-xs sm:text-sm font-bold flex items-center justify-center gap-2 active:scale-[0.99] transition-all shadow-sm mt-1" type="submit">
 <span>إنشاء الحساب والمتابعة للتحقق</span>
-<span class="material-symbols-outlined text-[20px] transition-transform group-hover:-translate-x-1">arrow_back</span>
+<span class="material-symbols-outlined text-[18px] transition-transform group-hover:-translate-x-1">arrow_back</span>
 </button>
 </form>
 <!-- Dual Trust Card: OTP Notice + Artisan Switcher -->
-<div class="flex flex-col gap-space-sm mt-space-md">
+<div class="flex flex-col gap-2.5 mt-3.5">
 <!-- Security / OTP Assurance Notice -->
-<div class="w-full bg-surface-container-low rounded-xl p-space-md flex items-center gap-space-sm shadow-sm">
-<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center shrink-0 text-primary">
-<span class="material-symbols-outlined text-[22px]">sms</span>
+<div class="w-full bg-surface-container-low rounded-xl p-3 flex items-center gap-2.5 shadow-sm">
+<div class="w-9 h-9 rounded-full bg-surface-container-high flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[20px]">sms</span>
 </div>
 <div class="flex flex-col">
-<span class="font-label-md text-label-md text-primary font-bold">تحقق أمني آمن وفوري</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">سنرسل رمز تأكيد مكوّن من 4 أرقام عبر رسالة نصية قصيرة (SMS) إلى هاتفك للتأكد من هويتك.</span>
+<span class="text-xs sm:text-sm text-primary font-bold">تحقق أمني آمن وفوري</span>
+<span class="text-[11px] text-on-surface-variant">سنرسل رمز تأكيد مكوّن من 4 أرقام عبر رسالة نصية قصيرة (SMS) إلى هاتفك للتأكد من هويتك.</span>
 </div>
 </div>
 <!-- Craftsperson Portal Switcher CTA -->
-<div class="w-full bg-gradient-to-r from-surface-container-high/60 via-surface-container-low to-surface-container-high/60 rounded-xl p-space-md flex items-center justify-between gap-space-sm shadow-sm">
-<div class="flex items-center gap-space-sm">
-<div class="w-10 h-10 rounded-xl bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed shrink-0 shadow-sm">
-<span class="material-symbols-outlined text-[22px]">construction</span>
+<div class="w-full bg-gradient-to-r from-surface-container-high/60 via-surface-container-low to-surface-container-high/60 rounded-xl p-3 flex items-center justify-between gap-2.5 shadow-sm">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[20px]">construction</span>
 </div>
 <div class="flex flex-col">
-<span class="font-label-lg text-label-lg text-primary font-bold">هل أنت صاحب مهنة أو فني؟</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">انضم لكوكبة معلّمي وحرفيي حضرموت المعتمدين</span>
+<span class="text-xs sm:text-sm text-primary font-bold">هل أنت صاحب مهنة أو فني؟</span>
+<span class="text-[11px] text-on-surface-variant">انضم لكوكبة معلّمي وحرفيي حضرموت المعتمدين</span>
 </div>
 </div>
-<a class="px-3.5 py-2 rounded-lg bg-surface-container-lowest text-primary hover:bg-primary hover:text-on-primary font-label-md text-label-md font-bold transition-all shadow-sm shrink-0 flex items-center gap-1" href="#artisan-register">
+<a class="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-primary hover:bg-primary hover:text-on-primary text-xs font-bold transition-all shadow-sm shrink-0 flex items-center gap-1" href="join-pro.html">
 <span>سجّل كحرفي</span>
-<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+<span class="material-symbols-outlined text-[14px]">chevron_left</span>
 </a>
 </div>
 </div>
 <!-- Local Municipal Reference Micro-Footer -->
-<div class="mt-space-lg flex items-center justify-center gap-2 text-outline font-label-sm text-label-sm">
-<span class="material-symbols-outlined text-[16px]">verified_user</span>
+<div class="mt-4 flex items-center justify-center gap-1.5 text-outline text-xs text-center">
+<span class="material-symbols-outlined text-[15px]">verified_user</span>
 <span>منصة مِراس • خدمة مجتمعية موثوقة لأبناء حضرموت (ساحلاً ووادياً)</span>
 </div>
 </div>

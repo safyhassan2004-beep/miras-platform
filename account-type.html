@@ -188,99 +188,99 @@
   <div class="max-w-3xl mx-auto w-full px-4 sm:px-6 lg:px-8 space-y-6">
     <div class="flex flex-col w-full pb-space-xl">
 <!-- Decorative Heritage Backdrop Pattern -->
-<div class="relative w-full rounded-2xl bg-surface-container-low p-space-md shadow-sm overflow-hidden mb-space-md">
+<div class="relative w-full rounded-2xl bg-surface-container-low p-4 sm:p-5 shadow-sm overflow-hidden mb-4">
 <div class="absolute -top-12 -left-12 w-40 h-40 bg-surface-variant/40 rounded-full blur-2xl pointer-events-none"></div>
 <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-primary-fixed/30 rounded-full blur-xl pointer-events-none"></div>
 <div class="relative z-10 flex flex-col items-center text-center">
 <!-- Seal Emblem -->
-<div class="w-16 h-16 rounded-2xl bg-primary-container text-white flex items-center justify-center shadow-md mb-space-sm transform transition-transform hover:scale-105">
-<span class="material-symbols-outlined text-[32px] text-tertiary-fixed" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<div class="w-12 h-12 rounded-xl bg-primary-container text-white flex items-center justify-center shadow-sm mb-2.5 transform transition-transform hover:scale-105">
+<span class="material-symbols-outlined text-[24px] text-tertiary-fixed" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
 </div>
 <!-- Welcome Headings -->
-<div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container text-primary mb-space-xs">
-<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">stars</span>
-<span class="font-label-sm text-label-sm font-semibold tracking-wide">منصة الحرفيين والخدمات الأولى بحضرموت</span>
+<div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-surface-container text-primary mb-1.5">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="text-xs font-bold tracking-wide">منصة الحرفيين والخدمات الأولى بحضرموت</span>
 </div>
-<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold tracking-tight mb-space-xs">
+<h2 class="text-base sm:text-lg lg:text-xl text-primary font-bold tracking-tight mb-1">
         مرحباً بك في مِراس
       </h2>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">
+<p class="text-xs sm:text-sm text-on-surface-variant max-w-sm leading-relaxed">
         انضم لأكبر شبكة مهنية معتمدة في حضرموت، حدد طبيعة استخدامك للمنصة للانطلاق بتجربة مخصصة
       </p>
 </div>
 </div>
 <!-- Role Selection Form / Interactive Cards -->
-<form class="flex flex-col gap-space-md" id="roleForm" onsubmit="event.preventDefault();">
+<form class="flex flex-col gap-3.5" id="roleForm" onsubmit="event.preventDefault();">
 <!-- Option 1: Customer Card -->
 <label class="group relative cursor-pointer block select-none">
 <input checked="" class="peer sr-only" name="account_type" onchange="updateRoleSummary('client')" type="radio" value="client"/>
-<div class="relative rounded-2xl p-space-md bg-surface-container-lowest transition-all duration-200 shadow-sm peer-checked:bg-surface-container-low peer-checked:shadow-md">
+<div class="relative rounded-xl p-3.5 sm:p-4 bg-surface-container-lowest transition-all duration-200 shadow-sm peer-checked:bg-surface-container-low peer-checked:shadow-md">
 <!-- Selection Highlight Layer -->
-<div class="absolute inset-0 rounded-2xl pointer-events-none transition-all duration-200 opacity-0 peer-checked:opacity-100 shadow-[inset_0_0_0_2px_#0f2c59]"></div>
+<div class="absolute inset-0 rounded-xl pointer-events-none transition-all duration-200 opacity-0 peer-checked:opacity-100 shadow-[inset_0_0_0_2px_#0f2c59]"></div>
 <div class="relative z-10 flex flex-col">
 <!-- Top Row: Icon + Badge + Radio Check -->
-<div class="flex items-start justify-between gap-space-sm mb-space-sm">
-<div class="flex items-center gap-space-sm">
-<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
-<span class="material-symbols-outlined text-[26px]">home_repair_service</span>
+<div class="flex items-start justify-between gap-3 mb-2.5">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:scale-105 transition-transform shrink-0">
+<span class="material-symbols-outlined text-[22px]">home_repair_service</span>
 </div>
 <div class="flex flex-col">
-<span class="font-headline-sm text-headline-sm text-primary font-bold">حساب عميل</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">أبحث عن مهنيين وفنيين لتنفيذ أعمالي</span>
+<span class="text-xs sm:text-sm text-primary font-bold">حساب عميل</span>
+<span class="text-[11px] text-on-surface-variant">أبحث عن مهنيين وفنيين لتنفيذ أعمالي</span>
 </div>
 </div>
 <!-- Radio Indicator Visual -->
-<div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center transition-colors">
-<div class="w-5 h-5 rounded-full bg-primary-container text-white flex items-center justify-center scale-100 peer-checked:scale-100 transition-transform">
-<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+<div class="w-5 h-5 rounded-full bg-surface-container flex items-center justify-center transition-colors shrink-0">
+<div class="w-4 h-4 rounded-full bg-primary-container text-white flex items-center justify-center scale-100 peer-checked:scale-100 transition-transform">
+<span class="material-symbols-outlined text-[13px] font-bold">check</span>
 </div>
 </div>
 </div>
 <!-- Feature Tag -->
-<div class="flex items-center gap-space-xs mb-space-sm">
-<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-medium">
-<span class="material-symbols-outlined text-[14px]">bolt</span>
+<div class="flex items-center gap-1.5 mb-2.5 flex-wrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container-high text-primary text-[10px] sm:text-xs font-semibold">
+<span class="material-symbols-outlined text-[13px]">bolt</span>
               تسجيل فوري خلال دقيقة
             </span>
-<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
-<span class="material-symbols-outlined text-[14px]">shield</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-[10px] sm:text-xs">
+<span class="material-symbols-outlined text-[13px]">shield</span>
               ضمان مِراس الذهبي
             </span>
 </div>
 <!-- Benefit Bullets -->
-<ul class="flex flex-col gap-1.5 text-on-surface-variant font-body-sm text-body-sm">
-<li class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-[18px] text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<ul class="flex flex-col gap-1.5 text-on-surface-variant text-xs leading-relaxed">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[15px] text-primary shrink-0" style="font-variation-settings: 'FILL' 1;">check_circle</span>
 <span>تصفح واختيار أمهر المهنيين الموثقين في المكلا، سيئون، ودوعن</span>
 </li>
-<li class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-[18px] text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[15px] text-primary shrink-0" style="font-variation-settings: 'FILL' 1;">check_circle</span>
 <span>طلب مباشر لخدمات الصيانة المنزلية والتشطيبات والمقاولات</span>
 </li>
-<li class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-[18px] text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[15px] text-primary shrink-0" style="font-variation-settings: 'FILL' 1;">check_circle</span>
 <span>ضمان جودة الأعمال لمدة 30 يوماً مع تسعير واضح بالريال اليمني</span>
 </li>
 </ul>
 <!-- Subtle Visual Thumbnail strip for credibility -->
-<div class="mt-space-md pt-space-xs flex items-center justify-between bg-surface-container/60 rounded-xl p-space-xs">
-<div class="flex items-center gap-space-xs">
-<div class="flex -space-x-2 -space-x-reverse overflow-hidden">
-<div class="inline-block h-7 w-7 rounded-full bg-surface-dim overflow-hidden shadow-xs">
-<img class="h-full w-full object-cover" data-alt="Portrait headshot of an authentic Hadrami home maintenance technician in blue work shirt smiling warmly outdoors in Mukalla city" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-mA49a4rMd0MKhv1cpxkYqLH8Wcf9hS-_1GCNYTx5j90lQ8vsjI1vfe8PuMFGy9preN_bSJ1y4tNQWUN7UhRDgLK6ubznejn4r0r4sgla0miCZq7Y_BufpN0I2BROtamZNubPTObmbf-6VeuyP_PH7Cgu6qbbgNG_vBu1O11Zdu0JpACwVB-l2VEd1ygVavQE7aO1otjHmIeHMaPQDu-3ys8TwhUJlVTXYtKO4mg"/>
+<div class="mt-3 pt-1 flex items-center justify-between bg-surface-container/60 rounded-lg p-2">
+<div class="flex items-center gap-1.5">
+<div class="flex -space-x-1.5 -space-x-reverse overflow-hidden">
+<div class="inline-block h-6 w-6 rounded-full bg-surface-dim overflow-hidden shadow-xs">
+<img class="h-full w-full object-cover" data-alt="حرفي حضرمي معتمد" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-mA49a4rMd0MKhv1cpxkYqLH8Wcf9hS-_1GCNYTx5j90lQ8vsjI1vfe8PuMFGy9preN_bSJ1y4tNQWUN7UhRDgLK6ubznejn4r0r4sgla0miCZq7Y_BufpN0I2BROtamZNubPTObmbf-6VeuyP_PH7Cgu6qbbgNG_vBu1O11Zdu0JpACwVB-l2VEd1ygVavQE7aO1otjHmIeHMaPQDu-3ys8TwhUJlVTXYtKO4mg"/>
 </div>
-<div class="inline-block h-7 w-7 rounded-full bg-surface-dim overflow-hidden shadow-xs">
-<img class="h-full w-full object-cover" data-alt="Portrait headshot of an expert Yemeni electrical contractor in protective gear against sunny architecture background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmmnkLlqXTotpJ1eJGPE6UqhjIZ7u5pngKYqENYzTVXtAfAvkxoZWLiKhlL-e1S_MaFi4fi3QhyCf_w2UgdbPCvwBycEVgpmQxC4xPYm-xtSLdg09mrP4nR8v5lNk_RNKwVAsmBXJXcP3XR9-jKpdXKioYXfUuGIdFJpvynO2OLgjGvgxD5DmGs_RNdmJ0S2bpFa_dU6SinomAGH6xhw2G4E-dOWGU8upYkvsVvWA"/>
+<div class="inline-block h-6 w-6 rounded-full bg-surface-dim overflow-hidden shadow-xs">
+<img class="h-full w-full object-cover" data-alt="فني كهرباء حضرموت" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmmnkLlqXTotpJ1eJGPE6UqhjIZ7u5pngKYqENYzTVXtAfAvkxoZWLiKhlL-e1S_MaFi4fi3QhyCf_w2UgdbPCvwBycEVgpmQxC4xPYm-xtSLdg09mrP4nR8v5lNk_RNKwVAsmBXJXcP3XR9-jKpdXKioYXfUuGIdFJpvynO2OLgjGvgxD5DmGs_RNdmJ0S2bpFa_dU6SinomAGH6xhw2G4E-dOWGU8upYkvsVvWA"/>
 </div>
-<div class="inline-block h-7 w-7 rounded-full bg-surface-dim overflow-hidden shadow-xs">
-<img class="h-full w-full object-cover" data-alt="Portrait of experienced traditional carpenter in Hadramout holding wooden carving tool with bright warm light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtJ1pxduDeRaejFd7Fox44tnke5xxxqaImyD4nsRmAGp9sFWC9PTJlqEYLx60Wu-4GigK-kLCCEilgP7tCk8pn352cuKL85_WV7VWRPzWx16LBC6WGCBh8z6WRbpPMEteT0GguXXWWGqmIcMeZQFw8oXM4O8D1qZpw3LyAa3hDwZ-98SrDhNYYxtOymeB07nym5YcteNnjPlZpmqPpyL3j5d-6sMPZ8AGu_0kOAoU"/>
+<div class="inline-block h-6 w-6 rounded-full bg-surface-dim overflow-hidden shadow-xs">
+<img class="h-full w-full object-cover" data-alt="نجار تقليدي حضرمي" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtJ1pxduDeRaejFd7Fox44tnke5xxxqaImyD4nsRmAGp9sFWC9PTJlqEYLx60Wu-4GigK-kLCCEilgP7tCk8pn352cuKL85_WV7VWRPzWx16LBC6WGCBh8z6WRbpPMEteT0GguXXWWGqmIcMeZQFw8oXM4O8D1qZpw3LyAa3hDwZ-98SrDhNYYxtOymeB07nym5YcteNnjPlZpmqPpyL3j5d-6sMPZ8AGu_0kOAoU"/>
 </div>
 </div>
-<span class="font-label-sm text-label-sm text-primary font-semibold mr-1">+450 حرفي معتمد</span>
+<span class="text-xs text-primary font-semibold mr-1">+450 حرفي معتمد</span>
 </div>
-<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-0.5">
+<span class="text-xs text-on-surface-variant flex items-center gap-0.5">
 <span>تقييمات 4.9</span>
-<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[13px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
 </span>
 </div>
 </div>
@@ -289,92 +289,92 @@
 <!-- Option 2: Artisan / Professional Card -->
 <label class="group relative cursor-pointer block select-none">
 <input class="peer sr-only" name="account_type" onchange="updateRoleSummary('artisan')" type="radio" value="artisan"/>
-<div class="relative rounded-2xl p-space-md bg-surface-container-lowest transition-all duration-200 shadow-sm peer-checked:bg-surface-container-low peer-checked:shadow-md">
+<div class="relative rounded-xl p-3.5 sm:p-4 bg-surface-container-lowest transition-all duration-200 shadow-sm peer-checked:bg-surface-container-low peer-checked:shadow-md">
 <!-- Selection Highlight Layer -->
-<div class="absolute inset-0 rounded-2xl pointer-events-none transition-all duration-200 opacity-0 peer-checked:opacity-100 shadow-[inset_0_0_0_2px_#0f2c59]"></div>
+<div class="absolute inset-0 rounded-xl pointer-events-none transition-all duration-200 opacity-0 peer-checked:opacity-100 shadow-[inset_0_0_0_2px_#0f2c59]"></div>
 <div class="relative z-10 flex flex-col">
 <!-- Top Row: Icon + Title + Selection Marker -->
-<div class="flex items-start justify-between gap-space-sm mb-space-sm">
-<div class="flex items-center gap-space-sm">
-<div class="w-12 h-12 rounded-xl bg-tertiary-container flex items-center justify-center text-tertiary-fixed group-hover:scale-105 transition-transform">
-<span class="material-symbols-outlined text-[26px]">handyman</span>
+<div class="flex items-start justify-between gap-3 mb-2.5">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-lg bg-tertiary-container flex items-center justify-center text-tertiary-fixed group-hover:scale-105 transition-transform shrink-0">
+<span class="material-symbols-outlined text-[22px]">handyman</span>
 </div>
 <div class="flex flex-col">
 <div class="flex items-center gap-1.5">
-<span class="font-headline-sm text-headline-sm text-primary font-bold">حساب صاحب مهنة / حرفي</span>
+<span class="text-xs sm:text-sm text-primary font-bold">حساب صاحب مهنة / حرفي</span>
 </div>
-<span class="font-label-sm text-label-sm text-on-surface-variant">أقدم خدماتي وأعمالي للعملاء والمؤسسات</span>
+<span class="text-[11px] text-on-surface-variant">أقدم خدماتي وأعمالي للعملاء والمؤسسات</span>
 </div>
 </div>
 <!-- Radio Indicator Visual -->
-<div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center transition-colors">
-<div class="w-5 h-5 rounded-full bg-primary-container text-white flex items-center justify-center scale-0 peer-checked:scale-100 transition-transform" id="artisanRadioCheck">
-<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+<div class="w-5 h-5 rounded-full bg-surface-container flex items-center justify-center transition-colors shrink-0">
+<div class="w-4 h-4 rounded-full bg-primary-container text-white flex items-center justify-center scale-0 peer-checked:scale-100 transition-transform" id="artisanRadioCheck">
+<span class="material-symbols-outlined text-[13px] font-bold">check</span>
 </div>
 </div>
 </div>
 <!-- Feature Tag -->
-<div class="flex items-center gap-space-xs mb-space-sm">
-<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-semibold">
-<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<div class="flex items-center gap-1.5 mb-2.5 flex-wrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed text-[10px] sm:text-xs font-semibold">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">verified</span>
               توثيق رسمي وتأهيل مهني
             </span>
-<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
-<span class="material-symbols-outlined text-[14px]">support_agent</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-[10px] sm:text-xs">
+<span class="material-symbols-outlined text-[13px]">support_agent</span>
               دعم فني محلي
             </span>
 </div>
 <!-- Benefit Bullets -->
-<ul class="flex flex-col gap-1.5 text-on-surface-variant font-body-sm text-body-sm">
-<li class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-[18px] text-tertiary-fixed-variant" style="font-variation-settings: 'FILL' 1;">verified</span>
+<ul class="flex flex-col gap-1.5 text-on-surface-variant text-xs leading-relaxed">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[15px] text-tertiary-fixed-variant shrink-0" style="font-variation-settings: 'FILL' 1;">verified</span>
 <span>استقبال طلبات تعاقد وصيانة دورية من آلاف العملاء بالمدن والوديان</span>
 </li>
-<li class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-[18px] text-tertiary-fixed-variant" style="font-variation-settings: 'FILL' 1;">verified</span>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[15px] text-tertiary-fixed-variant shrink-0" style="font-variation-settings: 'FILL' 1;">verified</span>
 <span>بناء معرض رقمي موثق لمشاريعك ونيل شارة "موثوق" المعتمدة</span>
 </li>
-<li class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-[18px] text-tertiary-fixed-variant" style="font-variation-settings: 'FILL' 1;">verified</span>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[15px] text-tertiary-fixed-variant shrink-0" style="font-variation-settings: 'FILL' 1;">verified</span>
 <span>تحكم مرن بالأسعار، إشعارات فورية بالمهام، وحماية كاملة لحقوقك المالية</span>
 </li>
 </ul>
 <!-- Regional Demand Indicator -->
-<div class="mt-space-md pt-space-xs flex items-center justify-between bg-surface-container/60 rounded-xl p-space-xs">
-<div class="flex items-center gap-space-xs text-primary">
-<span class="material-symbols-outlined text-[18px] text-tertiary-fixed-dim">trending_up</span>
-<span class="font-label-sm text-label-sm font-semibold">طلب متزايد في: المكلا، سيئون، الشحر</span>
+<div class="mt-3 pt-1 flex items-center justify-between bg-surface-container/60 rounded-lg p-2">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim">trending_up</span>
+<span class="text-xs font-semibold">طلب متزايد في: المكلا، سيئون، الشحر</span>
 </div>
-<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-medium">بدون عمولة تسجيل</span>
+<span class="text-[11px] px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-medium">بدون عمولة تسجيل</span>
 </div>
 </div>
 </div>
 </label>
 <!-- Context Information Card -->
-<div class="rounded-xl p-space-sm bg-surface-container-low flex items-start gap-space-sm">
-<span class="material-symbols-outlined text-[20px] text-secondary mt-0.5">info</span>
-<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed" id="selectionNote">
+<div class="rounded-xl p-3 bg-surface-container-low flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-secondary mt-0.5 shrink-0">info</span>
+<p class="text-xs text-on-surface-variant leading-relaxed" id="selectionNote">
         سيتم توجيهك لملء بيانات العميل الأساسية للبدء في طلب الخدمات والبحث عن الحرفيين بالقرب منك بكل أمان.
       </p>
 </div>
 <!-- CTA & Sub Actions -->
-<div class="flex flex-col gap-space-sm mt-space-xs">
-<button class="w-full h-12 rounded-lg bg-primary-container text-white font-label-lg text-label-lg font-bold flex items-center justify-center gap-space-xs shadow-md active:scale-[0.99] transition-all hover:bg-primary" id="submitBtn" type="button" onclick="handleAccountTypeChoice()">
+<div class="flex flex-col gap-2.5 mt-1">
+<button class="w-full h-11 sm:h-12 rounded-lg bg-primary hover:bg-primary-container text-white text-xs sm:text-sm font-bold flex items-center justify-center gap-2 shadow-sm active:scale-[0.99] transition-all" id="submitBtn" type="button" onclick="handleAccountTypeChoice()">
 <span>متابعة إنشاء الحساب</span>
-<span class="material-symbols-outlined text-[20px] rotate-180">arrow_forward</span>
+<span class="material-symbols-outlined text-[18px] rotate-180">arrow_forward</span>
 </button>
-<div class="flex items-center justify-center gap-space-xs pt-1">
-<span class="font-body-sm text-body-sm text-on-surface-variant">لديك حساب بالفعل؟</span>
-<a class="font-label-md text-label-md text-primary font-bold hover:underline" href="login.html">
+<div class="flex items-center justify-center gap-1.5 pt-1 text-xs">
+<span class="text-on-surface-variant">لديك حساب بالفعل؟</span>
+<a class="text-primary font-bold hover:underline" href="login.html">
           تسجيل الدخول
         </a>
 </div>
 </div>
 </form>
 <!-- Security & Trust Footer Assurance -->
-<div class="mt-space-lg flex items-center justify-center gap-space-xs text-on-surface-variant">
-<span class="material-symbols-outlined text-[18px] text-primary" style="font-variation-settings: 'FILL' 1;">lock</span>
-<span class="font-label-sm text-label-sm">بياناتك محمية ومشفرة وفق أعلى معايير الخصوصية المعتمدة</span>
+<div class="mt-4 flex items-center justify-center gap-1.5 text-on-surface-variant text-xs text-center">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span>بياناتك محمية ومشفرة وفق أعلى معايير الخصوصية المعتمدة</span>
 </div>
 </div>
 <script>
