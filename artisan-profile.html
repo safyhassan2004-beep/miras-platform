@@ -173,9 +173,9 @@
         <span class="font-bold text-primary">حضرموت:</span>
         <span>المكلا • سيئون • تريم • الشحر</span>
       </div>
-      <a href="join-pro.html" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-tertiary-fixed text-tertiary-container font-bold text-xs sm:text-sm hover:bg-tertiary-fixed-dim transition-colors shadow-xs">
-        <span class="material-symbols-outlined text-[18px]">engineering</span>
-        <span>انضم كمهني</span>
+      <a href="join-pro.html" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-tertiary-fixed text-tertiary-container font-semibold text-xs hover:bg-tertiary-fixed-dim transition-colors shadow-xs whitespace-nowrap">
+        <span class="material-symbols-outlined text-[16px]">engineering</span>
+        <span class="text-xs">انضم كمهني</span>
       </a>
       <a href="login.html" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-primary text-white font-bold text-xs sm:text-sm hover:bg-primary-container transition-colors shadow-xs">
         <span class="material-symbols-outlined text-[18px]">person</span>
@@ -263,19 +263,31 @@
 <!-- Quick Action Controls -->
 <div class="flex items-center gap-space-sm w-full mt-space-md">
 <!-- Call Button -->
-<a class="flex-1 h-12 bg-primary-container text-on-primary rounded-xl flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] transition-transform" href="tel:+967770000000">
+<a id="artisanCallBtn" class="flex-1 h-12 bg-primary text-on-primary rounded-xl flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] transition-transform hover:bg-primary-container" href="tel:+967770000000">
 <span class="material-symbols-outlined text-[20px]">call</span>
 <span class="font-label-lg text-label-lg font-semibold">اتصال مباشر</span>
 </a>
-<!-- Chat Button -->
-<button class="flex-1 h-12 bg-surface-container text-primary rounded-xl flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] transition-transform" type="button">
-<span class="material-symbols-outlined text-[20px] text-secondary">chat_bubble</span>
-<span class="font-label-lg text-label-lg font-semibold">محادثة مِراس</span>
-</button>
+<!-- WhatsApp Button -->
+<a id="artisanWaBtn" target="_blank" class="flex-1 h-12 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] transition-transform" href="https://wa.me/967770000000">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+<span class="font-label-lg text-label-lg font-semibold">واتساب فوري</span>
+</a>
 <!-- Favorite Button -->
-<button aria-label="حفظ في المفضلة" class="w-12 h-12 bg-surface-container-lowest text-on-surface-variant rounded-xl flex items-center justify-center shadow-sm active:scale-95 transition-transform" id="fav-btn" onclick="toggleFavorite()" type="button">
+<button aria-label="حفظ في المفضلة" class="w-12 h-12 bg-surface-container text-on-surface-variant rounded-xl flex items-center justify-center shadow-sm active:scale-95 transition-transform" id="fav-btn" onclick="toggleFavorite()" type="button">
 <span class="material-symbols-outlined text-[24px]" id="fav-icon">bookmark</span>
 </button>
+</div>
+
+<!-- Direct Phone Verification Pill -->
+<div class="flex items-center justify-between bg-surface-container-low px-3 py-2 rounded-xl mt-3 text-xs border border-surface-container">
+  <div class="flex items-center gap-1.5 text-on-surface-variant">
+    <span class="material-symbols-outlined text-[16px] text-secondary">phone_iphone</span>
+    <span>رقم المهني لاستقبال الاتصالات:</span>
+    <span dir="ltr" class="font-bold text-primary font-mono text-xs sm:text-sm" id="artisanPhoneText">+967 770000000</span>
+  </div>
+  <button type="button" onclick="navigator.clipboard.writeText(document.getElementById('artisanPhoneText').innerText.trim()); alert('تم نسخ رقم هاتف المهني');" class="text-secondary font-semibold hover:underline">
+    نسخ الرقم
+  </button>
 </div>
 </div>
 </section>
@@ -628,7 +640,7 @@
       <div>
         <h4 class="font-bold text-sm text-tertiary-fixed mb-3">التواصل الرسمي</h4>
         <p class="text-xs text-on-primary-container leading-relaxed">
-          هاتف المنصة: +967 7XXXXXXXX<br/>
+          <a href="tel:+967781125928" class="hover:text-white transition-colors">هاتف المنصة: 781125928 967+</a><br/><a href="https://wa.me/967781125928?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%A5%D8%AF%D8%A7%D8%B1%D8%A9%20%D9%85%D9%90%D8%B1%D9%8E%D8%A7%D8%B3" target="_blank" class="hover:text-emerald-400 text-emerald-400 transition-colors inline-flex items-center gap-1 mt-0.5"><span class="material-symbols-outlined text-xs">chat</span><span>واتساب الدعم: 781125928</span></a><br/>
           البريد الإلكتروني: support@miras.ye<br/>
           المكلا — محافظة حضرموت — الجمهورية اليمنية
         </p>

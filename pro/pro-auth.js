@@ -119,7 +119,21 @@ const ProAuth = {
     const craftsmanStatus = localStorage.getItem('miras_current_pro_status') || sessionStorage.getItem('miras_craftsman_status');
     if (craftsmanStatus === 'pending' || craftsmanStatus === 'rejected') {
       this.showPendingApprovalScreen({ full_name: 'صاحب المهنة (المسجل)' }, craftsmanStatus);
+      return;
     }
+
+    // ربط الهاتف محلياً في وضع التطوير
+    const localPhone = sessionStorage.getItem('registered_phone') || localStorage.getItem('miras_registered_phone') || '+967 770000000';
+    this.bindCraftsmanPhone(localPhone);
+  },
+
+  bindCraftsmanPhone(phone) {
+    if (!phone) return;
+    const cleanTel = phone.startsWith('+967') ? phone : ('+967 ' + phone.replace(/^(\+967|00967|967|0)/, ''));
+    const phoneDisplays = document.querySelectorAll('#proPhoneBadge, #craftsmanActivePhone, [data-supabase-field="pro_phone"]');
+    phoneDisplays.forEach(el => {
+      el.textContent = cleanTel;
+    });
   },
 
   // شاشة حجب الدخول حتى موافقة مالكة المنصة
@@ -162,21 +176,26 @@ const ProAuth = {
         <div class="bg-gray-50 rounded-xl p-4 space-y-2.5 text-xs text-gray-700 mb-6 border border-gray-100">
           <div class="flex items-center justify-between">
             <span class="text-gray-500">حالة الحساب:</span>
-            <span class="font-bold text-amber-700">بانتظار موافقة مالكة المنصة</span>
+            <span class="font-bold text-amber-700">بانتظار موافقة مالكة المنصة (Super Admin)</span>
           </div>
           <div class="flex items-center justify-between">
             <span class="text-gray-500">النطاق الجغرافي:</span>
-            <span class="font-semibold text-gray-800">الجمهورية اليمنية — حضرموت وباقي المحافظات</span>
+            <span class="font-semibold text-gray-800">الجمهورية اليمنية — حضرموت (المكلا • سيئون • تريم)</span>
           </div>
           <div class="flex items-center justify-between">
-            <span class="text-gray-500">جهة التدقيق:</span>
-            <span class="font-semibold text-[#00324b]">إدارة الرقابة والاعتماد المهني</span>
+            <span class="text-gray-500">جهة التدقيق والاعتماد:</span>
+            <span class="font-semibold text-[#00324b]">مالكة المنصة (Super Admin)</span>
           </div>
           <div class="flex items-center justify-between">
-            <span class="text-gray-500">التواصل الرسمي:</span>
-            <span class="font-mono text-gray-700">support@miras.ye</span>
+            <span class="text-gray-500">هاتف وواتساب الإدارة المباشر:</span>
+            <a href="tel:+967781125928" class="font-mono font-bold text-primary hover:underline" dir="ltr">+967 781125928</a>
           </div>
         </div>
+
+        <a href="https://wa.me/967781125928?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%85%D8%A7%D9%84%D9%83%D8%A9%20%D8%A7%D9%84%D9%85%D9%86%D8%B5%D8%A9%D8%8C%20%D9%82%D9%85%D8%AA%20%D8%A8%D8%A7%D9%84%D8%AA%D8%B3%D8%AC%D9%8A%D9%84%20%D9%83%D8%B5%D8%A7%D8%AD%D8%A8%20%D9%85%D9%87%D9%86%D8%A9%20%D9%81%D9%8A%20%D9%85%D9%90%D8%B1%D9%8E%D8%A7%D8%B3%20%D9%88%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D9%85%D8%B1%D8%A7%D8%AC%D8%B9%D8%A9%20%D9%88%D8%A7%D8%B9%D8%AA%D9%85%D8%A7%D8%AF%20%D8%AD%D8%B3%D8%A7%D8%A8%D9%8A" target="_blank" class="w-full py-3 px-4 rounded-xl bg-emerald-600 text-white font-bold text-sm hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2 shadow-sm mb-3">
+          <span class="material-symbols-outlined text-lg">chat</span>
+          <span>مراسلة مالكة المنصة عبر الواتساب للاعتماد الفوري</span>
+        </a>
 
         <div class="flex flex-col sm:flex-row gap-2.5">
           <button onclick="location.reload()" class="flex-1 py-3 px-4 rounded-xl bg-[#001e2f] text-white font-bold text-sm hover:bg-[#00324b] transition-colors flex items-center justify-center gap-1.5 shadow-sm">
@@ -216,6 +235,21 @@ const ProAuth = {
       'pro_active_orders': data.active_orders_count !== undefined ? String(data.active_orders_count) : '',
       'pro_completed_orders': data.completed_orders !== undefined ? String(data.completed_orders) : ''
     };
+
+    const phone = data.phone_number || sessionStorage.getItem('registered_phone') || localStorage.getItem('miras_registered_phone');
+    if (phone) {
+      this.bindCraftsmanPhone(phone);
+    }
+
+    const nameEl = document.getElementById('proName');
+    if (nameEl && data.full_name) {
+      nameEl.textContent = `أهلاً، ${data.full_name} 👋`;
+    }
+
+    const tradeEl = document.getElementById('proTrade');
+    if (tradeEl && data.trade_category) {
+      tradeEl.textContent = `${data.trade_category} • ${data.city || 'حضرموت'}`;
+    }
 
     for (const [field, value] of Object.entries(map)) {
       if (value) {

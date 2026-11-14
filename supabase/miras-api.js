@@ -63,6 +63,37 @@ window.MirasAPI = {
     return /^\+967[7][0-9]{8}$/.test(norm);
   },
 
+  // تنظيف الرقم لروابط الواتساب (967XXXXXXXXX)
+  cleanPhoneForWhatsApp(phone) {
+    if (!phone) return '967781125928';
+    let p = phone.toString().replace(/[^0-9]/g, '');
+    if (p.startsWith('00967')) p = p.substring(5);
+    else if (p.startsWith('967')) p = p.substring(3);
+    else if (p.startsWith('0') && p.length === 10) p = p.substring(1);
+    return '967' + p;
+  },
+
+  // تنظيف الرقم لروابط الاتصال tel:+967XXXXXXXXX
+  cleanPhoneForTel(phone) {
+    if (!phone) return '+967781125928';
+    let p = phone.toString().replace(/[^0-9]/g, '');
+    if (p.startsWith('00967')) p = p.substring(5);
+    else if (p.startsWith('967')) p = p.substring(3);
+    else if (p.startsWith('0') && p.length === 10) p = p.substring(1);
+    return '+967' + p;
+  },
+
+  // تنسيق أنيق لعرض الرقم بالمسافات
+  formatPhoneDisplay(phone) {
+    if (!phone) return '+967 7XXXXXXXX';
+    const norm = this.cleanPhoneForTel(phone);
+    const numPart = norm.replace('+967', '');
+    if (numPart.length === 9) {
+      return `+967 ${numPart.substring(0, 3)} ${numPart.substring(3, 6)} ${numPart.substring(6)}`;
+    }
+    return norm;
+  },
+
   // فحص صلاحية Super Admin
   isSuperAdmin(user, profile) {
     if (user && user.email && user.email.toLowerCase() === 'safyhassan2004@gmail.com') return true;

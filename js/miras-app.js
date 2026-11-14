@@ -427,15 +427,86 @@ window.MirasApp = {
       clientNameEl.textContent = `${order.client.full_name} • ${order.city} (حضرموت)`;
     }
 
-    // ربط أزرار الإجراءات (محادثة / إلغاء / تقييم)
-    const chatBtn = document.querySelector('a[href*="tel:"]');
-    if (chatBtn && order.craftsman_id) {
-      chatBtn.outerHTML = `
-        <a href="chat.html?order_id=${order.id}&craftsman_id=${order.craftsman_id}" class="px-4 py-2 rounded-xl bg-primary text-white text-xs font-bold flex items-center gap-1.5 shadow-sm">
-          <span class="material-symbols-outlined text-[18px]">chat</span>
-          <span>محادثة المعلم</span>
-        </a>
-      `;
+    // ربط هاتف وواتساب المهني في تفاصيل الطلب
+    const craftsmanPhone = order.craftsman?.user?.phone_number || '';
+    const proName = order.craftsman?.user?.full_name || 'المعلم';
+    const orderCode = `MRS-${order.id.substring(0, 6)}#`;
+
+    const cleanTel = window.MirasAPI.cleanPhoneForTel(craftsmanPhone);
+    const cleanWa = window.MirasAPI.cleanPhoneForWhatsApp(craftsmanPhone);
+
+    const callBtn = document.getElementById('orderCraftsmanCallBtn');
+    if (callBtn) callBtn.href = `tel:${cleanTel}`;
+
+    const waBtn = document.getElementById('orderCraftsmanWaBtn');
+    if (waBtn) {
+      waBtn.href = `https://wa.me/${cleanWa}?text=${encodeURIComponent('السلام عليكم ' + proName + '، بخصوص الطلب ' + orderCode + ' عبر منصة مِـرَاس.')}`;
+    }
+  },
+
+  // ----------------------------------------------------------------------------
+  // 5.1 الملف الشخصي للمهني والحرفي (artisan-profile.html)
+  // ----------------------------------------------------------------------------
+  async initArtisanProfilePage() {
+    const params = new URLSearchParams(window.location.search);
+    const craftsmanId = params.get('id') || params.get('pro_id') || params.get('craftsman_id');
+    const phoneParam = params.get('phone');
+
+    let proPhone = phoneParam || '';
+    let proName = 'المعلم سعيد بن مخاشن';
+
+    if (craftsmanId) {
+      const { data: craftsman } = await window.MirasAPI.craftsmen.getById(craftsmanId);
+      if (craftsman) {
+        if (craftsman.user?.full_name) proName = craftsman.user.full_name;
+        if (craftsman.user?.phone_number) proPhone = craftsman.user.phone_number;
+
+        const nameEl = document.querySelector('h2.font-headline-sm, h1.font-headline-sm');
+        if (nameEl && craftsman.user?.full_name) nameEl.textContent = craftsman.user.full_name;
+
+        const tradeEl = document.querySelector('span.font-body-md.text-on-surface-variant');
+        if (tradeEl && craftsman.trade_category) {
+          tradeEl.textContent = `${craftsman.trade_category} • ${craftsman.city || 'حضرموت'}`;
+        }
+      }
+    }
+
+    if (!proPhone) {
+      proPhone = sessionStorage.getItem('registered_phone') || localStorage.getItem('miras_registered_phone') || '+967770000000';
+    }
+
+    const cleanTel = window.MirasAPI.cleanPhoneForTel(proPhone);
+    const cleanWa = window.MirasAPI.cleanPhoneForWhatsApp(proPhone);
+    const displayPhone = window.MirasAPI.formatPhoneDisplay(proPhone);
+
+    const callBtn = document.getElementById('artisanCallBtn');
+    if (callBtn) callBtn.href = `tel:${cleanTel}`;
+
+    const waBtn = document.getElementById('artisanWaBtn');
+    if (waBtn) {
+      waBtn.href = `https://wa.me/${cleanWa}?text=${encodeURIComponent('السلام عليكم ' + proName + '، وجدت ملفك على منصة مِـرَاس وأود طلب خدمة صيانة.')}`;
+    }
+
+    const phoneText = document.getElementById('artisanPhoneText');
+    if (phoneText) phoneText.textContent = displayPhone;
+
+    // ربط أزرار الحجز برقم المهني
+    document.querySelectorAll('a[href*="book-service.html"]').forEach(btn => {
+      btn.href = `book-service.html?craftsman_id=${craftsmanId || ''}`;
+    });
+  },
+
+  // ----------------------------------------------------------------------------
+  // 5.2 تفاصيل الخدمة (service-details.html)
+  // ----------------------------------------------------------------------------
+  async initServiceDetailsPage() {
+    const params = new URLSearchParams(window.location.search);
+    const serviceId = params.get('id') || params.get('service_id');
+    const bookNowBtn = document.getElementById('bookNowBtn');
+    if (bookNowBtn) {
+      bookNowBtn.addEventListener('click', () => {
+        window.location.href = `book-service.html?service_id=${serviceId || ''}`;
+      });
     }
   },
 
@@ -451,6 +522,27 @@ window.MirasApp = {
       alert('يرجى تسجيل الدخول لمتابعة المحادثة.');
       window.location.href = 'login.html';
       return;
+    }
+
+    // ربط اتصال وواتساب المهني مباشرة في رأس الشات
+    let proPhone = '';
+    let proName = 'المعلم';
+    if (craftsmanId) {
+      const { data: craftsman } = await window.MirasAPI.craftsmen.getById(craftsmanId);
+      if (craftsman?.user) {
+        proPhone = craftsman.user.phone_number || '';
+        proName = craftsman.user.full_name || 'المعلم';
+      }
+    }
+    const cleanTel = window.MirasAPI.cleanPhoneForTel(proPhone);
+    const cleanWa = window.MirasAPI.cleanPhoneForWhatsApp(proPhone);
+
+    const callBtn = document.getElementById('chatCallBtn');
+    if (callBtn) callBtn.href = `tel:${cleanTel}`;
+
+    const waBtn = document.getElementById('chatWaBtn');
+    if (waBtn) {
+      waBtn.href = `https://wa.me/${cleanWa}?text=${encodeURIComponent('السلام عليكم ' + proName + '، بخصوص محادثتنا على منصة مِـرَاس.')}`;
     }
 
     // جلب أو إنشاء محادثة
@@ -556,6 +648,13 @@ window.MirasApp = {
     if (this.currentProfile) {
       const nameEl = document.querySelector('h1.font-headline-sm');
       if (nameEl) nameEl.textContent = `أهلاً، المعلم ${this.currentProfile.full_name?.split(' ')[0] || ''} 👋`;
+
+      const phone = this.currentProfile.phone_number || sessionStorage.getItem('registered_phone') || '+967 7XXXXXXXX';
+      const cleanTel = window.MirasAPI.formatPhoneDisplay(phone);
+      const phoneEl = document.getElementById('proPhoneBadge');
+      if (phoneEl) phoneEl.textContent = cleanTel;
+      const activeEl = document.getElementById('craftsmanActivePhone');
+      if (activeEl) activeEl.textContent = cleanTel;
     }
   },
 

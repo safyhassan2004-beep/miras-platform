@@ -180,13 +180,18 @@
 </div>
 <div class="flex flex-col">
 <div class="flex items-center gap-1.5">
-<h1 class="font-headline-sm text-headline-sm text-on-surface">أهلاً، المعلّم عوض 👋</h1>
+<h1 class="font-headline-sm text-headline-sm text-on-surface" id="proName">أهلاً، المعلّم عوض 👋</h1>
 <span class="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-md bg-tertiary-fixed text-on-tertiary-container font-label-sm text-label-sm font-semibold">
 <span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">verified</span>
                 موثوق
               </span>
 </div>
-<span class="font-body-sm text-body-sm text-on-surface-variant">معلم عمارة وبناء تقليدي • المكلا</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant" id="proTrade">معلم عمارة وبناء تقليدي • المكلا</span>
+<div class="flex items-center gap-1.5 mt-1.5 px-2.5 py-1 rounded-lg bg-surface-container-low border border-surface-container text-xs w-fit">
+  <span class="material-symbols-outlined text-secondary text-[16px]">call</span>
+  <span class="text-on-surface-variant font-medium">رقمك لاستقبال طلبات العملاء:</span>
+  <span dir="ltr" class="font-bold font-mono text-primary" id="proPhoneBadge">+967 7XXXXXXXX</span>
+</div>
 </div>
 </div>
 <!-- Quick Availability Toggle -->
@@ -196,8 +201,61 @@
 </button>
 </div>
 <!-- Profile Completion Tracker -->
-<div class="bg-surface-container-low rounded-xl p-3.5 flex flex-col gap-2"><div class="flex items-center justify-between"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[20px]">verified</span><span class="font-label-md text-label-md text-primary font-bold">اكتمال الملف المهني</span></div><span class="font-label-md text-label-md text-secondary font-bold font-mono">95%</span></div><div class="w-full bg-surface-container h-2 rounded-full overflow-hidden"><div class="bg-secondary h-full rounded-full transition-all duration-500" style="width: 95%;"></div></div><div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm pt-0.5"><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px] text-tertiary-fixed-dim">check_circle</span>موثق وجاهز لاستقبال الطلبات</span><a class="text-secondary font-semibold hover:underline" href="index.html">عرض الملف</a></div></div>
+<div class="bg-surface-container-low rounded-xl p-3.5 flex flex-col gap-2"><div class="flex items-center justify-between"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[20px]">verified</span><span class="font-label-md text-label-md text-primary font-bold">اكتمال الملف المهني</span></div><span class="font-label-md text-label-md text-secondary font-bold font-mono">95%</span></div><div class="w-full bg-surface-container h-2 rounded-full overflow-hidden"><div class="bg-secondary h-full rounded-full transition-all duration-500" style="width: 95%;"></div></div><div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm pt-0.5"><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px] text-tertiary-fixed-dim">check_circle</span>موثق وجاهز لاستقبال الطلبات</span><a class="text-secondary font-semibold hover:underline" href="../artisan-profile.html">عرض الملف للعملاء</a></div></div>
 </div>
+</section>
+
+<!-- Direct Client & Admin Contact Card -->
+<section class="px-margin mt-space-md">
+  <div class="bg-gradient-to-r from-primary to-primary-container text-white rounded-2xl p-4 sm:p-5 shadow-sm space-y-3">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-xl bg-tertiary-fixed text-primary flex items-center justify-center font-bold shrink-0 shadow-sm">
+          <span class="material-symbols-outlined text-[26px]">connect_without_contact</span>
+        </div>
+        <div>
+          <h3 class="font-bold text-sm sm:text-base text-tertiary-fixed">قنوات التواصل الخاصة بالمهني</h3>
+          <p class="text-xs text-white/80 leading-relaxed mt-0.5">
+            تصلك اتصالات ورسائل العملاء على رقمك، وتصلك مساندة إدارة مِراس عبر هاتف وواتساب مالكة المنصة.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2 border-t border-white/10">
+      <!-- 1. Craftsman Phone Box -->
+      <div class="bg-white/10 backdrop-blur-md rounded-xl p-3 flex flex-col justify-between gap-2 border border-white/15">
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-white/80 font-medium">رقمك لاستقبال طلبات العملاء:</span>
+          <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[11px] font-bold">معتمد</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span dir="ltr" class="font-mono font-bold text-sm sm:text-base text-white tracking-wide" id="craftsmanActivePhone">+967 7XXXXXXXX</span>
+          <a href="../artisan-profile.html" class="px-3 py-1 rounded-lg bg-white text-primary text-xs font-semibold hover:bg-surface-container transition-colors shadow-xs">
+            معاينة ملفك
+          </a>
+        </div>
+      </div>
+
+      <!-- 2. Admin Super Admin Support Box -->
+      <div class="bg-white/10 backdrop-blur-md rounded-xl p-3 flex flex-col justify-between gap-2 border border-white/15">
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-white/80 font-medium">الدعم الحضرمي المباشر (مالكة المنصة):</span>
+          <span class="px-2 py-0.5 rounded-full bg-tertiary-fixed/30 text-tertiary-fixed text-[11px] font-bold font-mono">781125928</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="tel:+967781125928" class="flex-1 py-1.5 px-2.5 rounded-lg bg-white text-primary text-xs font-semibold hover:bg-surface-container transition-colors flex items-center justify-center gap-1 shadow-xs">
+            <span class="material-symbols-outlined text-[15px]">call</span>
+            <span>اتصال بالإدارة</span>
+          </a>
+          <a href="https://wa.me/967781125928?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%85%D8%A7%D9%84%D9%83%D8%A9%20%D8%A7%D9%84%D9%85%D9%86%D8%B5%D8%A9%D8%8C%20%D8%A3%D9%86%D8%A7%20%D8%B5%D8%A7%D8%AD%D8%A8%20%D9%85%D9%87%D9%86%D8%A9%20%D9%81%D9%8A%20%D9%85%D9%90%D8%B1%D9%8E%D8%A7%D8%B3%20%D9%88%D9%84%D8%AF%D9%8A%20%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1" target="_blank" class="flex-1 py-1.5 px-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-semibold transition-colors flex items-center justify-center gap-1 shadow-xs">
+            <span class="material-symbols-outlined text-[15px]">chat</span>
+            <span>واتساب مالكة المنصة</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 <!-- Performance KPIs -->
 <section class="px-margin mt-space-md">
