@@ -189,6 +189,17 @@
     <div class="flex flex-col w-full pb-safe">
 <!-- Content Canvas Container -->
 <div class="px-gutter flex flex-col gap-space-md py-space-sm">
+<!-- Navigation & Return Back Button -->
+<div class="flex items-center justify-between gap-3 mb-3">
+  <button type="button" onclick="history.length > 1 ? history.back() : window.location.href='my-requests.html'" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-surface-container text-primary font-bold text-xs hover:bg-surface-container-high transition-colors shadow-xs">
+    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+    <span>العودة لطلباتي</span>
+  </button>
+  <div class="inline-flex items-center gap-1 text-xs text-on-surface-variant bg-surface-container-low px-2.5 py-1 rounded-lg">
+    <span class="material-symbols-outlined text-[15px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">verified</span>
+    <span class="font-medium">سند خدمة معتمد</span>
+  </div>
+</div>
 <!-- Official Invoice Header & Authenticity Card -->
 <div class="relative overflow-hidden bg-surface-container-lowest rounded-xl shadow-md p-space-md flex flex-col gap-space-md">
 <!-- Decorative Arabesque Heritage Watermark -->

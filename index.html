@@ -561,5 +561,37 @@
 <script src="js/miras-favorites.js"></script>
 <script src="js/miras-map.js"></script>
 
+<script>
+  window.handleHomeSearch = function(e) {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    const input = document.getElementById('homeSearchInput');
+    const q = input ? input.value.trim() : '';
+    if (q) {
+      window.location.href = 'explore.html?search=' + encodeURIComponent(q);
+    } else {
+      window.location.href = 'explore.html';
+    }
+    return false;
+  };
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const input = document.getElementById('homeSearchInput');
+    const btn = document.getElementById('homeSearchBtn');
+    if (btn) {
+      btn.addEventListener('click', (e) => window.handleHomeSearch(e));
+    }
+    if (input) {
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          window.handleHomeSearch(e);
+        }
+      });
+    }
+  });
+</script>
+
 </body>
 </html>

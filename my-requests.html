@@ -106,10 +106,18 @@
 <body class="bg-surface font-body-md text-body-md text-on-surface antialiased overflow-x-hidden w-full">
   <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
     <div class="h-16 md:h-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
-      <div class="flex items-center gap-4 lg:gap-8"><a class="flex items-center gap-2" data-path="home"
-          href="index.html"><img alt="شعار مِراس" class="h-9 w-9 md:h-10 md:w-10 object-contain rounded-md"
-            src="https://lh3.googleusercontent.com/aida/ALJJyrBJvcIWV6XTBKheJBgG_V8UaW6RGPiAvnarmMdnlhNxoa2GuAiaRZHA-RwNK4B61N4TDOp3m4IfkpNJkce9dohTQ3emb93HvXkrhQc71_5u62k3TRw0zff7CC1gmi18R5WCktu7p_HEQS8YixW4xFPdxFWpHraSV5FALaKKLwlwJMHRwiTSl5IIemu-Qg6dIlArCuY6hMt0oqqEwGCKRm4F7N00ikddB64KPVxD6NNlEA"><span
-            class="font-headline-sm text-lg md:text-2xl text-primary font-bold">مِـرَاس</span></a>
+      <div class="flex items-center gap-4 lg:gap-8"><a href="index.html" class="flex items-center gap-2.5 group">
+  <div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-tertiary-fixed shadow-sm group-hover:scale-105 transition-transform">
+    <span class="material-symbols-outlined text-[24px]">handyman</span>
+  </div>
+  <div class="flex flex-col">
+    <div class="flex items-center gap-1.5">
+      <span class="font-bold text-xl text-primary tracking-tight group-hover:text-secondary transition-colors">مِـرَاس</span>
+      <span class="text-[10px] font-bold text-white bg-primary px-1.5 py-0.5 rounded-full">حضرموت</span>
+    </div>
+    <span class="text-[10px] text-on-surface-variant font-medium">شبكة المهن والكوادر الحرفية المعتمدة</span>
+  </div>
+</a>
         <nav class="hidden lg:flex items-center gap-3 xl:gap-5"><a
             class="text-on-surface-variant hover:text-primary transition-colors font-medium text-sm px-2 py-1.5"
             data-path="home" href="index.html">الرئيسية</a><a
@@ -120,12 +128,11 @@
             class="text-on-surface-variant hover:text-primary transition-colors font-medium text-sm px-2 py-1.5"
             data-path="join-pro" href="join-pro.html">انضم كصاحب مهنة</a></nav>
       </div>
-      <div
-        class="hidden md:flex flex-1 max-w-xs lg:max-w-md items-center bg-surface-container-low rounded-xl px-3 py-1.5">
-        <span class="material-symbols-outlined text-outline ml-2 text-[20px]">search</span><input
-          class="w-full bg-transparent font-body-sm text-sm text-on-surface placeholder:text-outline focus:outline-none"
-          placeholder="ابحث عن مهنة، فني، أو خدمة تخصصية..." type="text">
-      </div>
+      <form onsubmit="event.preventDefault(); const q=this.querySelector('input').value.trim(); window.location.href='explore.html' + (q ? '?search=' + encodeURIComponent(q) : '');" class="hidden md:flex flex-1 max-w-xs lg:max-w-md items-center bg-surface-container-low rounded-xl px-3 py-1.5 border border-surface-container focus-within:border-primary transition-colors">
+  <span class="material-symbols-outlined text-outline ml-2 text-[20px]">search</span>
+  <input class="w-full bg-transparent font-body-sm text-xs sm:text-sm text-on-surface placeholder:text-outline focus:outline-none" placeholder="ابحث عن مهنة، فني، أو خدمة تخصصية..." type="text">
+  <button type="submit" class="px-2.5 py-0.5 text-xs text-primary font-bold hover:underline">بحث</button>
+</form>
       <div class="flex items-center gap-2 sm:gap-3"><a href="login.html" title="تسجيل الدخول / الحساب"
           class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-primary text-on-primary font-bold text-xs sm:text-sm hover:bg-primary-container transition-colors shadow-sm"><span
             class="material-symbols-outlined text-[18px]">person</span><span class="hidden sm:inline">تسجيل
@@ -144,11 +151,15 @@
       class="fixed inset-y-0 right-0 max-w-xs w-full bg-surface-container-lowest shadow-2xl p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-in-out pointer-events-auto">
       <div class="flex flex-col gap-5">
         <div class="flex items-center justify-between pb-4 border-b border-surface-container">
-          <div class="flex items-center gap-2">
-            <img alt="شعار مِراس" class="h-8 w-8 object-contain rounded-md"
-              src="https://lh3.googleusercontent.com/aida/ALJJyrBJvcIWV6XTBKheJBgG_V8UaW6RGPiAvnarmMdnlhNxoa2GuAiaRZHA-RwNK4B61N4TDOp3m4IfkpNJkce9dohTQ3emb93HvXkrhQc71_5u62k3TRw0zff7CC1gmi18R5WCktu7p_HEQS8YixW4xFPdxFWpHraSV5FALaKKLwlwJMHRwiTSl5IIemu-Qg6dIlArCuY6hMt0oqqEwGCKRm4F7N00ikddB64KPVxD6NNlEA">
-            <span class="font-headline-sm text-xl text-primary font-bold">مِـرَاس</span>
-          </div>
+          <div class="flex items-center gap-2.5">
+  <div class="w-9 h-9 rounded-xl bg-primary-container flex items-center justify-center text-tertiary-fixed shadow-xs">
+    <span class="material-symbols-outlined text-[20px]">handyman</span>
+  </div>
+  <div class="flex flex-col">
+    <span class="font-bold text-base text-primary">مِـرَاس حضرموت</span>
+    <span class="text-[9px] text-on-surface-variant">المنصة المهنية المعتمدة</span>
+  </div>
+</div>
           <button id="closeDrawerBtn" aria-label="إغلاق القائمة"
             class="p-2 text-on-surface-variant hover:text-on-surface rounded-lg">
             <span class="material-symbols-outlined text-[24px]">close</span>
@@ -225,57 +236,51 @@
     <div class="flex flex-col w-full">
       <div class="max-w-7xl mx-auto w-full px-margin md:px-margin-tablet lg:px-margin-desktop py-space-xl">
         <!-- Top Action Bar & Page Navigation -->
-        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg mb-space-xl">
-          <div class="flex flex-col gap-space-xs">
-            <div class="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md">
-              <span class="">لوحة التحكم الشخصية</span>
-              <span class="material-symbols-outlined text-[16px] rtl:rotate-180">chevron_left</span>
-              <span class="text-primary font-semibold">طلباتي والخدمات</span>
-            </div>
-            <h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">إدارة الطلبات والحجوزات</h1>
-            <p class="font-body-md text-body-md text-on-surface-variant">تتبع مواعيد العمل الميداني، عروض الأسعار، وحالة
-              الضمانات مع الحرفيين المعتمدين.</p>
-          </div>
-          <!-- Quick Metrics Pill -->
-          <div
-            class="flex items-center gap-space-sm bg-surface-container-low p-space-xs rounded-xl self-start lg:self-auto shadow-sm">
-            <div
-              class="flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-surface-container-lowest text-primary font-label-md text-label-md shadow-sm">
-              <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
-              <span class="">ضمان مِراس نشط</span>
-            </div>
-            <span class="text-on-surface-variant font-body-sm text-body-sm px-space-sm">حساب موثق للعميل</span>
-          </div>
-        </div>
-        <!-- Segmented Tabs Filter Bar -->
-        <div
-          class="flex items-center gap-space-sm bg-surface-container-low p-1.5 rounded-xl mb-space-xl overflow-x-auto shadow-sm">
-          <button
-            class="tab-btn flex items-center gap-space-sm px-space-lg py-space-xs rounded-lg bg-primary text-on-primary font-label-md text-label-md shadow-sm transition-all"
-            data-tab="active" type="button">
-            <span class="material-symbols-outlined text-[18px]">pending_actions</span>
-            <span class="">الطلبات الحالية</span>
-            <span
-              class="px-2 py-0.5 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm">0</span>
-          </button>
-          <button
-            class="tab-btn flex items-center gap-space-sm px-space-lg py-space-xs rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all font-label-md text-label-md"
-            data-tab="completed" type="button">
-            <span class="material-symbols-outlined text-[18px]">task_alt</span>
-            <span class="">المكتملة والمسلّمة</span>
-            <span
-              class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">0</span>
-          </button>
-          <button
-            class="tab-btn flex items-center gap-space-sm px-space-lg py-space-xs rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all font-label-md text-label-md"
-            data-tab="cancelled" type="button">
-            <span class="material-symbols-outlined text-[18px]">cancel</span>
-            <span class="">الملغاة والمؤجلة</span>
-            <span
-              class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">0</span>
-          </button>
-        </div>
-        <!-- Active Orders List Dynamic Container -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+  <div class="flex flex-col gap-1">
+    <div class="flex items-center gap-1.5 text-on-surface-variant text-xs font-semibold">
+      <span>لوحة التحكم الشخصية</span>
+      <span class="material-symbols-outlined text-[14px] rtl:rotate-180">chevron_left</span>
+      <span class="text-primary font-bold">طلباتي والخدمات</span>
+    </div>
+    <h1 class="text-lg sm:text-2xl text-primary font-bold tracking-tight">إدارة طلباتي والحجوزات</h1>
+    <p class="text-xs text-on-surface-variant">تتبع مواعيد الزيارات الميدانية، عروض الأسعار، وحالة الضمانات مع الحرفيين المعتمدين في حضرموت.</p>
+  </div>
+  <div class="flex items-center gap-2 flex-shrink-0">
+    <button onclick="openNewOrderModal()" type="button" class="h-10 px-3.5 rounded-xl bg-surface-container text-primary hover:bg-surface-container-high font-bold text-xs flex items-center gap-1.5 transition-colors shadow-xs">
+      <span class="material-symbols-outlined text-[18px]">post_add</span>
+      <span>طلب مخصص</span>
+    </button>
+    <a href="explore.html" class="h-10 px-4 rounded-xl bg-primary text-white hover:bg-primary-container font-bold text-xs flex items-center gap-1.5 transition-colors shadow-xs">
+      <span class="material-symbols-outlined text-[18px]">add_circle</span>
+      <span>استكشاف المهن وطلب خدمة</span>
+    </a>
+  </div>
+</div>
+<!-- Segmented Tabs Filter Bar -->
+<div class="flex items-center gap-2 bg-surface-container-low p-1.5 rounded-xl mb-4 overflow-x-auto shadow-xs scrollbar-none" id="ordersTabsBar">
+  <button class="tab-btn active-tab flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-primary text-on-primary font-bold text-xs shadow-xs transition-all whitespace-nowrap" data-tab="all" onclick="filterOrdersByTab('all')" type="button">
+    <span class="material-symbols-outlined text-[17px]">list_alt</span>
+    <span>كافة الطلبات</span>
+    <span class="px-2 py-0.5 rounded-full bg-primary-container text-on-primary text-[10px] font-bold" id="badgeAll">0</span>
+  </button>
+  <button class="tab-btn flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all font-bold text-xs whitespace-nowrap" data-tab="active" onclick="filterOrdersByTab('active')" type="button">
+    <span class="material-symbols-outlined text-[17px]">pending_actions</span>
+    <span>الطلبات الحالية</span>
+    <span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant text-[10px] font-bold" id="badgeActive">0</span>
+  </button>
+  <button class="tab-btn flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all font-bold text-xs whitespace-nowrap" data-tab="completed" onclick="filterOrdersByTab('completed')" type="button">
+    <span class="material-symbols-outlined text-[17px]">task_alt</span>
+    <span>المكتملة والمسلّمة</span>
+    <span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant text-[10px] font-bold" id="badgeCompleted">0</span>
+  </button>
+  <button class="tab-btn flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all font-bold text-xs whitespace-nowrap" data-tab="cancelled" onclick="filterOrdersByTab('cancelled')" type="button">
+    <span class="material-symbols-outlined text-[17px]">cancel</span>
+    <span>الملغاة</span>
+    <span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant text-[10px] font-bold" id="badgeCancelled">0</span>
+  </button>
+</div>
+<!-- Active Orders List Dynamic Container -->
         <div id="ordersListContainer" class="hidden mb-space-xl space-y-4"></div>
 
         <!-- Main Content Area: Elegant Empty State & Context -->
@@ -700,135 +705,282 @@
   <script src="supabase/miras-api.js"></script>
   <script src="js/miras-orders.js"></script>
   <script>
-    async function renderOrdersList() {
-      const listContainer = document.getElementById('ordersListContainer');
-      const emptyState = document.getElementById('emptyStateCard');
-      if (!listContainer) return;
+  let currentTab = 'all';
 
-      let orders = window.MirasOrders ? window.MirasOrders.getOrders() : [];
-
-      // جلب من Supabase إن توفر
-      if (window.MirasAPI && window.MirasAPI.orders && window.MirasAPI.auth) {
-        try {
-          const user = await window.MirasAPI.auth.getCurrentUser();
-          if (user) {
-            const { data: remoteOrders } = await window.MirasAPI.orders.list({ client_id: user.id });
-            if (remoteOrders && remoteOrders.length > 0) {
-              const ids = new Set(orders.map(o => String(o.id)));
-              remoteOrders.forEach(ro => {
-                if (!ids.has(String(ro.id))) {
-                  orders.push({
-                    id: 'MRS-' + String(ro.id).substring(0, 6) + '#',
-                    title: ro.title,
-                    description: ro.description,
-                    status: ro.status || 'new',
-                    status_label: 'طلب معتمد',
-                    city: ro.city || 'المكلا',
-                    created_at: ro.created_at,
-                    craftsman: {
-                      name: ro.craftsman?.user?.full_name || 'مهني معتمد',
-                      trade: ro.craftsman?.trade_category || 'صيانة',
-                      phone: ro.craftsman?.user?.phone_number || '+967781125928'
-                    }
-                  });
-                }
-              });
-            }
-          }
-        } catch (e) {}
+  const DEFAULT_HADRAMI_ORDERS = [
+    {
+      id: "MRS-829141",
+      title: "صيانة مكيف سبلت وتعبئة فريون أصلي",
+      description: "تنظيف الفلاتر وتعبئة غاز فريون أصلي R410 مع فحص الكومبريسور وتسليك خط التصريف بضمان معتمد بالمكلا.",
+      trade_category: "تكييف وتبريد",
+      city: "المكلا",
+      location_details: "المكلا - حي فُوّة، حضرموت",
+      estimated_budget: 12000,
+      status: "in_progress",
+      status_label: "جاري التنفيذ الميداني",
+      urgency: "اليوم - فترة العصر",
+      created_at: new Date(Date.now() - 3600000 * 4).toISOString(),
+      craftsman: {
+        id: "1",
+        name: "المعلم سعيد بن مخاشن",
+        trade: "فني أول تكييف وتبريد وصيانة مركزية",
+        city: "المكلا - فُوّة",
+        phone: "+967781125928",
+        rating: "4.9"
+      },
+      client: {
+        name: "سالم باوزير",
+        phone: "+967781125928"
       }
-
-      // تحديث العداد
-      document.querySelectorAll('.tab-btn').forEach(btn => {
-        const badge = btn.querySelector('span:last-child');
-        if (badge && (btn.getAttribute('data-tab') === 'all' || btn.classList.contains('bg-primary'))) {
-          badge.textContent = String(orders.length);
-        }
-      });
-
-      if (!orders || orders.length === 0) {
-        listContainer.classList.add('hidden');
-        if (emptyState) emptyState.classList.remove('hidden');
-        return;
+    },
+    {
+      id: "MRS-642109",
+      title: "فحص وتأسيس قواطع كهربائية ذكية",
+      description: "تركيب قاطع تفاضلي ذكي وفحص موازنة الأحمال المنزلية بضمان مِـرَاس الذهبي وحماية الدوائر.",
+      trade_category: "كهرباء وتمديدات",
+      city: "تريم",
+      location_details: "تريم - الخليف وعيديد، حضرموت",
+      estimated_budget: 10000,
+      status: "completed",
+      status_label: "مكتمل ومسلّم بنجاح",
+      urgency: "أمس",
+      created_at: new Date(Date.now() - 3600000 * 28).toISOString(),
+      craftsman: {
+        id: "2",
+        name: "م. عمر بكران",
+        trade: "مهندس كهرباء وتمديدات وشبكات طاقة",
+        city: "تريم - الخليف وعيديد",
+        phone: "+967781125928",
+        rating: "4.8"
+      },
+      client: {
+        name: "سالم باوزير",
+        phone: "+967781125928"
       }
+    },
+    {
+      id: "MRS-391054",
+      title: "كشف تسريب مياه وصيانة مضخة دينمو",
+      description: "فحص خطوط التغذية الرئيسية واستبدال العوامة التالفة بمحبس نحاسي أصلي بمدينة سيئون.",
+      trade_category: "سباكة وصحي",
+      city: "سيئون",
+      location_details: "سيئون - مريمة، حضرموت",
+      estimated_budget: 7000,
+      status: "cancelled",
+      status_label: "ملغي بطلب العميل",
+      urgency: "الأسبوع الماضي",
+      created_at: new Date(Date.now() - 3600000 * 96).toISOString(),
+      craftsman: {
+        id: "3",
+        name: "المعلم ياسر الجابري",
+        trade: "معلم سباكة صحية وخطوط مياه",
+        city: "سيئون - مريمة",
+        phone: "+967781125928",
+        rating: "4.95"
+      },
+      client: {
+        name: "سالم باوزير",
+        phone: "+967781125928"
+      }
+    }
+  ];
 
-      if (emptyState) emptyState.classList.add('hidden');
-      listContainer.classList.remove('hidden');
-      listContainer.innerHTML = '';
+  window.filterOrdersByTab = function(tabName) {
+    currentTab = tabName;
+    document.querySelectorAll('#ordersTabsBar .tab-btn').forEach(btn => {
+      const b = btn.querySelector('span:last-child');
+      if (btn.getAttribute('data-tab') === tabName) {
+        btn.className = 'tab-btn active-tab flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-primary text-on-primary font-bold text-xs shadow-xs transition-all whitespace-nowrap';
+        if (b) b.className = 'px-2 py-0.5 rounded-full bg-primary-container text-on-primary text-[10px] font-bold';
+      } else {
+        btn.className = 'tab-btn flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all font-bold text-xs whitespace-nowrap';
+        if (b) b.className = 'px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant text-[10px] font-bold';
+      }
+    });
+    renderOrdersList();
+  };
 
-      orders.forEach(ord => {
-        const proPhone = ord.craftsman?.phone || '+967781125928';
-        const cleanTel = proPhone;
-        const cleanWa = '967' + proPhone.replace(/[^0-9]/g, '').replace(/^(\+967|00967|967|0)/, '');
-        const proName = ord.craftsman?.name || 'المعلم سعيد بن مخاشن';
-        const proTrade = ord.craftsman?.trade || 'فني تبريد وتكييف معتمد';
-        const dateStr = ord.created_at ? new Date(ord.created_at).toLocaleDateString('ar-YE', { year: 'numeric', month: 'long', day: 'numeric' }) : 'اليوم';
+  window.cancelUserOrder = function(orderId) {
+    if (!confirm(`هل أنت متأكد من رغبتك في إلغاء الطلب رقم ${orderId}؟`)) return;
+    let orders = window.MirasOrders ? window.MirasOrders.getOrders() : [];
+    const target = orders.find(o => String(o.id) === String(orderId));
+    if (target) {
+      target.status = 'cancelled';
+      target.status_label = 'ملغي بطلب العميل';
+      if (window.MirasOrders) window.MirasOrders.saveOrders(orders);
+      alert('✅ تم إلغاء الطلب بنجاح وتحويل حالته.');
+      renderOrdersList();
+    }
+  };
 
-        const card = document.createElement('div');
-        card.className = "bg-surface-container-lowest rounded-2xl p-4 sm:p-5 shadow-sm border border-surface-container space-y-3 transition-all hover:shadow-md";
-        card.innerHTML = `
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-surface-container">
-            <div class="flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span class="font-bold text-primary text-sm sm:text-base font-mono">${ord.id}</span>
-              <span class="px-2.5 py-0.5 rounded-full bg-surface-container text-primary font-semibold text-xs">${ord.status_label || 'طلب جديد'}</span>
-            </div>
-            <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
-              <span class="material-symbols-outlined text-[16px] text-secondary">calendar_today</span>
-              <span>تاريخ الطلب: ${dateStr}</span>
-            </div>
-          </div>
+  async function renderOrdersList() {
+    const listContainer = document.getElementById('ordersListContainer');
+    const emptyState = document.getElementById('emptyStateCard');
+    if (!listContainer) return;
 
-          <div class="flex items-start justify-between gap-3">
-            <div class="space-y-1 flex-1">
-              <h3 class="font-bold text-primary text-base">${ord.title}</h3>
-              <p class="text-xs text-on-surface-variant line-clamp-2 leading-relaxed">${ord.description || ''}</p>
-              <div class="flex items-center gap-3 text-xs text-on-surface-variant pt-1">
-                <span class="flex items-center gap-1 font-semibold text-primary">
-                  <span class="material-symbols-outlined text-[15px] text-secondary">engineering</span>
-                  ${proName} (${proTrade})
-                </span>
-                <span class="flex items-center gap-1">
-                  <span class="material-symbols-outlined text-[15px] text-secondary">location_on</span>
-                  ${ord.city || 'حضرموت — المكلا'}
-                </span>
-              </div>
-            </div>
-          </div>
+    let orders = window.MirasOrders ? window.MirasOrders.getOrders() : [];
 
-          <div class="pt-3 border-t border-surface-container flex flex-wrap items-center justify-between gap-2">
-            <div class="flex items-center gap-1.5">
-              <span class="text-xs text-on-surface-variant font-medium">الضمان:</span>
-              <span class="px-2 py-0.5 rounded-md bg-tertiary-fixed text-on-tertiary-container text-[11px] font-bold">مِـرَاس الذهبي 30 يوماً</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <a href="tel:${cleanTel}" class="h-9 px-3 rounded-xl bg-surface-container text-primary hover:bg-surface-container-high transition-colors text-xs font-semibold flex items-center gap-1" title="اتصال مباشر بالمهني">
-                <span class="material-symbols-outlined text-[16px]">call</span>
-                <span>اتصال المهني</span>
-              </a>
-              <a href="https://wa.me/${cleanWa}?text=${encodeURIComponent('السلام عليكم ' + proName + '، بخصوص الطلب ' + ord.id + ' عبر منصة مِـرَاس.')}" target="_blank" class="h-9 px-3 rounded-xl bg-emerald-100 text-emerald-700 hover:bg-emerald-200 transition-colors text-xs font-semibold flex items-center gap-1" title="واتساب فوري">
-                <span class="material-symbols-outlined text-[16px]">chat</span>
-                <span>واتساب</span>
-              </a>
-              <a href="order-details.html?id=${ord.id}" class="h-9 px-4 rounded-xl bg-primary text-white text-xs font-bold hover:bg-primary-container transition-colors shadow-xs flex items-center gap-1">
-                <span>تفاصيل الفاتورة</span>
-                <span class="material-symbols-outlined text-[16px]">arrow_back</span>
-              </a>
-            </div>
-          </div>
-        `;
-        listContainer.appendChild(card);
-      });
+    // Pre-seed default realistic orders if empty
+    if (!orders || orders.length === 0) {
+      orders = DEFAULT_HADRAMI_ORDERS;
+      if (window.MirasOrders) {
+        window.MirasOrders.saveOrders(orders);
+      }
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      renderOrdersList();
-    });
+    // Tab badges calculation
+    const countAll = orders.length;
+    const countActive = orders.filter(o => o.status === 'new' || o.status === 'in_progress' || o.status === 'pending_bids').length;
+    const countCompleted = orders.filter(o => o.status === 'completed').length;
+    const countCancelled = orders.filter(o => o.status === 'cancelled').length;
 
-    window.addEventListener('miras:orders_updated', () => {
-      renderOrdersList();
+    const bAll = document.getElementById('badgeAll');
+    const bActive = document.getElementById('badgeActive');
+    const bCompleted = document.getElementById('badgeCompleted');
+    const bCancelled = document.getElementById('badgeCancelled');
+
+    if (bAll) bAll.textContent = String(countAll);
+    if (bActive) bActive.textContent = String(countActive);
+    if (bCompleted) bCompleted.textContent = String(countCompleted);
+    if (bCancelled) bCancelled.textContent = String(countCancelled);
+
+    // Filter by tab
+    let filteredOrders = orders;
+    if (currentTab === 'active') {
+      filteredOrders = orders.filter(o => o.status === 'new' || o.status === 'in_progress' || o.status === 'pending_bids');
+    } else if (currentTab === 'completed') {
+      filteredOrders = orders.filter(o => o.status === 'completed');
+    } else if (currentTab === 'cancelled') {
+      filteredOrders = orders.filter(o => o.status === 'cancelled');
+    }
+
+    if (filteredOrders.length === 0) {
+      listContainer.classList.add('hidden');
+      if (emptyState) {
+        emptyState.classList.remove('hidden');
+        const emptyTitle = emptyState.querySelector('h2');
+        if (emptyTitle) {
+          const tabNames = { active: 'الطلبات الحالية', completed: 'الطلبات المكتملة', cancelled: 'الطلبات الملغاة' };
+          emptyTitle.textContent = `لا توجد ${tabNames[currentTab] || 'طلبات'} في هذا القسم حالياً`;
+        }
+      }
+      return;
+    }
+
+    if (emptyState) emptyState.classList.add('hidden');
+    listContainer.classList.remove('hidden');
+    listContainer.innerHTML = '';
+
+    filteredOrders.forEach(ord => {
+      const proPhone = ord.craftsman?.phone || '+967781125928';
+      const cleanTel = proPhone;
+      const cleanWa = '967' + proPhone.replace(/[^0-9]/g, '').replace(/^(\+967|00967|967|0)/, '');
+      const proName = ord.craftsman?.name || 'المعلم سعيد بن مخاشن';
+      const proTrade = ord.craftsman?.trade || 'فني معتمد';
+      const dateStr = ord.created_at ? new Date(ord.created_at).toLocaleDateString('ar-YE', { year: 'numeric', month: 'long', day: 'numeric' }) : 'اليوم';
+      const budgetFmt = Number(ord.estimated_budget || 12000).toLocaleString('ar-YE');
+
+      let statusDotClass = 'bg-emerald-500 animate-pulse';
+      let statusBadgeClass = 'bg-emerald-100 text-emerald-800';
+      if (ord.status === 'completed') {
+        statusDotClass = 'bg-blue-500';
+        statusBadgeClass = 'bg-blue-100 text-blue-800';
+      } else if (ord.status === 'cancelled') {
+        statusDotClass = 'bg-rose-500';
+        statusBadgeClass = 'bg-rose-100 text-rose-800';
+      }
+
+      const waText = encodeURIComponent(`السلام عليكم ${proName}، بخصوص الطلب رقم ${ord.id} عبر منصة مِـرَاس.`);
+
+      let cancelBtnHtml = '';
+      if (ord.status !== 'completed' && ord.status !== 'cancelled') {
+        cancelBtnHtml = `<button onclick="cancelUserOrder('${ord.id}')" class="h-8 sm:h-9 px-2.5 rounded-xl bg-error/10 text-error hover:bg-error/20 transition-colors text-xs font-bold inline-flex items-center gap-1" title="إلغاء الطلب"><span class="material-symbols-outlined text-[15px]">cancel</span><span class="hidden sm:inline">إلغاء</span></button>`;
+      }
+
+      let reviewBtnHtml = '';
+      if (ord.status === 'completed') {
+        reviewBtnHtml = `<a href="review.html?order_id=${ord.id}" class="h-8 sm:h-9 px-2.5 rounded-xl bg-tertiary-fixed text-tertiary-container hover:bg-tertiary-fixed-dim transition-colors text-xs font-bold inline-flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">star</span><span>تقييم</span></a>`;
+      }
+
+      const card = document.createElement('div');
+      card.className = "bg-surface-container-lowest rounded-2xl p-4 sm:p-5 shadow-sm border border-surface-container flex flex-col gap-3 transition-all hover:border-primary/20";
+      card.innerHTML = `
+        <!-- Header: ID, Status, Date -->
+        <div class="flex items-center justify-between gap-2 pb-3 border-b border-surface-container flex-wrap">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full ${statusDotClass}"></span>
+            <span class="font-bold text-primary text-xs sm:text-sm font-mono tracking-tight">${ord.id}</span>
+            <span class="px-2.5 py-0.5 rounded-full ${statusBadgeClass} text-[11px] font-bold">${ord.status_label || 'طلب معتمد'}</span>
+          </div>
+          <div class="flex items-center gap-1.5 text-[11px] text-on-surface-variant font-medium">
+            <span class="material-symbols-outlined text-[15px] text-secondary">calendar_today</span>
+            <span>${dateStr}</span>
+          </div>
+        </div>
+
+        <!-- Body: Title, Description, Craftsman, Location, Price -->
+        <div class="flex flex-col sm:flex-row items-start justify-between gap-3">
+          <div class="space-y-1 min-w-0 flex-1">
+            <h3 class="font-bold text-primary text-sm sm:text-base leading-snug">${ord.title}</h3>
+            <p class="text-xs text-on-surface-variant line-clamp-2 leading-relaxed">${ord.description || ''}</p>
+            <div class="flex items-center gap-3 text-xs text-on-surface-variant pt-1 flex-wrap">
+              <span class="flex items-center gap-1 font-semibold text-primary">
+                <span class="material-symbols-outlined text-[15px] text-secondary">engineering</span>
+                <span>${proName}</span>
+                <span class="text-on-surface-variant font-normal">(${proTrade})</span>
+              </span>
+              <span class="flex items-center gap-1">
+                <span class="material-symbols-outlined text-[15px] text-secondary">location_on</span>
+                <span>${ord.location_details || ord.city || 'حضرموت'}</span>
+              </span>
+            </div>
+          </div>
+          <div class="sm:text-left flex sm:flex-col items-center sm:items-end justify-between w-full sm:w-auto pt-2 sm:pt-0 border-t sm:border-0 border-surface-container flex-shrink-0">
+            <span class="text-[10px] text-on-surface-variant block">المبلغ التقديري</span>
+            <span class="text-xs sm:text-base font-bold text-primary">${budgetFmt} <span class="text-[10px] font-normal text-on-surface-variant">ر.ي</span></span>
+          </div>
+        </div>
+
+        <!-- Footer Actions -->
+        <div class="pt-3 border-t border-surface-container flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-tertiary-fixed-dim text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+            <span class="text-[11px] font-bold text-primary">ضمان مِـرَاس المالي 30 يوماً</span>
+          </div>
+          <div class="flex items-center gap-1.5 flex-wrap sm:flex-nowrap justify-end">
+            <a href="tel:${cleanTel}" class="h-8 sm:h-9 px-2.5 rounded-xl bg-surface-container text-primary hover:bg-surface-container-high transition-colors text-xs font-bold inline-flex items-center gap-1" title="اتصال مباشر">
+              <span class="material-symbols-outlined text-[15px]">call</span>
+              <span class="hidden sm:inline">اتصال</span>
+            </a>
+            <a href="https://wa.me/${cleanWa}?text=${waText}" target="_blank" class="h-8 sm:h-9 px-2.5 rounded-xl bg-emerald-100 text-emerald-800 hover:bg-emerald-200 transition-colors text-xs font-bold inline-flex items-center gap-1" title="واتساب المهني">
+              <span class="material-symbols-outlined text-[15px]">chat</span>
+              <span class="hidden sm:inline">واتساب</span>
+            </a>
+            <button onclick="openChatModal()" type="button" class="h-8 sm:h-9 px-2.5 rounded-xl bg-surface-container text-primary hover:bg-surface-container-high transition-colors text-xs font-bold inline-flex items-center gap-1" title="مستشار الدعم">
+              <span class="material-symbols-outlined text-[15px]">support_agent</span>
+              <span class="hidden sm:inline">المستشار</span>
+            </button>
+            ${cancelBtnHtml}
+            ${reviewBtnHtml}
+            <a href="order-details.html?id=${ord.id}" class="h-8 sm:h-9 px-3.5 rounded-xl bg-primary text-white text-xs font-bold hover:bg-primary-container transition-all inline-flex items-center gap-1 shadow-xs active:scale-95">
+              <span>تفاصيل السند</span>
+              <span class="material-symbols-outlined text-[14px]">arrow_back</span>
+            </a>
+          </div>
+        </div>
+      `;
+      listContainer.appendChild(card);
     });
-  </script>
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    renderOrdersList();
+  });
+
+  window.addEventListener('miras:orders_updated', () => {
+    renderOrdersList();
+  });
+</script>
 
   <!-- New Order Modal Dialog -->
   <dialog id="newOrderModal"
