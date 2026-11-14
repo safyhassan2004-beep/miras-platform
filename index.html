@@ -189,55 +189,64 @@
     <div class="flex flex-col w-full pb-8">
 <!-- 1. Hero / Search Banner Card -->
 <section class="px-margin pt-space-sm pb-space-md">
-<div class="relative overflow-hidden rounded-xl bg-primary-container text-on-primary p-space-md shadow-lg">
+<div class="relative overflow-hidden rounded-2xl bg-primary-container text-on-primary p-5 sm:p-8 shadow-lg flex flex-col items-center justify-center text-center">
 <!-- Decorative Arabesque Glow Orbs -->
 <div class="absolute -top-12 -left-12 w-44 h-44 rounded-full bg-secondary-container/20 blur-2xl pointer-events-none"></div>
 <div class="absolute -bottom-16 -right-10 w-48 h-48 rounded-full bg-tertiary-fixed-dim/15 blur-3xl pointer-events-none"></div>
-<!-- Verified Platform Badge -->
-<div class="relative inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest/15 backdrop-blur-md mb-space-sm text-tertiary-fixed">
+
+<!-- Verified Platform Badge (Centered) -->
+<div class="relative inline-flex items-center justify-center gap-1.5 px-3.5 py-1 rounded-full bg-surface-container-lowest/15 backdrop-blur-md mb-3 text-tertiary-fixed mx-auto">
 <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">stars</span>
-<span class="font-label-sm text-label-sm font-semibold tracking-wide">منصة حضرموت الأولى للمهن والحرف</span>
+<span class="text-xs font-bold tracking-wide">منصة حضرموت الأولى للمهن والحرف</span>
 </div>
-<!-- Hero Heading -->
-<h1 class="relative font-headline-lg-mobile text-headline-lg-mobile text-on-primary font-bold mb-space-xs leading-tight">
-        مهنتك أقرب مما تتخيل
-      </h1>
-<p class="relative font-body-sm text-body-sm text-primary-fixed leading-relaxed mb-space-md max-w-sm">
-        اختر أفضل الحرفيين والمهنيين الموثقين في المكلا، سيئون، تريم ومناطق حضرموت بكل ثقة وضمان.
-      </p>
-<!-- Quick City Switcher Chips -->
-<div class="relative flex items-center gap-1.5 overflow-x-auto pb-2 -mx-space-xs px-space-xs scrollbar-none mb-space-sm" id="cityChipsContainer">
-<button class="city-chip flex-shrink-0 px-3 py-1 rounded-full font-label-sm text-label-sm bg-tertiary-fixed text-tertiary-container font-semibold shadow-sm transition-all duration-200" type="button">
-          كل حضرموت
-        </button>
-<button class="city-chip flex-shrink-0 px-3 py-1 rounded-full font-label-sm text-label-sm bg-surface-container-lowest/15 text-on-primary hover:bg-surface-container-lowest/25 transition-all duration-200" type="button">
-          المكلا
-        </button>
-<button class="city-chip flex-shrink-0 px-3 py-1 rounded-full font-label-sm text-label-sm bg-surface-container-lowest/15 text-on-primary hover:bg-surface-container-lowest/25 transition-all duration-200" type="button">
-          سيئون
-        </button>
-<button class="city-chip flex-shrink-0 px-3 py-1 rounded-full font-label-sm text-label-sm bg-surface-container-lowest/15 text-on-primary hover:bg-surface-container-lowest/25 transition-all duration-200" type="button">
-          تريم
-        </button>
-<button class="city-chip flex-shrink-0 px-3 py-1 rounded-full font-label-sm text-label-sm bg-surface-container-lowest/15 text-on-primary hover:bg-surface-container-lowest/25 transition-all duration-200" type="button">
-          الشحر
-        </button>
-<button class="city-chip flex-shrink-0 px-3 py-1 rounded-full font-label-sm text-label-sm bg-surface-container-lowest/15 text-on-primary hover:bg-surface-container-lowest/25 transition-all duration-200" type="button">
-          دوعن
-        </button>
-<button class="city-chip flex-shrink-0 px-3 py-1 rounded-full font-label-sm text-label-sm bg-tertiary-fixed text-tertiary-container font-semibold hover:bg-tertiary-fixed-dim transition-all duration-200 flex items-center gap-1 shadow-xs" type="button" onclick="if(window.MirasMap) window.MirasMap.openMapModal('browse'); else window.location.href='explore.html';">
-          <span class="material-symbols-outlined text-[15px]">map</span>
-          <span>الخريطة التفاعلية</span>
-        </button>
-</div>
-<!-- Interactive Search Box -->
-<div class="relative bg-surface-container-lowest rounded-xl p-1.5 shadow-md flex items-center gap-2 text-on-surface">
-<span class="material-symbols-outlined text-[22px] text-tertiary-fixed-dim pr-2">search</span>
-<input class="flex-1 bg-transparent border-0 outline-none text-on-surface font-body-sm text-body-sm placeholder:text-on-surface-variant min-w-0" placeholder="ابحث عن مهني (سباك، كهربائي، دهان)..." type="text"/>
-<button aria-label="تصفية البحث" class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary hover:bg-surface-container-high transition-colors" type="button">
-<span class="material-symbols-outlined text-[20px]">tune</span>
+
+<!-- Hero Heading (Centered) -->
+<h1 class="relative text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 leading-tight text-center">
+  مهنتك أقرب مما تتخيل
+</h1>
+
+<!-- Hero Subtitle (Centered, direct phrase without city enumeration as requested) -->
+<p class="relative text-xs sm:text-sm text-primary-fixed leading-relaxed mb-4 max-w-lg text-center mx-auto">
+  اختر أفضل الحرفيين والمهنيين الموثقين في مناطق حضرموت بكل ثقة وضمان.
+</p>
+
+<!-- Quick City Switcher Chips (Centered) -->
+<div class="relative flex items-center justify-center gap-1.5 overflow-x-auto pb-2 -mx-space-xs px-space-xs scrollbar-none mb-4 w-full flex-wrap sm:flex-nowrap" id="cityChipsContainer">
+<button onclick="window.location.href='explore.html'" class="city-chip flex-shrink-0 px-3 py-1 rounded-full text-xs bg-tertiary-fixed text-tertiary-container font-bold shadow-sm transition-all duration-200" type="button">
+  كل حضرموت
+</button>
+<button onclick="window.location.href='explore.html?city=' + encodeURIComponent('المكلا')" class="city-chip flex-shrink-0 px-3 py-1 rounded-full text-xs bg-surface-container-lowest/15 text-on-primary hover:bg-surface-container-lowest/25 font-medium transition-all duration-200" type="button">
+  المكلا
+</button>
+<button onclick="window.location.href='explore.html?city=' + encodeURIComponent('سيئون')" class="city-chip flex-shrink-0 px-3 py-1 rounded-full text-xs bg-surface-container-lowest/15 text-on-primary hover:bg-surface-container-lowest/25 font-medium transition-all duration-200" type="button">
+  سيئون
+</button>
+<button onclick="window.location.href='explore.html?city=' + encodeURIComponent('تريم')" class="city-chip flex-shrink-0 px-3 py-1 rounded-full text-xs bg-surface-container-lowest/15 text-on-primary hover:bg-surface-container-lowest/25 font-medium transition-all duration-200" type="button">
+  تريم
+</button>
+<button onclick="window.location.href='explore.html?city=' + encodeURIComponent('الشحر')" class="city-chip flex-shrink-0 px-3 py-1 rounded-full text-xs bg-surface-container-lowest/15 text-on-primary hover:bg-surface-container-lowest/25 font-medium transition-all duration-200" type="button">
+  الشحر
+</button>
+<button onclick="window.location.href='explore.html?city=' + encodeURIComponent('دوعن')" class="city-chip flex-shrink-0 px-3 py-1 rounded-full text-xs bg-surface-container-lowest/15 text-on-primary hover:bg-surface-container-lowest/25 font-medium transition-all duration-200" type="button">
+  دوعن
+</button>
+<button class="city-chip flex-shrink-0 px-3 py-1 rounded-full text-xs bg-tertiary-fixed text-tertiary-container font-bold hover:bg-tertiary-fixed-dim transition-all duration-200 flex items-center gap-1 shadow-xs" type="button" onclick="if(window.MirasMap) window.MirasMap.openMapModal('browse'); else window.location.href='explore.html';">
+  <span class="material-symbols-outlined text-[15px]">map</span>
+  <span>الخريطة التفاعلية</span>
 </button>
 </div>
+
+<!-- Interactive Search Box with Search Button (Centered) -->
+<form onsubmit="handleHomeSearch(event)" class="relative w-full max-w-xl mx-auto bg-surface-container-lowest rounded-2xl p-1.5 shadow-md flex items-center gap-2 text-on-surface">
+  <div class="pr-2.5 flex items-center text-tertiary-fixed-dim pointer-events-none">
+    <span class="material-symbols-outlined text-[22px]">search</span>
+  </div>
+  <input id="homeSearchInput" class="flex-1 bg-transparent border-0 outline-none text-on-surface text-xs sm:text-sm placeholder:text-on-surface-variant/70 min-w-0 font-medium py-1.5" placeholder="ابحث باسم المهني، الورشة، أو نوع الخدمة..." type="text" autocomplete="off"/>
+  <button type="submit" id="homeSearchBtn" class="h-10 px-4 rounded-xl bg-primary text-white text-xs font-bold hover:bg-primary-container transition-all flex items-center gap-1.5 shadow-xs flex-shrink-0 active:scale-95">
+    <span>بحث</span>
+    <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+  </button>
+</form>
 </div>
 </section>
 <!-- 2. Categories Section -->

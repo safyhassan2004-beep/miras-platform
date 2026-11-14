@@ -189,15 +189,25 @@
     <div class="flex flex-col w-full">
 <!-- Search & Fast Filter Header Section -->
 <section class="px-margin pt-space-sm pb-space-sm flex flex-col gap-space-sm bg-surface">
-<!-- Search Bar with Integrated Micro-action -->
-<div class="relative w-full flex items-center">
-<div class="absolute right-3.5 flex items-center pointer-events-none text-on-surface-variant">
-<span class="material-symbols-outlined text-[22px]">search</span>
-</div>
-<input class="w-full h-12 pr-11 pl-12 bg-surface-container-lowest text-on-surface rounded-xl font-body-md text-body-md shadow-sm placeholder:text-on-surface-variant/60 focus:outline-none focus:bg-surface-container-lowest transition-all" id="exploreSearchInput" placeholder="ابحث باسم المهني، الخدمة، أو الحي..." type="text"/>
-<button aria-label="تصفية تفصيلية" class="absolute left-1.5 w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-primary active:scale-95 transition-transform" id="toggleFilterModalBtn" type="button">
-<span class="material-symbols-outlined text-[20px]">tune</span>
-</button>
+<!-- Search Bar with Dedicated Search Button and Filter Button -->
+<form onsubmit="handleExploreSearchSubmit(event)" class="relative w-full flex items-center gap-2">
+  <div class="relative flex-1 flex items-center">
+    <div class="absolute right-3.5 flex items-center pointer-events-none text-on-surface-variant">
+      <span class="material-symbols-outlined text-[20px]">search</span>
+    </div>
+    <input class="w-full h-11 pr-10 pl-9 bg-surface-container-lowest text-on-surface rounded-xl text-xs sm:text-sm shadow-xs placeholder:text-on-surface-variant/60 focus:outline-none focus:ring-1 focus:ring-primary transition-all font-medium" id="exploreSearchInput" placeholder="ابحث باسم المهني، الورشة، أو نوع الخدمة..." type="text" autocomplete="off"/>
+    <button type="button" id="clearSearchBtn" onclick="clearExploreSearch()" class="hidden absolute left-2.5 w-6 h-6 rounded-full bg-surface-container text-on-surface-variant hover:text-error flex items-center justify-center transition-colors">
+      <span class="material-symbols-outlined text-[14px]">close</span>
+    </button>
+  </div>
+  <button type="submit" id="exploreSearchBtn" class="h-11 px-3.5 sm:px-4 rounded-xl bg-primary text-white text-xs font-bold hover:bg-primary-container transition-all flex items-center gap-1 shadow-xs flex-shrink-0 active:scale-95">
+    <span>بحث</span>
+    <span class="material-symbols-outlined text-[16px]">search</span>
+  </button>
+  <button aria-label="تصفية تفصيلية" class="w-11 h-11 rounded-xl bg-surface-container flex items-center justify-center text-primary active:scale-95 transition-transform flex-shrink-0 hover:bg-surface-container-high" id="toggleFilterModalBtn" type="button">
+    <span class="material-symbols-outlined text-[20px]">tune</span>
+  </button>
+</form>
 </div>
 <!-- Quick Filter Chips (Horizontal Scroll) -->
 <div class="flex items-center gap-2 overflow-x-auto pb-1 -mx-margin px-margin scrollbar-none" id="quickFilterChipsBar">
@@ -1636,18 +1646,26 @@
   </div>
 </article>
 
-<!-- Empty State for Unmatched Filters -->
-<div id="noResultsState" class="hidden flex flex-col items-center justify-center text-center p-8 bg-surface-container-lowest rounded-2xl shadow-xs border border-surface-container my-4">
-  <div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-primary mb-3">
-    <span class="material-symbols-outlined text-[32px] text-tertiary-fixed-dim">search_off</span>
+<!-- Empty State for Unmatched Filters or Not Found Search -->
+<div id="noResultsState" class="hidden flex flex-col items-center justify-center text-center p-6 sm:p-8 bg-surface-container-lowest rounded-2xl shadow-xs border border-surface-container my-4">
+  <div id="noResultsIconContainer" class="w-16 h-16 rounded-full bg-amber-500/10 text-amber-600 flex items-center justify-center mb-3">
+    <span class="material-symbols-outlined text-[34px]" id="noResultsIcon">person_off</span>
   </div>
-  <h3 class="font-bold text-primary text-base mb-1">لا توجد نتائج تطابق هذا التصنيف حالياً</h3>
-  <p class="text-xs text-on-surface-variant max-w-xs mb-4">جرّب اختيار تصنيف مهني آخر أو الضغط على الزر أدناه لعرض كافة الكوادر المسجلة في حضرموت.</p>
-  <button type="button" onclick="filterByTradeCategory('all')" class="h-10 px-5 rounded-xl bg-primary text-white text-xs font-bold hover:bg-primary-container transition-colors shadow-xs">
-    عرض كافة الكوادر والمهن
-  </button>
+  <h3 class="font-bold text-primary text-base sm:text-lg mb-1.5" id="noResultsTitle">عذراً، هذا المهني غير موجود حالياً في مِـرَاس</h3>
+  <p class="text-xs sm:text-sm text-on-surface-variant max-w-md mb-5 leading-relaxed" id="noResultsDesc">
+    لم نجد أي مهني أو ورشة معتمدة مسجلة باسم «<strong class="text-secondary font-bold" id="noResultsQueryText"></strong>» في مناطق حضرموت. يرجى التأكد من كتابة الاسم بدقة، أو استعراض كافة الكوادر المتاحة.
+  </p>
+  <div class="flex items-center justify-center gap-2 flex-wrap">
+    <button type="button" onclick="clearExploreSearch()" class="h-10 px-5 rounded-xl bg-primary text-white text-xs font-bold hover:bg-primary-container transition-colors shadow-xs flex items-center gap-1.5 active:scale-95">
+      <span class="material-symbols-outlined text-[16px]">refresh</span>
+      <span>عرض كافة الكوادر والمهن (18 مهني)</span>
+    </button>
+    <a id="noResultsSupportLink" href="https://wa.me/967781125928?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%A5%D8%AF%D8%A7%D8%B1%D8%A9%20%D9%85%D9%90%D8%B1%D9%8E%D8%A7%D8%B3%D8%8C%20%D8%A3%D8%A8%D8%AD%D8%AB%20%D8%B9%D9%86%20%D9%85%D9%87%D9%86%D9%8A%20%D8%BA%D9%8A%D8%B1%20%D9%85%D8%AA%D9%88%D9%81%D8%B1" target="_blank" class="h-10 px-4 rounded-xl bg-emerald-100 text-emerald-800 text-xs font-bold hover:bg-emerald-200 transition-colors flex items-center gap-1.5 active:scale-95">
+      <span class="material-symbols-outlined text-[16px]">chat</span>
+      <span>طلب مهني غير موجود عبر واتساب</span>
+    </a>
+  </div>
 </div>
-
 </div>
 <!-- Regional Map Peek Floating Toast / Interactive Banner -->
 <div class="px-margin my-4">
@@ -1841,12 +1859,24 @@
         const cards = Array.from(container.querySelectorAll('.artisan-card'));
         let visibleCards = [];
 
+        const q = state.query ? state.query.toLowerCase().trim() : '';
+
+        // Update clear button visibility
+        const clearBtn = document.getElementById('clearSearchBtn');
+        if (clearBtn) {
+          if (q) clearBtn.classList.remove('hidden');
+          else clearBtn.classList.add('hidden');
+        }
+
         cards.forEach(card => {
           const cCat = card.dataset.category || '';
           const cCity = card.dataset.city || '';
           const cAvail = card.dataset.available === 'true';
           const cPrice = parseInt(card.dataset.price || '0', 10);
-          const text = card.textContent.toLowerCase();
+          
+          const cardTitle = (card.querySelector('h2')?.innerText || '').toLowerCase();
+          const cardPro = (card.querySelector('p')?.innerText || '').toLowerCase();
+          const cardAllText = card.textContent.toLowerCase();
 
           let visible = true;
 
@@ -1870,9 +1900,12 @@
             visible = false;
           }
 
-          // 5. Query check
-          if (state.query && !text.includes(state.query)) {
-            visible = false;
+          // 5. Query check: Matches name, workshop, trade, city, district
+          if (q) {
+            const matchesQuery = cardTitle.includes(q) || cardPro.includes(q) || cardAllText.includes(q);
+            if (!matchesQuery) {
+              visible = false;
+            }
           }
 
           if (visible) {
@@ -1927,7 +1960,13 @@
         if (modalCount) modalCount.textContent = String(visibleCards.length);
 
         if (bannerContext) {
-          if (state.category === 'all' && state.city === 'all') {
+          if (q) {
+            if (visibleCards.length > 0) {
+              bannerContext.textContent = `مهني موثق يطابق البحث «${state.query}»`;
+            } else {
+              bannerContext.textContent = `نتائج البحث عن «${state.query}»`;
+            }
+          } else if (state.category === 'all' && state.city === 'all') {
             bannerContext.textContent = 'مهني موثق في حضرموت';
           } else if (state.category !== 'all') {
             bannerContext.textContent = `كوادر متخصصة في ${TRADE_LABELS[state.category] || state.category}`;
@@ -1965,10 +2004,36 @@
           }
         }
 
+        // Empty state & Not found messages
         if (noRes) {
           if (visibleCards.length === 0) {
             noRes.classList.remove('hidden');
             container.appendChild(noRes);
+
+            const titleEl = document.getElementById('noResultsTitle');
+            const descEl = document.getElementById('noResultsDesc');
+            const iconEl = document.getElementById('noResultsIcon');
+            const iconCont = document.getElementById('noResultsIconContainer');
+            const suppLink = document.getElementById('noResultsSupportLink');
+
+            if (q) {
+              if (titleEl) titleEl.textContent = 'عذراً، هذا المهني غير موجود حالياً في مِـرَاس';
+              if (descEl) descEl.innerHTML = `لم نجد أي مهني أو ورشة معتمدة مسجلة باسم «<strong class="text-secondary font-bold">${state.query}</strong>» في مناطق حضرموت. يرجى التأكد من كتابة الاسم بدقة، أو مراسلة الإدارة عبر واتساب.`;
+              if (iconEl) iconEl.textContent = 'person_off';
+              if (iconCont) {
+                iconCont.className = 'w-16 h-16 rounded-full bg-error/10 text-error flex items-center justify-center mb-3';
+              }
+              if (suppLink) {
+                suppLink.href = `https://wa.me/967781125928?text=${encodeURIComponent('السلام عليكم إدارة مِـرَاس، أبحث عن مهني باسم: ' + state.query + ' ولم أجده بالمنصة.')}`;
+              }
+            } else {
+              if (titleEl) titleEl.textContent = 'لا توجد نتائج تطابق هذا الاختيار حالياً';
+              if (descEl) descEl.textContent = 'جرّب اختيار تصنيف مهني آخر أو الضغط على الزر أدناه لعرض كافة الكوادر المسجلة في حضرموت.';
+              if (iconEl) iconEl.textContent = 'search_off';
+              if (iconCont) {
+                iconCont.className = 'w-16 h-16 rounded-full bg-amber-500/10 text-amber-600 flex items-center justify-center mb-3';
+              }
+            }
           } else {
             noRes.classList.add('hidden');
           }
@@ -2048,7 +2113,7 @@
           applyFiltersAndSort();
         },
         setQuery(q) {
-          state.query = q.toLowerCase().trim();
+          state.query = q.trim();
           applyFiltersAndSort();
         },
         reset() {
@@ -2061,6 +2126,8 @@
           
           const searchInput = document.getElementById('exploreSearchInput');
           if (searchInput) searchInput.value = '';
+          const clearBtn = document.getElementById('clearSearchBtn');
+          if (clearBtn) clearBtn.classList.add('hidden');
           const priceSlider = document.getElementById('priceRangeSlider');
           if (priceSlider) priceSlider.value = 80000;
           
@@ -2140,6 +2207,27 @@
       });
     }
 
+    // Search submit and execution helpers
+    window.handleExploreSearchSubmit = function(e) {
+      if (e) e.preventDefault();
+      const input = document.getElementById('exploreSearchInput');
+      const q = input ? input.value : '';
+      window.MirasFilterEngine.setQuery(q);
+    };
+
+    window.executeExploreSearch = function() {
+      const input = document.getElementById('exploreSearchInput');
+      const q = input ? input.value : '';
+      window.MirasFilterEngine.setQuery(q);
+    };
+
+    window.clearExploreSearch = function() {
+      const input = document.getElementById('exploreSearchInput');
+      if (input) input.value = '';
+      window.MirasFilterEngine.setQuery('');
+      window.MirasFilterEngine.reset();
+    };
+
     // Live Search Input Filtering
     const searchInput = document.getElementById('exploreSearchInput');
     if (searchInput) {
@@ -2170,12 +2258,25 @@
         });
       }
 
-      // Check category in URL
+      // Check URL parameters for search, city, category
       const urlParams = new URLSearchParams(window.location.search);
+      const searchParam = urlParams.get('search') || urlParams.get('q');
+      const cityParam = urlParams.get('city');
       const catParam = urlParams.get('category');
+
+      if (searchParam) {
+        const inp = document.getElementById('exploreSearchInput');
+        if (inp) inp.value = searchParam;
+        window.MirasFilterEngine.setQuery(searchParam);
+      }
+
+      if (cityParam) {
+        window.MirasFilterEngine.setCity(cityParam);
+      }
+
       if (catParam) {
         window.MirasFilterEngine.setCategory(catParam, false);
-      } else {
+      } else if (!searchParam && !cityParam) {
         window.MirasFilterEngine.apply();
       }
     });
