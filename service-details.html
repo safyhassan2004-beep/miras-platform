@@ -185,11 +185,24 @@
   </div>
 </header>
 <main class="flex flex-col relative w-full pt-4 pb-24 lg:pb-12 bg-surface min-h-screen">
-  <div class="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 space-y-6">
+  <div class="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 space-y-4">
     <div class="flex flex-col w-full pb-28">
+
+      <!-- Navigation & Return Back Button -->
+      <div class="flex items-center justify-between gap-3 mb-2 px-1">
+        <button type="button" onclick="history.length > 1 ? history.back() : window.location.href='explore.html'" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-surface-container text-primary font-bold text-xs hover:bg-surface-container-high transition-colors shadow-xs">
+          <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+          <span>العودة لاستكشاف المهن</span>
+        </button>
+        <div class="inline-flex items-center gap-1 text-xs text-on-surface-variant bg-surface-container-low px-2.5 py-1 rounded-lg">
+          <span class="material-symbols-outlined text-[15px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">verified</span>
+          <span class="font-medium">باقة خدمة معتمدة</span>
+        </div>
+      </div>
+
 <!-- Top Visual Showcase Carousel -->
-<div class="relative w-full overflow-hidden bg-primary">
-<div class="relative w-full h-72">
+<div class="relative w-full overflow-hidden bg-primary rounded-2xl">
+<div class="relative w-full h-56 sm:h-72">
 <img class="w-full h-full object-cover opacity-90" data-alt="A professional certified Yemeni HVAC technician servicing a modern split-unit air conditioner in a bright coastal Hadrami home in Al-Mukalla. Crisp cool air flow visual effect, copper manifold gauge connected, pristine uniform, warm sunlit interior with authentic subtle architectural hints, premium documentary editorial photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr3NGYlvJ3DvgU_uELG6LxZRj2loP0MjxbJ3FzERk7Fvn2khWOmLSUH7znkCF7Aa2Cz4Py_HqamW0mKYFcfiP2I9UQRJu-fA31WEg2uNP24Frwhj-nH97n3MAZi3l1evyZKq11ekEKDmuaQb6NmarIUz47KuFiIrGNAfQPTpiPo6IDGeUkgAByPbQ3UUnYP-ND_rdHh9xxnQdAC84HTydXO0fJ48SgTQeCOl4xEJQ"/>
 <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/30 to-transparent"></div>
 <!-- Top Floating Badges -->

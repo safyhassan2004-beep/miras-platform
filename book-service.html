@@ -185,53 +185,66 @@
   </div>
 </header>
 <main class="flex flex-col relative w-full pt-4 pb-24 lg:pb-12 bg-surface min-h-screen">
-  <div class="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 space-y-6">
+  <div class="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 space-y-4">
     <div class="flex flex-col w-full pb-32">
+
+      <!-- Navigation & Return Back Button -->
+      <div class="flex items-center justify-between gap-3 mb-2">
+        <button type="button" onclick="history.length > 1 ? history.back() : window.location.href='explore.html'" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-surface-container text-primary font-bold text-xs hover:bg-surface-container-high transition-colors shadow-xs">
+          <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+          <span>العودة للخيارات السابقة</span>
+        </button>
+        <div class="inline-flex items-center gap-1 text-xs text-on-surface-variant bg-surface-container-low px-2.5 py-1 rounded-lg">
+          <span class="material-symbols-outlined text-[15px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">shield</span>
+          <span class="font-medium">حجز مباشر بضمان مِراس</span>
+        </div>
+      </div>
+
 <!-- Progress Header Indicator -->
-<div class="px-gutter pt-space-md pb-space-sm bg-surface">
-<div class="flex items-center justify-between mb-space-xs">
-<span class="font-label-md text-label-md text-primary font-bold">طلب حجز خدمة مباشرة</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">الخطوة ١ من ٢</span>
+<div class="p-3 sm:p-4 bg-surface-container-low rounded-xl mb-3 shadow-xs">
+<div class="flex items-center justify-between mb-1.5">
+<span class="text-xs sm:text-sm text-primary font-bold">طلب حجز خدمة مباشرة</span>
+<span class="text-xs text-on-surface-variant font-medium">الخطوة ١ من ٢</span>
 </div>
 <div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden flex">
 <div class="h-full bg-primary-container rounded-full w-1/2 transition-all duration-300"></div>
 </div>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5">تفاصيل العطل، الموقع، وتفضيل موعد الزيارة</p>
+<p class="text-xs text-on-surface-variant mt-1">تفاصيل العطل، الموقع، وتفضيل موعد الزيارة للمهني</p>
 </div>
-<div class="px-gutter flex flex-col gap-space-md mt-space-sm">
+<div class="flex flex-col gap-3">
 <!-- Selected Craftsman Card -->
-<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden">
-<div class="flex items-start gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl p-3.5 sm:p-4 shadow-sm relative overflow-hidden">
+<div class="flex items-start gap-3">
 <div class="relative flex-shrink-0">
-<img class="w-16 h-16 rounded-full object-cover" data-alt="Close up portrait of Saeed, an experienced smiling Yemeni technician in his forties wearing neat workshop attire and traditional embroidered cap in Mukalla Yemen, soft professional lighting with warm tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjEGNdFFRSvKhbKr6F1icG66YCuCHkl2Lp2lOj00cRpVBfE4gmOwcURRGf8gM0nTXGpqWsol76ZaX4Fr2nU381YmnML-EGANRAM3deVectpvS1JQVLlYk3WzJte90VPPPfUJvoRbdXfqxEGimbLmUbCNzvfflMXEILdYA98bCbJaVlaK-18PBVjHxo7RMpVR87XceoJcYAoPbMm4xVfwf6fEPyoiP-ulGxyeafe4k"/>
-<span class="absolute -bottom-1 -left-1 bg-tertiary-fixed-dim text-on-tertiary-fixed p-0.5 rounded-full flex items-center justify-center shadow-sm" title="حرفي موثق">
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<img class="w-14 h-14 rounded-full object-cover" data-alt="فني حضرمي معتمد" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjEGNdFFRSvKhbKr6F1icG66YCuCHkl2Lp2lOj00cRpVBfE4gmOwcURRGf8gM0nTXGpqWsol76ZaX4Fr2nU381YmnML-EGANRAM3deVectpvS1JQVLlYk3WzJte90VPPPfUJvoRbdXfqxEGimbLmUbCNzvfflMXEILdYA98bCbJaVlaK-18PBVjHxo7RMpVR87XceoJcYAoPbMm4xVfwf6fEPyoiP-ulGxyeafe4k"/>
+<span class="absolute -bottom-1 -left-1 bg-tertiary-fixed-dim text-on-tertiary-fixed p-0.5 rounded-full flex items-center justify-center shadow-xs" title="حرفي موثق">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
 </span>
 </div>
 <div class="flex-1 min-w-0">
-<div class="flex items-center justify-between gap-space-xs">
-<h2 class="font-headline-sm text-headline-sm text-primary truncate">المعلم سعيد بن مخاشن</h2>
+<div class="flex items-center justify-between gap-1.5">
+<h2 class="text-xs sm:text-sm font-bold text-primary truncate" id="bookProName">المعلم سعيد بن مخاشن</h2>
 <div class="flex items-center gap-0.5 bg-surface-container-high px-2 py-0.5 rounded-full">
-<span class="material-symbols-outlined text-tertiary-fixed-dim text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="font-label-md text-label-md text-primary font-bold">4.9</span>
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs text-primary font-bold">4.9</span>
 </div>
 </div>
-<p class="font-body-sm text-body-sm text-on-surface-variant truncate mt-0.5">فني تكييف وتبريد معتمد • خبرة 14 سنة</p>
-<div class="flex items-center gap-1 mt-1 text-on-surface-variant">
-<span class="material-symbols-outlined text-[14px]">location_on</span>
-<span class="font-label-sm text-label-sm truncate">حضرموت، المكلا - حي فوة</span>
+<p class="text-xs text-on-surface-variant truncate mt-0.5" id="bookProTrade">فني تكييف وتبريد معتمد • خبرة 14 سنة</p>
+<div class="flex items-center gap-1 mt-1 text-on-surface-variant text-xs">
+<span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
+<span class="truncate" id="bookProCity">حضرموت، المكلا - حي فوة</span>
 </div>
 </div>
 </div>
 <!-- Service Pill Inside Card -->
-<div class="mt-space-md pt-space-sm bg-surface-container-low rounded-lg p-space-sm flex items-center justify-between gap-space-xs">
-<div class="flex items-center gap-space-xs min-w-0">
-<span class="material-symbols-outlined text-secondary text-[20px]">mode_fan</span>
-<span class="font-label-md text-label-md text-primary font-semibold truncate">صيانة مكيف سبلت وتعبئة فريون أصلي</span>
+<div class="mt-3 pt-2 bg-surface-container-low rounded-lg p-2.5 flex items-center justify-between gap-2 border border-surface-container">
+<div class="flex items-center gap-1.5 min-w-0">
+<span class="material-symbols-outlined text-secondary text-[18px]">mode_fan</span>
+<span class="text-xs text-primary font-semibold truncate">صيانة مكيف سبلت وتعبئة فريون أصلي</span>
 </div>
 <div class="text-left flex-shrink-0">
-<span class="font-label-sm text-label-sm text-on-surface-variant block">التقديري</span>
-<span class="font-label-lg text-label-lg text-primary font-bold">18,000 <span class="text-[11px] font-normal">ر.ي</span></span>
+<span class="text-[10px] text-on-surface-variant block">التقديري</span>
+<span class="text-xs sm:text-sm text-primary font-bold">18,000 <span class="text-[10px] font-normal">ر.ي</span></span>
 </div>
 </div>
 </div>
@@ -551,6 +564,210 @@
       });
     }
   }
+
+  
+  const MIRAS_CRAFTSMEN_REGISTRY = {
+    '1': {
+      name: 'المعلم سعيد بن مخاشن',
+      business: 'ورشة النبراس للتبريد',
+      trade: 'فني أول تكييف وتبريد وصيانة مركزية',
+      city: 'المكلا - فُوّة، حضرموت',
+      rating: '4.9',
+      reviews: '86',
+      price: '12,000',
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCvfb0MrhbqjlwJ1S3vCO07WX3vLtU7dpmAYjE7PlDNMYgS5VV8waOxaMF6u4J5v36pmcEFPtKXeuftJ6fCJr2Xi_OctOgSuaN3GJISXVHvD4G96GbhwzE3G1ih6lBHwCNCPqaIpJ9EFulohjZAvpXyBWONy9bIdpdkD889_VHp8jKWtywOrvj5cs1r52jpgioTAlOquLZ9zasjRsnxWP8ImugSPv8qRxRa4lr9Eqg'
+    },
+    '101': {
+      name: 'المعلم طارق باداود',
+      business: 'مركز الريان للتكييف المركزي',
+      trade: 'صيانة تكييف مركزي وغرف تبريد وVRF',
+      city: 'سيئون - شارع المطار، حضرموت',
+      rating: '4.85',
+      reviews: '64',
+      price: '15,000',
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAo_sGOwgiy2SLIEuzYnLAVbAT1SqhbWskKmEJ1N5J_ZbU43QH2vyWghadkgbtXD5jUJU6MfkrPs0zQv83kpoUHFdwodNpzimFwwsYOLy6j3hpLCLdyD9d32Kafddv_qCe7CIqcOe3MBNAuzic6SlfYORAngjWmEorfuoCjzuqXrmN6tsdhMuWbhkiHP-ogNLYYraMYsUMv7P5PGBbb0-GqGW4C5bzkWxp6sWnvJSY'
+    },
+    '2': {
+      name: 'م. عمر بكران',
+      business: 'مكتب بكران للكهرباء والطاقة',
+      trade: 'مهندس كهرباء وتمديدات وشبكات طاقة',
+      city: 'تريم - الخليف وعيديد، حضرموت',
+      rating: '4.8',
+      reviews: '115',
+      price: '10,000',
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCNLPGmNqjGAsAk4Dvogaec_6J9yRrTBsBJmUzFpvfcml6CrX6ZvGXLBnDOlgaXaOY5RxZvlGqJ1Ng7mH4XwT2YYGwji6LmhhMh3nystJiC-wxusZI-p48fb9rIfQbkE23HYDr-jA4t7ITQ9aXk8P1BBahZAg16e-QQch9FsQdgF6jzzXQyegCBCNqIO4AtAVqyQzRjOAV-snXBrOWifmfJBpzH-ISIXm8x8zRZz2A'
+    },
+    '201': {
+      name: 'المعلم أحمد باطاهر',
+      business: 'كهربائي المكلا المعتمد',
+      trade: 'تمديدات كهربائية وصيانة لوحات وتكييف',
+      city: 'المكلا - الديس والشرج، حضرموت',
+      rating: '4.9',
+      reviews: '91',
+      price: '8,000',
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAvqzkIvKCP1SsExQoZFwWKNUklU7cML4ab5WgWDz6SMXDzuGzqKiAKKIg4IDaZfsEV6dcprvksKOvIa8qIw_qdSazRy9QqMn7oadbAYnIRe2l4qrDWkqaiffXf6CfHYpqOHx6b8FxPtUhU3bBFwca61XQnSFFjGKBTK00GUmTPB65i62tK6aoFSVJtcZ11L08DOpOF2KQ18ibfReE81KpPm-0YhpGusmY4bp-rOfA'
+    },
+    '3': {
+      name: 'المعلم ياسر الجابري',
+      business: 'خدمات السباكة المتكاملة',
+      trade: 'معلم سباكة صحية وخطوط مياه ومضخات',
+      city: 'سيئون - مريمة، حضرموت',
+      rating: '4.95',
+      reviews: '54',
+      price: '7,000',
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCr3NGYlvJ3DvgU_uELG6LxZRj2loP0MjxbJ3FzERk7Fvn2khWOmLSUH7znkCF7Aa2Cz4Py_HqamW0mKYFcfiP2I9UQRJu-fA31WEg2uNP24Frwhj-nH97n3MAZi3l1evyZKq11ekEKDmuaQb6NmarIUz47KuFiIrGNAfQPTpiPo6IDGeUkgAByPbQ3UUnYP-ND_rdHh9xxnQdAC84HTydXO0fJ48SgTQeCOl4xEJQ'
+    },
+    '301': {
+      name: 'المعلم عوض بن شملان',
+      business: 'مؤسسة الشحر للسباكة والضخ',
+      trade: 'تمديدات سباكة وتسليك مجاري وكشف تسريبات',
+      city: 'الشحر - حي المحط والخور، حضرموت',
+      rating: '4.8',
+      reviews: '48',
+      price: '9,000',
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBkJ1QN1JfW9kZthu_g6XwV_YpeCiiVC6CtPPMB0EB4m5eKrpNVgA2atFKN2JQ5B8UBV53zhjiHa_dKOdq-39-p0X05PA-uMA7Y4cdN5RwCEAtAI0QuL3zgdEpuOWQFOOewXYL7PDjQC4iN1ukWnOmVPjBszKvIAWRbi2HYIibS4cxqAhVdLCJgtP5_idyx7tu2xFByxrQQxaMtxjcAwwD6_yKFOvGrJR_IFJr7MBM'
+    },
+    '4': {
+      name: 'المعلم كرامة بن الشيخ',
+      business: 'مؤسسة الأحقاف للنجارة',
+      trade: 'نجارة خشب حضرمي وأبواب تراثية وديكور',
+      city: 'الشحر - المحط، حضرموت',
+      rating: '4.7',
+      reviews: '72',
+      price: '25,000',
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAjEGNdFFRSvKhbKr6F1icG66YCuCHkl2Lp2lOj00cRpVBfE4gmOwcURRGf8gM0nTXGpqWsol76ZaX4Fr2nU381YmnML-EGANRAM3deVectpvS1JQVLlYk3WzJte90VPPPfUJvoRbdXfqxEGimbLmUbCNzvfflMXEILdYA98bCbJaVlaK-18PBVjHxo7RMpVR87XceoJcYAoPbMm4xVfwf6fEPyoiP-ulGxyeafe4k'
+    },
+    '401': {
+      name: 'المعلم فهد السقاف',
+      business: 'ورشة السقاف للألمنيوم والشتر',
+      trade: 'ألمنيوم وزجاج وشتر وواجهات حديثة',
+      city: 'المكلا - الشرج، حضرموت',
+      rating: '4.85',
+      reviews: '59',
+      price: '18,000',
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCo2gb1VyY1Ch56gc5cD5jr-kdbpniwWe8h99T-fYQa6ZxGRp1jqar1MYBgpxw22EBwUgJfmmmFbvhGpuVENJ2crKyEPXQ-kHGhm-hpyY5qENYiIiH6IaJ1uWDtQkz_LIHnAeE5GdUxKgErruNQnnyxnwa3qGazKYt5ppVOih4qq7PrvQPoqC6uIyFrl1aGHSq2_C_56AJe-mvVe27makvZ7Zu_jJvYXtEh7vmqHyo'
+    },
+    '501': {
+      name: 'المعلم سالم باداود',
+      business: 'دهانات وتشطيبات حديثة',
+      trade: 'دهانات داخلية وخارجية وتشطيبات حديثة',
+      city: 'المكلا - حي المتضررين، حضرموت',
+      rating: '4.9',
+      reviews: '80',
+      price: '10,000',
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCvfb0MrhbqjlwJ1S3vCO07WX3vLtU7dpmAYjE7PlDNMYgS5VV8waOxaMF6u4J5v36pmcEFPtKXeuftJ6fCJr2Xi_OctOgSuaN3GJISXVHvD4G96GbhwzE3G1ih6lBHwCNCPqaIpJ9EFulohjZAvpXyBWONy9bIdpdkD889_VHp8jKWtywOrvj5cs1r52jpgioTAlOquLZ9zasjRsnxWP8ImugSPv8qRxRa4lr9Eqg'
+    },
+    '502': {
+      name: 'المعلم هاني باحشوان',
+      business: 'مؤسسة النقاء للجبس والديكور',
+      trade: 'جبس مغربي وبورد وديكورات أسقف',
+      city: 'سيئون - السحيل، حضرموت',
+      rating: '4.75',
+      reviews: '42',
+      price: '14,000',
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAo_sGOwgiy2SLIEuzYnLAVbAT1SqhbWskKmEJ1N5J_ZbU43QH2vyWghadkgbtXD5jUJU6MfkrPs0zQv83kpoUHFdwodNpzimFwwsYOLy6j3hpLCLdyD9d32Kafddv_qCe7CIqcOe3MBNAuzic6SlfYORAngjWmEorfuoCjzuqXrmN6tsdhMuWbhkiHP-ogNLYYraMYsUMv7P5PGBbb0-GqGW4C5bzkWxp6sWnvJSY'
+    },
+    '601': {
+      name: 'المعلم عوض باحيدرة',
+      business: 'مقاولات العمارة الطينية',
+      trade: 'مقاول عمارة طينية وترميم قصور تراثية',
+      city: 'دوعن والمكلا، حضرموت',
+      rating: '5.0',
+      reviews: '98',
+      price: '35,000',
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCNLPGmNqjGAsAk4Dvogaec_6J9yRrTBsBJmUzFpvfcml6CrX6ZvGXLBnDOlgaXaOY5RxZvlGqJ1Ng7mH4XwT2YYGwji6LmhhMh3nystJiC-wxusZI-p48fb9rIfQbkE23HYDr-jA4t7ITQ9aXk8P1BBahZAg16e-QQch9FsQdgF6jzzXQyegCBCNqIO4AtAVqyQzRjOAV-snXBrOWifmfJBpzH-ISIXm8x8zRZz2A'
+    },
+    '602': {
+      name: 'المعلم صالح بن هلابي',
+      business: 'مؤسسة بن هلابي للمقاولات العامة',
+      trade: 'بناء وتشطيب ومقاولات معمارية',
+      city: 'شبام وتريم، حضرموت',
+      rating: '4.9',
+      reviews: '53',
+      price: '40,000',
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAvqzkIvKCP1SsExQoZFwWKNUklU7cML4ab5WgWDz6SMXDzuGzqKiAKKIg4IDaZfsEV6dcprvksKOvIa8qIw_qdSazRy9QqMn7oadbAYnIRe2l4qrDWkqaiffXf6CfHYpqOHx6b8FxPtUhU3bBFwca61XQnSFFjGKBTK00GUmTPB65i62tK6aoFSVJtcZ11L08DOpOF2KQ18ibfReE81KpPm-0YhpGusmY4bp-rOfA'
+    },
+    '701': {
+      name: 'م. مروان باوزير',
+      business: 'مركز السلام لفحص وبرمجة السيارات',
+      trade: 'فحص كمبيوتر وبرمجة وميكانيكا سيارات',
+      city: 'المكلا - منطقة خلف والشرج، حضرموت',
+      rating: '4.88',
+      reviews: '110',
+      price: '6,000',
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDPpS1supKVOU6tmM4vNipNkrwt5uaHD7JyGY9ttlcqp0HijtDPY5k45VUJpYronu7d8lfn0yqzCrfdpJX7dTIutSbxiQ8irk17JWJQp3NxnJl5VVEU_ynTRYy6o_F8d7xwGxIvcWzJOGGu_onmBtEaCBcebom2gDcfKNgeIQJKxGw1Of531cqtMgo7UpBrGG7vtpN5OpcirhmsOQw03_I0f7n6Oo2VsW4UgkdBDtU'
+    },
+    '702': {
+      name: 'المعلم مبارك التميمي',
+      business: 'ورشة الوادي لميكانيكا السيارات',
+      trade: 'ميكانيكا وكهرباء سيارات وبطاريات',
+      city: 'سيئون - المنطقة الصناعية، حضرموت',
+      rating: '4.7',
+      reviews: '67',
+      price: '8,000',
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDKX2_Q0L84nnWtNB4lyhMjJn_XJ69GnpZLUAfHrxEFxeyGJJ4vUDVmNkMCNUwjz5ZU_9gE2Vrhh4XitelyXlk6h-lwU_9EqiWwKUM82qPsA8iaTpGVi4bPF48-T842zSbC9pGVM6vGiHk2UGli8kEhS6GDde6DREY3AaPAcfw5-JU4MxMztcz5AP8vJntVzrgikZxR0Sm9zRzGrPpokBe0DG9bp2jjHMWJKEMDMfA'
+    },
+    '801': {
+      name: 'المعلم سالم باحميد',
+      business: 'مشغل النخبة للخياطة والتطريز',
+      trade: 'خياطة رجالية وتطريز حضرمي فاخر',
+      city: 'تريم والشحر، حضرموت',
+      rating: '4.92',
+      reviews: '85',
+      price: '5,000',
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAjEGNdFFRSvKhbKr6F1icG66YCuCHkl2Lp2lOj00cRpVBfE4gmOwcURRGf8gM0nTXGpqWsol76ZaX4Fr2nU381YmnML-EGANRAM3deVectpvS1JQVLlYk3WzJte90VPPPfUJvoRbdXfqxEGimbLmUbCNzvfflMXEILdYA98bCbJaVlaK-18PBVjHxo7RMpVR87XceoJcYAoPbMm4xVfwf6fEPyoiP-ulGxyeafe4k'
+    },
+    '802': {
+      name: 'المصممة أم أحمد الحضرمية',
+      business: 'خياطة دانة حضرموت',
+      trade: 'أزياء نسائية وتراثية وثياب حضرمية',
+      city: 'المكلا - حي البلاد القديمة، حضرموت',
+      rating: '4.8',
+      reviews: '39',
+      price: '7,500',
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCo2gb1VyY1Ch56gc5cD5jr-kdbpniwWe8h99T-fYQa6ZxGRp1jqar1MYBgpxw22EBwUgJfmmmFbvhGpuVENJ2crKyEPXQ-kHGhm-hpyY5qENYiIiH6IaJ1uWDtQkz_LIHnAeE5GdUxKgErruNQnnyxnwa3qGazKYt5ppVOih4qq7PrvQPoqC6uIyFrl1aGHSq2_C_56AJe-mvVe27makvZ7Zu_jJvYXtEh7vmqHyo'
+    },
+    '901': {
+      name: 'م. وضاح بن سلم',
+      business: 'تقنية حضرموت للشبكات والكاميرات',
+      trade: 'شبكات وكاميرات مراقبة وأنظمة ذكية',
+      city: 'المكلا - الروكب وفُوّة، حضرموت',
+      rating: '4.95',
+      reviews: '78',
+      price: '12,000',
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBkJ1QN1JfW9kZthu_g6XwV_YpeCiiVC6CtPPMB0EB4m5eKrpNVgA2atFKN2JQ5B8UBV53zhjiHa_dKOdq-39-p0X05PA-uMA7Y4cdN5RwCEAtAI0QuL3zgdEpuOWQFOOewXYL7PDjQC4iN1ukWnOmVPjBszKvIAWRbi2HYIibS4cxqAhVdLCJgtP5_idyx7tu2xFByxrQQxaMtxjcAwwD6_yKFOvGrJR_IFJr7MBM'
+    },
+    '902': {
+      name: 'المعلم منير بامطرف',
+      business: 'مركز إبداع للصيانة وحلول الأعمال',
+      trade: 'صيانة حواسيب وأجهزة وطابعات وشبكات',
+      city: 'سيئون - شارع الجزائر، حضرموت',
+      rating: '4.85',
+      reviews: '61',
+      price: '9,500',
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCvfb0MrhbqjlwJ1S3vCO07WX3vLtU7dpmAYjE7PlDNMYgS5VV8waOxaMF6u4J5v36pmcEFPtKXeuftJ6fCJr2Xi_OctOgSuaN3GJISXVHvD4G96GbhwzE3G1ih6lBHwCNCPqaIpJ9EFulohjZAvpXyBWONy9bIdpdkD889_VHp8jKWtywOrvj5cs1r52jpgioTAlOquLZ9zasjRsnxWP8ImugSPv8qRxRa4lr9Eqg'
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('craftsman_id') || params.get('id') || '1';
+    
+    const pro = MIRAS_CRAFTSMEN_REGISTRY[id];
+    if (pro) {
+      const nameEl = document.getElementById('bookProName');
+      const tradeEl = document.getElementById('bookProTrade');
+      const cityEl = document.getElementById('bookProCity');
+      const imgEl = document.querySelector('.bg-surface-container-lowest img');
+      const priceEl = document.querySelector('.bg-surface-container-low .text-primary.font-bold');
+      
+      if (nameEl) nameEl.textContent = pro.name;
+      if (tradeEl) tradeEl.textContent = pro.trade;
+      if (cityEl) cityEl.textContent = pro.city;
+      if (imgEl && pro.image) imgEl.src = pro.image;
+      if (priceEl && pro.price) priceEl.innerHTML = `${pro.price} <span class="text-[10px] font-normal">ر.ي</span>`;
+    }
+  });
 
   window.submitOrderBooking = async function() {
     const notes = document.getElementById('problem-notes')?.value?.trim() || 'طلب كشف وصيانة دورية شاملة';
