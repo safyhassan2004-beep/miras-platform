@@ -188,205 +188,205 @@
   <div class="max-w-3xl mx-auto w-full px-4 sm:px-6 lg:px-8 space-y-6">
     <div class="flex flex-col w-full pb-10">
 <!-- Progress Bar & Step Tracker -->
-<div class="bg-surface-container-low p-space-md rounded-xl shadow-sm mb-space-md">
-<div class="flex items-center justify-between mb-space-xs">
-<div class="flex items-center gap-space-xs">
-<span class="w-6 h-6 rounded-full bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center font-bold">1</span>
-<span class="font-label-lg text-label-lg text-primary font-bold">البيانات والتخصص المهني</span>
+<div class="bg-surface-container-low p-3.5 sm:p-4 rounded-xl shadow-xs mb-3">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary text-xs flex items-center justify-center font-bold">1</span>
+<span class="text-xs sm:text-sm text-primary font-bold">البيانات والتخصص المهني</span>
 </div>
-<span class="font-label-md text-label-md text-on-surface-variant font-medium">الخطوة 1 من 3</span>
+<span class="text-xs text-on-surface-variant font-medium">الخطوة 1 من 3</span>
 </div>
-<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
 <div class="bg-primary h-full rounded-full transition-all duration-500 ease-out" style="width: 33.33%;"></div>
 </div>
 </div>
 <!-- Motivational Welcoming Hero Card -->
-<div class="relative overflow-hidden bg-primary-container text-white p-space-lg rounded-xl shadow-md mb-space-lg">
+<div class="relative overflow-hidden bg-primary-container text-white p-4 sm:p-5 rounded-xl shadow-sm mb-4">
 <!-- Subtle Arabesque Motif SVG Layer -->
-<svg class="absolute -left-6 -bottom-6 w-36 h-36 opacity-10 pointer-events-none text-tertiary-fixed" fill="currentColor" viewbox="0 0 100 100">
+<svg class="absolute -left-6 -bottom-6 w-32 h-32 opacity-10 pointer-events-none text-tertiary-fixed" fill="currentColor" viewbox="0 0 100 100">
 <path d="M50 0 L61 39 L100 50 L61 61 L50 100 L39 61 L0 50 L39 39 Z"></path>
 </svg>
-<div class="flex items-start justify-between relative z-10">
-<div class="flex-1 min-w-0 pr-space-xs">
-<div class="inline-flex items-center gap-space-xs bg-surface-container-lowest/15 backdrop-blur-sm px-space-sm py-1 rounded-full mb-space-xs">
-<span class="material-symbols-outlined text-tertiary-fixed text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
-<span class="font-label-sm text-label-sm text-tertiary-fixed font-bold tracking-wide">برنامج موثوق الحضرمي</span>
+<div class="flex items-start justify-between relative z-10 gap-3">
+<div class="flex-1 min-w-0">
+<div class="inline-flex items-center gap-1.5 bg-surface-container-lowest/15 backdrop-blur-sm px-2.5 py-0.5 rounded-full mb-1.5">
+<span class="material-symbols-outlined text-tertiary-fixed text-[15px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[11px] text-tertiary-fixed font-bold tracking-wide">برنامج موثوق الحضرمي</span>
 </div>
-<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold leading-tight mb-space-xs text-white">
+<h1 class="text-base sm:text-lg lg:text-xl font-bold leading-snug mb-1 text-white">
           انضم لنخبة الحرفيين المعتمدين في حضرموت
         </h1>
-<p class="font-body-sm text-body-sm text-surface-variant/90 leading-relaxed">
+<p class="text-xs sm:text-sm text-surface-variant/90 leading-relaxed max-w-xl">
           سجّل مهاراتك اليوم لتصل لأكبر قاعدة عملاء في المكلا، وادي حضرموت والمناطق المجاورة مع ضمان مستحقاتك بشفافية تامة.
         </p>
 </div>
-<div class="w-14 h-14 rounded-xl bg-surface-container-lowest/10 backdrop-blur-sm flex items-center justify-center shrink-0 shadow-inner">
-<span class="material-symbols-outlined text-tertiary-fixed text-[32px]">workspace_premium</span>
+<div class="w-11 h-11 rounded-xl bg-surface-container-lowest/10 backdrop-blur-sm flex items-center justify-center shrink-0 shadow-inner">
+<span class="material-symbols-outlined text-tertiary-fixed text-[26px]">workspace_premium</span>
 </div>
 </div>
 </div>
 <!-- Main Credentials Form -->
-<form class="flex flex-col gap-space-lg" id="artisanRegistrationForm" onsubmit="event.preventDefault();">
+<form class="flex flex-col gap-3.5" id="artisanRegistrationForm" onsubmit="event.preventDefault(); validateAndProceed();">
 <!-- Section 1: Identity & Trade Name -->
-<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm">
-<div class="flex items-center gap-space-xs mb-space-xs">
-<span class="material-symbols-outlined text-secondary text-[20px]">badge</span>
-<label class="font-label-lg text-label-lg text-primary font-bold" for="tradeName">الاسم المهني أو التجاري</label>
+<div class="bg-surface-container-lowest p-3.5 sm:p-4 rounded-xl shadow-xs border border-surface-container flex flex-col gap-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]">badge</span>
+<label class="text-xs sm:text-sm text-primary font-bold" for="tradeName">الاسم المهني أو التجاري</label>
 </div>
-<p class="font-body-sm text-body-sm text-on-surface-variant -mt-space-xs">
+<p class="text-[11px] text-on-surface-variant leading-relaxed">
         الاسم الذي سيظهر للعملاء في بطاقة عملك المهنية وعروض الأسعار.
       </p>
 <div class="relative flex items-center">
-<span class="material-symbols-outlined absolute right-3 text-outline text-[22px] pointer-events-none">storefront</span>
-<input class="w-full h-12 pr-11 pl-space-md rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md placeholder:text-outline focus:bg-surface-container-lowest focus:outline-none transition-all" id="tradeName" name="tradeName" placeholder="مثال: المعلم عمر بن هادي أو ورشة النور للتبريد" required="" type="text"/>
+<span class="material-symbols-outlined absolute right-3 text-outline text-[18px] pointer-events-none">storefront</span>
+<input class="w-full h-11 pr-10 pl-3 rounded-lg bg-surface-container-low text-on-surface text-xs sm:text-sm placeholder:text-outline focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary focus:outline-none transition-all" id="tradeName" name="tradeName" placeholder="مثال: المعلم عمر بن هادي أو ورشة النور للتبريد" required="" type="text"/>
 </div>
 </div>
 <!-- Section 2: Core Craft Specialty -->
-<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm">
+<div class="bg-surface-container-lowest p-3.5 sm:p-4 rounded-xl shadow-xs border border-surface-container flex flex-col gap-2">
 <div class="flex items-center justify-between">
-<div class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-secondary text-[20px]">construction</span>
-<span class="font-label-lg text-label-lg text-primary font-bold">التخصص الحرفي الرئيسي</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]">construction</span>
+<span class="text-xs sm:text-sm text-primary font-bold">التخصص الحرفي الرئيسي</span>
 </div>
-<span class="font-label-sm text-label-sm text-secondary font-bold">اختر تخصصك</span>
+<span class="text-[11px] text-secondary font-bold">اختر تخصصك</span>
 </div>
-<p class="font-body-sm text-body-sm text-on-surface-variant -mt-space-xs">
+<p class="text-[11px] text-on-surface-variant leading-relaxed">
         حدد مجالك الدقيق ليتم ربطك بالطلبات المناسبة لخبرتك وتخصصك الفعلي.
       </p>
 <!-- Specialty Grid Selector -->
-<div class="grid grid-cols-2 gap-space-sm pt-space-xs" id="craftSelectorGrid">
+<div class="grid grid-cols-2 gap-2 pt-1" id="craftSelectorGrid">
 <!-- Craft 1 -->
-<button class="craft-btn flex items-center gap-space-xs p-space-sm rounded-lg bg-surface-container-low text-on-surface active:scale-95 transition-all text-right group" onclick="selectCraft(this, 'تكييف وتبريد')" type="button">
-<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center shrink-0 group-data-[selected=true]:bg-primary group-data-[selected=true]:text-on-primary text-secondary">
-<span class="material-symbols-outlined text-[22px]">ac_unit</span>
+<button class="craft-btn flex items-center gap-2 p-2.5 sm:p-3 rounded-xl bg-surface-container-low text-on-surface active:scale-95 transition-all text-right group border border-transparent hover:border-surface-container" onclick="selectCraft(this, 'تكييف وتبريد')" type="button">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center shrink-0 group-data-[selected=true]:bg-primary group-data-[selected=true]:text-on-primary text-secondary">
+<span class="material-symbols-outlined text-[18px]">ac_unit</span>
 </div>
 <div class="flex flex-col min-w-0">
-<span class="font-label-md text-label-md font-bold truncate">تكييف وتبريد</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant truncate">صيانة وتركيب</span>
+<span class="text-xs font-bold truncate">تكييف وتبريد</span>
+<span class="text-[10px] sm:text-[11px] text-on-surface-variant truncate">صيانة وتركيب</span>
 </div>
 </button>
 <!-- Craft 2 -->
-<button class="craft-btn flex items-center gap-space-xs p-space-sm rounded-lg bg-surface-container-low text-on-surface active:scale-95 transition-all text-right group" onclick="selectCraft(this, 'كهرباء وتمديدات')" type="button">
-<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center shrink-0 group-data-[selected=true]:bg-primary group-data-[selected=true]:text-on-primary text-secondary">
-<span class="material-symbols-outlined text-[22px]">bolt</span>
+<button class="craft-btn flex items-center gap-2 p-2.5 sm:p-3 rounded-xl bg-surface-container-low text-on-surface active:scale-95 transition-all text-right group border border-transparent hover:border-surface-container" onclick="selectCraft(this, 'كهرباء وتمديدات')" type="button">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center shrink-0 group-data-[selected=true]:bg-primary group-data-[selected=true]:text-on-primary text-secondary">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
 </div>
 <div class="flex flex-col min-w-0">
-<span class="font-label-md text-label-md font-bold truncate">كهرباء وتمديدات</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant truncate">ضغط عالي ومنزلي</span>
+<span class="text-xs font-bold truncate">كهرباء وتمديدات</span>
+<span class="text-[10px] sm:text-[11px] text-on-surface-variant truncate">ضغط عالي ومنزلي</span>
 </div>
 </button>
 <!-- Craft 3 -->
-<button class="craft-btn flex items-center gap-space-xs p-space-sm rounded-lg bg-surface-container-low text-on-surface active:scale-95 transition-all text-right group" onclick="selectCraft(this, 'سباكة ومضخات')" type="button">
-<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center shrink-0 group-data-[selected=true]:bg-primary group-data-[selected=true]:text-on-primary text-secondary">
-<span class="material-symbols-outlined text-[22px]">plumbing</span>
+<button class="craft-btn flex items-center gap-2 p-2.5 sm:p-3 rounded-xl bg-surface-container-low text-on-surface active:scale-95 transition-all text-right group border border-transparent hover:border-surface-container" onclick="selectCraft(this, 'سباكة ومضخات')" type="button">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center shrink-0 group-data-[selected=true]:bg-primary group-data-[selected=true]:text-on-primary text-secondary">
+<span class="material-symbols-outlined text-[18px]">plumbing</span>
 </div>
 <div class="flex flex-col min-w-0">
-<span class="font-label-md text-label-md font-bold truncate">سباكة ومضخات</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant truncate">شبكات وخزانات</span>
+<span class="text-xs font-bold truncate">سباكة ومضخات</span>
+<span class="text-[10px] sm:text-[11px] text-on-surface-variant truncate">شبكات وخزانات</span>
 </div>
 </button>
 <!-- Craft 4 (Hadrami Architectural Heritage) -->
-<button class="craft-btn flex items-center gap-space-xs p-space-sm rounded-lg bg-surface-container-low text-on-surface active:scale-95 transition-all text-right group" onclick="selectCraft(this, 'بناء ونورة حضرمية')" type="button">
-<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center shrink-0 group-data-[selected=true]:bg-primary group-data-[selected=true]:text-on-primary text-secondary">
-<span class="material-symbols-outlined text-[22px]">architecture</span>
+<button class="craft-btn flex items-center gap-2 p-2.5 sm:p-3 rounded-xl bg-surface-container-low text-on-surface active:scale-95 transition-all text-right group border border-transparent hover:border-surface-container" onclick="selectCraft(this, 'بناء ونورة حضرمية')" type="button">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center shrink-0 group-data-[selected=true]:bg-primary group-data-[selected=true]:text-on-primary text-secondary">
+<span class="material-symbols-outlined text-[18px]">architecture</span>
 </div>
 <div class="flex flex-col min-w-0">
-<span class="font-label-md text-label-md font-bold truncate">بناء ونورة حضرمية</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant truncate">طين وعمارة أصيلة</span>
+<span class="text-xs font-bold truncate">بناء حضرمي</span>
+<span class="text-[10px] sm:text-[11px] text-on-surface-variant truncate">طين ونورة أصيلة</span>
 </div>
 </button>
 <!-- Craft 5 -->
-<button class="craft-btn flex items-center gap-space-xs p-space-sm rounded-lg bg-surface-container-low text-on-surface active:scale-95 transition-all text-right group" onclick="selectCraft(this, 'نجارة ونقوش خشبية')" type="button">
-<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center shrink-0 group-data-[selected=true]:bg-primary group-data-[selected=true]:text-on-primary text-secondary">
-<span class="material-symbols-outlined text-[22px]">carpenter</span>
+<button class="craft-btn flex items-center gap-2 p-2.5 sm:p-3 rounded-xl bg-surface-container-low text-on-surface active:scale-95 transition-all text-right group border border-transparent hover:border-surface-container" onclick="selectCraft(this, 'نجارة ونقوش خشبية')" type="button">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center shrink-0 group-data-[selected=true]:bg-primary group-data-[selected=true]:text-on-primary text-secondary">
+<span class="material-symbols-outlined text-[18px]">carpenter</span>
 </div>
 <div class="flex flex-col min-w-0">
-<span class="font-label-md text-label-md font-bold truncate">نجارة ونقوش خشبية</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant truncate">أبواب مشربية وأثاث</span>
+<span class="text-xs font-bold truncate">نجارة وديكور</span>
+<span class="text-[10px] sm:text-[11px] text-on-surface-variant truncate">أبواب وألمنيوم</span>
 </div>
 </button>
 <!-- Craft 6 -->
-<button class="craft-btn flex items-center gap-space-xs p-space-sm rounded-lg bg-surface-container-low text-on-surface active:scale-95 transition-all text-right group" onclick="selectCraft(this, 'دهانات وديكور')" type="button">
-<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center shrink-0 group-data-[selected=true]:bg-primary group-data-[selected=true]:text-on-primary text-secondary">
-<span class="material-symbols-outlined text-[22px]">format_paint</span>
+<button class="craft-btn flex items-center gap-2 p-2.5 sm:p-3 rounded-xl bg-surface-container-low text-on-surface active:scale-95 transition-all text-right group border border-transparent hover:border-surface-container" onclick="selectCraft(this, 'دهانات وديكور')" type="button">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center shrink-0 group-data-[selected=true]:bg-primary group-data-[selected=true]:text-on-primary text-secondary">
+<span class="material-symbols-outlined text-[18px]">format_paint</span>
 </div>
 <div class="flex flex-col min-w-0">
-<span class="font-label-md text-label-md font-bold truncate">دهانات وديكور</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant truncate">تشطيبات حديثة</span>
+<span class="text-xs font-bold truncate">دهانات وديكور</span>
+<span class="text-[10px] sm:text-[11px] text-on-surface-variant truncate">تشطيبات حديثة</span>
 </div>
 </button>
 <!-- Craft 7 -->
-<button class="craft-btn flex items-center gap-space-xs p-space-sm rounded-lg bg-surface-container-low text-on-surface active:scale-95 transition-all text-right group" onclick="selectCraft(this, 'صيانة سيارات')" type="button">
-<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center shrink-0 group-data-[selected=true]:bg-primary group-data-[selected=true]:text-on-primary text-secondary">
-<span class="material-symbols-outlined text-[22px]">minor_crash</span>
+<button class="craft-btn flex items-center gap-2 p-2.5 sm:p-3 rounded-xl bg-surface-container-low text-on-surface active:scale-95 transition-all text-right group border border-transparent hover:border-surface-container" onclick="selectCraft(this, 'صيانة سيارات')" type="button">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center shrink-0 group-data-[selected=true]:bg-primary group-data-[selected=true]:text-on-primary text-secondary">
+<span class="material-symbols-outlined text-[18px]">minor_crash</span>
 </div>
 <div class="flex flex-col min-w-0">
-<span class="font-label-md text-label-md font-bold truncate">صيانة سيارات</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant truncate">ميكانيكا وكهرباء</span>
+<span class="text-xs font-bold truncate">صيانة سيارات</span>
+<span class="text-[10px] sm:text-[11px] text-on-surface-variant truncate">ميكانيكا وكهرباء</span>
 </div>
 </button>
 <!-- Craft 8 -->
-<button class="craft-btn flex items-center gap-space-xs p-space-sm rounded-lg bg-surface-container-low text-on-surface active:scale-95 transition-all text-right group" onclick="selectCraft(this, 'خياطة وتطريز')" type="button">
-<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center shrink-0 group-data-[selected=true]:bg-primary group-data-[selected=true]:text-on-primary text-secondary">
-<span class="material-symbols-outlined text-[22px]">styler</span>
+<button class="craft-btn flex items-center gap-2 p-2.5 sm:p-3 rounded-xl bg-surface-container-low text-on-surface active:scale-95 transition-all text-right group border border-transparent hover:border-surface-container" onclick="selectCraft(this, 'خياطة وتطريز')" type="button">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center shrink-0 group-data-[selected=true]:bg-primary group-data-[selected=true]:text-on-primary text-secondary">
+<span class="material-symbols-outlined text-[18px]">styler</span>
 </div>
 <div class="flex flex-col min-w-0">
-<span class="font-label-md text-label-md font-bold truncate">خياطة وتطريز</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant truncate">تفصيل وتقليدي</span>
+<span class="text-xs font-bold truncate">خياطة وتطريز</span>
+<span class="text-[10px] sm:text-[11px] text-on-surface-variant truncate">تفصيل وتراث</span>
 </div>
 </button>
 </div>
 <input id="selectedCraftInput" name="selectedCraft" required="" type="hidden" value=""/>
 </div>
 <!-- Section 3: Years of Experience -->
-<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm">
+<div class="bg-surface-container-lowest p-3.5 sm:p-4 rounded-xl shadow-xs border border-surface-container flex flex-col gap-2">
 <div class="flex items-center justify-between">
-<div class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-secondary text-[20px]">history_edu</span>
-<label class="font-label-lg text-label-lg text-primary font-bold">سنوات الخبرة العملية</label>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]">history_edu</span>
+<label class="text-xs sm:text-sm text-primary font-bold">سنوات الخبرة العملية</label>
 </div>
-<div class="bg-surface-container px-space-sm py-0.5 rounded-full">
-<span class="font-label-md text-label-md text-primary font-bold" id="expValueLabel">6 سنوات خبرة</span>
+<div class="bg-surface-container px-2.5 py-0.5 rounded-full">
+<span class="text-xs text-primary font-bold" id="expValueLabel">6 سنوات خبرة</span>
 </div>
 </div>
 <!-- Stepper / Range Display -->
-<div class="flex items-center justify-between gap-space-md pt-space-xs">
-<button class="w-11 h-11 rounded-lg bg-surface-container text-primary flex items-center justify-center active:scale-95 transition-all shadow-sm" onclick="adjustExp(-1)" type="button">
-<span class="material-symbols-outlined text-[22px]">remove</span>
+<div class="flex items-center justify-between gap-3 pt-1">
+<button class="w-9 h-9 rounded-lg bg-surface-container text-primary flex items-center justify-center active:scale-95 transition-all shadow-xs" onclick="adjustExp(-1)" type="button">
+<span class="material-symbols-outlined text-[18px]">remove</span>
 </button>
 <div class="flex-1 flex flex-col items-center">
 <input class="w-full accent-primary h-2 bg-surface-container rounded-lg cursor-pointer" id="expRange" max="30" min="1" oninput="syncExp(this.value)" type="range" value="6"/>
 <div class="flex justify-between w-full mt-1 px-1">
-<span class="font-label-sm text-label-sm text-outline">مبتدئ (سنة)</span>
-<span class="font-label-sm text-label-sm text-secondary font-bold">خبير متمرس (+15)</span>
-<span class="font-label-sm text-label-sm text-outline">+30 سنة</span>
+<span class="text-[10px] text-outline">سنة واحدة</span>
+<span class="text-[10px] text-secondary font-bold">خبير متمرس (+15)</span>
+<span class="text-[10px] text-outline">+30 سنة</span>
 </div>
 </div>
-<button class="w-11 h-11 rounded-lg bg-primary text-on-primary flex items-center justify-center active:scale-95 transition-all shadow-sm" onclick="adjustExp(1)" type="button">
-<span class="material-symbols-outlined text-[22px]">add</span>
+<button class="w-9 h-9 rounded-lg bg-primary text-on-primary flex items-center justify-center active:scale-95 transition-all shadow-xs" onclick="adjustExp(1)" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
 </button>
 </div>
 </div>
 <!-- Section 4: Yemeni Mobile Number -->
-<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm">
+<div class="bg-surface-container-lowest p-3.5 sm:p-4 rounded-xl shadow-xs border border-surface-container flex flex-col gap-2">
 <div class="flex items-center justify-between">
-<div class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-secondary text-[20px]">call</span>
-<label class="font-label-lg text-label-lg text-primary font-bold" for="yemeniPhone">رقم الهاتف لاستقبال الطلبات</label>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]">call</span>
+<label class="text-xs sm:text-sm text-primary font-bold" for="yemeniPhone">رقم الهاتف لاستقبال الطلبات</label>
 </div>
-<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">واتساب ومكالمات</span>
+<span class="text-[11px] text-on-surface-variant font-medium">واتساب ومكالمات</span>
 </div>
-<p class="font-body-sm text-body-sm text-on-surface-variant -mt-space-xs">
+<p class="text-[11px] text-on-surface-variant leading-relaxed">
         ستصلك إشعارات وتنبيهات حجز العملاء مباشرة على هذا الرقم.
       </p>
-<div class="flex items-center gap-space-xs">
+<div class="flex items-center gap-2">
 <!-- Input field -->
 <div class="relative flex-1 flex items-center">
-<input class="w-full h-12 px-space-md rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md text-left tracking-widest placeholder:text-outline focus:bg-surface-container-lowest focus:outline-none transition-all" dir="ltr" id="yemeniPhone" maxlength="9" placeholder="770 000 000" type="tel"/>
+<input class="w-full h-11 px-3 rounded-lg bg-surface-container-low text-on-surface text-xs sm:text-sm text-left tracking-widest placeholder:text-outline focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary focus:outline-none transition-all" dir="ltr" id="yemeniPhone" maxlength="9" placeholder="770 000 000" type="tel"/>
 </div>
 <!-- Yemeni country code pill -->
-<div class="h-12 px-space-md bg-surface-container rounded-lg flex items-center gap-1.5 shrink-0" dir="ltr">
-<span class="font-label-md text-label-md font-bold text-primary">YE +967</span>
-<div class="w-5 h-3.5 bg-error flex flex-col overflow-hidden rounded-sm shadow-xs">
+<div class="h-11 px-3 bg-surface-container rounded-lg flex items-center gap-1.5 shrink-0" dir="ltr">
+<span class="text-xs font-bold text-primary">YE +967</span>
+<div class="w-4 h-3 bg-error flex flex-col overflow-hidden rounded-xs shadow-xs">
 <div class="h-1/3 bg-error"></div>
 <div class="h-1/3 bg-surface-container-lowest"></div>
 <div class="h-1/3 bg-on-surface"></div>
@@ -394,124 +394,124 @@
 </div>
 </div>
 <!-- Network badge guidance -->
-<div class="flex items-center gap-space-xs pt-0.5">
-<span class="font-label-sm text-label-sm text-on-surface-variant">الشبكات المدعومة:</span>
-<span class="font-label-sm text-label-sm bg-surface-container px-2 py-0.5 rounded text-primary font-medium">يمن موبايل (77)</span>
-<span class="font-label-sm text-label-sm bg-surface-container px-2 py-0.5 rounded text-primary font-medium">يو (73)</span>
-<span class="font-label-sm text-label-sm bg-surface-container px-2 py-0.5 rounded text-primary font-medium">سبأفون (71)</span>
+<div class="flex items-center gap-1.5 pt-0.5">
+<span class="text-[10px] text-on-surface-variant">الشبكات المدعومة:</span>
+<span class="text-[10px] bg-surface-container px-1.5 py-0.5 rounded text-primary font-medium">يمن موبايل (77)</span>
+<span class="text-[10px] bg-surface-container px-1.5 py-0.5 rounded text-primary font-medium">يو (73)</span>
+<span class="text-[10px] bg-surface-container px-1.5 py-0.5 rounded text-primary font-medium">سبأفون (71)</span>
 </div>
 </div>
 <!-- Section 5: Central Hadrami City -->
-<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm">
-<div class="flex items-center gap-space-xs mb-space-xs">
-<span class="material-symbols-outlined text-secondary text-[20px]">location_on</span>
-<span class="font-label-lg text-label-lg text-primary font-bold">المدينة المركزية للعمل</span>
+<div class="bg-surface-container-lowest p-3.5 sm:p-4 rounded-xl shadow-xs border border-surface-container flex flex-col gap-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]">location_on</span>
+<span class="text-xs sm:text-sm text-primary font-bold">المدينة المركزية للعمل</span>
 </div>
-<p class="font-body-sm text-body-sm text-on-surface-variant -mt-space-xs">
+<p class="text-[11px] text-on-surface-variant leading-relaxed">
         حدد مدينتك الأساسية لتظهر للعملاء في نطاق بحث منطقتك.
       </p>
 <!-- City Pill Selector -->
-<div class="flex flex-wrap gap-space-xs pt-space-xs" id="cityChipsContainer">
-<button class="city-chip px-space-md py-2 rounded-full font-label-md text-label-md bg-primary text-on-primary font-bold shadow-sm active:scale-95 transition-all" onclick="selectCity(this, 'المكلا')" type="button">
+<div class="flex flex-wrap gap-1.5 pt-1" id="cityChipsContainer">
+<button class="city-chip px-3 py-1.5 rounded-full text-xs bg-primary text-on-primary font-bold shadow-xs active:scale-95 transition-all" onclick="selectCity(this, 'المكلا')" type="button">
           المكلا
         </button>
-<button class="city-chip px-space-md py-2 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface hover:bg-surface-container active:scale-95 transition-all" onclick="selectCity(this, 'سيئون')" type="button">
+<button class="city-chip px-3 py-1.5 rounded-full text-xs bg-surface-container-low text-on-surface hover:bg-surface-container active:scale-95 transition-all" onclick="selectCity(this, 'سيئون')" type="button">
           سيئون
         </button>
-<button class="city-chip px-space-md py-2 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface hover:bg-surface-container active:scale-95 transition-all" onclick="selectCity(this, 'الشحر')" type="button">
+<button class="city-chip px-3 py-1.5 rounded-full text-xs bg-surface-container-low text-on-surface hover:bg-surface-container active:scale-95 transition-all" onclick="selectCity(this, 'الشحر')" type="button">
           الشحر
         </button>
-<button class="city-chip px-space-md py-2 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface hover:bg-surface-container active:scale-95 transition-all" onclick="selectCity(this, 'تريم')" type="button">
+<button class="city-chip px-3 py-1.5 rounded-full text-xs bg-surface-container-low text-on-surface hover:bg-surface-container active:scale-95 transition-all" onclick="selectCity(this, 'تريم')" type="button">
           تريم
         </button>
-<button class="city-chip px-space-md py-2 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface hover:bg-surface-container active:scale-95 transition-all" onclick="selectCity(this, 'وادي دوعن')" type="button">
+<button class="city-chip px-3 py-1.5 rounded-full text-xs bg-surface-container-low text-on-surface hover:bg-surface-container active:scale-95 transition-all" onclick="selectCity(this, 'وادي دوعن')" type="button">
           وادي دوعن
         </button>
-<button class="city-chip px-space-md py-2 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface hover:bg-surface-container active:scale-95 transition-all" onclick="selectCity(this, 'شبام')" type="button">
+<button class="city-chip px-3 py-1.5 rounded-full text-xs bg-surface-container-low text-on-surface hover:bg-surface-container active:scale-95 transition-all" onclick="selectCity(this, 'شبام')" type="button">
           شبام
         </button>
-<button class="city-chip px-space-md py-2 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface hover:bg-surface-container active:scale-95 transition-all" onclick="selectCity(this, 'الغيل')" type="button">
+<button class="city-chip px-3 py-1.5 rounded-full text-xs bg-surface-container-low text-on-surface hover:bg-surface-container active:scale-95 transition-all" onclick="selectCity(this, 'الغيل')" type="button">
           غيل باوزير
         </button>
 </div>
 <input id="selectedCityInput" name="selectedCity" type="hidden" value="المكلا"/>
 </div>
 <!-- Section 6: Geographic Coverage Scope -->
-<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm">
-<div class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-secondary text-[20px]">near_me</span>
-<label class="font-label-lg text-label-lg text-primary font-bold">نطاق التغطية وتلبية الطلبات</label>
+<div class="bg-surface-container-lowest p-3.5 sm:p-4 rounded-xl shadow-xs border border-surface-container flex flex-col gap-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]">near_me</span>
+<label class="text-xs sm:text-sm text-primary font-bold">نطاق التغطية وتلبية الطلبات</label>
 </div>
-<div class="flex flex-col gap-space-xs pt-space-xs">
+<div class="flex flex-col gap-2 pt-1">
 <!-- Option 1 -->
-<label class="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-all">
-<input checked="" class="mt-1 w-5 h-5 accent-primary" name="coverageScope" type="radio" value="full_city"/>
+<label class="flex items-start gap-2.5 p-2.5 sm:p-3 rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-all">
+<input checked="" class="mt-0.5 w-4 h-4 accent-primary" name="coverageScope" type="radio" value="full_city"/>
 <div class="flex flex-col">
-<span class="font-label-md text-label-md font-bold text-primary">أغطي كامل المدينة وأحياءها المجاورة</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">استعداد تام للوصول لكافة الأحياء والمربعات السكنية والتجارية.</span>
+<span class="text-xs sm:text-sm font-bold text-primary">أغطي كامل المدينة وأحياءها المجاورة</span>
+<span class="text-[11px] text-on-surface-variant leading-normal">استعداد تام للوصول لكافة الأحياء والمربعات السكنية والتجارية.</span>
 </div>
 </label>
 <!-- Option 2 -->
-<label class="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-all">
-<input class="mt-1 w-5 h-5 accent-primary" name="coverageScope" type="radio" value="emergency"/>
+<label class="flex items-start gap-2.5 p-2.5 sm:p-3 rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-all">
+<input class="mt-0.5 w-4 h-4 accent-primary" name="coverageScope" type="radio" value="emergency"/>
 <div class="flex flex-col">
-<span class="font-label-md text-label-md font-bold text-primary">أستقبل طلبات الطوارئ والمناطق القريبة فقط</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">التركيز على الحي والمناطق الملاصقة لسرعة الاستجابة.</span>
+<span class="text-xs sm:text-sm font-bold text-primary">أستقبل طلبات الطوارئ والمناطق القريبة فقط</span>
+<span class="text-[11px] text-on-surface-variant leading-normal">التركيز على الحي والمناطق الملاصقة لسرعة الاستجابة.</span>
 </div>
 </label>
 <!-- Option 3 -->
-<label class="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-all">
-<input class="mt-1 w-5 h-5 accent-primary" name="coverageScope" type="radio" value="governorate"/>
+<label class="flex items-start gap-2.5 p-2.5 sm:p-3 rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-all">
+<input class="mt-0.5 w-4 h-4 accent-primary" name="coverageScope" type="radio" value="governorate"/>
 <div class="flex flex-col">
-<span class="font-label-md text-label-md font-bold text-primary">مستعد للمشاريع والمقاولات في عموم ساحل ووادي حضرموت</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">للورش والفرق الفنية المتنقلة للمشاريع الكبيرة والإنشاءات.</span>
+<span class="text-xs sm:text-sm font-bold text-primary">مستعد للمشاريع والمقاولات في عموم ساحل ووادي حضرموت</span>
+<span class="text-[11px] text-on-surface-variant leading-normal">للورش والفرق الفنية المتنقلة للمشاريع الكبيرة والإنشاءات.</span>
 </div>
 </label>
 </div>
 </div>
 <!-- Artisan Benefit Value Card -->
-<div class="bg-surface-container p-space-md rounded-xl shadow-sm">
-<div class="flex items-center gap-space-xs mb-space-sm">
-<span class="material-symbols-outlined text-secondary text-[24px]">verified_user</span>
-<h3 class="font-label-lg text-label-lg text-primary font-bold">لماذا يفضل الحرفيون منصة مِراس؟</h3>
+<div class="bg-surface-container p-3.5 sm:p-4 rounded-xl shadow-xs">
+<div class="flex items-center gap-1.5 mb-2.5">
+<span class="material-symbols-outlined text-secondary text-[20px]">verified_user</span>
+<h3 class="text-xs sm:text-sm text-primary font-bold">لماذا يفضل الحرفيون منصة مِراس؟</h3>
 </div>
-<div class="grid grid-cols-1 gap-space-xs">
-<div class="flex items-center gap-space-sm bg-surface-container-lowest/80 p-space-sm rounded-lg">
-<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary shrink-0">
-<span class="material-symbols-outlined text-[18px]">group</span>
-</div>
-<div class="flex flex-col">
-<span class="font-label-md text-label-md font-bold text-primary">عملاء جادون وموثوقون</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">حجوزات حقيقية مؤكدة بدون تفاوض غير مجدي أو إضاعة وقتك.</span>
-</div>
-</div>
-<div class="flex items-center gap-space-sm bg-surface-container-lowest/80 p-space-sm rounded-lg">
-<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary shrink-0">
-<span class="material-symbols-outlined text-[18px]">payments</span>
+<div class="grid grid-cols-1 gap-1.5">
+<div class="flex items-center gap-2.5 bg-surface-container-lowest/80 p-2.5 rounded-lg">
+<div class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[16px]">group</span>
 </div>
 <div class="flex flex-col">
-<span class="font-label-md text-label-md font-bold text-primary">دعم التسعير بالريال اليمني (ر.ي)</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">وضوح كامل في الأتعاب وتسعير مرن يراعي تقلبات السوق المحلية.</span>
+<span class="text-xs font-bold text-primary">عملاء جادون وموثوقون</span>
+<span class="text-[11px] text-on-surface-variant leading-relaxed">حجوزات حقيقية مؤكدة بدون تفاوض غير مجدي أو إضاعة وقتك.</span>
 </div>
 </div>
-<div class="flex items-center gap-space-sm bg-surface-container-lowest/80 p-space-sm rounded-lg">
-<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary shrink-0">
-<span class="material-symbols-outlined text-[18px]">balance</span>
+<div class="flex items-center gap-2.5 bg-surface-container-lowest/80 p-2.5 rounded-lg">
+<div class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[16px]">payments</span>
 </div>
 <div class="flex flex-col">
-<span class="font-label-md text-label-md font-bold text-primary">وساطة وضمان للحقوق</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">مِراس تضمن حق الحرفي والعميل وتدعم السمعة المهنية بالتقييم العادل.</span>
+<span class="text-xs font-bold text-primary">دعم التسعير بالريال اليمني (ر.ي)</span>
+<span class="text-[11px] text-on-surface-variant leading-relaxed">وضوح كامل في الأتعاب وتسعير مرن يراعي تقلبات السوق المحلية.</span>
+</div>
+</div>
+<div class="flex items-center gap-2.5 bg-surface-container-lowest/80 p-2.5 rounded-lg">
+<div class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[16px]">balance</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-primary">وساطة وضمان للحقوق</span>
+<span class="text-[11px] text-on-surface-variant leading-relaxed">مِراس تضمن حق الحرفي والعميل وتدعم السمعة المهنية بالتقييم العادل.</span>
 </div>
 </div>
 </div>
 </div>
 <!-- Action Buttons -->
-<div class="flex flex-col gap-space-sm pt-space-xs">
-<button class="w-full h-12 rounded-lg bg-primary text-on-primary font-label-lg text-label-lg font-bold flex items-center justify-center gap-space-xs shadow-md active:bg-secondary transition-all" onclick="validateAndProceed()" type="button">
-<span>متابعة إلى التحقق وتوثيق الهوية (الخطوة التالية)</span>
-<span class="material-symbols-outlined text-[20px] rtl:rotate-180">arrow_forward</span>
+<div class="flex flex-col gap-2 pt-1">
+<button class="w-full min-h-[46px] py-2.5 px-4 rounded-xl bg-primary text-white text-xs sm:text-sm font-bold flex items-center justify-center gap-2 shadow-sm hover:bg-primary-container active:scale-98 transition-all" onclick="validateAndProceed()" type="button">
+<span>متابعة لتوثيق الهوية واعتماد الحساب</span>
+<span class="material-symbols-outlined text-[18px] rtl:rotate-180">arrow_forward</span>
 </button>
-<button class="w-full h-11 rounded-lg bg-surface-container-low text-primary font-label-md text-label-md font-bold flex items-center justify-center hover:bg-surface-container active:scale-98 transition-all" onclick="history.back()" type="button">
+<button class="w-full h-10 rounded-xl bg-surface-container-low text-primary text-xs font-semibold flex items-center justify-center hover:bg-surface-container active:scale-98 transition-all" onclick="history.back()" type="button">
         الرجوع للخلف
       </button>
 </div>
@@ -581,14 +581,16 @@
     document.getElementById('selectedCityInput').value = cityName;
   }
 
-  function validateAndProceed() {
-    const tradeName = document.getElementById('tradeName').value.trim();
-    const craft = document.getElementById('selectedCraftInput').value;
-    const phone = document.getElementById('yemeniPhone').value.trim();
+  window.validateAndProceed = function() {
+    const tradeName = document.getElementById('tradeName')?.value?.trim();
+    const craft = document.getElementById('selectedCraftInput')?.value || 'تكييف وتبريد';
+    const phone = document.getElementById('yemeniPhone')?.value?.trim();
+    const exp = document.getElementById('expRange')?.value || '6';
+    const city = document.getElementById('selectedCityInput')?.value || 'المكلا';
 
     if (!tradeName) {
       alert('يرجى كتابة الاسم المهني أو التجاري للاستمرار.');
-      document.getElementById('tradeName').focus();
+      document.getElementById('tradeName')?.focus();
       return;
     }
     if (!craft) {
@@ -597,21 +599,21 @@
     }
     if (!phone || phone.length < 9) {
       alert('يرجى إدخال رقم هاتف يمني صحيح مكون من 9 أرقام (مثال: 771234567).');
-      document.getElementById('yemeniPhone').focus();
+      document.getElementById('yemeniPhone')?.focus();
       return;
     }
 
-    // Interactive confirmation feedback
-    const btn = event.currentTarget;
-    btn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span> جاري الانتقال للخطوة التالية...';
-    btn.disabled = true;
+    sessionStorage.setItem('registered_name', tradeName);
+    sessionStorage.setItem('registered_phone', phone);
+    sessionStorage.setItem('registered_craft', craft);
+    sessionStorage.setItem('registered_city', city);
+    sessionStorage.setItem('registered_exp', exp);
+    sessionStorage.setItem('registered_role', 'craftsman');
+    sessionStorage.setItem('miras_current_pro_status', 'pending');
 
-    setTimeout(() => {
-      alert('تم حفظ البيانات بنجاح! سيتم نقلك إلى خطوة "توثيق الهوية والسجل التجاري / الحرفي".');
-      btn.innerHTML = '<span>متابعة إلى التحقق وتوثيق الهوية (الخطوة التالية)</span><span class="material-symbols-outlined text-[20px] rtl:rotate-180">arrow_forward</span>';
-      btn.disabled = false;
-    }, 800);
-  }
+    alert('تم حفظ البيانات بنجاح! حسابك بانتظار التحقق ومراجعة واعتماد مالكة المنصة (Super Admin).');
+    window.location.href = 'verify.html?role=craftsman&phone=' + encodeURIComponent(phone);
+  };
 
   // Pre-select the first craft for fluid onboarding experience
   window.addEventListener('DOMContentLoaded', () => {
