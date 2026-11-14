@@ -558,17 +558,55 @@
 <script>
   function toggleFavorite() {
     const icon = document.getElementById('fav-icon');
-    const isFav = icon.getAttribute('data-fav') === 'true';
-    if (isFav) {
-      icon.setAttribute('data-fav', 'false');
-      icon.style.fontVariationSettings = "'FILL' 0";
-      icon.classList.remove('text-on-tertiary-container');
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id') || params.get('pro_id') || '1';
+    const name = document.querySelector('h1, h2, h3')?.innerText?.trim() || 'المعلم سعيد بن مخاشن';
+    const trade = document.querySelector('span.font-body-md')?.innerText?.trim() || 'فني تبريد وتكييف معتمد';
+    const phone = document.getElementById('artisanPhoneText')?.innerText?.trim() || '+967781125928';
+    const img = document.querySelector('img.rounded-full, img.object-cover')?.src || '';
+
+    let isFav = false;
+    if (window.MirasFavorites) {
+      const res = window.MirasFavorites.toggle({
+        id: id,
+        name: name,
+        trade: trade,
+        phone: phone,
+        image: img,
+        rating: '4.9',
+        reviewsCount: '86',
+        city: 'المكلا — حضرموت'
+      });
+      isFav = res.isFavorite;
     } else {
-      icon.setAttribute('data-fav', 'true');
+      isFav = icon.getAttribute('data-fav') !== 'true';
+    }
+
+    icon.setAttribute('data-fav', isFav ? 'true' : 'false');
+    if (isFav) {
       icon.style.fontVariationSettings = "'FILL' 1";
-      icon.classList.add('text-on-tertiary-container');
+      icon.classList.add('text-error');
+      icon.textContent = 'favorite';
+    } else {
+      icon.style.fontVariationSettings = "'FILL' 0";
+      icon.classList.remove('text-error');
+      icon.textContent = 'bookmark';
     }
   }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id') || params.get('pro_id') || '1';
+    if (window.MirasFavorites && window.MirasFavorites.isFavorite(id)) {
+      const icon = document.getElementById('fav-icon');
+      if (icon) {
+        icon.setAttribute('data-fav', 'true');
+        icon.style.fontVariationSettings = "'FILL' 1";
+        icon.classList.add('text-error');
+        icon.textContent = 'favorite';
+      }
+    }
+  });
 
   function handleBooking() {
     // Subtle tactile response for booking action
@@ -660,6 +698,7 @@
 <script src="supabase/config.js"></script>
 <script src="supabase/auth-router.js"></script>
 <script src="supabase/miras-api.js"></script>
+<script src="js/miras-favorites.js"></script>
 
 </body>
 </html>

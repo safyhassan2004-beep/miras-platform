@@ -400,24 +400,34 @@
     const container = document.getElementById('messagesList');
     const userId = currentUser?.id || localStorage.getItem('miras_guest_support_id');
 
-    if (!userId) {
-      renderWelcomeNewTicketView();
-      return;
-    }
-
-    const { data: tickets, error } = await window.MirasAPI.support.getUserTickets(userId);
-
-    if (tickets && tickets.length > 0) {
-      activeTicketId = tickets[0].id;
-      showActiveTicketHeader(tickets[0]);
-      await loadTicketMessages(activeTicketId);
-      
-      // Subscribe to live realtime messages
-      window.MirasAPI.support.subscribeToTicket(activeTicketId, (newMsg) => {
-        appendSingleMessageToUI(newMsg);
-      });
+    // First check local storage for instantly available history so messages never disappear
+    const localMsgs = JSON.parse(localStorage.getItem('miras_local_support_messages') || '[]');
+    if (localMsgs.length > 0) {
+      container.innerHTML = '';
+      localMsgs.forEach(msg => appendSingleMessageToUI(msg));
     } else {
       renderWelcomeNewTicketView();
+    }
+
+    if (!userId) return;
+
+    try {
+      if (window.MirasAPI?.support?.getUserTickets) {
+        const { data: tickets, error } = await window.MirasAPI.support.getUserTickets(userId);
+
+        if (tickets && tickets.length > 0) {
+          activeTicketId = tickets[0].id;
+          showActiveTicketHeader(tickets[0]);
+          await loadTicketMessages(activeTicketId);
+          
+          // Subscribe to live realtime messages
+          window.MirasAPI.support.subscribeToTicket(activeTicketId, (newMsg) => {
+            appendSingleMessageToUI(newMsg);
+          });
+        }
+      }
+    } catch (err) {
+      console.warn('Support tickets remote sync skipped:', err);
     }
   }
 
@@ -428,15 +438,15 @@
     if (card && subj && badge) {
       card.classList.remove('hidden');
       subj.textContent = ticket.subject || 'تذكرة الدعم الحالية';
-      const statusMap = window.MirasAPI.CONSTANTS.TICKET_STATUSES;
-      badge.textContent = statusMap[ticket.status] || ticket.status;
+      const statusMap = window.MirasAPI?.CONSTANTS?.TICKET_STATUSES || {};
+      badge.textContent = statusMap[ticket.status] || ticket.status || 'مفتوحة';
     }
   }
 
   function renderWelcomeNewTicketView() {
     const container = document.getElementById('messagesList');
     container.innerHTML = `
-      <div class="bg-surface-container-lowest rounded-2xl p-6 border border-surface-container shadow-xs text-center space-y-3">
+      <div id="welcomeSupportCard" class="bg-surface-container-lowest rounded-2xl p-6 border border-surface-container shadow-xs text-center space-y-3">
         <div class="w-12 h-12 rounded-2xl bg-primary-container text-tertiary-fixed flex items-center justify-center mx-auto shadow-sm">
           <span class="material-symbols-outlined text-[28px]">contact_support</span>
         </div>
@@ -458,23 +468,30 @@
 
   async function loadTicketMessages(ticketId) {
     const container = document.getElementById('messagesList');
-    container.innerHTML = '<div class="text-center py-6 text-xs text-outline">جارِ جلب الرسائل...</div>';
+    try {
+      const { data: messages } = await window.MirasAPI.support.getTicketMessages(ticketId);
 
-    const { data: messages } = await window.MirasAPI.support.getTicketMessages(ticketId);
-
-    if (!messages || messages.length === 0) {
-      renderWelcomeNewTicketView();
-      return;
+      if (messages && messages.length > 0) {
+        container.innerHTML = '';
+        messages.forEach(msg => {
+          appendSingleMessageToUI(msg);
+        });
+      }
+    } catch (err) {
+      console.warn('Failed to fetch remote ticket messages:', err);
     }
-
-    container.innerHTML = '';
-    messages.forEach(msg => {
-      appendSingleMessageToUI(msg);
-    });
   }
 
   function appendSingleMessageToUI(msg) {
     const container = document.getElementById('messagesList');
+    if (!container) return;
+
+    // Clear initial welcome placeholder if present
+    const welcome = document.getElementById('welcomeSupportCard');
+    if (welcome) {
+      welcome.remove();
+    }
+
     const isUser = msg.sender_type === 'user';
     const timeStr = msg.created_at ? new Date(msg.created_at).toLocaleTimeString('ar-YE', { hour: '2-digit', minute: '2-digit' }) : '';
 
@@ -521,13 +538,19 @@
     const text = input?.value?.trim();
     if (!text) return;
 
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[18px]">progress_activity</span>';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[18px]">progress_activity</span>';
+    }
 
     let attachmentUrl = null;
-    if (selectedFile) {
-      const { url } = await window.MirasAPI.storage.uploadFile('support_attachments', selectedFile);
-      attachmentUrl = url;
+    if (selectedFile && window.MirasAPI?.storage?.uploadFile) {
+      try {
+        const { url } = await window.MirasAPI.storage.uploadFile('support_attachments', selectedFile);
+        attachmentUrl = url;
+      } catch (e) {
+        console.warn('Attachment upload skipped:', e);
+      }
     }
 
     let userId = currentUser?.id;
@@ -543,50 +566,85 @@
     const userPhone = currentProfile?.phone_number || '';
     const userRole = currentProfile?.role || 'client';
 
-    if (!activeTicketId) {
-      // إنشاء تذكرة جديدة
-      const { data, error } = await window.MirasAPI.support.createTicket({
-        userId: currentUser?.id || null,
-        userName: userName,
-        userPhone: userPhone,
-        userRole: userRole,
-        subject: text.substring(0, 50) + (text.length > 50 ? '...' : ''),
-        category: 'general',
-        message: text,
-        attachmentUrl: attachmentUrl
-      });
+    // 1. Immediately append user message to UI so it NEVER disappears
+    const localMsg = {
+      id: 'msg_' + Date.now(),
+      sender_type: 'user',
+      sender_name: userName,
+      message: text,
+      attachment_url: attachmentUrl,
+      created_at: new Date().toISOString()
+    };
+    appendSingleMessageToUI(localMsg);
 
-      if (data?.ticket) {
-        activeTicketId = data.ticket.id;
-        showActiveTicketHeader(data.ticket);
-        const container = document.getElementById('messagesList');
-        container.innerHTML = '';
-        appendSingleMessageToUI(data.message);
+    // 2. Persist to localStorage immediately
+    const localSaved = JSON.parse(localStorage.getItem('miras_local_support_messages') || '[]');
+    localSaved.push(localMsg);
+    localStorage.setItem('miras_local_support_messages', JSON.stringify(localSaved));
 
-        window.MirasAPI.support.subscribeToTicket(activeTicketId, (newMsg) => {
-          appendSingleMessageToUI(newMsg);
-        });
-      }
-    } else {
-      // إرسال رسالة للتذكرة النشطة
-      const { data: newMsg } = await window.MirasAPI.support.sendReply({
-        ticketId: activeTicketId,
-        senderId: currentUser?.id || null,
-        senderType: 'user',
-        senderName: userName,
-        message: text,
-        attachmentUrl: attachmentUrl
-      });
-
-      if (newMsg) {
-        appendSingleMessageToUI(newMsg);
-      }
-    }
-
+    // Reset input fields right away
     input.value = '';
     clearAttachment();
-    submitBtn.disabled = false;
-    submitBtn.innerHTML = '<span class="material-symbols-outlined text-[22px] rotate-180">send</span>';
+
+    // 3. Sync to Supabase in background
+    try {
+      if (window.MirasAPI?.support) {
+        if (!activeTicketId) {
+          const { data, error } = await window.MirasAPI.support.createTicket({
+            userId: currentUser?.id || null,
+            userName: userName,
+            userPhone: userPhone,
+            userRole: userRole,
+            subject: text.substring(0, 50) + (text.length > 50 ? '...' : ''),
+            category: 'general',
+            message: text,
+            attachmentUrl: attachmentUrl
+          });
+
+          if (data?.ticket) {
+            activeTicketId = data.ticket.id;
+            showActiveTicketHeader(data.ticket);
+            window.MirasAPI.support.subscribeToTicket(activeTicketId, (newMsg) => {
+              appendSingleMessageToUI(newMsg);
+            });
+          }
+        } else {
+          await window.MirasAPI.support.sendReply({
+            ticketId: activeTicketId,
+            senderId: currentUser?.id || null,
+            senderType: 'user',
+            senderName: userName,
+            message: text,
+            attachmentUrl: attachmentUrl
+          });
+        }
+      }
+    } catch (err) {
+      console.warn('Support message backend sync notice:', err);
+    }
+
+    // 4. Send official automated Hadrami Support acknowledgment if first interaction
+    const hasAdminReply = localSaved.some(m => m.sender_type !== 'user');
+    if (!hasAdminReply || localSaved.length <= 2) {
+      setTimeout(() => {
+        const autoReply = {
+          id: 'rep_' + Date.now(),
+          sender_type: 'support',
+          sender_name: 'خدمة عملاء مِـرَاس (حضرموت)',
+          message: 'مرحباً بك في مركز الدعم الحضرمي لمنصة مِـرَاس. تم تسجيل رسالتك وسيتم الرد عليك في أقرب وقت من قبل مالكة المنصة، أو يمكنك التواصل المباشر والعاجل معنا عبر الواتساب أو الاتصال على 781125928.',
+          created_at: new Date().toISOString()
+        };
+        appendSingleMessageToUI(autoReply);
+        const cur = JSON.parse(localStorage.getItem('miras_local_support_messages') || '[]');
+        cur.push(autoReply);
+        localStorage.setItem('miras_local_support_messages', JSON.stringify(cur));
+      }, 1000);
+    }
+
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<span class="material-symbols-outlined text-[22px] rotate-180">send</span>';
+    }
   };
 
   document.getElementById('newTicketBtn')?.addEventListener('click', () => {

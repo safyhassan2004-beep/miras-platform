@@ -277,17 +277,137 @@
 <button class="font-label-md text-label-md text-tertiary-fixed font-bold hover:underline" id="undo-btn" type="button">تراجع</button>
 </div>
 </div>
+<script src="js/miras-favorites.js"></script>
 <script>
   (function() {
+    let currentFilter = 'all';
+
+    function renderFavoritesUI(filter = currentFilter) {
+      currentFilter = filter;
+      const container = document.getElementById('favorites-container');
+      if (!container) return;
+
+      const list = window.MirasFavorites ? window.MirasFavorites.getFavorites() : [];
+      const filtered = filter === 'all' ? list : list.filter(item => {
+        const text = ((item.category || '') + ' ' + (item.trade || '') + ' ' + (item.name || '')).toLowerCase();
+        return text.includes(filter.toLowerCase());
+      });
+
+      // تحديث عدادات الفئات
+      document.querySelectorAll('.category-chip').forEach(chip => {
+        const f = chip.getAttribute('data-filter');
+        const badge = chip.querySelector('span:last-child');
+        if (badge) {
+          if (f === 'all') badge.textContent = String(list.length);
+          else {
+            const count = list.filter(item => ((item.category || '') + ' ' + (item.trade || '')).includes(f)).length;
+            badge.textContent = String(count);
+          }
+        }
+      });
+
+      if (!filtered || filtered.length === 0) {
+        container.innerHTML = `
+          <div class="flex flex-col items-center justify-center text-center p-space-xl bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/20 py-12 px-6">
+            <div class="relative mb-4">
+              <div class="w-20 h-20 rounded-full bg-surface-container flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined text-[40px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">bookmark_border</span>
+              </div>
+              <div class="absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-primary-container text-tertiary-fixed flex items-center justify-center shadow-sm">
+                <span class="material-symbols-outlined text-[18px]">search</span>
+              </div>
+            </div>
+            <h3 class="font-headline-sm text-headline-sm font-bold text-on-surface mb-2">${filter === 'all' ? 'قائمة المفضلة فارغة حالياً' : 'لا توجد نتائج في هذا التصنيف'}</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant max-w-xs leading-relaxed mb-6">
+              ${filter === 'all' ? 'لم تقم بحفظ أي حرفيين أو ورش بعد. تصفح نخبة أصحاب المهن المعتمدين في ساحل ووادي حضرموت وأضفهم للمفضلة للوصول السريع إليهم لاحقاً.' : 'جرّب اختيار تصنيف آخر أو استعراض كافة الكوادر.'}
+            </p>
+            <a class="h-12 px-6 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg font-bold hover:bg-primary-container transition-colors shadow-sm flex items-center justify-center gap-2" href="explore.html">
+              <span class="material-symbols-outlined text-[20px] text-tertiary-fixed">manage_search</span>
+              <span>استكشف الحرفيين والمهن الآن</span>
+            </a>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = '';
+      filtered.forEach(item => {
+        const cleanTel = item.phone || '+967781125928';
+        const cleanWa = '967' + cleanTel.replace(/[^0-9]/g, '').replace(/^(\+967|00967|967|0)/, '');
+
+        const card = document.createElement('article');
+        card.className = "artisan-card bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex flex-col gap-3 relative transition-all duration-300";
+        card.setAttribute('data-category', item.category || 'all');
+        card.innerHTML = `
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <div class="relative w-14 h-14 rounded-2xl overflow-hidden bg-surface-container-high flex-shrink-0 shadow-sm">
+                <img class="w-full h-full object-cover" src="${item.image}" alt="${item.name}" onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuAo_sGOwgiy2SLIEuzYnLAVbAT1SqhbWskKmEJ1N5J_ZbU43QH2vyWghadkgbtXD5jUJU6MfkrPs0zQv83kpoUHFdwodNpzimFwwsYOLy6j3hpLCLdyD9d32Kafddv_qCe7CIqcOe3MBNAuzic6SlfYORAngjWmEorfuoCjzuqXrmN6tsdhMuWbhkiHP-ogNLYYraMYsUMv7P5PGBbb0-GqGW4C5bzkWxp6sWnvJSY'"/>
+                <div class="absolute -bottom-1 -right-1 bg-surface-container-lowest p-0.5 rounded-full shadow-sm">
+                  <span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">verified</span>
+                </div>
+              </div>
+              <div class="flex flex-col min-w-0">
+                <div class="flex items-center gap-1.5">
+                  <h3 class="font-headline-sm text-headline-sm text-primary font-bold truncate">${item.name}</h3>
+                  <span class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-container font-label-sm text-label-sm font-semibold">موثوق</span>
+                </div>
+                <p class="font-label-sm text-label-sm text-on-surface-variant truncate">${item.trade}</p>
+                <div class="flex items-center gap-2 mt-0.5 text-on-surface-variant font-label-sm text-label-sm">
+                  <span class="flex items-center gap-0.5">
+                    <span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
+                    ${item.city}
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col items-end gap-2 flex-shrink-0">
+              <button type="button" onclick="window.removeFavoriteItem('${item.id}', this)" class="w-8 h-8 rounded-full bg-error/10 text-error flex items-center justify-center hover:bg-error/20 transition-colors" title="إزالة من المفضلة">
+                <span class="material-symbols-outlined text-[19px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+              </button>
+              <div class="flex items-center gap-1 bg-surface-container-low px-2 py-0.5 rounded-lg text-primary font-label-sm text-label-sm font-semibold">
+                <span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span>${item.rating || '4.9'}</span>
+                <span class="text-on-surface-variant text-[11px]">(${item.reviewsCount || '86'})</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="pt-2 border-t border-surface-container flex items-center justify-between gap-2">
+            <span class="text-xs text-on-surface-variant font-medium">${item.price || 'أسعار معتمدة بالريال اليمني'}</span>
+            <div class="flex items-center gap-1.5">
+              <a href="tel:${cleanTel}" class="w-9 h-9 rounded-xl bg-surface-container flex items-center justify-center text-primary hover:bg-surface-container-high transition-colors" title="اتصال مباشر بالمهني">
+                <span class="material-symbols-outlined text-[18px]">call</span>
+              </a>
+              <a href="https://wa.me/${cleanWa}?text=${encodeURIComponent('السلام عليكم ' + item.name + '، وجدت ملفك في المفضلة على مِـرَاس وأود طلب خدمة.')}" target="_blank" class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center hover:bg-emerald-200 transition-colors" title="واتساب فوري">
+                <span class="material-symbols-outlined text-[18px]">chat</span>
+              </a>
+              <a href="book-service.html?craftsman_id=${item.id}" class="px-3.5 py-1.5 rounded-xl bg-primary text-white font-label-md text-label-md font-semibold hover:bg-primary-container transition-colors shadow-xs">
+                حجز خدمة
+              </a>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    window.removeFavoriteItem = function(id, btn) {
+      const card = btn.closest('.artisan-card');
+      if (card) {
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          if (window.MirasFavorites) {
+            window.MirasFavorites.toggle({ id: id });
+          }
+          renderFavoritesUI();
+        }, 200);
+      }
+    };
+
     // تصفية البطاقات حسب الفئة
     const chips = document.querySelectorAll('.category-chip');
-    const cards = document.querySelectorAll('.artisan-card');
-    const emptyState = document.getElementById('empty-state');
-    const toast = document.getElementById('toast');
-    const toastMsg = document.getElementById('toast-message');
-    let removedCard = null;
-    let toastTimeout = null;
-
     chips.forEach(chip => {
       chip.addEventListener('click', () => {
         chips.forEach(c => {
@@ -297,46 +417,20 @@
         chip.classList.remove('bg-surface-container-low', 'text-on-surface');
         chip.classList.add('bg-primary', 'text-on-primary', 'font-bold', 'shadow-sm', 'active');
 
-        const filter = chip.getAttribute('data-filter');
-        let visibleCount = 0;
-
-        cards.forEach(card => {
-          if (filter === 'all' || card.getAttribute('data-category') === filter) {
-            card.classList.remove('hidden');
-            visibleCount++;
-          } else {
-            card.classList.add('hidden');
-          }
-        });
-
-        if (visibleCount === 0) {
-          emptyState.classList.remove('hidden');
-          emptyState.classList.add('flex');
-        } else {
-          emptyState.classList.add('hidden');
-          emptyState.classList.remove('flex');
-        }
+        const filter = chip.getAttribute('data-filter') || 'all';
+        renderFavoritesUI(filter);
       });
     });
 
-    // تفاعل زر القلب (إلغاء المفضلة مع إمكانية التراجع)
-    const favButtons = document.querySelectorAll('.favorite-toggle');
-    favButtons.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const card = e.target.closest('.artisan-card');
-        const artisanName = card.querySelector('h3')?.innerText || 'المهني';
-
-        removedCard = card;
-        card.style.transition = 'all 0.3s ease';
-        card.style.opacity = '0';
-        card.style.transform = 'scale(0.95)';
-
-        setTimeout(() => {
-          card.classList.add('hidden');
-          showToast(`تمت إزالة "${artisanName}" من المفضلة`);
-        }, 300);
-      });
+    document.addEventListener('DOMContentLoaded', () => {
+      renderFavoritesUI('all');
     });
+
+    window.addEventListener('miras:favorites_updated', () => {
+      renderFavoritesUI();
+    });
+  })();
+</script>
 
     function showToast(message) {
       if (toastTimeout) clearTimeout(toastTimeout);
@@ -460,6 +554,7 @@
 <script src="supabase/config.js"></script>
 <script src="supabase/auth-router.js"></script>
 <script src="supabase/miras-api.js"></script>
+<script src="js/miras-favorites.js"></script>
 
 </body>
 </html>

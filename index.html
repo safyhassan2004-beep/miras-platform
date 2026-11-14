@@ -225,6 +225,10 @@
 <button class="city-chip flex-shrink-0 px-3 py-1 rounded-full font-label-sm text-label-sm bg-surface-container-lowest/15 text-on-primary hover:bg-surface-container-lowest/25 transition-all duration-200" type="button">
           دوعن
         </button>
+<button class="city-chip flex-shrink-0 px-3 py-1 rounded-full font-label-sm text-label-sm bg-tertiary-fixed text-tertiary-container font-semibold hover:bg-tertiary-fixed-dim transition-all duration-200 flex items-center gap-1 shadow-xs" type="button" onclick="if(window.MirasMap) window.MirasMap.openMapModal('browse'); else window.location.href='explore.html';">
+          <span class="material-symbols-outlined text-[15px]">map</span>
+          <span>الخريطة التفاعلية</span>
+        </button>
 </div>
 <!-- Interactive Search Box -->
 <div class="relative bg-surface-container-lowest rounded-xl p-1.5 shadow-md flex items-center gap-2 text-on-surface">
@@ -707,6 +711,8 @@
 <script src="supabase/config.js"></script>
 <script src="supabase/auth-router.js"></script>
 <script src="supabase/miras-api.js"></script>
+<script src="js/miras-favorites.js"></script>
+<script src="js/miras-map.js"></script>
 
 </body>
 </html>

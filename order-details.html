@@ -287,10 +287,10 @@
 </div>
 </div>
 <div class="flex items-center gap-1.5 shrink-0">
-  <a id="orderCraftsmanCallBtn" aria-label="الاتصال بالمهني" class="w-9 h-9 rounded-full bg-surface-container-high text-primary flex items-center justify-center active:scale-95 transition-transform" href="tel:+967770000000" title="اتصال مباشر بالمهني">
+  <a id="orderCraftsmanCallBtn" aria-label="الاتصال بالمهني" class="w-9 h-9 rounded-full bg-surface-container-high text-primary flex items-center justify-center active:scale-95 transition-transform" href="tel:+967781125928" title="اتصال مباشر بالمهني">
     <span class="material-symbols-outlined text-[18px]">call</span>
   </a>
-  <a id="orderCraftsmanWaBtn" target="_blank" aria-label="محادثة واتساب المهني" class="w-9 h-9 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center active:scale-95 transition-transform" href="https://wa.me/967770000000" title="واتساب المهني">
+  <a id="orderCraftsmanWaBtn" target="_blank" aria-label="محادثة واتساب المهني" class="w-9 h-9 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center active:scale-95 transition-transform" href="https://wa.me/967781125928" title="واتساب المهني">
     <span class="material-symbols-outlined text-[18px]">chat</span>
   </a>
 </div>
@@ -627,6 +627,35 @@
 <script src="supabase/config.js"></script>
 <script src="supabase/auth-router.js"></script>
 <script src="supabase/miras-api.js"></script>
+<script src="js/miras-orders.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const orderId = params.get('id');
+    if (orderId && window.MirasOrders) {
+      const ord = window.MirasOrders.getOrderById(orderId);
+      if (ord) {
+        const idBadge = document.querySelector('.font-headline-sm');
+        if (idBadge) idBadge.textContent = ord.id;
+
+        const proNameEl = document.querySelector('.min-w-0 .font-label-md.text-primary.font-semibold');
+        if (proNameEl && ord.craftsman?.name) proNameEl.textContent = ord.craftsman.name;
+
+        const locEl = document.querySelector('.min-w-0 .font-label-md.text-on-surface.font-medium');
+        if (locEl && ord.location_details) locEl.textContent = `${ord.client?.name || 'العميل'} • ${ord.location_details}`;
+
+        const cleanTel = ord.craftsman?.phone || '+967781125928';
+        const cleanWa = '967' + cleanTel.replace(/[^0-9]/g, '').replace(/^(\+967|00967|967|0)/, '');
+
+        const callBtn = document.getElementById('orderCraftsmanCallBtn');
+        if (callBtn) callBtn.href = `tel:${cleanTel}`;
+
+        const waBtn = document.getElementById('orderCraftsmanWaBtn');
+        if (waBtn) waBtn.href = `https://wa.me/${cleanWa}?text=${encodeURIComponent('السلام عليكم ' + (ord.craftsman?.name || 'المعلم') + '، بخصوص الطلب ' + ord.id + ' عبر مِـرَاس.')}`;
+      }
+    }
+  });
+</script>
 
 </body>
 </html>

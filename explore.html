@@ -545,9 +545,10 @@
 <span class="font-body-sm text-body-sm text-on-surface-variant">شاهد المهنيين المتواجدين قرب حيك الآن</span>
 </div>
 </div>
-<button class="px-3.5 py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold whitespace-nowrap shadow-sm active:scale-95 transition-transform" type="button">
-        الخريطة
-      </button>
+<button id="openMapBtn" onclick="MirasMap.openMapModal('browse')" class="px-3.5 py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold whitespace-nowrap shadow-sm active:scale-95 transition-transform flex items-center gap-1.5" type="button">
+  <span class="material-symbols-outlined text-[18px] text-tertiary-fixed">map</span>
+  <span>عرض الخريطة الحية</span>
+</button>
 </div>
 </div>
 <!-- Detailed Filter Modal / Bottom Sheet Simulation -->
@@ -622,22 +623,85 @@
 </div>
 <!-- Client-side Interactive Logic -->
 <script>
-    // Favorite Toggle Micro-interaction
+    // Favorite Toggle Micro-interaction مع الحفظ الفعلي في المفضلة
     function toggleFavorite(btn) {
-      const icon = btn.querySelector('.material-symbols-outlined');
-      const isFav = btn.dataset.fav === 'true';
-      if (!isFav) {
-        btn.dataset.fav = 'true';
-        btn.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
-        btn.classList.add('bg-tertiary-fixed', 'text-on-tertiary-fixed');
-        icon.style.fontVariationSettings = "'FILL' 1";
+      const card = btn.closest('article');
+      if (!card) return;
+      const name = card.querySelector('h2, h3')?.innerText?.trim() || 'مهني معتمد';
+      const trade = card.querySelector('p')?.innerText?.trim() || 'صيانة وتشطيبات';
+      const rating = card.querySelector('.font-label-sm span')?.innerText?.trim() || '4.9';
+      const img = card.querySelector('img')?.src || '';
+      const price = card.querySelector('.font-label-lg')?.innerText?.trim() || '';
+
+      const bookLink = card.querySelector('button[onclick*="craftsman_id="], button[onclick*="id="], a[href*="id="]');
+      let id = '1';
+      if (bookLink) {
+        const match = (bookLink.getAttribute('onclick') || bookLink.getAttribute('href') || '').match(/id=(\d+)/);
+        if (match) id = match[1];
+      }
+
+      const phoneLink = card.querySelector('a[href^="tel:"]');
+      const phone = phoneLink ? phoneLink.getAttribute('href').replace('tel:', '') : '+967781125928';
+
+      let isFav = false;
+      if (window.MirasFavorites) {
+        const res = window.MirasFavorites.toggle({
+          id: id,
+          name: name,
+          trade: trade,
+          rating: rating,
+          image: img,
+          price: price,
+          phone: phone,
+          category: trade
+        });
+        isFav = res.isFavorite;
       } else {
-        btn.dataset.fav = 'false';
+        isFav = btn.dataset.fav !== 'true';
+      }
+
+      btn.dataset.fav = isFav ? 'true' : 'false';
+      const icon = btn.querySelector('.material-symbols-outlined');
+      if (isFav) {
+        btn.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+        btn.classList.add('bg-error/15', 'text-error');
+        if (icon) {
+          icon.textContent = 'favorite';
+          icon.style.fontVariationSettings = "'FILL' 1";
+        }
+      } else {
+        btn.classList.remove('bg-error/15', 'text-error');
         btn.classList.add('bg-surface-container-low', 'text-on-surface-variant');
-        btn.classList.remove('bg-tertiary-fixed', 'text-on-tertiary-fixed');
-        icon.style.fontVariationSettings = "'FILL' 0";
+        if (icon) {
+          icon.textContent = 'favorite_border';
+          icon.style.fontVariationSettings = "'FILL' 0";
+        }
       }
     }
+
+    // مزامنة حالة المفضلة للبطاقات عند تحميل الصفحة
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.MirasFavorites) {
+        document.querySelectorAll('article').forEach(card => {
+          const bookLink = card.querySelector('button[onclick*="craftsman_id="], button[onclick*="id="], a[href*="id="]');
+          if (!bookLink) return;
+          const match = (bookLink.getAttribute('onclick') || bookLink.getAttribute('href') || '').match(/id=(\d+)/);
+          if (match && window.MirasFavorites.isFavorite(match[1])) {
+            const btn = card.querySelector('button[onclick*="toggleFavorite"]');
+            if (btn) {
+              btn.dataset.fav = 'true';
+              btn.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+              btn.classList.add('bg-error/15', 'text-error');
+              const icon = btn.querySelector('.material-symbols-outlined');
+              if (icon) {
+                icon.textContent = 'favorite';
+                icon.style.fontVariationSettings = "'FILL' 1";
+              }
+            }
+          }
+        });
+      }
+    });
 
     // Modal Sheet Display Control
     const modal = document.getElementById('detailedFilterModal');
@@ -786,6 +850,8 @@
 <script src="supabase/config.js"></script>
 <script src="supabase/auth-router.js"></script>
 <script src="supabase/miras-api.js"></script>
+<script src="js/miras-favorites.js"></script>
+<script src="js/miras-map.js"></script>
 
 </body>
 </html>

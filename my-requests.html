@@ -279,7 +279,7 @@
         <div id="ordersListContainer" class="hidden mb-space-xl space-y-4"></div>
 
         <!-- Main Content Area: Elegant Empty State & Context -->
-        <div
+        <div id="emptyStateCard"
           class="relative bg-surface-container-lowest rounded-xl p-space-lg md:p-space-xl shadow-md overflow-hidden mb-space-xl">
           <!-- Decorative ambient gradient ring -->
           <div
@@ -698,22 +698,135 @@
   <script src="supabase/config.js"></script>
   <script src="supabase/auth-router.js"></script>
   <script src="supabase/miras-api.js"></script>
+  <script src="js/miras-orders.js"></script>
   <script>
-    // فحص واسترجاع طلبات المستخدم الحقيقية من Supabase
-    document.addEventListener('DOMContentLoaded', async () => {
-      if (window.MirasAPI) {
+    async function renderOrdersList() {
+      const listContainer = document.getElementById('ordersListContainer');
+      const emptyState = document.getElementById('emptyStateCard');
+      if (!listContainer) return;
+
+      let orders = window.MirasOrders ? window.MirasOrders.getOrders() : [];
+
+      // جلب من Supabase إن توفر
+      if (window.MirasAPI && window.MirasAPI.orders && window.MirasAPI.auth) {
         try {
           const user = await window.MirasAPI.auth.getCurrentUser();
           if (user) {
-            const { data: orders } = await window.MirasAPI.orders.list({ client_id: user.id });
-            if (orders && orders.length > 0) {
-              console.log('✅ تم العثور على طلبات خدمة حقيقية للمستخدم:', orders.length);
+            const { data: remoteOrders } = await window.MirasAPI.orders.list({ client_id: user.id });
+            if (remoteOrders && remoteOrders.length > 0) {
+              const ids = new Set(orders.map(o => String(o.id)));
+              remoteOrders.forEach(ro => {
+                if (!ids.has(String(ro.id))) {
+                  orders.push({
+                    id: 'MRS-' + String(ro.id).substring(0, 6) + '#',
+                    title: ro.title,
+                    description: ro.description,
+                    status: ro.status || 'new',
+                    status_label: 'طلب معتمد',
+                    city: ro.city || 'المكلا',
+                    created_at: ro.created_at,
+                    craftsman: {
+                      name: ro.craftsman?.user?.full_name || 'مهني معتمد',
+                      trade: ro.craftsman?.trade_category || 'صيانة',
+                      phone: ro.craftsman?.user?.phone_number || '+967781125928'
+                    }
+                  });
+                }
+              });
             }
           }
-        } catch (err) {
-          console.warn('[MyRequests] استعلام الطلبات:', err);
-        }
+        } catch (e) {}
       }
+
+      // تحديث العداد
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        const badge = btn.querySelector('span:last-child');
+        if (badge && (btn.getAttribute('data-tab') === 'all' || btn.classList.contains('bg-primary'))) {
+          badge.textContent = String(orders.length);
+        }
+      });
+
+      if (!orders || orders.length === 0) {
+        listContainer.classList.add('hidden');
+        if (emptyState) emptyState.classList.remove('hidden');
+        return;
+      }
+
+      if (emptyState) emptyState.classList.add('hidden');
+      listContainer.classList.remove('hidden');
+      listContainer.innerHTML = '';
+
+      orders.forEach(ord => {
+        const proPhone = ord.craftsman?.phone || '+967781125928';
+        const cleanTel = proPhone;
+        const cleanWa = '967' + proPhone.replace(/[^0-9]/g, '').replace(/^(\+967|00967|967|0)/, '');
+        const proName = ord.craftsman?.name || 'المعلم سعيد بن مخاشن';
+        const proTrade = ord.craftsman?.trade || 'فني تبريد وتكييف معتمد';
+        const dateStr = ord.created_at ? new Date(ord.created_at).toLocaleDateString('ar-YE', { year: 'numeric', month: 'long', day: 'numeric' }) : 'اليوم';
+
+        const card = document.createElement('div');
+        card.className = "bg-surface-container-lowest rounded-2xl p-4 sm:p-5 shadow-sm border border-surface-container space-y-3 transition-all hover:shadow-md";
+        card.innerHTML = `
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-surface-container">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span class="font-bold text-primary text-sm sm:text-base font-mono">${ord.id}</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-surface-container text-primary font-semibold text-xs">${ord.status_label || 'طلب جديد'}</span>
+            </div>
+            <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+              <span class="material-symbols-outlined text-[16px] text-secondary">calendar_today</span>
+              <span>تاريخ الطلب: ${dateStr}</span>
+            </div>
+          </div>
+
+          <div class="flex items-start justify-between gap-3">
+            <div class="space-y-1 flex-1">
+              <h3 class="font-bold text-primary text-base">${ord.title}</h3>
+              <p class="text-xs text-on-surface-variant line-clamp-2 leading-relaxed">${ord.description || ''}</p>
+              <div class="flex items-center gap-3 text-xs text-on-surface-variant pt-1">
+                <span class="flex items-center gap-1 font-semibold text-primary">
+                  <span class="material-symbols-outlined text-[15px] text-secondary">engineering</span>
+                  ${proName} (${proTrade})
+                </span>
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[15px] text-secondary">location_on</span>
+                  ${ord.city || 'حضرموت — المكلا'}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-surface-container flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-1.5">
+              <span class="text-xs text-on-surface-variant font-medium">الضمان:</span>
+              <span class="px-2 py-0.5 rounded-md bg-tertiary-fixed text-on-tertiary-container text-[11px] font-bold">مِـرَاس الذهبي 30 يوماً</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <a href="tel:${cleanTel}" class="h-9 px-3 rounded-xl bg-surface-container text-primary hover:bg-surface-container-high transition-colors text-xs font-semibold flex items-center gap-1" title="اتصال مباشر بالمهني">
+                <span class="material-symbols-outlined text-[16px]">call</span>
+                <span>اتصال المهني</span>
+              </a>
+              <a href="https://wa.me/${cleanWa}?text=${encodeURIComponent('السلام عليكم ' + proName + '، بخصوص الطلب ' + ord.id + ' عبر منصة مِـرَاس.')}" target="_blank" class="h-9 px-3 rounded-xl bg-emerald-100 text-emerald-700 hover:bg-emerald-200 transition-colors text-xs font-semibold flex items-center gap-1" title="واتساب فوري">
+                <span class="material-symbols-outlined text-[16px]">chat</span>
+                <span>واتساب</span>
+              </a>
+              <a href="order-details.html?id=${ord.id}" class="h-9 px-4 rounded-xl bg-primary text-white text-xs font-bold hover:bg-primary-container transition-colors shadow-xs flex items-center gap-1">
+                <span>تفاصيل الفاتورة</span>
+                <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+              </a>
+            </div>
+          </div>
+        `;
+        listContainer.appendChild(card);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderOrdersList();
+    });
+
+    window.addEventListener('miras:orders_updated', () => {
+      renderOrdersList();
     });
   </script>
 

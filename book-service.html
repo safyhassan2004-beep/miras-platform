@@ -300,12 +300,12 @@
 </div>
 </div>
 <!-- Pin on Map Trigger -->
-<button class="w-full bg-surface-container text-primary rounded-lg py-3 px-space-md flex items-center justify-between active:scale-[0.99] transition-transform" type="button">
+<button id="pinOnMapBtn" onclick="openMapPicker()" class="w-full bg-surface-container hover:bg-surface-container-high text-primary rounded-lg py-3 px-space-md flex items-center justify-between active:scale-[0.99] transition-transform" type="button">
 <div class="flex items-center gap-space-xs">
 <span class="material-symbols-outlined text-primary-container text-[20px]">explore</span>
-<span class="font-label-md text-label-md font-bold">تحديد موقع المنزل على الخريطة</span>
+<span class="font-label-md text-label-md font-bold">تحديد موقع المنزل على الخريطة التفاعلية</span>
 </div>
-<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span class="material-symbols-outlined text-[18px]">map</span>
 </button>
 <!-- Mini Map Preview Context -->
 <div class="w-full h-28 rounded-lg bg-cover bg-center relative overflow-hidden" data-location="Fowah, Al Mukalla, Hadhramaut, Yemen" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCGsM9eKJT-ubc3DHppFUq8tY9On32eDHrGgdIZwabHWKwiIrFQT6RBaEnOaRp9zq7HVEf8MTWFputgTryP0aEkWfYdrzfIWYA9d8t_eZqiVoEkenKgmqUH9eTsLirczLn4SZ19YwB1fXnZqu0HO8QgFT4St_9CW8aNzYCX42y1aWAlb2lGwf4h2HVWhI3q6qFDDsBxRLbCNswOUVhkt2HyNaebWMTfbtgJZl9uIvA')">
@@ -532,10 +532,52 @@
 <script src="supabase/config.js"></script>
 <script src="supabase/auth-router.js"></script>
 <script src="supabase/miras-api.js"></script>
+<script src="js/miras-orders.js"></script>
+<script src="js/miras-map.js"></script>
 
 <script>
-  window.submitOrderBooking = function() {
-    alert('تم إرسال طلب الحجز المباشر بنجاح! سيتم إشعار المهني وفتح محادثة لتأكيد الموعد.');
+  function openMapPicker() {
+    if (window.MirasMap) {
+      window.MirasMap.openMapModal('picker', (coords) => {
+        const addr = document.getElementById('address-input');
+        if (addr) {
+          addr.value = `المكلا — موقع المنزل (${coords.lat.toFixed(4)}, ${coords.lng.toFixed(4)})`;
+        }
+        const badge = document.querySelector('.bg-surface-container-lowest\\/90 span.font-label-sm');
+        if (badge) {
+          badge.textContent = `تم التحديد بنجاح (${coords.lat.toFixed(4)}, ${coords.lng.toFixed(4)})`;
+        }
+        window.MirasMap.closeMapModal();
+      });
+    }
+  }
+
+  window.submitOrderBooking = async function() {
+    const notes = document.getElementById('problem-notes')?.value?.trim() || 'طلب كشف وصيانة دورية شاملة';
+    const address = document.getElementById('address-input')?.value?.trim() || 'المكلا - حي فوة — حضرموت';
+    
+    const params = new URLSearchParams(window.location.search);
+    const craftsmanId = params.get('craftsman_id') || '1';
+
+    const submitBtn = document.querySelector('button[onclick*="submitOrderBooking"]');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[18px]">progress_activity</span><span>جارِ توثيق الطلب...</span>';
+    }
+
+    if (window.MirasOrders) {
+      await window.MirasOrders.createOrder({
+        craftsman_id: craftsmanId,
+        craftsman_name: document.querySelector('h2.font-headline-sm')?.innerText?.trim() || 'المعلم سعيد بن مخاشن',
+        notes: notes,
+        address: address,
+        city: 'المكلا',
+        trade_category: 'تكييف وتبريد',
+        budget: 12000
+      });
+    }
+
+    alert('✅ تم استلام طلبك وتوثيقه بنجاح! تم تحويلك مباشرة لصفحة طلباتي لمتابعة التنفيذ.');
     window.location.href = 'my-requests.html';
   };
 </script>
